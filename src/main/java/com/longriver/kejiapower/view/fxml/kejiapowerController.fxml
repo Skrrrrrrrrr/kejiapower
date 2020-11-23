@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane fx:id="txrxGrid" layoutY="450.0" prefHeight="150.0" prefWidth="600.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="900.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="600.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextArea fx:id="rxTextArea" prefHeight="200.0" prefWidth="200.0" text="接收数据" GridPane.rowIndex="1" />
+            <TextArea fx:id="txTextArea" prefHeight="200.0" prefWidth="200.0" text="发送数据" GridPane.rowIndex="2" />
+            <Button fx:id="rxTextBtn" disable="true" mnemonicParsing="false" onAction="#rxTextBtnOnClick" text="开始接收" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="txTextBtn" disable="true" mnemonicParsing="false" onAction="#txTextBtnOnClick" text="数据发送" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <GridPane fx:id="testGrid" layoutX="600.0" layoutY="450.0" prefHeight="150.0" prefWidth="300.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TabPane fx:id="testTab" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="quickTestTab" text="快速测试">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane>
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <RadioButton fx:id="remoteRadioBtn" mnemonicParsing="false" text="远程" />
+                                    <RadioButton fx:id="localRadioBtn" mnemonicParsing="false" text="本地" GridPane.rowIndex="1" />
+                                    <Button fx:id="startBtn" mnemonicParsing="false" text="开始测试" GridPane.columnIndex="1" />
+                                    <Button fx:id="configBtn" mnemonicParsing="false" text="电源配置" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="autotestTab" text="自动测试">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane>
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button mnemonicParsing="false" text="开始测试" GridPane.columnIndex="1" />
+                                    <Button mnemonicParsing="false" text="电源配置" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </GridPane>
+      <GridPane fx:id="gridOfDisplayTab" prefHeight="450.0" prefWidth="600.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TabPane fx:id="powerDisplayTab" prefHeight="450.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="tab1" text="电源A">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="256.0" prefWidth="269.0">
+                           <children>
+                              <GridPane id="displayArea" prefHeight="400.0" prefWidth="600.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="543.8000183105469" minWidth="10.0" prefWidth="471.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="419.0000244140625" minWidth="10.0" prefWidth="128.60000000000002" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="128.60001220703126" minHeight="10.0" prefHeight="28.000003051757812" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="224.60000457763672" minHeight="10.0" prefHeight="135.1999969482422" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="242.20001831054685" minHeight="10.0" prefHeight="123.40001220703124" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="242.20001831054685" minHeight="10.0" prefHeight="129.8000061035156" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <LineChart fx:id="voltageChartInDisplayTab" GridPane.rowIndex="1">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </LineChart>
+                                    <LineChart fx:id="cuurentChartInDisplayTab" GridPane.rowIndex="2">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </LineChart>
+                                    <LineChart fx:id="powerChartInDisplayTab" GridPane.rowIndex="3">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </LineChart>
+                                    <Label fx:id="powerIdInDisplayTab" prefHeight="14.0" prefWidth="424.0" text="Id：" />
+                                    <Label text="电压（V）" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label text="电流（A）" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label text="功率（W）" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label fx:id="powerStatusInDisplayTab" text="ON" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </GridPane>
+      <GridPane layoutX="600.0" prefHeight="450.0" prefWidth="300.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TabPane fx:id="powerStatusTab" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="设备状态">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane prefHeight="400.0" prefWidth="300.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.4000244140625" minWidth="10.0" prefWidth="207.1999267578125" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.2000732421875" minWidth="10.0" prefWidth="93.6000732421875" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="128.60000457763672" minHeight="0.0" prefHeight="27.79999885559082" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="343.99998779296874" minHeight="10.0" prefHeight="334.20000114440916" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="236.99997558593748" minHeight="10.0" prefHeight="36.00001220703126" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="设备清单" />
+                                    <Label text="设备状态" GridPane.columnIndex="1" />
+                                    <ListView fx:id="powerList" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                                    <ListView fx:id="powerStatusList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Button fx:id="powerConnecctedBtn" mnemonicParsing="false" onAction="#powerConnecctedBtnOnClick" text="连接设备" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <GridPane GridPane.rowIndex="2">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <ChoiceBox fx:id="powerSellectedChoiceBox" prefWidth="150.0" />
+                                          <TextField fx:id="portTextField" onAction="#portTextFieldOnClick" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
