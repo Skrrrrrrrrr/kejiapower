@@ -1,4 +1,4 @@
-package main.java.com.longriver.kejiapower.POJO;
+package main.java.com.longriver.kejiapower.model;
 
 
 import org.slf4j.Logger;
@@ -26,6 +26,7 @@ public class TcpServer implements Runnable {
     static String inputString;
     static String outputString;
     static Logger logger = LoggerFactory.getLogger(TcpServer.class);
+
 
     private Socket socket;
     private ServerSocket serverSocket;
@@ -96,13 +97,6 @@ public class TcpServer implements Runnable {
 
         try {
             while (!Thread.currentThread().interrupted()) {
-//                InputStream is = socket.getInputStream();
-//                //        ObjectInputStream input = new ObjectInputStream(is);
-//                os = socket.getOutputStream();
-//                output = new ObjectOutputStream(os);
-
-//                Thread ht = new Thread(new Handler(socket = serverSocket.accept()));
-//                ht.start();
                 new Handler(socket = serverSocket.accept()).start();
                 logger.info("Server Thread starts!");
                 if (Thread.currentThread().isInterrupted()) {
@@ -112,31 +106,9 @@ public class TcpServer implements Runnable {
                 }
             }
 
-//            while (socket.isConnected()) {
-//                byte[] bytes = new byte[1024];
-//                int len = is.read(bytes);
-//                inputString = new String(bytes, 0, len);
-//                logger.info("采集到的数据是" + inputString);
-//                try {
-//                    if (inBlockingQueue.size() >= 1024) {
-//                        inBlockingQueue.take();
-//                    }
-//                    inBlockingQueue.put(inputString);
-//                    logger.info(Thread.currentThread().getName()
-//                            + "服务器接收数据，目前总共有" + inBlockingQueue.size() + "个；");
-//                } catch (InterruptedException e) {
-////                        e.printStackTrace();
-//                    logger.info(e.toString());
-//                }
-//                if (Thread.currentThread().isInterrupted()) {
-//                    logger.info("TcpServer Thread interrupted");
-//                    serverSocket.close();
-//                    break;
-//                }
-//            }
         } catch (Exception e) {
 //            e.printStackTrace();
-            logger.error(e.toString());
+            logger.info(e.toString());
         } finally {
             try {
 //                input.close();

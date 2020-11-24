@@ -5,7 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import main.java.com.longriver.kejiapower.POJO.TcpServer;
+import main.java.com.longriver.kejiapower.model.TcpServer;
+import main.java.com.longriver.kejiapower.utils.DataFrame;
 import main.java.com.longriver.kejiapower.utils.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -103,10 +104,9 @@ public class KejiaPowerController {
 
 
     public KejiaPowerController() {
-
     }
 
-    Logger logger = LoggerFactory.getLogger(KejiaPowerController.class);
+    public static Logger logger = LoggerFactory.getLogger(KejiaPowerController.class);
 
     private BlockingQueue<String> inBlockingQueue = new ArrayBlockingQueue<>(1024);
     private BlockingQueue<String> outBlockingQueue = new ArrayBlockingQueue<>(1024);
@@ -130,25 +130,12 @@ public class KejiaPowerController {
     private TcpServer tcpServer = null;//服务器线程
     private Thread st = null;//服务器socket.accpt()线程，需要不停的检测数据到来
     //        Thread st = new Thread(new TcpServer(inBlockingQueue, outBlockingQueue));
-    //主界面刷新线程，现阶段是刷rxxTextArea
-    private Thread repaintThread = new Thread(new Runnable() {
-        @Override
-        public void run() {
-            while (!Thread.currentThread().isInterrupted() && "停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
-//            while (!Thread.currentThread().isInterrupted()) {
-                try {
-//                    rxTextArea.clear();
-                    rxTextArea.setText(StringUtils.getFileAddSpace(getInBlockingQueue().take(), 2));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-//                            rxTextArea.setText(getInBlockingQueue().take());
-            }
-        }
-    });
+//    private Thread wd = null;//检测活着的Client
+    private String firstStringOfInBlockingQueue = null;//
 
     @FXML
     void powerConnecctedBtnOnClick(ActionEvent event) {
+//        int clientThread = powerDisplayTab.getTabs().size();
         try {
             switch (powerConnecctedBtn.getText()) {
                 case "连接设备":
@@ -158,9 +145,24 @@ public class KejiaPowerController {
                         tcpServer = new TcpServer(inBlockingQueue, outBlockingQueue);
                         st = new Thread(tcpServer);
                         st.start();
-
-//                        new Handler(rxTextBtn, rxTextArea, tcpServer).start();//显示接收到的数据
-                        //begin to log
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                while (true) {
+                                    try {
+                                        firstStringOfInBlockingQueue = getInBlockingQueue().take();
+                                        if (DataFrame.isHeartBeat(firstStringOfInBlockingQueue)) {
+                                            tcpServer.getSocket().getOutputStream().write(DataFrame.respondHeartBeat(firstStringOfInBlockingQueue.replaceAll(" +", "")).getBytes());
+                                            tcpServer.getSocket().getOutputStream().flush();
+                                        }
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                        }).start();
                         logger.info("TcpServer start!");
                     } else if (!st.isAlive()) {
                         if (null == tcpServer) {
@@ -202,19 +204,46 @@ public class KejiaPowerController {
         }
     }
 
+    private Thread repaintThread = null;
+
     @FXML
     void rxTextBtnOnClick(ActionEvent event) {
         switch (rxTextBtn.getText()) {
             case "开始接收":
+                //主界面刷新线程，现阶段是刷rxxTextArea
+                repaintThread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        while (!Thread.currentThread().isInterrupted()) {
+                            try {
+                                if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
+//                                    if (getInBlockingQueue().size() > 0) {
+//                                        rxTextArea.setText(StringUtils.getFileAddSpace(getInBlockingQueue().take(), 2));
+//                                    }//watchdog里读取了firstStringOfInBlockingQueue
+//                                    firstStringOfInBlockingQueue = getInBlockingQueue().take();
+                                    if (null != firstStringOfInBlockingQueue) {
+                                        rxTextArea.setText(StringUtils.getFileAddSpace(firstStringOfInBlockingQueue, 2));
+                                        firstStringOfInBlockingQueue = null;
+                                    }
+                                }
+                            } catch (Exception e) {
+                                logger.error(e.getMessage());
+                            }
+                            //                            rxTextArea.setText(getInBlockingQueue().take());
+                        }
+                    }
+                });
+
                 rxTextBtn.setText("停止接收");
                 rxTextArea.clear();
-                if (null == repaintThread || !repaintThread.isInterrupted()) {
-                    repaintThread.start();
-                }
+                repaintThread.start();
+//                rxTextArea.setText(DataFrame.respondHeartBeat("FFFF0A00000401020304DD"));
                 break;
             case "停止接收":
                 rxTextBtn.setText("开始接收");
-                repaintThread.interrupt();
+                if (null != repaintThread) {
+                    repaintThread.interrupt();
+                }
                 break;
             default:
                 break;
@@ -229,18 +258,19 @@ public class KejiaPowerController {
         if (null == st) {
             return;
         }
+        if (tcpServer.getSocket().isClosed()) {
+            return;
+        }
         if (!(txTextArea.getText() == null || txTextArea.getText().length() <= 0) && null != tcpServer.getSocket()) {
             try {
-                outBlockingQueue.put(txTextArea.getText());
-                tcpServer.getSocket().getOutputStream().write(outBlockingQueue.take().replaceAll(" +", "").getBytes());
-//                tcpServer.getSocket().getOutputStream().write(txTextArea.getText().replaceAll(" +","").getBytes());
+//                outBlockingQueue.put(txTextArea.getText().replaceAll(" +", ""));
+//                tcpServer.getSocket().getOutputStream().write(outBlockingQueue.take().replaceAll(" +", "").getBytes());
+                tcpServer.getSocket().getOutputStream().write(txTextArea.getText().replaceAll(" +", "").getBytes());
                 tcpServer.getSocket().getOutputStream().flush();
 //                tcpServer.Send(outBlockingQueue);
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                logger.error("outBlockingQueue put  InterruptedException!");
+                logger.error(e.getMessage());
             }
         }
     }

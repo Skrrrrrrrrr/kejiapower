@@ -1,4 +1,4 @@
-package main.java.com.longriver.kejiapower.POJO;
+package main.java.com.longriver.kejiapower.model;
 
 
 import java.io.IOException;
