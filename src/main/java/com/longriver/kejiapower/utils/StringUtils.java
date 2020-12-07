@@ -46,6 +46,7 @@ public class StringUtils {
 
     /**
      * 字符串转换成为16进制(无需Unicode编码)
+     *
      * @param str
      * @return
      */
@@ -66,6 +67,7 @@ public class StringUtils {
 
     /**
      * 16进制直接转换成为字符串(无需Unicode解码)
+     *
      * @param hexStr
      * @return
      */

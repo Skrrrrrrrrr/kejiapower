@@ -69,7 +69,7 @@ public class KejiaPowerController {
     private LineChart<?, ?> voltageChartInDisplayTab;
 
     @FXML
-    private LineChart<?, ?> cuurentChartInDisplayTab;
+    private LineChart<?, ?> currentChartInDisplayTab;
 
     @FXML
     private LineChart<?, ?> powerChartInDisplayTab;
@@ -90,10 +90,10 @@ public class KejiaPowerController {
     private ListView<?> powerStatusList;
 
     @FXML
-    private ChoiceBox<?> powerSellectedChoiceBox;
+    private ChoiceBox<?> powerSelectedChoiceBox;
 
     @FXML
-    private Button powerConnecctedBtn;
+    private Button powerConnectedBtn;
 
     @FXML
     private TextField portTextField;
@@ -134,52 +134,48 @@ public class KejiaPowerController {
     private String firstStringOfInBlockingQueue = null;//
 
     @FXML
-    void powerConnecctedBtnOnClick(ActionEvent event) {
+    void powerConnectedBtnOnClick(ActionEvent event) {
 //        int clientThread = powerDisplayTab.getTabs().size();
         try {
-            switch (powerConnecctedBtn.getText()) {
+            switch (powerConnectedBtn.getText()) {
                 case "连接设备":
-                    if (null == st) {
-                        rxTextBtn.setDisable(false);
-                        txTextBtn.setDisable(false);
-                        tcpServer = new TcpServer(inBlockingQueue, outBlockingQueue);
-                        st = new Thread(tcpServer);
-                        st.start();
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                while (true) {
-                                    try {
-                                        firstStringOfInBlockingQueue = getInBlockingQueue().take();
-                                        if (DataFrame.isHeartBeat(firstStringOfInBlockingQueue)) {
-                                            tcpServer.getSocket().getOutputStream().write(DataFrame.respondHeartBeat(firstStringOfInBlockingQueue.replaceAll(" +", "")).getBytes());
-                                            tcpServer.getSocket().getOutputStream().flush();
-                                        }
-                                    } catch (InterruptedException e) {
-                                        e.printStackTrace();
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
+                    if (null != st) {
+                        st = null;
+                    }
+
+                    rxTextBtn.setDisable(false);
+                    txTextBtn.setDisable(false);
+//                    tcpServer = new TcpServer(inBlockingQueue, outBlockingQueue);
+                    (st = new Thread(tcpServer = new TcpServer(inBlockingQueue, outBlockingQueue))).start();
+//                    st.start();
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            while (!Thread.currentThread().isInterrupted()) {
+                                try {
+                                    firstStringOfInBlockingQueue = getInBlockingQueue().take();
+                                    if (DataFrame.isHeartBeat(firstStringOfInBlockingQueue)) {
+                                        tcpServer.getSocket().getOutputStream().write(DataFrame.respondHeartBeat(firstStringOfInBlockingQueue.replaceAll(" +", "")).getBytes());
+                                        tcpServer.getSocket().getOutputStream().flush();
                                     }
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                    Thread.currentThread().interrupt();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                    Thread.currentThread().isInterrupted();
                                 }
                             }
-                        }).start();
-                        logger.info("TcpServer start!");
-                    } else if (!st.isAlive()) {
-                        if (null == tcpServer) {
-                            tcpServer = new TcpServer(inBlockingQueue, outBlockingQueue);
                         }
-                        st.start();
-                    } else {
-                        logger.info("TcpServer working!");
-                    }
+                    }).start();
+                    logger.info("TcpServer start!");
                     logger.info("powerConnectedBtnOnClick!");
-
-                    powerConnecctedBtn.setText("断开设备");
+                    powerConnectedBtn.setText("断开设备");
                     break;
                 case "断开设备":
                     rxTextBtn.setDisable(true);
                     txTextBtn.setDisable(true);
-                    if (st == null || !st.isAlive()) {
+                    if (null == st || !st.isAlive()) {
                         logger.info("TcpServer Stopped!");
                     } else {
                         st.interrupt();
@@ -192,7 +188,7 @@ public class KejiaPowerController {
                     }
 //                logger.info("线程中止" + String.valueOf(st.isInterrupted()));
 
-                    powerConnecctedBtn.setText("连接设备");
+                    powerConnectedBtn.setText("连接设备");
                     break;
                 default:
 
@@ -221,13 +217,14 @@ public class KejiaPowerController {
 //                                        rxTextArea.setText(StringUtils.getFileAddSpace(getInBlockingQueue().take(), 2));
 //                                    }//watchdog里读取了firstStringOfInBlockingQueue
 //                                    firstStringOfInBlockingQueue = getInBlockingQueue().take();
-                                    if (null != firstStringOfInBlockingQueue) {
-                                        rxTextArea.setText(StringUtils.getFileAddSpace(firstStringOfInBlockingQueue, 2));
-                                        firstStringOfInBlockingQueue = null;
+                                    if (null != firstStringOfInBlockingQueue && firstStringOfInBlockingQueue.length() > 0) {
+                                        rxTextArea.setText(StringUtils.getFileAddSpace(firstStringOfInBlockingQueue.replaceAll(" ", ""), 2));
+                                        firstStringOfInBlockingQueue = "";
                                     }
                                 }
                             } catch (Exception e) {
                                 logger.error(e.getMessage());
+                                Thread.currentThread().interrupt();
                             }
                             //                            rxTextArea.setText(getInBlockingQueue().take());
                         }
@@ -252,15 +249,19 @@ public class KejiaPowerController {
 
     @FXML
     void txTextBtnOnClick(ActionEvent event) {
-        if (null == tcpServer) {
-            return;
-        }
         if (null == st) {
             return;
         }
-        if (tcpServer.getSocket().isClosed()) {
+        if (null == tcpServer) {
             return;
         }
+        if (null == tcpServer.getServerSocket()) {
+            return;
+        }
+        if (null == tcpServer.getSocket()) {
+            return;
+        }
+
         if (!(txTextArea.getText() == null || txTextArea.getText().length() <= 0) && null != tcpServer.getSocket()) {
             try {
 //                outBlockingQueue.put(txTextArea.getText().replaceAll(" +", ""));
@@ -274,6 +275,26 @@ public class KejiaPowerController {
             }
         }
     }
+
+    public void controllerClose() {
+        if (null != tcpServer.getServerSocketAcceptThread()) {
+            tcpServer.setServerSocketAcceptThread(null);
+        }
+        if (null != tcpServer.getSocket()) {
+            tcpServer.setSocket(null);
+        }
+        if (null != tcpServer.getServerSocket()) {
+            tcpServer.setServerSocket(null);
+        }
+        if (null != tcpServer) {
+            tcpServer = null;
+        }
+        if (null != st) {
+            st = null;
+        }
+
+    }
+
 }
 
 

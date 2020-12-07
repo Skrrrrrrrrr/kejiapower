@@ -1,13 +1,18 @@
 package main.java.com.longriver.kejiapower;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import main.java.com.longriver.kejiapower.controllers.KejiaPowerController;
 
 import java.net.URL;
+import java.util.Optional;
 
 public class Main extends Application {
 
@@ -34,11 +39,26 @@ public class Main extends Application {
 
 //        KejiaPowerController kejiaPowerController = fxmlLoader.getController();
 
-
         primaryStage.setTitle("科加电源");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
 
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("退出程序");
+                alert.setHeaderText(""); //設定對話框視窗裡的標頭文字。若設為空字串，則表示無標頭
+                alert.setContentText("您真的要退出吗？"); //設定對話框的訊息文字
+                final Optional<ButtonType> opt = alert.showAndWait();
+                final ButtonType rtn = opt.get(); //可以直接用「alert.getResult()」來取代
+                if (rtn == ButtonType.CANCEL) {
+                    event.consume();
+                } else {
+                    kejiaPowerController.controllerClose();
+                }
+            }
+        });
 
 //        new Thread(new Runnable() {
 //

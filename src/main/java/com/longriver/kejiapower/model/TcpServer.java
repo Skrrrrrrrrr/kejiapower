@@ -21,6 +21,7 @@ import java.util.concurrent.BlockingQueue;
 
 public class TcpServer implements Runnable {
 
+    //必须实现线程，否则主界面卡死在内部类的.accept()
     /* Setting up variables */
     private static final int PORT = 9001;
     static String inputString;
@@ -30,6 +31,8 @@ public class TcpServer implements Runnable {
 
     private Socket socket;
     private ServerSocket serverSocket;
+    private Thread serverSocketAcceptThread = null;
+
 //    private static InputStream is;
     //        ObjectInputStream input = new ObjectInputStream(is);
 //    private static OutputStream os;
@@ -50,14 +53,6 @@ public class TcpServer implements Runnable {
         this.outBlockingQueue = outBlockingQueue;
     }
 
-    public String getOutputString() {
-        return outputString;
-    }
-
-    public void setOutputString(String outputString) {//用来赋值发送数据
-        this.outputString = outputString;
-    }
-
     public Socket getSocket() {
         return socket;
     }
@@ -66,12 +61,28 @@ public class TcpServer implements Runnable {
         this.socket = socket;
     }
 
+    public String getOutputString() {
+        return outputString;
+    }
+
+    public void setOutputString(String outputString) {//用来赋值发送数据
+        this.outputString = outputString;
+    }
+
     public ServerSocket getServerSocket() {
         return serverSocket;
     }
 
     public void setServerSocket(ServerSocket serverSocket) {
         this.serverSocket = serverSocket;
+    }
+
+    public Thread getServerSocketAcceptThread() {
+        return serverSocketAcceptThread;
+    }
+
+    public void setServerSocketAcceptThread(Thread serverSocketAcceptThread) {
+        this.serverSocketAcceptThread = serverSocketAcceptThread;
     }
 
     public BlockingQueue<String> getInBlockingQueue() {
@@ -90,34 +101,33 @@ public class TcpServer implements Runnable {
         this.outBlockingQueue = outBlockingQueue;
     }
 
+
     public void startServer() throws Exception {
         logger.info("The TCP Server is running.");
         serverSocket = new ServerSocket(PORT);
-//        socket = serverSocket.accept();
+
 
         try {
-            while (!Thread.currentThread().interrupted()) {
-                new Handler(socket = serverSocket.accept()).start();
+            while (!Thread.currentThread().isInterrupted()) {
+                (serverSocketAcceptThread = new Handler(socket = serverSocket.accept())).start();
                 logger.info("Server Thread starts!");
-                if (Thread.currentThread().isInterrupted()) {
-                    logger.info("TcpServer Thread interrupted");
-                    serverSocket.close();
-                    break;
-                }
+//                if (Thread.currentThread().isInterrupted()) {
+//                    logger.info("TcpServer Thread interrupted");
+//                    serverSocket.close();
+//                    break;
+//                }
             }
 
         } catch (Exception e) {
 //            e.printStackTrace();
             logger.info(e.toString());
+//            Thread.currentThread().interrupt();
         } finally {
             try {
-//                input.close();
-//                if (null != output) {
-//                    output.close();
-//                }
                 if (null != serverSocket) {
                     serverSocket.close();
                 }
+                serverSocketAcceptThread.interrupt();
             } catch (IOException e) {
                 e.printStackTrace();
                 logger.error(e.getMessage());
@@ -129,17 +139,6 @@ public class TcpServer implements Runnable {
         }
     }
 
-    /**
-     * When an object implementing interface <code>Runnable</code> is used
-     * to create a thread, starting the thread causes the object's
-     * <code>run</code> method to be called in that separately executing
-     * thread.
-     * <p>
-     * The general contract of the method <code>run</code> is that it may
-     * take any action whatsoever.
-     *
-     * @see Thread#run()
-     */
     @Override
     public void run() {
         try {
@@ -147,12 +146,11 @@ public class TcpServer implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
 
     private static class Handler extends Thread {
-        private Socket hSocket;
+        private Socket serverSocketAccept;
         private InputStream is;
         private ObjectInputStream input;
         private OutputStream os;
@@ -160,24 +158,26 @@ public class TcpServer implements Runnable {
         private Logger logger = LoggerFactory.getLogger(Handler.class);
 
         public Handler(Socket socket) throws IOException {
-            this.hSocket = socket;
+            this.serverSocketAccept = socket;
         }
 
         public void run() {
             logger.info("Server Handler Thread starts!");
             logger.info("Attempting to connect a user...");
-            logger.info("User's Ip : " + hSocket.getInetAddress().getHostAddress());
+            logger.info("User's Ip : " + serverSocketAccept.getInetAddress().getHostAddress());
             try {
-                is = hSocket.getInputStream();
-                os = hSocket.getOutputStream();
+                is = serverSocketAccept.getInputStream();
+                os = serverSocketAccept.getOutputStream();
 
 //                input = new ObjectInputStream(is);//如果client没有用ObjectOutputStream发送数据，此处报错StreamCorruptedException
                 output = new ObjectOutputStream(os);
 
-                while (hSocket.isConnected()) {
+                while (!Thread.currentThread().isInterrupted() && serverSocketAccept.isConnected()) {
                     byte[] bytes = new byte[1024];
                     int len = is.read(bytes);
-                    if (-1 == len){break;}
+                    if (-1 == len) {
+                        break;
+                    }
                     inputString = new String(bytes, 0, len);
                     logger.info("采集到的数据是" + inputString);
                     try {
@@ -198,8 +198,7 @@ public class TcpServer implements Runnable {
                     }
                 }
 
-            } catch (
-                    Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             } finally {
                 closeConnections();
@@ -214,7 +213,7 @@ public class TcpServer implements Runnable {
             try {
 //                input.close();
                 output.close();
-                hSocket.close();
+                serverSocketAccept.close();
             } catch (IOException e) {
                 e.printStackTrace();
                 logger.error(e.toString());
@@ -223,43 +222,5 @@ public class TcpServer implements Runnable {
             logger.debug("closeConnections() method Exit");
         }
     }
-
-//    public void Send(BlockingQueue outBlockingQueue) {
-//
-//        try {
-//            if (serverSocket.accept().isConnected()) {
-//                os = serverSocket.accept().getOutputStream();
-//                output = new ObjectOutputStream(os);
-//
-//                if (outBlockingQueue.size() > 0) {
-//                    outputString = (String) outBlockingQueue.take();
-//                    if (!(outputString == null || outputString.length() <= 0)) {
-//                        try {
-//                            output.writeObject(outputString.getBytes());
-//                            output.flush();
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                            logger.error(e.toString());
-//                        }
-//                        logger.info(Thread.currentThread().getName()
-//                                + "服务器发送数据，目前总共有" + outBlockingQueue.size() + "个；");
-//                    }
-//                }
-//            }
-//        } catch (InterruptedException e) {
-////                            e.printStackTrace();
-//            logger.error("Error occurs InterruptedException when send data");
-//        } catch (IOException e) {
-////            e.printStackTrace();
-//            logger.error("Error occurs on IOException when send data");
-//        } finally {
-//            try {
-//                output.close();
-//            } catch (IOException e) {
-//                logger.error("Error occurs on IOException when close ObjectOutputStream after send data");
-//            }
-//        }
-//    }
-
 }
 
