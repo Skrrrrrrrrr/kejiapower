@@ -1,4 +1,4 @@
-package main.java.com.longriver.kejiapower.controllers;
+package com.longriver.kejiapower.controllers;
 
 /**
  * Program:PowerConfigController

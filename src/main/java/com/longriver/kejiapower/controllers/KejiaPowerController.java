@@ -1,13 +1,13 @@
-package main.java.com.longriver.kejiapower.controllers;
+package com.longriver.kejiapower.controllers;
 
+import com.longriver.kejiapower.model.TcpServer;
+import com.longriver.kejiapower.utils.DataFrame;
+import com.longriver.kejiapower.utils.StringUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import main.java.com.longriver.kejiapower.model.TcpServer;
-import main.java.com.longriver.kejiapower.utils.DataFrame;
-import main.java.com.longriver.kejiapower.utils.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

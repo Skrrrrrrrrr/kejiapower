@@ -1,4 +1,4 @@
-package main.java.com.longriver.kejiapower.utils;
+package com.longriver.kejiapower.utils;
 
 import java.io.File;
 import java.io.FileInputStream;

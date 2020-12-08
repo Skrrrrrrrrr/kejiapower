@@ -1,4 +1,4 @@
-package main.java.com.longriver.kejiapower.utils;
+package com.longriver.kejiapower.utils;
 
 import java.util.HashMap;
 import java.util.Map;

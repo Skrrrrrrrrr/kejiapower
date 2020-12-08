@@ -1,5 +1,6 @@
-package main.java.com.longriver.kejiapower;
+package com.longriver.kejiapower;
 
+import com.longriver.kejiapower.controllers.KejiaPowerController;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -9,31 +10,25 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import main.java.com.longriver.kejiapower.controllers.KejiaPowerController;
 
 import java.net.URL;
 import java.util.Optional;
 
 public class Main extends Application {
 
-//    private BlockingQueue<String> inBlockingQueue = new ArrayBlockingQueue<>(1024);
-//    private BlockingQueue<String> outBlockingQueue = new ArrayBlockingQueue<>(1024);
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
 //        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("main/java/com/longriver/kejiapower/view/fxml/kejiapowerController.fxml"));
 
-        URL url = getClass().getClassLoader().getResource("main/java/com/longriver/kejiapower/view/fxml/kejiapowerController.fxml");
+        URL url = getClass().getClassLoader().getResource("view/fxml/kejiapowerController.fxml");
 //        Parent root = FXMLLoader.load(url);
         KejiaPowerController kejiaPowerController = new KejiaPowerController();
 
-//        kejiaPowerController.setInBlockingQueue(inBlockingQueue);
-//        kejiaPowerController.setOutBlockingQueue(outBlockingQueue);
-
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setController(kejiaPowerController);
-        fxmlLoader.setLocation(getClass().getClassLoader().getResource("main/java/com/longriver/kejiapower/view/fxml/kejiapowerController.fxml"));
+        fxmlLoader.setLocation(url);
 //        fxmlLoader.load();
         Parent root = fxmlLoader.load();
 
