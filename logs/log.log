@@ -1,0 +1,47 @@
+2020-12-08 17:58:19  [ Thread-4:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-08 17:58:19  [ JavaFX Application Thread:1 ] - [ INFO ]  TcpServer start!
+2020-12-08 17:58:19  [ JavaFX Application Thread:6 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-08 17:58:25  [ JavaFX Application Thread:6574 ] - [ INFO ]  TcpServer interrupted!
+2020-12-08 17:58:25  [ Thread-4:6574 ] - [ INFO ]  java.net.SocketException: socket closed
+2020-12-08 17:58:25  [ Thread-4:6575 ] - [ DEBUG ]  closeConnections() method Exit
+2020-12-08 17:58:25  [ JavaFX Application Thread:6717 ] - [ INFO ]  TcpServer start!
+2020-12-08 17:58:25  [ Thread-6:6717 ] - [ INFO ]  The TCP Server is running.
+2020-12-08 17:58:25  [ JavaFX Application Thread:6718 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-08 17:58:26  [ JavaFX Application Thread:6854 ] - [ INFO ]  TcpServer interrupted!
+2020-12-08 17:58:26  [ Thread-6:6854 ] - [ INFO ]  java.net.SocketException: socket closed
+2020-12-08 17:58:26  [ Thread-6:6855 ] - [ DEBUG ]  closeConnections() method Exit
+2020-12-08 17:58:26  [ JavaFX Application Thread:6990 ] - [ INFO ]  TcpServer start!
+2020-12-08 17:58:26  [ Thread-8:6990 ] - [ INFO ]  The TCP Server is running.
+2020-12-08 17:58:26  [ JavaFX Application Thread:6991 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-08 17:58:26  [ JavaFX Application Thread:7109 ] - [ INFO ]  TcpServer interrupted!
+2020-12-08 17:58:26  [ Thread-8:7109 ] - [ INFO ]  java.net.SocketException: socket closed
+2020-12-08 17:58:26  [ Thread-8:7113 ] - [ DEBUG ]  closeConnections() method Exit
+2020-12-08 17:58:26  [ JavaFX Application Thread:7253 ] - [ INFO ]  TcpServer start!
+2020-12-08 17:58:26  [ Thread-10:7254 ] - [ INFO ]  The TCP Server is running.
+2020-12-08 17:58:26  [ JavaFX Application Thread:7254 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-08 17:58:26  [ JavaFX Application Thread:7390 ] - [ INFO ]  TcpServer interrupted!
+2020-12-08 17:58:26  [ Thread-10:7390 ] - [ INFO ]  java.net.SocketException: socket closed
+2020-12-08 17:58:26  [ Thread-10:7391 ] - [ DEBUG ]  closeConnections() method Exit
+2020-12-08 17:58:26  [ JavaFX Application Thread:7533 ] - [ INFO ]  TcpServer start!
+2020-12-08 17:58:26  [ Thread-12:7533 ] - [ INFO ]  The TCP Server is running.
+2020-12-08 17:58:26  [ JavaFX Application Thread:7534 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-08 17:58:29  [ JavaFX Application Thread:10077 ] - [ INFO ]  TcpServer interrupted!
+2020-12-08 17:58:29  [ Thread-12:10077 ] - [ INFO ]  java.net.SocketException: socket closed
+2020-12-08 17:58:29  [ Thread-12:10078 ] - [ DEBUG ]  closeConnections() method Exit
+2020-12-08 17:58:35  [ JavaFX Application Thread:16293 ] - [ INFO ]  TcpServer start!
+2020-12-08 17:58:35  [ Thread-14:16294 ] - [ INFO ]  The TCP Server is running.
+2020-12-08 17:58:35  [ JavaFX Application Thread:16294 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-08 17:58:43  [ Thread-14:24096 ] - [ INFO ]  Server Thread starts!
+2020-12-08 17:58:43  [ Thread-17:24096 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-08 17:58:43  [ Thread-17:24097 ] - [ INFO ]  Attempting to connect a user...
+2020-12-08 17:58:43  [ Thread-17:24097 ] - [ INFO ]  User's Addr : 192.168.5.10:49937
+2020-12-08 17:58:50  [ Thread-17:31727 ] - [ DEBUG ]  closeConnections() method Exit
+2020-12-08 17:58:51  [ Thread-14:31879 ] - [ INFO ]  Server Thread starts!
+2020-12-08 17:58:51  [ Thread-18:31880 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-08 17:58:51  [ Thread-18:31881 ] - [ INFO ]  Attempting to connect a user...
+2020-12-08 17:58:51  [ Thread-18:31882 ] - [ INFO ]  User's Addr : 192.168.5.10:49939
+2020-12-08 17:58:53  [ JavaFX Application Thread:34430 ] - [ INFO ]  TcpServer interrupted!
+2020-12-08 17:58:53  [ Thread-16:34430 ] - [ ERROR ]  
+2020-12-08 17:58:53  [ Thread-14:34430 ] - [ INFO ]  java.net.SocketException: socket closed
+2020-12-08 17:58:53  [ Thread-18:34431 ] - [ DEBUG ]  closeConnections() method Exit
+2020-12-08 17:58:53  [ Thread-14:34431 ] - [ DEBUG ]  closeConnections() method Exit
