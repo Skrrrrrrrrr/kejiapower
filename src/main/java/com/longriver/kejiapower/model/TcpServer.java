@@ -125,7 +125,7 @@ public class TcpServer implements Runnable {
                 e.printStackTrace();
                 logger.error("NullPointerException: OutputStream already closed!");
             }
-            logger.debug("closeConnections() method Exit");
+            logger.info("closeConnections() method Exit");
         }
     }
 
@@ -207,7 +207,7 @@ public class TcpServer implements Runnable {
                 logger.error(e.toString());
             }
 
-            logger.debug("closeConnections() method Exit");
+            logger.info("closeConnections() method Exit");
         }
     }
 }

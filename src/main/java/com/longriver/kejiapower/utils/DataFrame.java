@@ -29,11 +29,42 @@ public class DataFrame {
         return false;
     }
 
+    public static int dataFrameType(String dataFrame) {
+        if (!dataFrameCheck(dataFrame)) return -1;
+
+        if ("0A".equals(dataFrame.substring(4, 6))) return 0;//心跳帧
+        else if ("0B".equals(dataFrame.substring(4, 6))) return 1;//控制帧
+        else if ("0C".equals(dataFrame.substring(4, 6))) return 2;//上报帧
+        else return -1;
+    }
+
+    public static boolean dataFrameCheck(String dataFrame) {
+        if (!dataFrameHeadCheck(dataFrame) || !dataFrameTailCheck(dataFrame)) return false;
+        return true;
+    }
+
+    private static boolean dataFrameHeadCheck(String dataFrame) {
+        if (!notNullDataFrameCheck(dataFrame)) return false;
+        if (!"FFFF".equals(dataFrame.substring(0, 4))) return false;
+        return true;
+    }
+
+    private static boolean dataFrameTailCheck(String dataFrame) {
+        if (!notNullDataFrameCheck(dataFrame)) return false;
+        if (!"DD".equals(dataFrame.substring(dataFrame.length() - 2))) return false;
+        return true;
+    }
+
+    private static boolean notNullDataFrameCheck(String dataFrame) {
+        if (null == dataFrame) return false;
+        return true;
+    }
+
+    public static int getID(String dataFrame)
+
     public static String respondHeartBeat(String dataFrame) {
         StringBuffer respondCount = new StringBuffer();
         switch (Integer.toHexString(Integer.valueOf(dataFrame.substring(6, 10)) + 1).length()) {
-            case 0:
-                break;
             case 1:
                 respondCount.append('0').append('0').append('0').append(Integer.toHexString(Integer.valueOf(dataFrame.substring(6, 10)) + 1));
                 break;
