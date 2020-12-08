@@ -179,6 +179,9 @@ public class KejiaPowerController {
                         logger.info("TcpServer Stopped!");
                     } else {
                         st.interrupt();
+                        if (null != tcpServer.getSocket()) {
+                            tcpServer.getSocket().close();
+                        }
                         if (null != tcpServer.getServerSocket()) {
                             tcpServer.getServerSocket().close();
                             tcpServer.setServerSocket(null);
@@ -191,13 +194,13 @@ public class KejiaPowerController {
                     powerConnectedBtn.setText("连接设备");
                     break;
                 default:
-
             }
 
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.toString());
         }
+
     }
 
     private Thread repaintThread = null;
@@ -276,24 +279,6 @@ public class KejiaPowerController {
         }
     }
 
-    public void controllerClose() {
-        if (null != tcpServer.getServerSocketAcceptThread()) {
-            tcpServer.setServerSocketAcceptThread(null);
-        }
-        if (null != tcpServer.getSocket()) {
-            tcpServer.setSocket(null);
-        }
-        if (null != tcpServer.getServerSocket()) {
-            tcpServer.setServerSocket(null);
-        }
-        if (null != tcpServer) {
-            tcpServer = null;
-        }
-        if (null != st) {
-            st = null;
-        }
-
-    }
 
 }
 

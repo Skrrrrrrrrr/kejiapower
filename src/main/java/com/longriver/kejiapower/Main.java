@@ -48,14 +48,12 @@ public class Main extends Application {
 
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("退出程序");
-                alert.setHeaderText(""); //設定對話框視窗裡的標頭文字。若設為空字串，則表示無標頭
-                alert.setContentText("您真的要退出吗？"); //設定對話框的訊息文字
+                alert.setHeaderText("");
+                alert.setContentText("您真的要退出吗？");
                 final Optional<ButtonType> opt = alert.showAndWait();
-                final ButtonType rtn = opt.get(); //可以直接用「alert.getResult()」來取代
+                final ButtonType rtn = opt.get();
                 if (rtn == ButtonType.CANCEL) {
                     event.consume();
-                } else {
-                    kejiaPowerController.controllerClose();
                 }
             }
         });

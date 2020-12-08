@@ -12,6 +12,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -60,8 +61,11 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <RadioButton fx:id="remoteRadioBtn" mnemonicParsing="false" text="远程" />
-                                    <RadioButton fx:id="localRadioBtn" mnemonicParsing="false" text="本地" GridPane.rowIndex="1" />
+                                    <RadioButton fx:id="remoteRadioBtn" mnemonicParsing="false" text="远程">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="controlTypeToggleGroup" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton fx:id="localRadioBtn" mnemonicParsing="false" selected="true" text="本地" toggleGroup="$controlTypeToggleGroup" GridPane.rowIndex="1" />
                                     <Button fx:id="startBtn" mnemonicParsing="false" text="开始测试" GridPane.columnIndex="1" />
                                     <Button fx:id="configBtn" mnemonicParsing="false" text="电源配置" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                  </children>

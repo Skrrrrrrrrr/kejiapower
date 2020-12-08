@@ -1,6 +1,6 @@
 20201207
 1. 关闭主界面，后台TcpServer无法关闭；
-2.断开链接再重新接入，数据不能发送，TCP server的socket关闭。由于1的handler中serversocket.accpet存活。
+2. 断开链接再重新接入，数据不能发送，TCP server的socket关闭。由于1的handler中serversocket.accpet存活。
 20201124
 除功能外，存在以下问题：
 1. 关闭主界面，后台TcpServer无法关闭；

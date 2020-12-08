@@ -26,12 +26,11 @@ public class TcpServer implements Runnable {
     private static final int PORT = 9001;
     static String inputString;
     static String outputString;
-    static Logger logger = LoggerFactory.getLogger(TcpServer.class);
+    private final Logger logger = LoggerFactory.getLogger(TcpServer.class);
 
 
     private Socket socket;
     private ServerSocket serverSocket;
-    private Thread serverSocketAcceptThread = null;
 
 //    private static InputStream is;
     //        ObjectInputStream input = new ObjectInputStream(is);
@@ -77,14 +76,6 @@ public class TcpServer implements Runnable {
         this.serverSocket = serverSocket;
     }
 
-    public Thread getServerSocketAcceptThread() {
-        return serverSocketAcceptThread;
-    }
-
-    public void setServerSocketAcceptThread(Thread serverSocketAcceptThread) {
-        this.serverSocketAcceptThread = serverSocketAcceptThread;
-    }
-
     public BlockingQueue<String> getInBlockingQueue() {
         return inBlockingQueue;
     }
@@ -106,10 +97,9 @@ public class TcpServer implements Runnable {
         logger.info("The TCP Server is running.");
         serverSocket = new ServerSocket(PORT);
 
-
         try {
             while (!Thread.currentThread().isInterrupted()) {
-                (serverSocketAcceptThread = new Handler(socket = serverSocket.accept())).start();
+                new Handler(socket = serverSocket.accept()).start();
                 logger.info("Server Thread starts!");
 //                if (Thread.currentThread().isInterrupted()) {
 //                    logger.info("TcpServer Thread interrupted");
@@ -127,7 +117,6 @@ public class TcpServer implements Runnable {
                 if (null != serverSocket) {
                     serverSocket.close();
                 }
-                serverSocketAcceptThread.interrupt();
             } catch (IOException e) {
                 e.printStackTrace();
                 logger.error(e.getMessage());
@@ -151,11 +140,9 @@ public class TcpServer implements Runnable {
 
     private static class Handler extends Thread {
         private Socket serverSocketAccept;
-        private InputStream is;
         private ObjectInputStream input;
-        private OutputStream os;
         private ObjectOutputStream output;
-        private Logger logger = LoggerFactory.getLogger(Handler.class);
+        private final Logger logger = LoggerFactory.getLogger(Handler.class);
 
         public Handler(Socket socket) throws IOException {
             this.serverSocketAccept = socket;
@@ -164,16 +151,16 @@ public class TcpServer implements Runnable {
         public void run() {
             logger.info("Server Handler Thread starts!");
             logger.info("Attempting to connect a user...");
-            logger.info("User's Ip : " + serverSocketAccept.getInetAddress().getHostAddress());
+            logger.info("User's Addr : " + serverSocketAccept.getInetAddress().getHostAddress() + ':' + serverSocketAccept.getPort());
             try {
-                is = serverSocketAccept.getInputStream();
-                os = serverSocketAccept.getOutputStream();
+                InputStream is = serverSocketAccept.getInputStream();
+                OutputStream os = serverSocketAccept.getOutputStream();
 
 //                input = new ObjectInputStream(is);//如果client没有用ObjectOutputStream发送数据，此处报错StreamCorruptedException
                 output = new ObjectOutputStream(os);
+                byte[] bytes = new byte[1024];
 
-                while (!Thread.currentThread().isInterrupted() && serverSocketAccept.isConnected()) {
-                    byte[] bytes = new byte[1024];
+                while (!Thread.currentThread().isInterrupted() && null != serverSocketAccept && serverSocketAccept.isConnected()) {
                     int len = is.read(bytes);
                     if (-1 == len) {
                         break;
