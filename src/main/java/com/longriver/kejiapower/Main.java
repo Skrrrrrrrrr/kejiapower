@@ -1,6 +1,8 @@
 package com.longriver.kejiapower;
 
 import com.longriver.kejiapower.controllers.KejiaPowerController;
+import com.longriver.kejiapower.utils.DataFrame;
+import com.longriver.kejiapower.utils.StringUtils;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -73,6 +75,8 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+//        DataFrame.getClientIP("FFFF0BCCDD04FFF1DD01DD");
+//        StringUtils.ip2HexStr("127.0.0.1");
         launch(args);
     }
 }

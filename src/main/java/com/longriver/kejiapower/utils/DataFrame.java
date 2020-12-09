@@ -12,76 +12,70 @@ import java.util.Date;
  * Since kejiapower
  */
 public class DataFrame {
-    private StringBuffer sbf = new StringBuffer();
 
-    public static boolean head(String dataFrame) {
-        if ("FF".equals(String.valueOf(dataFrame).substring(0, 2))) {
-            return true;
-        }
-        return false;
-    }
+    public static DataFrameType dataFrameTypeClassify(String dataFrame) throws RuntimeException {
+        if (invalidDataFrameCheck(dataFrame)) throw new RuntimeException("Invalid DataFrame!");
 
-    public static boolean isHeartBeat(String dataFrame) {
-
-        if (null != dataFrame && dataFrame.length() > 11 && "0A".equals(String.valueOf(dataFrame).substring(4, 6))) {
-            return true;
-        }
-        return false;
-    }
-
-    public static int dataFrameType(String dataFrame) {
-        if (!dataFrameCheck(dataFrame)) return -1;
-
-        if ("0A".equals(dataFrame.substring(4, 6))) return 0;//心跳帧
-        else if ("0B".equals(dataFrame.substring(4, 6))) return 1;//控制帧
-        else if ("0C".equals(dataFrame.substring(4, 6))) return 2;//上报帧
-        else return -1;
-    }
-
-    public static boolean dataFrameCheck(String dataFrame) {
-        if (!dataFrameHeadCheck(dataFrame) || !dataFrameTailCheck(dataFrame)) return false;
-        return true;
+        if ("0A".equals(dataFrame.substring(4, 6))) return DataFrameType.HeartBeat;//心跳帧
+        else if ("0B".equals(dataFrame.substring(4, 6))) return DataFrameType.Control;//控制帧
+        else if ("0C".equals(dataFrame.substring(4, 6))) return DataFrameType.Massage;//上报帧
+        else throw new RuntimeException("Unrecognized Frame Type(Not HeartBeat or Control or Massage)");
     }
 
     private static boolean dataFrameHeadCheck(String dataFrame) {
-        if (!notNullDataFrameCheck(dataFrame)) return false;
+        if (!invalidDataFrameCheck(dataFrame)) return false;
         if (!"FFFF".equals(dataFrame.substring(0, 4))) return false;
         return true;
     }
 
     private static boolean dataFrameTailCheck(String dataFrame) {
-        if (!notNullDataFrameCheck(dataFrame)) return false;
+        if (!invalidDataFrameCheck(dataFrame)) return false;
         if (!"DD".equals(dataFrame.substring(dataFrame.length() - 2))) return false;
         return true;
     }
 
-    private static boolean notNullDataFrameCheck(String dataFrame) {
-        if (null == dataFrame) return false;
+    public static boolean invalidDataFrameCheck(String dataFrame) throws RuntimeException {
+        if (!notBlankDataFrameCheck(dataFrame)) {
+            throw new RuntimeException("Invalid DataFrame");
+//            return true;
+        }
+        String regex = "^[A-Fa-f0-9]+$";
+        if (!dataFrame.matches(regex) ||
+                !"FFFF".equals(dataFrame.substring(0, 4)) ||
+                !"DD".equals(dataFrame.substring(dataFrame.length() - 2))) {
+            throw new RuntimeException("Cannot convert DataFrame to Hex,Invalid DataFrame");
+//            return true;
+        }
+        if (dataFrame.length() <= 11)
+            throw new RuntimeException("DataFrame may be too short, lacking information, pls check again carefully!");
+        return false;
+    }
+
+    private static boolean notBlankDataFrameCheck(String dataFrame) {
+        if (null == dataFrame || dataFrame.length() <= 0) return false;
         return true;
     }
 
-    public static int getID(String dataFrame)
-
-    public static String respondHeartBeat(String dataFrame) {
-        StringBuffer respondCount = new StringBuffer();
-        switch (Integer.toHexString(Integer.valueOf(dataFrame.substring(6, 10)) + 1).length()) {
-            case 1:
-                respondCount.append('0').append('0').append('0').append(Integer.toHexString(Integer.valueOf(dataFrame.substring(6, 10)) + 1));
-                break;
-            case 2:
-                respondCount.append('0').append('0').append(Integer.toHexString(Integer.valueOf(dataFrame.substring(6, 10)) + 1));
-                break;
-            case 3:
-                respondCount.append('0').append(Integer.toHexString(Integer.valueOf(dataFrame.substring(6, 10)) + 1));
-                break;
-            case 4:
-                respondCount.append(Integer.toHexString(Integer.valueOf(dataFrame.substring(6, 10)) + 1));
-                break;
-            default:
-                break;
-        }
-        return new StringBuffer(dataFrame.substring(0, dataFrame.length() - 2)).replace(6, 10, String.valueOf(respondCount)).append(new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())).append("DD").toString();
+    public static int getClinetData(String dataFrame) {
+        return -2;
     }
+
+    public static String getClientIP(String dataFrame) {
+        if (!invalidDataFrameCheck(dataFrame)) {
+            StringBuilder sb = new StringBuilder("");
+            sb.append(Integer.parseInt(dataFrame.substring(12, 14), 16));
+            sb.append('.');
+            sb.append(Integer.parseInt(dataFrame.substring(14, 16), 16));
+            sb.append('.');
+            sb.append(Integer.parseInt(dataFrame.substring(16, 18), 16));
+            sb.append('.');
+            sb.append(Integer.parseInt(dataFrame.substring(18, 20), 16));
+            return sb.toString();
+        }
+        throw new RuntimeException("DataFrame not contain a Client Ip Address!");
+    }
+
+
 
 
 }

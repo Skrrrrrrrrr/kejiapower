@@ -1,5 +1,7 @@
 package com.longriver.kejiapower.exceptions;
 
+import com.longriver.kejiapower.utils.StringUtils;
+
 import java.io.Serializable;
 
 public class DataFrameResult implements Serializable {
@@ -73,7 +75,7 @@ public class DataFrameResult implements Serializable {
      * @return 如果resultCode存在，返回resultCode的message，否则返回result中的message字段
      */
     public String findMessage() {
-        return StringUtil.isNotBlank(message) ? message : resultCode.getMessage();
+        return StringUtils.isNotBlank(message) ? message : resultCode.getMessage();
     }
 
     /*

@@ -12,5 +12,5 @@ public interface MyExceptionSeverity {
     int MAJOR = 3;
 
     /** 严重 */
-
+    int CRITICAL = 4;
 }

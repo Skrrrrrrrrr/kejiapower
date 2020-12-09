@@ -1,7 +1,10 @@
 package com.longriver.kejiapower.controllers;
 
+import com.longriver.kejiapower.model.Client;
+import com.longriver.kejiapower.model.Message;
 import com.longriver.kejiapower.model.TcpServer;
 import com.longriver.kejiapower.utils.DataFrame;
+import com.longriver.kejiapower.utils.DataFrameType;
 import com.longriver.kejiapower.utils.StringUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -107,9 +110,18 @@ public class KejiaPowerController {
     }
 
     public static Logger logger = LoggerFactory.getLogger(KejiaPowerController.class);
-
     private BlockingQueue<String> inBlockingQueue = new ArrayBlockingQueue<>(1024);
     private BlockingQueue<String> outBlockingQueue = new ArrayBlockingQueue<>(1024);
+
+    private TcpServer tcpServer = null;//服务器线程
+    private Thread st = null;//服务器socket.accpt()线程，需要不停的检测数据到来
+    //        Thread st = new Thread(new TcpServer(inBlockingQueue, outBlockingQueue));
+//    private Thread wd = null;//检测活着的Client
+    private String firstStringOfInBlockingQueue = null;//
+
+    private Client client;
+    private Message clientMessage;
+    private Message serverMessage;
 
     public BlockingQueue<String> getInBlockingQueue() {
         return inBlockingQueue;
@@ -127,11 +139,29 @@ public class KejiaPowerController {
         this.outBlockingQueue = outBlockingQueue;
     }
 
-    private TcpServer tcpServer = null;//服务器线程
-    private Thread st = null;//服务器socket.accpt()线程，需要不停的检测数据到来
-    //        Thread st = new Thread(new TcpServer(inBlockingQueue, outBlockingQueue));
-//    private Thread wd = null;//检测活着的Client
-    private String firstStringOfInBlockingQueue = null;//
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Message getClientMessage() {
+        return clientMessage;
+    }
+
+    public void setClientMessage(Message clientMessage) {
+        this.clientMessage = clientMessage;
+    }
+
+    public Message getServerMessage() {
+        return serverMessage;
+    }
+
+    public void setServerMessage(Message serverMessage) {
+        this.serverMessage = serverMessage;
+    }
 
     @FXML
     void powerConnectedBtnOnClick(ActionEvent event) {
@@ -154,7 +184,7 @@ public class KejiaPowerController {
                             while (!Thread.currentThread().isInterrupted()) {
                                 try {
                                     firstStringOfInBlockingQueue = getInBlockingQueue().take();
-                                    if (DataFrame.isHeartBeat(firstStringOfInBlockingQueue)) {
+                                    if (DataFrame.dataFrameTypeClassify(firstStringOfInBlockingQueue).equals(DataFrameType.HeartBeat)) {
                                         tcpServer.getSocket().getOutputStream().write(DataFrame.respondHeartBeat(firstStringOfInBlockingQueue.replaceAll(" +", "")).getBytes());
                                         tcpServer.getSocket().getOutputStream().flush();
                                     }

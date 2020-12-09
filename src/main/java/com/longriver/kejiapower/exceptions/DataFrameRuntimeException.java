@@ -47,11 +47,6 @@ public class DataFrameRuntimeException extends MyRuntimeException {
             this.resultCode = resultCode;
         }
 
-        @Override
-        public String toString() {//ToStringBuilder ToStringStyle所属于commons-lang jar包
-            return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
-        }
-
         /*
          * getter and setter
          */
