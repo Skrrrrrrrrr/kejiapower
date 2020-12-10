@@ -1,19 +1,24 @@
 package com.longriver.kejiapower.utils;
 
-public enum WorkingStatus {
+public enum Control {
 
-    HARDWARE_FAULT("HARDWAREFAULT", (short)0x01),
-    OT("OT", (short)0x02),
-    INPUT_UV("INPUTUV", (short)0x04),
-    SHUTOFF("SHUTOFF", (short)0x08),
-    STARTUP("STARTUP", (short)0x10),
-    COMMUNICATION_TIMEOUT("COMMUNICATIONTIMEOUT",(short)0x20),
+    ONLINE("OnLine", 0),
+    OFFLINE("OffLine", 1),
+    Invalid("Invalid", -1),
     ;
 
     private String status;
-    private short code;
+    /**
+     * 枚举信息
+     */
+    private int code;
 
-    private WorkingStatus(String status, short code) {
+    Control() {
+        status = "Invalid";
+        code = -1;
+    }
+
+    private Control(String status, int code) {
         this.status = status;
         this.code = code;
     }
@@ -24,8 +29,8 @@ public enum WorkingStatus {
      * @param status 枚举值
      * @return 枚举对象
      */
-    public static WorkingStatus getWorkingStatusByStatus(String status) {
-        for (WorkingStatus workingStatus : WorkingStatus.values()) {
+    public static Control getWorkingStatusByStatus(String status) {
+        for (Control workingStatus : Control.values()) {
             if (workingStatus.getFrameType().equals(status)) {
                 return workingStatus;
             }
@@ -41,7 +46,7 @@ public enum WorkingStatus {
         return status;
     }
 
-    public short getCode() {
+    public int getCode() {
         return code;
     }
 }

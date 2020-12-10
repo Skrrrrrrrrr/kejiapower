@@ -4,7 +4,8 @@ public enum DataFrameType {
 
     HeartBeat("HeartBeatFrame", 0),
     Control("ControlFrame", 1),
-    Massage("MassageFrame", 2),
+//    Massage("MassageFrame", 2),
+    Report("ReportFrame", 2),
     Invalid("InvalidFrame", -1),;
 
     private String frameType;

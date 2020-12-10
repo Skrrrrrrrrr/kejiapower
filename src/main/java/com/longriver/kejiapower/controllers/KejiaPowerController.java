@@ -1,7 +1,9 @@
 package com.longriver.kejiapower.controllers;
 
+import com.longriver.kejiapower.POJO.ClientMessage;
+import com.longriver.kejiapower.POJO.ServerMessage;
 import com.longriver.kejiapower.model.Client;
-import com.longriver.kejiapower.model.Message;
+import com.longriver.kejiapower.POJO.Message;
 import com.longriver.kejiapower.model.TcpServer;
 import com.longriver.kejiapower.utils.DataFrame;
 import com.longriver.kejiapower.utils.DataFrameType;
@@ -120,8 +122,8 @@ public class KejiaPowerController {
     private String firstStringOfInBlockingQueue = null;//
 
     private Client client;
-    private Message clientMessage;
-    private Message serverMessage;
+    private ClientMessage clientMessage;
+    private ServerMessage serverMessage;
 
     public BlockingQueue<String> getInBlockingQueue() {
         return inBlockingQueue;

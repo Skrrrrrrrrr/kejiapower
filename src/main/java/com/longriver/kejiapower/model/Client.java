@@ -4,6 +4,13 @@ import com.longriver.kejiapower.utils.OperateModel;
 import com.longriver.kejiapower.utils.WorkingStatus;
 
 public class Client {
+
+//    control = new StringBuilder(2);
+//    status = new StringBuilder(2);
+//    model = new StringBuilder(2);
+//    duration = new StringBuilder(4);
+//    serverTime = new StringBuilder(12);
+
     private String name;
     private String ip;
     private OperateModel operateModel;
