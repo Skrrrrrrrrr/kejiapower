@@ -11,43 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/POJO/ClientMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/POJO/ServerMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/utils/Control.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config/powerConfig.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/~$系统与充电机通讯协议V1.0.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/POJO/ClientMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/POJO/ClientMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/controllers/KejiaPowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/controllers/KejiaPowerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/POJO/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/utils/DataFrameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/utils/DataFrameType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/utils/WorkingStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/utils/WorkingStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/PowerConfigController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/exceptions/DataFrameResult.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/exceptions/DataFrameResultCodeEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/exceptions/DataFrameRuntimeException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/exceptions/MyExceptionSeverity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/exceptions/MyRuntimeException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/TcpClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/TcpServer$Handler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/TcpServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/utils/DataFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/utils/DataFrameType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/utils/DetermineStatementsUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/utils/Lisenter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/utils/OperateModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/utils/PropertiesUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/utils/StringUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/utils/WorkingStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/管理系统与充电机通讯协议V1.0.docx" beforeDir="false" afterPath="$PROJECT_DIR$/管理系统与充电机通讯协议V1.0.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/utils/DataFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/utils/DataFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/~$系统与充电机通讯协议V1.0.docx" beforeDir="false" afterPath="$PROJECT_DIR$/~$系统与充电机通讯协议V1.0.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,6 +239,9 @@
       <workItem from="1607572253019" duration="67000" />
       <workItem from="1607572678848" duration="623000" />
       <workItem from="1607587351885" duration="9202000" />
+      <workItem from="1607665322904" duration="18000" />
+      <workItem from="1607665427825" duration="21000" />
+      <workItem from="1607665754694" duration="3172000" />
     </task>
     <servers />
   </component>
@@ -303,10 +274,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="658" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1607592217055" />
-    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1607594164041">
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1607665875493">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1607594164041" />
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1607665875493" />
     <state x="580" y="198" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1607417401857">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

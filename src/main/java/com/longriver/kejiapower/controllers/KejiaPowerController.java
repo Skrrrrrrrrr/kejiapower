@@ -17,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
@@ -121,9 +122,10 @@ public class KejiaPowerController {
 //    private Thread wd = null;//检测活着的Client
     private String firstStringOfInBlockingQueue = null;//
 
-    private Client client;
+    private List<Client> clientList;
     private ClientMessage clientMessage;
     private ServerMessage serverMessage;
+
 
     public BlockingQueue<String> getInBlockingQueue() {
         return inBlockingQueue;
@@ -141,27 +143,27 @@ public class KejiaPowerController {
         this.outBlockingQueue = outBlockingQueue;
     }
 
-    public Client getClient() {
-        return client;
+    public List<Client> getClientList() {
+        return clientList;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClientList(List<Client> clientList) {
+        this.clientList = clientList;
     }
 
-    public Message getClientMessage() {
+    public ClientMessage getClientMessage() {
         return clientMessage;
     }
 
-    public void setClientMessage(Message clientMessage) {
+    public void setClientMessage(ClientMessage clientMessage) {
         this.clientMessage = clientMessage;
     }
 
-    public Message getServerMessage() {
+    public ServerMessage getServerMessage() {
         return serverMessage;
     }
 
-    public void setServerMessage(Message serverMessage) {
+    public void setServerMessage(ServerMessage serverMessage) {
         this.serverMessage = serverMessage;
     }
 
@@ -185,16 +187,40 @@ public class KejiaPowerController {
                         public void run() {
                             while (!Thread.currentThread().isInterrupted()) {
                                 try {
-                                    firstStringOfInBlockingQueue = getInBlockingQueue().take();
-                                    if (DataFrame.dataFrameTypeClassify(firstStringOfInBlockingQueue).equals(DataFrameType.HeartBeat)) {
-                                        tcpServer.getSocket().getOutputStream().write(DataFrame.respondHeartBeat(firstStringOfInBlockingQueue.replaceAll(" +", "")).getBytes());
-                                        tcpServer.getSocket().getOutputStream().flush();
+//                                    firstStringOfInBlockingQueue = getInBlockingQueue().take();
+//                                    clientMessage.getHeartBeatMessage(firstStringOfInBlockingQueue);
+                                    clientMessage = new ClientMessage(getInBlockingQueue().take());
+                                    switch (DataFrame.dataFrameTypeClassify(clientMessage)) {
+                                        case HeartBeat:
+                                            serverMessage.generateHeartBeatMessage(clientMessage);
+                                            tcpServer.getSocket().getOutputStream().write(serverMessage.toString().getBytes());
+                                            tcpServer.getSocket().getOutputStream().flush();
+                                            fileIOThread.start();//是否每次需要打开文件操作IO
+
+                                            break;
+                                        case Control:
+                                            fileIOThread.start();//是否每次需要打开文件操作IO
+                                            break;
+                                        case Report:
+                                            if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
+                                                repaintThread.start();
+                                                fileIOThread.start();//是否每次需要打开文件操作IO
+                                            }
+                                            break;
+                                        default:
                                     }
+//                                    if (DataFrame.dataFrameTypeClassify(clientMessage).equals(DataFrameType.HeartBeat)) {
+//                                        serverMessage.generateHeartBeatMessage(clientMessage);
+//                                        tcpServer.getSocket().getOutputStream().write(serverMessage.toString().getBytes());
+//                                        tcpServer.getSocket().getOutputStream().flush();
+//                                    }
                                 } catch (InterruptedException e) {
-                                    e.printStackTrace();
+//                                    e.printStackTrace();
+                                    logger.error(e.getMessage());
                                     Thread.currentThread().interrupt();
                                 } catch (IOException e) {
-                                    e.printStackTrace();
+//                                    e.printStackTrace();
+                                    logger.error(e.getMessage());
                                     Thread.currentThread().isInterrupted();
                                 }
                             }
@@ -235,37 +261,10 @@ public class KejiaPowerController {
 
     }
 
-    private Thread repaintThread = null;
-
     @FXML
     void rxTextBtnOnClick(ActionEvent event) {
         switch (rxTextBtn.getText()) {
             case "开始接收":
-                //主界面刷新线程，现阶段是刷rxxTextArea
-                repaintThread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        while (!Thread.currentThread().isInterrupted()) {
-                            try {
-                                if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
-//                                    if (getInBlockingQueue().size() > 0) {
-//                                        rxTextArea.setText(StringUtils.getFileAddSpace(getInBlockingQueue().take(), 2));
-//                                    }//watchdog里读取了firstStringOfInBlockingQueue
-//                                    firstStringOfInBlockingQueue = getInBlockingQueue().take();
-                                    if (null != firstStringOfInBlockingQueue && firstStringOfInBlockingQueue.length() > 0) {
-                                        rxTextArea.setText(StringUtils.getFileAddSpace(firstStringOfInBlockingQueue.replaceAll(" ", ""), 2));
-                                        firstStringOfInBlockingQueue = "";
-                                    }
-                                }
-                            } catch (Exception e) {
-                                logger.error(e.getMessage());
-                                Thread.currentThread().interrupt();
-                            }
-                            //                            rxTextArea.setText(getInBlockingQueue().take());
-                        }
-                    }
-                });
-
                 rxTextBtn.setText("停止接收");
                 rxTextArea.clear();
                 repaintThread.start();
@@ -311,6 +310,31 @@ public class KejiaPowerController {
         }
     }
 
+    //主界面刷新线程，现阶段是刷rxxTextArea
+    private Thread repaintThread = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
+                    rxTextArea.setText(StringUtils.getFileAddSpace(clientMessage.toString(), 2));
+                }
+            } catch (Exception e) {
+                logger.error(e.getMessage());
+            }
+        }
+    });
+    private Thread fileIOThread = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
+                    rxTextArea.setText(StringUtils.getFileAddSpace(clientMessage.toString(), 2));
+                }
+            } catch (Exception e) {
+                logger.error(e.getMessage());
+            }
+        }
+    });
 
 }
 

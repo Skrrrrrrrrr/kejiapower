@@ -1,7 +1,6 @@
 package com.longriver.kejiapower.utils;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.longriver.kejiapower.POJO.Message;
 
 /**
  * Program:DataFrame
@@ -16,10 +15,30 @@ public class DataFrame {
     public static DataFrameType dataFrameTypeClassify(String dataFrame) throws RuntimeException {
         if (invalidDataFrameCheck(dataFrame)) throw new RuntimeException("Invalid DataFrame!");
 
-        if ("0A".equals(dataFrame.substring(4, 6))) return DataFrameType.HeartBeat;//心跳帧
-        else if ("0B".equals(dataFrame.substring(4, 6))) return DataFrameType.Control;//控制帧
-        else if ("0C".equals(dataFrame.substring(4, 6))) return DataFrameType.Massage;//上报帧
-        else throw new RuntimeException("Unrecognized Frame Type(Not HeartBeat or Control or Massage)");
+        switch (dataFrame.substring(4, 6)) {
+            case "0A":
+                return DataFrameType.HeartBeat;//心跳帧
+            case "0B":
+                return DataFrameType.Control;//控制帧
+            case "0C":
+                return DataFrameType.Report;//上报帧
+            default:
+                throw new RuntimeException("Unrecognized Frame Type(Not HeartBeat or Control or Massage)");
+        }
+    }
+
+    public static DataFrameType dataFrameTypeClassify(Message message) throws RuntimeException {
+        if (invalidDataFrameCheck(message.toString())) throw new RuntimeException("Invalid DataFrame!");
+        switch (message.getType().toString()) {
+            case "0A":
+                return DataFrameType.HeartBeat;//心跳帧
+            case "0B":
+                return DataFrameType.Control;//控制帧
+            case "0C":
+                return DataFrameType.Report;//上报帧
+            default:
+                throw new RuntimeException("Unrecognized Frame Type(Not HeartBeat or Control or Massage)");
+        }
     }
 
     private static boolean dataFrameHeadCheck(String dataFrame) {
@@ -74,8 +93,6 @@ public class DataFrame {
         }
         throw new RuntimeException("DataFrame not contain a Client Ip Address!");
     }
-
-
 
 
 }
