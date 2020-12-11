@@ -16,14 +16,54 @@ public class ServerMessage extends Message {
 //            throw new RuntimeException("Invalid DataFrame!Cannot construct a Message Class!");
         switch (DataFrame.dataFrameTypeClassify(message.toString())) {
             case HeartBeat:
-                generateHeartBeatMessage(message);
+//                generateHeartBeatMessage(message);//如果调用，会出现重复赋值的问题
+                setType(message.getType());
+                setIdentification(new StringBuilder(String.format("%016X", Integer.parseInt(message.getIdentification().toString(), 16) + 1)));
+                setLength(new StringBuilder("0A"));
+                setClientIp(message.getClientIp());
+                setServerTime(new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())));
+                //其他置空
+                setVoltage(new StringBuilder(4));
+                setCurrent(new StringBuilder(4));
+                setControl(new StringBuilder(2));
+                setStatus(new StringBuilder(2));
+                setModel(new StringBuilder(2));
+                setDuration(new StringBuilder(4));
+                setPreserveByte(new StringBuilder(4));
                 break;
             case Control:
 //                generateControlMessage(message);
-                generateControlMessage();
+//                generateControlMessage();//同上
+                setType(new StringBuilder("0C"));
+                setIdentification(new StringBuilder(Integer.parseInt(getIdentification().toString(), 16) + 1));
+                setLength(new StringBuilder("0C"));
+                setVoltage(new StringBuilder("00"));
+                setCurrent(new StringBuilder("00"));
+                setControl(new StringBuilder("00"));
+                setPreserveByte(new StringBuilder("0000"));
+                setClientIp(new StringBuilder("127.0.0.1"));
+                //其他置空
+                setClientIp(new StringBuilder(8));
+                setStatus(new StringBuilder(2));
+                setModel(new StringBuilder(2));
+                setDuration(new StringBuilder(4));
+                setServerTime(new StringBuilder(12));
                 break;
             case Report:
-                generateRespondMessage(message);
+//                generateRespondMessage(message);//
+                setType(new StringBuilder("0B"));
+                setIdentification(new StringBuilder(Integer.parseInt(message.getIdentification().toString(), 16) + 1));
+                setLength(new StringBuilder("05"));
+                setClientIp(message.getClientIp());
+                //其他置空
+                setVoltage(new StringBuilder("00"));
+                setCurrent(new StringBuilder("00"));
+                setControl(new StringBuilder("00"));
+                setStatus(new StringBuilder(2));
+                setModel(new StringBuilder(2));
+                setDuration(new StringBuilder(4));
+                setServerTime(new StringBuilder(12));
+                setPreserveByte(new StringBuilder(4));
                 break;
 //            default:
         }

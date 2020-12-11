@@ -3,6 +3,9 @@ package com.longriver.kejiapower.POJO;
 import com.longriver.kejiapower.utils.DataFrame;
 import com.longriver.kejiapower.utils.DataFrameType;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class ClientMessage extends Message {
 
     private String cMessage;
@@ -16,10 +19,51 @@ public class ClientMessage extends Message {
         cMessage = message.replaceAll(" +", "");
         switch (DataFrame.dataFrameTypeClassify(cMessage)) {
             case HeartBeat:
-                getHeartBeatMessage(cMessage);
+//                getHeartBeatMessage(cMessage);//如果调用，会出现重复赋值的问题
+                if (!DataFrame.dataFrameTypeClassify(message).equals(DataFrameType.HeartBeat))
+                    throw new RuntimeException("Not a valid client heartbeat message");
+                cMessage = message.replaceAll(" +", "");
+                try {
+                    setType(new StringBuilder(cMessage.substring(4, 6)));
+                    setIdentification(new StringBuilder(cMessage.substring(6, 10)));
+//                    setIdentification(new StringBuilder(String.format("%04X",Integer.parseInt(cMessage.substring(6, 10),16)+1)));
+//                    setLength(new StringBuilder(cMessage.substring(10, 12)));
+                    setLength(new StringBuilder("0A"));
+                    setClientIp(new StringBuilder(cMessage.substring(12, 20)));
+                    setVoltage(new StringBuilder(4));
+                    setCurrent(new StringBuilder(4));
+                    setControl(new StringBuilder(2));
+                    setStatus(new StringBuilder(2));
+                    setModel(new StringBuilder(2));
+                    setDuration(new StringBuilder(4));
+                    setServerTime(new StringBuilder(12));
+//                    setServerTime(new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())));
+                    setPreserveByte(new StringBuilder(4));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 break;
             case Control:
-                getResponseMessage(cMessage);
+//                getResponseMessage(cMessage);
+                if (!DataFrame.dataFrameTypeClassify(message).equals(DataFrameType.Control))
+                    throw new RuntimeException("Not a valid client Response message");
+                cMessage = message.replaceAll(" +", "");
+                try {
+                    setType(new StringBuilder(cMessage.substring(4, 6)));
+                    setIdentification(new StringBuilder(cMessage.substring(6, 10)));
+                    setLength(new StringBuilder(cMessage.substring(10, 12)));
+                    setClientIp(new StringBuilder(cMessage.substring(12, 20)));
+                    setStatus(new StringBuilder(cMessage.substring(20, 22)));
+                    setVoltage(new StringBuilder(4));
+                    setCurrent(new StringBuilder(4));
+                    setControl(new StringBuilder(2));
+                    setModel(new StringBuilder(2));
+                    setDuration(new StringBuilder(4));
+                    setServerTime(new StringBuilder(12));
+                    setPreserveByte(new StringBuilder(4));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 break;
             case Report:
                 getReportMessage(cMessage);
@@ -37,6 +81,7 @@ public class ClientMessage extends Message {
         try {
             setType(new StringBuilder(cMessage.substring(4, 6)));
             setIdentification(new StringBuilder(cMessage.substring(6, 10)));
+//            setIdentification(new StringBuilder(String.format("%04X",Integer.parseInt(cMessage.substring(6, 10),16)+1)));
             setLength(new StringBuilder(cMessage.substring(10, 12)));
             setClientIp(new StringBuilder(cMessage.substring(12, 20)));
             setVoltage(new StringBuilder(4));

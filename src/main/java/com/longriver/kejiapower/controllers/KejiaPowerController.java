@@ -116,8 +116,8 @@ public class KejiaPowerController {
     private BlockingQueue<String> inBlockingQueue = new ArrayBlockingQueue<>(1024);
     private BlockingQueue<String> outBlockingQueue = new ArrayBlockingQueue<>(1024);
 
-    private TcpServer tcpServer = null;//服务器线程
-    private Thread st = null;//服务器socket.accpt()线程，需要不停的检测数据到来
+    private TcpServer tcpServer = null;//
+    private Thread st = null;//服务器线程.服务器socket.accpt()线程，需要不停的检测数据到来
     //        Thread st = new Thread(new TcpServer(inBlockingQueue, outBlockingQueue));
 //    private Thread wd = null;//检测活着的Client
     private String firstStringOfInBlockingQueue = null;//
@@ -186,12 +186,16 @@ public class KejiaPowerController {
                         @Override
                         public void run() {
                             while (!Thread.currentThread().isInterrupted()) {
+                                logger.info("pause");
                                 try {
+
 //                                    firstStringOfInBlockingQueue = getInBlockingQueue().take();
 //                                    clientMessage.getHeartBeatMessage(firstStringOfInBlockingQueue);
                                     clientMessage = new ClientMessage(getInBlockingQueue().take());
+                                    serverMessage = null;
                                     switch (DataFrame.dataFrameTypeClassify(clientMessage)) {
                                         case HeartBeat:
+                                            serverMessage = new ServerMessage();
                                             serverMessage.generateHeartBeatMessage(clientMessage);
                                             tcpServer.getSocket().getOutputStream().write(serverMessage.toString().getBytes());
                                             tcpServer.getSocket().getOutputStream().flush();
@@ -209,11 +213,6 @@ public class KejiaPowerController {
                                             break;
                                         default:
                                     }
-//                                    if (DataFrame.dataFrameTypeClassify(clientMessage).equals(DataFrameType.HeartBeat)) {
-//                                        serverMessage.generateHeartBeatMessage(clientMessage);
-//                                        tcpServer.getSocket().getOutputStream().write(serverMessage.toString().getBytes());
-//                                        tcpServer.getSocket().getOutputStream().flush();
-//                                    }
                                 } catch (InterruptedException e) {
 //                                    e.printStackTrace();
                                     logger.error(e.getMessage());
@@ -233,19 +232,25 @@ public class KejiaPowerController {
                 case "断开设备":
                     rxTextBtn.setDisable(true);
                     txTextBtn.setDisable(true);
-                    if (null == st || !st.isAlive()) {
-                        logger.info("TcpServer Stopped!");
-                    } else {
-                        st.interrupt();
-                        if (null != tcpServer.getSocket()) {
-                            tcpServer.getSocket().close();
+                    if (null != st) {
+                        try {
+                            st.interrupt();
+                        } catch (Exception e) {
+                            logger.error(e.getMessage());
+                        } finally {
+                            st = null;
+                            logger.info("TcpServer Stopped!");
                         }
-                        if (null != tcpServer.getServerSocket()) {
-                            tcpServer.getServerSocket().close();
-                            tcpServer.setServerSocket(null);
-                        }
-                        st = null;
-                        logger.info("TcpServer interrupted!");
+                    }
+                    if (null != tcpServer.getSocket()) {
+                        tcpServer.getSocket().close();
+                        tcpServer.setSocket(null);
+                        logger.info("TcpServer server socket.accept interrupted!");
+                    }
+                    if (null != tcpServer.getServerSocket()) {
+                        tcpServer.getServerSocket().close();
+                        tcpServer.setServerSocket(null);
+                        logger.info("TcpServer server socket interrupted!");
                     }
 //                logger.info("线程中止" + String.valueOf(st.isInterrupted()));
 

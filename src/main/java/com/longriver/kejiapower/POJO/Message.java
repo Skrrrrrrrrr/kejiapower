@@ -106,12 +106,13 @@ public class Message {
     }
 
     public void setClientIp(StringBuilder clientIp) {
-        this.clientIp = new StringBuilder(StringUtils.ip2HexStr(clientIp.toString()));
+        this.clientIp = clientIp;
+//        this.clientIp = new StringBuilder(StringUtils.hexStr2Ip(clientIp.toString()));
     }
 
-    public void setClientIp(String clientIp) {
-        this.clientIp = new StringBuilder(StringUtils.ip2HexStr(clientIp));
-    }
+//    public void setClientIp(String clientIp) {
+//        this.clientIp = new StringBuilder(StringUtils.hexStr2Ip(clientIp));
+//    }
 
     public StringBuilder getVoltage() {
         return voltage;

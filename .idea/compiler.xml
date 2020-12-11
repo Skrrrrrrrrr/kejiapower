@@ -20,7 +20,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="kejiapower" target="1.8" />
+      <module name="kejiapower" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

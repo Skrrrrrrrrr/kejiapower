@@ -1,3 +1,7 @@
+20201211
+1.关闭主界面，后台TcpServer无法关闭；
+2.未加线程池
+3.message会出现重复
 20201207
 1. 关闭主界面，后台TcpServer无法关闭；
 2. 断开链接再重新接入，数据不能发送，TCP server的socket关闭。由于1的handler中serversocket.accpet存活。
