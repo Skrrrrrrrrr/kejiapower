@@ -25,6 +25,8 @@ public class TcpServer implements Runnable {
     //必须实现线程，否则主界面卡死在内部类的.accept()
     /* Setting up variables */
     private static final int PORT = 9001;
+    private static final int BUFF_SIZE = 1024;
+
     static String inputString;
     static String outputString;
     private final Logger logger = LoggerFactory.getLogger(TcpServer.class);
@@ -39,8 +41,8 @@ public class TcpServer implements Runnable {
 //    private static ObjectOutputStream output ;
 
     //    private boolean sendFlag = false;//UI的发送指令。txBtn的text()
-    static BlockingQueue<String> inBlockingQueue = new ArrayBlockingQueue<>(1024);
-    static BlockingQueue<String> outBlockingQueue = new ArrayBlockingQueue<>(1024);
+    static BlockingQueue<String> inBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
+    static BlockingQueue<String> outBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
 //    static BlockingQueue<String> inBlockingQueue;
 //    static BlockingQueue<String> outBlockingQueue;
 
@@ -159,7 +161,7 @@ public class TcpServer implements Runnable {
 
 //                input = new ObjectInputStream(is);//如果client没有用ObjectOutputStream发送数据，此处报错StreamCorruptedException
                 output = new ObjectOutputStream(os);
-                byte[] bytes = new byte[1024];
+                byte[] bytes = new byte[BUFF_SIZE];
 
                 while (!Thread.currentThread().isInterrupted() && null != serverSocketAccept && serverSocketAccept.isConnected()) {
                     int len = is.read(bytes);
@@ -169,7 +171,7 @@ public class TcpServer implements Runnable {
                     inputString = new String(bytes, 0, len);
                     logger.info("采集到的数据是" + inputString);
                     try {
-                        if (inBlockingQueue.size() >= 1024) {
+                        if (inBlockingQueue.size() >= BUFF_SIZE) {
                             inBlockingQueue.take();
                         }
                         inBlockingQueue.put(inputString);

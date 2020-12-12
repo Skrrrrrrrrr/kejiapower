@@ -8,62 +8,22 @@ import java.util.Date;
 
 public class ServerMessage extends Message {
 
-    public ServerMessage() {
-    }
+//    public ServerMessage() {
+//    }
 
-    public ServerMessage(Message message) {
+    public void getServerMessage(Message message) {
 //        if (DataFrame.invalidDataFrameCheck(message))
 //            throw new RuntimeException("Invalid DataFrame!Cannot construct a Message Class!");
         switch (DataFrame.dataFrameTypeClassify(message.toString())) {
             case HeartBeat:
-//                generateHeartBeatMessage(message);//如果调用，会出现重复赋值的问题
-                setType(message.getType());
-                setIdentification(new StringBuilder(String.format("%016X", Integer.parseInt(message.getIdentification().toString(), 16) + 1)));
-                setLength(new StringBuilder("0A"));
-                setClientIp(message.getClientIp());
-                setServerTime(new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())));
-                //其他置空
-                setVoltage(new StringBuilder(4));
-                setCurrent(new StringBuilder(4));
-                setControl(new StringBuilder(2));
-                setStatus(new StringBuilder(2));
-                setModel(new StringBuilder(2));
-                setDuration(new StringBuilder(4));
-                setPreserveByte(new StringBuilder(4));
+                generateHeartBeatMessage(message);
                 break;
             case Control:
 //                generateControlMessage(message);
-//                generateControlMessage();//同上
-                setType(new StringBuilder("0C"));
-                setIdentification(new StringBuilder(Integer.parseInt(getIdentification().toString(), 16) + 1));
-                setLength(new StringBuilder("0C"));
-                setVoltage(new StringBuilder("00"));
-                setCurrent(new StringBuilder("00"));
-                setControl(new StringBuilder("00"));
-                setPreserveByte(new StringBuilder("0000"));
-                setClientIp(new StringBuilder("127.0.0.1"));
-                //其他置空
-                setClientIp(new StringBuilder(8));
-                setStatus(new StringBuilder(2));
-                setModel(new StringBuilder(2));
-                setDuration(new StringBuilder(4));
-                setServerTime(new StringBuilder(12));
+                generateControlMessage();//
                 break;
             case Report:
-//                generateRespondMessage(message);//
-                setType(new StringBuilder("0B"));
-                setIdentification(new StringBuilder(Integer.parseInt(message.getIdentification().toString(), 16) + 1));
-                setLength(new StringBuilder("05"));
-                setClientIp(message.getClientIp());
-                //其他置空
-                setVoltage(new StringBuilder("00"));
-                setCurrent(new StringBuilder("00"));
-                setControl(new StringBuilder("00"));
-                setStatus(new StringBuilder(2));
-                setModel(new StringBuilder(2));
-                setDuration(new StringBuilder(4));
-                setServerTime(new StringBuilder(12));
-                setPreserveByte(new StringBuilder(4));
+                generateRespondMessage(message);
                 break;
 //            default:
         }
@@ -73,9 +33,9 @@ public class ServerMessage extends Message {
 //        if (!DataFrame.dataFrameTypeClassify(message.toString().replaceAll(" +", "")).equals(DataFrameType.HeartBeat))
 //            throw new RuntimeException("setServerHeartBeatMessage Error, not a HeartBeat frame from Client!");
 //        message = message.replaceAll(" +", "");
-
+        setHead(new StringBuilder("FFFF"));
         setType(message.getType());
-        setIdentification(new StringBuilder(String.format("%016X", Integer.parseInt(message.getIdentification().toString(), 16) + 1)));
+        setIdentification(new StringBuilder(String.format("%04X", Integer.parseInt(message.getIdentification().toString(), 16) + 1)));
         setLength(new StringBuilder("0A"));
         setClientIp(message.getClientIp());
         setServerTime(new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())));
@@ -87,11 +47,12 @@ public class ServerMessage extends Message {
         setModel(new StringBuilder(2));
         setDuration(new StringBuilder(4));
         setPreserveByte(new StringBuilder(4));
+        setTail(new StringBuilder("DD"));
 
     }
 
     public void generateControlMessage() {
-
+        setHead(new StringBuilder("FFFF"));
         setType(new StringBuilder("0C"));
         setIdentification(new StringBuilder(Integer.parseInt(getIdentification().toString(), 16) + 1));
         setLength(new StringBuilder("0C"));
@@ -113,10 +74,12 @@ public class ServerMessage extends Message {
         setModel(new StringBuilder(2));
         setDuration(new StringBuilder(4));
         setServerTime(new StringBuilder(12));
+        setTail(new StringBuilder("DD"));
     }
 
     @Deprecated
     public void generateControlMessage(String message) {
+        setHead(new StringBuilder("FFFF"));
         setType(new StringBuilder("0C"));
         setIdentification(new StringBuilder(Integer.parseInt(getIdentification().toString(), 16) + 1));
         setLength(new StringBuilder("0C"));
@@ -131,10 +94,12 @@ public class ServerMessage extends Message {
         setModel(new StringBuilder(2));
         setDuration(new StringBuilder(4));
         setServerTime(new StringBuilder(12));
+        setTail(new StringBuilder("DD"));
     }
 
     @Deprecated
     public void generateControlMessage(Message message) {
+        setHead(new StringBuilder("FFFF"));
         setType(new StringBuilder("0C"));
         setIdentification(new StringBuilder(Integer.parseInt(getIdentification().toString(), 16)));
         setLength(new StringBuilder("0C"));
@@ -149,12 +114,14 @@ public class ServerMessage extends Message {
         setModel(new StringBuilder(2));
         setDuration(new StringBuilder(4));
         setServerTime(new StringBuilder(12));
+        setTail(new StringBuilder("DD"));
     }
 
 
     public void generateRespondMessage(Message message) {
 //        if (!DataFrame.dataFrameTypeClassify(message.toString().replaceAll(" +", "")).equals(DataFrameType.Report))
 //            throw new RuntimeException("generateRespondMessage Error, not a Report frame from Client!");
+        setHead(new StringBuilder("FFFF"));
         setType(new StringBuilder("0B"));
         setIdentification(new StringBuilder(Integer.parseInt(message.getIdentification().toString(), 16) + 1));
         setLength(new StringBuilder("05"));
@@ -168,6 +135,9 @@ public class ServerMessage extends Message {
         setDuration(new StringBuilder(4));
         setServerTime(new StringBuilder(12));
         setPreserveByte(new StringBuilder(4));
+        setTail(new StringBuilder("DD"));
     }
+
+
 
 }

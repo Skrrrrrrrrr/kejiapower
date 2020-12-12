@@ -23,8 +23,25 @@ public class Message {
     private StringBuilder preserveByte;
     private StringBuilder tail;
 
+
+//    private StringBuilder head = new StringBuilder(4);
+//    private StringBuilder type = new StringBuilder(2);
+//    private StringBuilder identification = new StringBuilder(4);
+//    private StringBuilder length = new StringBuilder(2);
+//    private StringBuilder clientIp = new StringBuilder(8);
+//    private StringBuilder voltage = new StringBuilder(4);
+//    private StringBuilder current = new StringBuilder(4);
+//    private StringBuilder control = new StringBuilder(2);
+//    private StringBuilder status = new StringBuilder(2);
+//    private StringBuilder model = new StringBuilder(2);
+//    private StringBuilder duration = new StringBuilder(4);
+//    private StringBuilder serverTime = new StringBuilder(12);
+//    private StringBuilder preserveByte = new StringBuilder(4);
+//    private StringBuilder tail = new StringBuilder(2);
+
+
     public Message() {
-        head = new StringBuilder("FFFF");
+        head = new StringBuilder(4);
         type = new StringBuilder(2);
         identification = new StringBuilder(4);
         length = new StringBuilder(2);
@@ -37,7 +54,7 @@ public class Message {
         duration = new StringBuilder(4);
         serverTime = new StringBuilder(12);
         preserveByte = new StringBuilder(4);
-        tail = new StringBuilder("DD");
+        tail = new StringBuilder(2);
 
         head.ensureCapacity(4);
         type.ensureCapacity(2);
@@ -55,26 +72,35 @@ public class Message {
         tail.ensureCapacity(2);
     }
 
-    public Message(String head, String type, String identification, String length, String clientIp, String voltage, String current, String control,  String status, String model,String duration, String serverTime, String preserveByte, String tail) {
-        if (null == head || !this.head.equals(head)) throw new RuntimeException("Frame head Error!");
-        if (null == tail || !this.tail.equals(tail)) throw new RuntimeException("Frame tail Error!");
-//        this.head = head;
-        try {
-            this.type.append(type.toUpperCase());
-            this.identification.append(identification.toUpperCase());
-            this.length.append(length.toUpperCase());
-            this.clientIp.append(clientIp.toUpperCase());
-            this.voltage.append(voltage.toUpperCase());
-            this.current.append(current.toUpperCase());
-            this.control.append(control.toUpperCase());
-            this.status.append(status.toUpperCase());
-            this.model.append(model.toUpperCase());
-            this.duration.append(duration.toUpperCase());
-            this.serverTime.append(serverTime.toUpperCase());
-            this.preserveByte.append(preserveByte.toUpperCase());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//    public Message(String head, String type, String identification, String length, String clientIp, String voltage, String current, String control,  String status, String model,String duration, String serverTime, String preserveByte, String tail) {
+//        if (null == head || !this.head.equals(head)) throw new RuntimeException("Frame head Error!");
+//        if (null == tail || !this.tail.equals(tail)) throw new RuntimeException("Frame tail Error!");
+////        this.head = head;
+//        try {
+//            this.type.append(type.toUpperCase());
+//            this.identification.append(identification.toUpperCase());
+//            this.length.append(length.toUpperCase());
+//            this.clientIp.append(clientIp.toUpperCase());
+//            this.voltage.append(voltage.toUpperCase());
+//            this.current.append(current.toUpperCase());
+//            this.control.append(control.toUpperCase());
+//            this.status.append(status.toUpperCase());
+//            this.model.append(model.toUpperCase());
+//            this.duration.append(duration.toUpperCase());
+//            this.serverTime.append(serverTime.toUpperCase());
+//            this.preserveByte.append(preserveByte.toUpperCase());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+
+    public StringBuilder getHead() {
+        return head;
+    }
+
+    public void setHead(StringBuilder head) {
+        this.head = head;
     }
 
     public StringBuilder getType() {
@@ -107,12 +133,7 @@ public class Message {
 
     public void setClientIp(StringBuilder clientIp) {
         this.clientIp = clientIp;
-//        this.clientIp = new StringBuilder(StringUtils.hexStr2Ip(clientIp.toString()));
     }
-
-//    public void setClientIp(String clientIp) {
-//        this.clientIp = new StringBuilder(StringUtils.hexStr2Ip(clientIp));
-//    }
 
     public StringBuilder getVoltage() {
         return voltage;
@@ -178,8 +199,15 @@ public class Message {
         this.preserveByte = preserveByte;
     }
 
-    @Override
+    public StringBuilder getTail() {
+        return tail;
+    }
+
+    public void setTail(StringBuilder tail) {
+        this.tail = tail;
+    }
+
     public String toString() {
-        return head.append(type).append(identification).append(length).append(clientIp).append(voltage).append(current).append(control).append(status).append(model).append(serverTime).append(preserveByte).append(tail).toString().toUpperCase();
+        return new StringBuilder().append(head).append(type).append(identification).append(length).append(clientIp).append(voltage).append(current).append(control).append(status).append(model).append(serverTime).append(preserveByte).append(tail).toString().toUpperCase();
     }
 }
