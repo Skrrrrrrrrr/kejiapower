@@ -1,15 +1,16 @@
 package com.longriver.kejiapower.controllers;
 
 import com.longriver.kejiapower.POJO.ClientMessage;
+import com.longriver.kejiapower.POJO.Message;
 import com.longriver.kejiapower.POJO.ServerMessage;
 import com.longriver.kejiapower.model.Client;
 import com.longriver.kejiapower.model.TcpServer;
 import com.longriver.kejiapower.utils.DataFrame;
+import com.longriver.kejiapower.utils.DataFrameType;
 import com.longriver.kejiapower.utils.StringUtils;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -20,7 +21,6 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -77,13 +77,13 @@ public class KejiaPowerController {
     private Tab tab1;
 
     @FXML
-    private LineChart<?, ?> voltageChartInDisplayTab;
+    private LineChart<Number, Number> voltageChartInDisplayTab;
 
     @FXML
-    private LineChart<?, ?> currentChartInDisplayTab;
+    private LineChart<Number, Number> currentChartInDisplayTab;
 
     @FXML
-    private LineChart<?, ?> powerChartInDisplayTab;
+    private LineChart<Number, Number> powerChartInDisplayTab;
 
     @FXML
     private Label powerIdInDisplayTab;
@@ -117,13 +117,15 @@ public class KejiaPowerController {
         brushInit();
     }
 
-    private NumberAxis xAxis = new NumberAxis();
+    private NumberAxis xAxisofVoltage = new NumberAxis();
+    private NumberAxis xAxisofCurrent = new NumberAxis();
+    private NumberAxis xAxisofPower = new NumberAxis();
     private NumberAxis yAxisofVoltage = new NumberAxis();
     private NumberAxis yAxisofCurrent = new NumberAxis();
     private NumberAxis yAxisofPower = new NumberAxis();
-    XYChart.Series voltageSeries = new XYChart.Series();
-    XYChart.Series currentSeries = new XYChart.Series();
-    XYChart.Series powerSeries = new XYChart.Series();
+    private XYChart.Series voltageSeries = new XYChart.Series();
+    private XYChart.Series currentSeries = new XYChart.Series();
+    private XYChart.Series powerSeries = new XYChart.Series();
 
 
     private static final int BUFF_SIZE = 1024;
@@ -134,7 +136,8 @@ public class KejiaPowerController {
     private BlockingQueue<String> outBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
 
     private BlockingQueue<byte[]> fileInBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
-//    private BlockingQueue<byte[]> fileOutBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
+    //    private BlockingQueue<byte[]> fileOutBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
+    private BlockingQueue<Message> repaintBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
 
 //    ExecutorService es = Executors.newFixedThreadPool(1);
 
@@ -191,6 +194,64 @@ public class KejiaPowerController {
         this.serverMessage = serverMessage;
     }
 
+
+    private void brushInit() {
+        //defining the axes
+        xAxisofVoltage.setLowerBound(0.0);
+        xAxisofVoltage.setUpperBound(60);
+        xAxisofVoltage.setLabel("时间（s）");
+        xAxisofCurrent.setLowerBound(0.0);
+        xAxisofCurrent.setUpperBound(60);
+        xAxisofCurrent.setLabel("时间（s）");
+        xAxisofPower.setLowerBound(0.0);
+        xAxisofPower.setUpperBound(60);
+        xAxisofPower.setLabel("时间（s）");
+//            final NumberAxis xAxisofVoltage = new NumberAxis();
+        yAxisofVoltage.setLowerBound(0.0);
+        yAxisofVoltage.setUpperBound(1000.0);
+        yAxisofVoltage.setLabel("电压（V）");
+        yAxisofCurrent.setLowerBound(0.0);
+        yAxisofCurrent.setUpperBound(100.0);
+        yAxisofCurrent.setLabel("电流（A）");
+        yAxisofPower.setLowerBound(0.0);
+        yAxisofPower.setUpperBound(20000.0);
+        yAxisofPower.setLabel("功率（W）");
+
+        //creating the chart
+        voltageChartInDisplayTab = new LineChart<Number, Number>(xAxisofVoltage, yAxisofVoltage);
+        voltageChartInDisplayTab.setTitle("电压");
+        voltageChartInDisplayTab.setCreateSymbols(false);
+        currentChartInDisplayTab = new LineChart<Number, Number>(xAxisofCurrent, yAxisofCurrent);
+        currentChartInDisplayTab.setTitle("电流");
+        currentChartInDisplayTab.setCreateSymbols(false);
+        powerChartInDisplayTab = new LineChart<Number, Number>(xAxisofPower, yAxisofPower);
+        powerChartInDisplayTab.setTitle("功率");
+        powerChartInDisplayTab.setCreateSymbols(false);
+        voltageSeries.setName("Voltage");
+        currentSeries.setName("Current");
+        powerSeries.setName("Power");
+
+
+
+        voltageSeries.getData().add(new XYChart.Data(1, 23));
+        voltageSeries.getData().add(new XYChart.Data(2, 14));
+        voltageSeries.getData().add(new XYChart.Data(3, 15));
+        voltageSeries.getData().add(new XYChart.Data(4, 24));
+        voltageSeries.getData().add(new XYChart.Data(5, 34));
+        voltageSeries.getData().add(new XYChart.Data(6, 36));
+        voltageSeries.getData().add(new XYChart.Data(7, 22));
+        voltageSeries.getData().add(new XYChart.Data(8, 45));
+        voltageSeries.getData().add(new XYChart.Data(9, 43));
+        voltageSeries.getData().add(new XYChart.Data(10, 17));
+        voltageSeries.getData().add(new XYChart.Data(11, 29));
+        voltageSeries.getData().add(new XYChart.Data(12, 25));
+        voltageChartInDisplayTab.getData().add(voltageSeries);
+
+    }
+
+
+
+
     @FXML
     void powerConnectedBtnOnClick(ActionEvent event) {
 //        int clientThread = powerDisplayTab.getTabs().size();
@@ -223,15 +284,24 @@ public class KejiaPowerController {
                                             serverMessage.generateHeartBeatMessage(clientMessage);
                                             tcpServer.getSocket().getOutputStream().write(serverMessage.toString().getBytes());
                                             tcpServer.getSocket().getOutputStream().flush();
-//                                            fileWriteThread.start();//是否每次需要打开文件操作IO
-
+                                            if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
+                                                fileWriteThread.start();//是否每次需要打开文件操作IO
+                                            }
+                                            repaintBlockingQueue.put(clientMessage);
+                                            if (fileInBlockingQueue.size() >= BUFF_SIZE) {
+                                                fileInBlockingQueue.take();
+                                                fileInBlockingQueue.take();
+                                            }
+                                            fileInBlockingQueue.put(clientMessage.toString().getBytes());
+                                            fileInBlockingQueue.put(serverMessage.toString().getBytes());
                                             break;
                                         case Control:
+//                                            if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
                                             fileWriteThread.start();//是否每次需要打开文件操作IO
+//                                            }
                                             break;
                                         case Report:
                                             if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
-//                                                repaintThread.start();
                                                 fileWriteThread.start();//是否每次需要打开文件操作IO
                                             }
                                             break;
@@ -340,15 +410,23 @@ public class KejiaPowerController {
 
     //主界面刷新线程，现阶段是刷rxxTextArea
     private Thread repaintThread = new Thread(new Runnable() {
+        Message message = new Message();
+
         @Override
         public void run() {
             while (!Thread.currentThread().isInterrupted()) {
                 try {
-                    if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
-                        rxTextArea.setText(StringUtils.getFileAddSpace(clientMessage.toString(), 2));
+                    message = repaintBlockingQueue.take();
+                    switch (DataFrame.dataFrameTypeClassify(message)) {
+                        case Report:
+                            rxTextArea.setText(StringUtils.getFileAddSpace(message.toString(), 2));
+                            break;
+                        default:
                     }
-                } catch (Exception e) {
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                     logger.error(e.getMessage());
+
                 }
             }
         }
@@ -359,35 +437,44 @@ public class KejiaPowerController {
         FileOutputStream output = null;
         byte[] bytes = new byte[BUFF_SIZE];
 
-        {
-            try {
-                file = new File("./logs/runtime.log");
-                if (!file.exists()) file.createNewFile();
-                FileOutputStream output = new FileOutputStream(file);
-            } catch (IOException ie) {
-                logger.error(ie.getMessage());
-            }
-        }
+//        {
+//            try {
+//                file = new File("./logs/runtime.log");
+//                if (!file.exists()) file.createNewFile();
+//                FileOutputStream output = new FileOutputStream(file);
+//            } catch (
+//                    IOException ie) {
+//                logger.error(ie.getMessage());
+//            }
+//        }
+
 
         @Override
         public void run() {
             try {
-
-                if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
-                    bytes = new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmss:SSS").format(new Date())).append(clientMessage).toString().getBytes();
-                    output.write(bytes);                //将数组的信息写入文件中
-                    bytes = new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmss:SSS").format(new Date())).append(serverMessage).toString().getBytes();
-                    output.write(bytes);                //将数组的信息写入文件中
+                try {
+                    file = new File("./logs/runtime.log");
+                    if (!file.exists()) file.createNewFile();
+                    output = new FileOutputStream(file);
+                } catch (
+                        IOException ie) {
+                    logger.error(ie.getMessage());
                 }
+                bytes = new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())).append(clientMessage).toString().getBytes();
+                output.write(bytes);                //将数组的信息写入文件中
+                bytes = new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())).append(serverMessage).toString().getBytes();
+                output.write(bytes);                //将数组的信息写入文件中
             } catch (Exception e) {
                 logger.error(e.getMessage());
             } finally {
                 try {
                     output.flush();
                     output.close();
+
                     Thread.currentThread().interrupt();
                 } catch (IOException e) {
                     e.printStackTrace();
+                    logger.error(e.getMessage());
                 }
             }
         }
@@ -398,18 +485,24 @@ public class KejiaPowerController {
         byte[] bytes = new byte[BUFF_SIZE];
         BufferedInputStream bufferedInput = null;
 
-        {
-            try {
-                if (!file.exists()) file.createNewFile();
-                BufferedInputStream bufferedInput = new BufferedInputStream(new FileInputStream(file));
-            } catch (IOException ie) {
-                logger.error(ie.getMessage());
-            }
-        }
+//        {
+//            try {
+//                if (!file.exists()) file.createNewFile();
+//                BufferedInputStream bufferedInput = new BufferedInputStream(new FileInputStream(file));
+//            } catch (IOException ie) {
+//                logger.error(ie.getMessage());
+//            }
+//        }
 
         @Override
         public void run() {
-
+            try {
+                if (!file.exists()) file.createNewFile();
+                BufferedInputStream bufferedInput = new BufferedInputStream(new FileInputStream(file));
+                fileInBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
+            } catch (IOException ie) {
+                logger.error(ie.getMessage());
+            }
             while (!Thread.currentThread().isInterrupted()) {
                 try {
                     while (bufferedInput.read(bytes) != -1) {
@@ -430,40 +523,7 @@ public class KejiaPowerController {
         }
     });
 
-    private void brushInit() {
-        //defining the axes
-        xAxis.setLowerBound(0.0);
-        xAxis.setUpperBound(60);
-        xAxis.setLabel("时间（s）");
-//            final NumberAxis xAxisofVoltage = new NumberAxis();
-        yAxisofVoltage.setLowerBound(0.0);
-        yAxisofVoltage.setUpperBound(1000.0);
-        yAxisofVoltage.setLabel("电压（V）");
-        yAxisofCurrent.setLowerBound(0.0);
-        yAxisofCurrent.setUpperBound(100.0);
-        yAxisofCurrent.setLabel("电流（A）");
-        yAxisofPower.setLowerBound(0.0);
-        yAxisofPower.setUpperBound(20000.0);
-        yAxisofPower.setLabel("功率（W）");
-
-        //creating the chart
-        voltageChartInDisplayTab = new LineChart<Number, Number>(xAxis, yAxisofVoltage);
-        voltageChartInDisplayTab.setTitle("电压");
-        voltageChartInDisplayTab.setCreateSymbols(false);
-        currentChartInDisplayTab = new LineChart<Number, Number>(xAxis, yAxisofCurrent);
-        currentChartInDisplayTab.setTitle("电流");
-        currentChartInDisplayTab.setCreateSymbols(false);
-        powerChartInDisplayTab = new LineChart<Number, Number>(xAxis, yAxisofPower);
-        powerChartInDisplayTab.setTitle("功率");
-        powerChartInDisplayTab.setCreateSymbols(false);
-        voltageSeries.setName("Voltage");
-        currentSeries.setName("Current");
-        powerSeries.setName("Power");
-
-    }
-
-
-//    public void refreshLineChart(LineChart chart, XYChart.Series series) {
+    //    public void refreshLineChart(LineChart chart, XYChart.Series series) {
 //        chart.getData().add(series);
 //    }
 //
