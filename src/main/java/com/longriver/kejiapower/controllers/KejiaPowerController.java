@@ -113,16 +113,12 @@ public class KejiaPowerController {
     void portTextFieldOnClick(ActionEvent event) {
     }
 
-    public KejiaPowerController() {
-        brushInit();
-    }
-
-    private NumberAxis xAxisofVoltage = new NumberAxis();
-    private NumberAxis xAxisofCurrent = new NumberAxis();
-    private NumberAxis xAxisofPower = new NumberAxis();
-    private NumberAxis yAxisofVoltage = new NumberAxis();
-    private NumberAxis yAxisofCurrent = new NumberAxis();
-    private NumberAxis yAxisofPower = new NumberAxis();
+    private final NumberAxis xAxisofVoltage = new NumberAxis();
+    private final NumberAxis xAxisofCurrent = new NumberAxis();
+    private final NumberAxis xAxisofPower = new NumberAxis();
+    private final NumberAxis yAxisofVoltage = new NumberAxis();
+    private final NumberAxis yAxisofCurrent = new NumberAxis();
+    private final NumberAxis yAxisofPower = new NumberAxis();
     private XYChart.Series voltageSeries = new XYChart.Series();
     private XYChart.Series currentSeries = new XYChart.Series();
     private XYChart.Series powerSeries = new XYChart.Series();
@@ -153,6 +149,9 @@ public class KejiaPowerController {
 
     private File file = null;//存取文件
 
+    public KejiaPowerController() {
+        brushInit();
+    }
 
     public BlockingQueue<String> getInBlockingQueue() {
         return inBlockingQueue;
@@ -194,7 +193,7 @@ public class KejiaPowerController {
         this.serverMessage = serverMessage;
     }
 
-
+    @FXML
     private void brushInit() {
         //defining the axes
         xAxisofVoltage.setLowerBound(0.0);
@@ -232,25 +231,12 @@ public class KejiaPowerController {
         powerSeries.setName("Power");
 
 
-
         voltageSeries.getData().add(new XYChart.Data(1, 23));
         voltageSeries.getData().add(new XYChart.Data(2, 14));
         voltageSeries.getData().add(new XYChart.Data(3, 15));
-        voltageSeries.getData().add(new XYChart.Data(4, 24));
-        voltageSeries.getData().add(new XYChart.Data(5, 34));
-        voltageSeries.getData().add(new XYChart.Data(6, 36));
-        voltageSeries.getData().add(new XYChart.Data(7, 22));
-        voltageSeries.getData().add(new XYChart.Data(8, 45));
-        voltageSeries.getData().add(new XYChart.Data(9, 43));
-        voltageSeries.getData().add(new XYChart.Data(10, 17));
-        voltageSeries.getData().add(new XYChart.Data(11, 29));
-        voltageSeries.getData().add(new XYChart.Data(12, 25));
         voltageChartInDisplayTab.getData().add(voltageSeries);
 
     }
-
-
-
 
     @FXML
     void powerConnectedBtnOnClick(ActionEvent event) {
@@ -284,9 +270,9 @@ public class KejiaPowerController {
                                             serverMessage.generateHeartBeatMessage(clientMessage);
                                             tcpServer.getSocket().getOutputStream().write(serverMessage.toString().getBytes());
                                             tcpServer.getSocket().getOutputStream().flush();
-                                            if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
-                                                fileWriteThread.start();//是否每次需要打开文件操作IO
-                                            }
+//                                            if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
+//                                                fileWriteThread.start();//是否每次需要打开文件操作IO
+//                                            }
                                             repaintBlockingQueue.put(clientMessage);
                                             if (fileInBlockingQueue.size() >= BUFF_SIZE) {
                                                 fileInBlockingQueue.take();
@@ -417,12 +403,16 @@ public class KejiaPowerController {
             while (!Thread.currentThread().isInterrupted()) {
                 try {
                     message = repaintBlockingQueue.take();
-                    switch (DataFrame.dataFrameTypeClassify(message)) {
-                        case Report:
-                            rxTextArea.setText(StringUtils.getFileAddSpace(message.toString(), 2));
-                            break;
-                        default:
-                    }
+                    rxTextArea.setText(StringUtils.getFileAddSpace(message.toString(), 2));
+
+
+                    voltageSeries.getData().add(new XYChart.Data<Number, Number>(1, Integer.valueOf(message.getVoltage().toString(), 16).floatValue() / Base));
+//                    switch (DataFrame.dataFrameTypeClassify(message)) {
+//                        case Report:
+//                            rxTextArea.setText(StringUtils.getFileAddSpace(message.toString(), 2));
+//                            break;
+//                        default:
+//                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     logger.error(e.getMessage());

@@ -7,8 +7,7 @@ import org.slf4j.LoggerFactory;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.*;
 
 /**
  * Program:TcpServer
@@ -99,10 +98,12 @@ public class TcpServer implements Runnable {
     public void startServer() throws Exception {
         logger.info("The TCP Server is running.");
         serverSocket = new ServerSocket(PORT);
-
+        HandlerSocketThreadPool handlerSocketThreadPool =
+                new HandlerSocketThreadPool(8, BUFF_SIZE);
         try {
             while (!Thread.currentThread().isInterrupted()) {
-                new Handler(socket = serverSocket.accept()).start();
+//                new Handler(socket = serverSocket.accept()).start();
+                handlerSocketThreadPool.execute(new Handler(socket = serverSocket.accept()));
                 logger.info("Server Thread starts!");
 //                if (Thread.currentThread().isInterrupted()) {
 //                    logger.info("TcpServer Thread interrupted");
@@ -140,8 +141,23 @@ public class TcpServer implements Runnable {
         }
     }
 
+    public static class HandlerSocketThreadPool {
+        // 线程池
+        private ExecutorService executor;
+        public HandlerSocketThreadPool(int maxPoolSize, int queueSize) {
+            this.executor = new ThreadPoolExecutor(
+                    1, // 8
+                    maxPoolSize,
+                    120L,
+                    TimeUnit.SECONDS,
+                    new ArrayBlockingQueue<Runnable>(queueSize));
+        }
+        public void execute(Runnable task) {
+            this.executor.execute(task);
+        }
+    }
 
-    private static class Handler extends Thread {
+    private class Handler extends Thread {
         private Socket serverSocketAccept;
         private ObjectInputStream input;
         private ObjectOutputStream output;

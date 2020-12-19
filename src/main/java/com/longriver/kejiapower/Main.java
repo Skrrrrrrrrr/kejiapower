@@ -1,8 +1,6 @@
 package com.longriver.kejiapower;
 
 import com.longriver.kejiapower.controllers.KejiaPowerController;
-import com.longriver.kejiapower.utils.DataFrame;
-import com.longriver.kejiapower.utils.StringUtils;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -22,17 +20,17 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-//        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("main/java/com/longriver/kejiapower/view/fxml/kejiapowerController.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/fxml/kejiapowerLayout.fxml"));
 
-        URL url = getClass().getClassLoader().getResource("view/fxml/kejiapowerController.fxml");
-//        Parent root = FXMLLoader.load(url);
-        KejiaPowerController kejiaPowerController = new KejiaPowerController();
-
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setController(kejiaPowerController);
-        fxmlLoader.setLocation(url);
-//        fxmlLoader.load();
-        Parent root = fxmlLoader.load();
+//        URL url = getClass().getClassLoader().getResource("view/fxml/kejiapowerLayout.fxml");
+////        Parent root = FXMLLoader.load(url);
+//        KejiaPowerController kejiaPowerController = new KejiaPowerController();
+//
+//        FXMLLoader fxmlLoader = new FXMLLoader();
+//        fxmlLoader.setController(kejiaPowerController);
+//        fxmlLoader.setLocation(url);
+////        fxmlLoader.load();
+//        Parent root = fxmlLoader.load();
 
 //        KejiaPowerController kejiaPowerController = fxmlLoader.getController();
 
@@ -54,22 +52,6 @@ public class Main extends Application {
                 }
             }
         });
-
-//        new Thread(new Runnable() {
-//
-//            @Override
-//            public void run() {
-//                try {
-//                    if (!(tcpServer.getOutputString() == null || tcpServer.getOutputString().length() <= 0)) {
-//
-//                    }
-//                    Thread.sleep(500);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                } finally {
-//                }
-//            }
-//        });
 
     }
 
