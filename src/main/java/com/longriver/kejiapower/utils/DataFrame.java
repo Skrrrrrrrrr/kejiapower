@@ -19,9 +19,9 @@ public class DataFrame {
             case "0A":
                 return DataFrameType.HeartBeat;//心跳帧
             case "0B":
-                return DataFrameType.Control;//控制帧
+                return DataFrameType.Report;//控制帧
             case "0C":
-                return DataFrameType.Report;//上报帧
+                return DataFrameType.Control;//上报帧
             default:
                 throw new RuntimeException("Unrecognized Frame Type(Not HeartBeat or Control or Massage)");
         }
@@ -33,9 +33,9 @@ public class DataFrame {
             case "0A":
                 return DataFrameType.HeartBeat;//心跳帧
             case "0B":
-                return DataFrameType.Control;//控制帧
+                return DataFrameType.Report;//控制帧
             case "0C":
-                return DataFrameType.Report;//上报帧
+                return DataFrameType.Control;//上报帧
             default:
                 throw new RuntimeException("Unrecognized Frame Type(Not HeartBeat or Control or Massage)");
         }

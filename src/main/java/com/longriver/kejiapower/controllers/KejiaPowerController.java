@@ -6,11 +6,11 @@ import com.longriver.kejiapower.POJO.ServerMessage;
 import com.longriver.kejiapower.model.Client;
 import com.longriver.kejiapower.model.TcpServer;
 import com.longriver.kejiapower.utils.DataFrame;
-import com.longriver.kejiapower.utils.DataFrameType;
 import com.longriver.kejiapower.utils.StringUtils;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -77,19 +77,16 @@ public class KejiaPowerController {
     private Tab tab1;
 
     @FXML
-    private LineChart<Number, Number> voltageChartInDisplayTab;
+    private LineChart<String, Number> voltageChartInDisplayTab ;
 
     @FXML
-    private LineChart<Number, Number> currentChartInDisplayTab;
+    private LineChart<String, Number> currentChartInDisplayTab;
 
     @FXML
-    private LineChart<Number, Number> powerChartInDisplayTab;
+    private LineChart<String, Number> powerChartInDisplayTab ;
 
     @FXML
     private Label powerIdInDisplayTab;
-
-    @FXML
-    private Label powerStatusInDisplayTab;
 
     @FXML
     private TabPane powerStatusTab;
@@ -113,12 +110,12 @@ public class KejiaPowerController {
     void portTextFieldOnClick(ActionEvent event) {
     }
 
-    private final NumberAxis xAxisofVoltage = new NumberAxis();
-    private final NumberAxis xAxisofCurrent = new NumberAxis();
-    private final NumberAxis xAxisofPower = new NumberAxis();
-    private final NumberAxis yAxisofVoltage = new NumberAxis();
-    private final NumberAxis yAxisofCurrent = new NumberAxis();
-    private final NumberAxis yAxisofPower = new NumberAxis();
+    //    private final NumberAxis xAxisofVoltage = new NumberAxis();
+//    private final NumberAxis xAxisofCurrent = new NumberAxis();
+//    private final NumberAxis xAxisofPower = new NumberAxis();
+//    private final NumberAxis yAxisofVoltage = new NumberAxis();
+//    private final NumberAxis yAxisofCurrent = new NumberAxis();
+//    private final NumberAxis yAxisofPower = new NumberAxis();
     private XYChart.Series voltageSeries = new XYChart.Series();
     private XYChart.Series currentSeries = new XYChart.Series();
     private XYChart.Series powerSeries = new XYChart.Series();
@@ -150,7 +147,6 @@ public class KejiaPowerController {
     private File file = null;//存取文件
 
     public KejiaPowerController() {
-        brushInit();
     }
 
     public BlockingQueue<String> getInBlockingQueue() {
@@ -194,52 +190,54 @@ public class KejiaPowerController {
     }
 
     @FXML
-    private void brushInit() {
-        //defining the axes
-        xAxisofVoltage.setLowerBound(0.0);
-        xAxisofVoltage.setUpperBound(60);
-        xAxisofVoltage.setLabel("时间（s）");
-        xAxisofCurrent.setLowerBound(0.0);
-        xAxisofCurrent.setUpperBound(60);
-        xAxisofCurrent.setLabel("时间（s）");
-        xAxisofPower.setLowerBound(0.0);
-        xAxisofPower.setUpperBound(60);
-        xAxisofPower.setLabel("时间（s）");
-//            final NumberAxis xAxisofVoltage = new NumberAxis();
-        yAxisofVoltage.setLowerBound(0.0);
-        yAxisofVoltage.setUpperBound(1000.0);
-        yAxisofVoltage.setLabel("电压（V）");
-        yAxisofCurrent.setLowerBound(0.0);
-        yAxisofCurrent.setUpperBound(100.0);
-        yAxisofCurrent.setLabel("电流（A）");
-        yAxisofPower.setLowerBound(0.0);
-        yAxisofPower.setUpperBound(20000.0);
-        yAxisofPower.setLabel("功率（W）");
+    private void initialize() {
+////        defining the axes
+//        xAxisofVoltage.setLowerBound(0.0);
+//        xAxisofVoltage.setUpperBound(60);
+//        xAxisofVoltage.setLabel("时间（s）");
+//        xAxisofCurrent.setLowerBound(0.0);
+//        xAxisofCurrent.setUpperBound(60);
+//        xAxisofCurrent.setLabel("时间（s）");
+//        xAxisofPower.setLowerBound(0.0);
+//        xAxisofPower.setUpperBound(60);
+//        xAxisofPower.setLabel("时间（s）");
+////            final NumberAxis xAxisofVoltage = new NumberAxis();
+//        yAxisofVoltage.setLowerBound(0.0);
+//        yAxisofVoltage.setUpperBound(1000.0);
+//        yAxisofVoltage.setLabel("电压（V）");
+//        yAxisofCurrent.setLowerBound(0.0);
+//        yAxisofCurrent.setUpperBound(100.0);
+//        yAxisofCurrent.setLabel("电流（A）");
+//        yAxisofPower.setLowerBound(0.0);
+//        yAxisofPower.setUpperBound(20000.0);
+//        yAxisofPower.setLabel("功率（W）");
 
         //creating the chart
-        voltageChartInDisplayTab = new LineChart<Number, Number>(xAxisofVoltage, yAxisofVoltage);
+//        voltageChartInDisplayTab = new LineChart<>(xAxisofVoltage, yAxisofVoltage);
         voltageChartInDisplayTab.setTitle("电压");
-        voltageChartInDisplayTab.setCreateSymbols(false);
-        currentChartInDisplayTab = new LineChart<Number, Number>(xAxisofCurrent, yAxisofCurrent);
+//        voltageChartInDisplayTab.setCreateSymbols(false);
+//        currentChartInDisplayTab = new LineChart<>(xAxisofCurrent, yAxisofCurrent);
         currentChartInDisplayTab.setTitle("电流");
-        currentChartInDisplayTab.setCreateSymbols(false);
-        powerChartInDisplayTab = new LineChart<Number, Number>(xAxisofPower, yAxisofPower);
+//        currentChartInDisplayTab.setCreateSymbols(false);
+//        powerChartInDisplayTab = new LineChart<>(xAxisofPower, yAxisofPower);
         powerChartInDisplayTab.setTitle("功率");
-        powerChartInDisplayTab.setCreateSymbols(false);
-        voltageSeries.setName("Voltage");
-        currentSeries.setName("Current");
-        powerSeries.setName("Power");
+//        powerChartInDisplayTab.setCreateSymbols(false);
+//        voltageSeries.setName("Voltage");
+//        currentSeries.setName("Current");
+//        powerSeries.setName("Power");
+//
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+        CategoryAxis xCategoryAxis = new CategoryAxis("时间",simpleDateFormat.format(new Date()),simpleDateFormat.format(new Date()));
 
-
-        voltageSeries.getData().add(new XYChart.Data(1, 23));
-        voltageSeries.getData().add(new XYChart.Data(2, 14));
-        voltageSeries.getData().add(new XYChart.Data(3, 15));
         voltageChartInDisplayTab.getData().add(voltageSeries);
-
+        currentChartInDisplayTab.getData().add(currentSeries);
+        powerChartInDisplayTab.getData().add(powerSeries);
+//
     }
 
     @FXML
     void powerConnectedBtnOnClick(ActionEvent event) {
+
 //        int clientThread = powerDisplayTab.getTabs().size();
         try {
             switch (powerConnectedBtn.getText()) {
@@ -273,7 +271,6 @@ public class KejiaPowerController {
 //                                            if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
 //                                                fileWriteThread.start();//是否每次需要打开文件操作IO
 //                                            }
-                                            repaintBlockingQueue.put(clientMessage);
                                             if (fileInBlockingQueue.size() >= BUFF_SIZE) {
                                                 fileInBlockingQueue.take();
                                                 fileInBlockingQueue.take();
@@ -288,7 +285,8 @@ public class KejiaPowerController {
                                             break;
                                         case Report:
                                             if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
-                                                fileWriteThread.start();//是否每次需要打开文件操作IO
+                                                repaintBlockingQueue.put(clientMessage);
+//                                                fileWriteThread.start();//是否每次需要打开文件操作IO
                                             }
                                             break;
                                         default:
@@ -403,16 +401,19 @@ public class KejiaPowerController {
             while (!Thread.currentThread().isInterrupted()) {
                 try {
                     message = repaintBlockingQueue.take();
-                    rxTextArea.setText(StringUtils.getFileAddSpace(message.toString(), 2));
+                    rxTextArea.setText(StringUtils.getStringAddSpace(message.toString(), 2));
+//                    voltageSeries.getData().add(new XYChart.Data<String, Number>(new SimpleDateFormat("HH:mm:ss").format(new Date()), Integer.valueOf(message.getVoltage().toString(), 16).floatValue() / Base));
+//                    currentSeries.getData().add(new XYChart.Data<String, Number>(new SimpleDateFormat("HH:mm:ss").format(new Date()), Integer.valueOf(message.getCurrent().toString(), 16).floatValue() / Base));
 
-
-                    voltageSeries.getData().add(new XYChart.Data<Number, Number>(1, Integer.valueOf(message.getVoltage().toString(), 16).floatValue() / Base));
-//                    switch (DataFrame.dataFrameTypeClassify(message)) {
-//                        case Report:
-//                            rxTextArea.setText(StringUtils.getFileAddSpace(message.toString(), 2));
-//                            break;
-//                        default:
-//                    }
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            //更新JavaFX的主线程的代码放在此处
+                            voltageSeries.getData().add(new XYChart.Data<String, Number>(new SimpleDateFormat("HH:mm:ss").format(new Date()), Integer.valueOf(message.getVoltage().toString(), 16).floatValue() / Base));
+                            currentSeries.getData().add(new XYChart.Data<String, Number>(new SimpleDateFormat("HH:mm:ss").format(new Date()), Integer.valueOf(message.getCurrent().toString(), 16).floatValue() / Base));
+                            powerSeries.getData().add(new XYChart.Data<String, Number>(new SimpleDateFormat("HH:mm:ss").format(new Date()), Integer.valueOf(message.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(message.getCurrent().toString(), 16).floatValue() / Base));
+                        }
+                    });
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     logger.error(e.getMessage());
@@ -517,6 +518,8 @@ public class KejiaPowerController {
 //        chart.getData().add(series);
 //    }
 //
+
+
     //内部类，画图
     private class PaintBrush implements Runnable {
 
@@ -525,25 +528,23 @@ public class KejiaPowerController {
 //            long nowTime = System.currentTimeMillis();
 //            Calendar cal = Calendar.getInstance();
 //            cal.setTimeInMillis(nowTime);
-            long count = 0;
 
             XYChart.Data data = new XYChart.Data();
 
             try {
                 if ("停止接收".equals(rxTextBtn.getText())) {
-                    rxTextArea.setText(StringUtils.getFileAddSpace(clientMessage.toString(), 2));
+                    rxTextArea.setText(StringUtils.getStringAddSpace(clientMessage.toString(), 2));
                 }
                 //Linecharts
-                voltageSeries.getData().add(new XYChart.Data(count, Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
-                currentSeries.getData().add(new XYChart.Data(count, Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
-                powerSeries.getData().add(new XYChart.Data(count, (Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() * Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue()) / Base));
+                voltageSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
+                currentSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
+                powerSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), (Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() * Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue()) / Base));
 
                 Platform.runLater(() -> {//修改界面的工作
                     voltageChartInDisplayTab.getData().add(voltageSeries);
                     currentChartInDisplayTab.getData().add(currentSeries);
                     powerChartInDisplayTab.getData().add(powerSeries);
                 });
-                count = count + 5;
             } catch (Exception e) {
                 logger.error(e.getMessage());
             }

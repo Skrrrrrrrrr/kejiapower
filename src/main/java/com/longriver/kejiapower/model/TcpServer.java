@@ -23,7 +23,7 @@ public class TcpServer implements Runnable {
 
     //必须实现线程，否则主界面卡死在内部类的.accept()
     /* Setting up variables */
-    private static final int PORT = 9001;
+    private static final int PORT = 10159;
     private static final int BUFF_SIZE = 1024;
 
     static String inputString;

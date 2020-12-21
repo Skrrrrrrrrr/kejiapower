@@ -44,7 +44,7 @@ public class StringUtils {
         return result;
     }
 
-    public static String getFileAddSpace(String replace, Integer blanks) {
+    public static String getStringAddSpace(String replace, Integer blanks) {
 
         String regex = new StringBuffer().append("(.{").append(blanks.toString()).append("})").toString();
         replace = replace.replaceAll(regex, "$1 ");
