@@ -18,9 +18,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.longriver.kejiapower.controllers.KejiaPowerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.longriver.kejiapower.controllers.KejiaPowerController">
    <children>
-      <GridPane fx:id="txrxGrid" layoutY="450.0" prefHeight="150.0" prefWidth="600.0">
+      <GridPane fx:id="txrxGrid" layoutY="450.0" prefHeight="150.0" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="700.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="900.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="600.0" />
@@ -37,7 +37,7 @@
             <Button fx:id="txTextBtn" disable="true" mnemonicParsing="false" onAction="#txTextBtnOnClick" text="数据发送" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <GridPane fx:id="testGrid" layoutX="600.0" layoutY="450.0" prefHeight="150.0" prefWidth="300.0">
+      <GridPane fx:id="testGrid" layoutX="600.0" layoutY="450.0" prefHeight="150.0" prefWidth="300.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="700.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -101,7 +101,7 @@
             </TabPane>
          </children>
       </GridPane>
-      <GridPane fx:id="gridOfDisplayTab" prefHeight="450.0" prefWidth="600.0">
+      <GridPane fx:id="gridOfDisplayTab" prefHeight="700.0" prefWidth="600.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="300.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -109,48 +109,48 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TabPane fx:id="powerDisplayTab" prefHeight="450.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="powerDisplayTab" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab fx:id="tab1" text="电源A">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="256.0" prefWidth="269.0">
                            <children>
-                              <GridPane id="displayArea" prefHeight="400.0" prefWidth="600.0">
+                              <GridPane id="displayArea" prefHeight="650.0" prefWidth="600.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="543.8000183105469" minWidth="10.0" prefWidth="471.0" />
                                 </columnConstraints>
                                 <rowConstraints>
-                                  <RowConstraints maxHeight="128.60001220703126" minHeight="10.0" prefHeight="28.000003051757812" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="224.60000457763672" minHeight="10.0" prefHeight="135.1999969482422" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="242.20001831054685" minHeight="10.0" prefHeight="123.40001220703124" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="242.20001831054685" minHeight="10.0" prefHeight="129.8000061035156" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="128.60001220703126" minHeight="0.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="281.0" minHeight="10.0" prefHeight="196.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="268.0" minHeight="10.0" prefHeight="216.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="242.20001831054685" minHeight="10.0" prefHeight="202.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <LineChart fx:id="voltageChartInDisplayTab" animated="false" title="电压" titleSide="RIGHT" GridPane.rowIndex="1">
-                                      <xAxis>
-                                        <CategoryAxis side="BOTTOM" />
-                                      </xAxis>
-                                      <yAxis>
-                                        <NumberAxis side="LEFT" />
-                                      </yAxis>
-                                    </LineChart>
-                                    <LineChart fx:id="currentChartInDisplayTab" animated="false" title="电流" titleSide="RIGHT" GridPane.rowIndex="2">
-                                      <xAxis>
-                                        <CategoryAxis side="BOTTOM" />
-                                      </xAxis>
-                                      <yAxis>
-                                        <NumberAxis side="LEFT" />
-                                      </yAxis>
-                                    </LineChart>
-                                    <LineChart fx:id="powerChartInDisplayTab" animated="false" title="功率" titleSide="RIGHT" GridPane.rowIndex="3">
-                                      <xAxis>
-                                        <CategoryAxis side="BOTTOM" />
-                                      </xAxis>
-                                      <yAxis>
-                                        <NumberAxis side="LEFT" />
-                                      </yAxis>
-                                    </LineChart>
                                     <Label fx:id="powerIdInDisplayTab" prefHeight="14.0" prefWidth="424.0" text="Id：" />
+                                    <LineChart fx:id="voltageChartInDisplayTab" alternativeColumnFillVisible="true" animated="false" legendVisible="false" title="电压" titleSide="RIGHT" GridPane.rowIndex="1">
+                                      <xAxis>
+                                        <CategoryAxis fx:id="vX" side="BOTTOM" tickLabelRotation="45.0" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis fx:id="vY" minorTickVisible="false" side="LEFT" tickMarkVisible="false" />
+                                      </yAxis>
+                                    </LineChart>
+                                    <LineChart fx:id="currentChartInDisplayTab" alternativeColumnFillVisible="true" animated="false" legendVisible="false" title="电流" titleSide="RIGHT" GridPane.rowIndex="2">
+                                      <xAxis>
+                                        <CategoryAxis fx:id="cX" side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis fx:id="cY" animated="false" minorTickVisible="false" side="LEFT" tickMarkVisible="false" />
+                                      </yAxis>
+                                    </LineChart>
+                                    <LineChart fx:id="powerChartInDisplayTab" alternativeColumnFillVisible="true" animated="false" legendVisible="false" title="功率" titleSide="RIGHT" GridPane.rowIndex="3">
+                                      <xAxis>
+                                        <CategoryAxis fx:id="pX" side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis fx:id="pY" minorTickVisible="false" side="LEFT" tickMarkVisible="false" />
+                                      </yAxis>
+                                    </LineChart>
                                  </children>
                               </GridPane>
                            </children>
@@ -161,12 +161,13 @@
             </TabPane>
          </children>
       </GridPane>
-      <GridPane layoutX="600.0" prefHeight="450.0" prefWidth="300.0">
+      <GridPane layoutX="600.0" prefHeight="700.0" prefWidth="300.0" AnchorPane.rightAnchor="10.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="468.0" minHeight="10.0" prefHeight="433.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="267.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <TabPane fx:id="powerStatusTab" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
@@ -201,7 +202,7 @@
                                       </rowConstraints>
                                        <children>
                                           <ChoiceBox fx:id="powerSelectedChoiceBox" prefWidth="150.0" />
-                                          <TextField fx:id="portTextField" onAction="#portTextFieldOnClick" text="9001" GridPane.columnIndex="1" />
+                                          <TextField fx:id="portTextField" onAction="#portTextFieldOnClick" text="10159" GridPane.columnIndex="1" />
                                        </children>
                                     </GridPane>
                                  </children>
@@ -212,6 +213,21 @@
                 </Tab>
               </tabs>
             </TabPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <GridPane layoutX="6.0" layoutY="-4.0" prefHeight="247.0" prefWidth="279.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children>
+            </AnchorPane>
          </children>
       </GridPane>
    </children>

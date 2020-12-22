@@ -23,7 +23,7 @@ public class TcpServer implements Runnable {
 
     //必须实现线程，否则主界面卡死在内部类的.accept()
     /* Setting up variables */
-    private static final int PORT = 10159;
+    private int PORT;
     private static final int BUFF_SIZE = 1024;
 
     static String inputString;
@@ -47,6 +47,14 @@ public class TcpServer implements Runnable {
 
 
     public TcpServer() {
+    }
+
+    public int getPORT() {
+        return PORT;
+    }
+
+    public void setPORT(int PORT) {
+        this.PORT = PORT;
     }
 
     public TcpServer(BlockingQueue inBlockingQueue, BlockingQueue<String> outBlockingQueue) {
@@ -97,7 +105,7 @@ public class TcpServer implements Runnable {
 
     public void startServer() throws Exception {
         logger.info("The TCP Server is running.");
-        serverSocket = new ServerSocket(PORT);
+        serverSocket = new ServerSocket(getPORT());
         HandlerSocketThreadPool handlerSocketThreadPool =
                 new HandlerSocketThreadPool(8, BUFF_SIZE);
         try {
@@ -144,14 +152,16 @@ public class TcpServer implements Runnable {
     public static class HandlerSocketThreadPool {
         // 线程池
         private ExecutorService executor;
+
         public HandlerSocketThreadPool(int maxPoolSize, int queueSize) {
             this.executor = new ThreadPoolExecutor(
                     1, // 8
                     maxPoolSize,
-                    120L,
+                    60L,
                     TimeUnit.SECONDS,
                     new ArrayBlockingQueue<Runnable>(queueSize));
         }
+
         public void execute(Runnable task) {
             this.executor.execute(task);
         }
