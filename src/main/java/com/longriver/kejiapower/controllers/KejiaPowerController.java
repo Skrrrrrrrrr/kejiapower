@@ -396,7 +396,6 @@ public class KejiaPowerController {
     //主界面刷新线程，现阶段是刷rxxTextArea
     private Thread repaintThread = new Thread(new Runnable() {
         Message message = new Message();
-        int count = 0;
 
         @Override
         public void run() {

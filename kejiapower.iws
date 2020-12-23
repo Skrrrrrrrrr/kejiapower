@@ -16,22 +16,33 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="408d8349-e6b8-4a39-a9a8-6b733ca653cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/logs/debug.log.2020-12-21" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/error.log.2020-12-21" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/debug.log.2020-12-22" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/MultiAxisChart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/MultipleAxesLineChart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/MultipleAxesLineChartMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/test/MultipleAxesLineChart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/test/MultipleAxesLineChartMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/css/verlay-chart.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kejiapower.iws" beforeDir="false" afterPath="$PROJECT_DIR$/kejiapower.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/error.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/controllers/KejiaPowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/controllers/KejiaPowerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/model/TcpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/model/TcpServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/kejiapowerLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/kejiapowerLayout.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/TcpServer$Handler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/TcpServer$Handler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/TcpServer$HandlerSocketThreadPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/TcpServer$HandlerSocketThreadPool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/TcpServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/TcpServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$PaintBrush.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$PaintBrush.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/fxml/kejiapowerLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/fxml/kejiapowerLayout.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -291,12 +302,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/test" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15285172" />
     <property name="project.structure.side.proportion" value="0.29296425" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Workspace\IdeaProjects\kejiapower\src\main\java\com\longriver\kejiapower\test" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Download\longriver\GitProject\kejiapower\src\main\resources" />
       <recent name="D:\Download\longriver\GitProject\kejiapower\src\main\java\com\longriver\kejiapower\view" />
@@ -304,7 +319,7 @@
       <recent name="D:\Download\longriver\GitProject\kejiapower\src\main\java\com\longriver\kejiapower" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.MultipleAxesLineChartMain">
     <configuration selected="false" default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -323,8 +338,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.longriver.kejiapower.Main" />
+    <configuration name="MultiAxisChart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.longriver.kejiapower.MultiAxisChart" />
+      <module name="kejiapower" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.longriver.kejiapower.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MultipleAxesLineChartMain (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.longriver.kejiapower.test.MultipleAxesLineChartMain" />
+      <module name="kejiapower" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.longriver.kejiapower.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MultipleAxesLineChartMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.longriver.kejiapower.MultipleAxesLineChartMain" />
       <module name="kejiapower" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -370,9 +413,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.StackedChartSample" />
+        <item itemvalue="Application.MultipleAxesLineChartMain" />
+        <item itemvalue="Application.MultipleAxesLineChartMain (1)" />
         <item itemvalue="Application.LineChartSample" />
+        <item itemvalue="Application.StackedChartSample" />
+        <item itemvalue="Application.MultiAxisChart" />
       </list>
     </recent_temporary>
   </component>
@@ -404,6 +449,7 @@
       <workItem from="1608516566167" duration="16715000" />
       <workItem from="1608604811551" duration="5734000" />
       <workItem from="1608614518104" duration="10066000" />
+      <workItem from="1608694464008" duration="17816000" />
     </task>
     <servers />
   </component>
@@ -427,7 +473,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -503,46 +561,46 @@
     </state>
     <state x="480" y="145" key="FileChooserDialogImpl/0.0.1440.920@0.0.1440.920" timestamp="1608304735961" />
     <state x="640" y="164" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608516687424" />
-    <state width="1877" height="345" key="GridCell.Tab.0.bottom" timestamp="1608631628191">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1608719457130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="144" key="GridCell.Tab.0.bottom/0.0.1440.920@0.0.1440.920" timestamp="1608367158358" />
-    <state width="1877" height="345" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608631628191" />
-    <state width="1877" height="345" key="GridCell.Tab.0.center" timestamp="1608631628191">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608719457130" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1608719457130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="144" key="GridCell.Tab.0.center/0.0.1440.920@0.0.1440.920" timestamp="1608367158358" />
-    <state width="1877" height="345" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608631628191" />
-    <state width="1877" height="345" key="GridCell.Tab.0.left" timestamp="1608631628190">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608719457130" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1608719457130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="144" key="GridCell.Tab.0.left/0.0.1440.920@0.0.1440.920" timestamp="1608367158357" />
-    <state width="1877" height="345" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608631628190" />
-    <state width="1877" height="345" key="GridCell.Tab.0.right" timestamp="1608631628191">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608719457130" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1608719457130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="144" key="GridCell.Tab.0.right/0.0.1440.920@0.0.1440.920" timestamp="1608367158358" />
-    <state width="1877" height="345" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608631628191" />
-    <state width="1877" height="345" key="GridCell.Tab.1.bottom" timestamp="1608631628191">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608719457130" />
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom" timestamp="1608719457130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="73" key="GridCell.Tab.1.bottom/0.0.1440.920@0.0.1440.920" timestamp="1608367158346" />
-    <state width="1877" height="345" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608631628191" />
-    <state width="1877" height="345" key="GridCell.Tab.1.center" timestamp="1608631628191">
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608719457130" />
+    <state width="1877" height="282" key="GridCell.Tab.1.center" timestamp="1608719457130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="73" key="GridCell.Tab.1.center/0.0.1440.920@0.0.1440.920" timestamp="1608367158346" />
-    <state width="1877" height="345" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608631628191" />
-    <state width="1877" height="345" key="GridCell.Tab.1.left" timestamp="1608631628191">
+    <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608719457130" />
+    <state width="1877" height="282" key="GridCell.Tab.1.left" timestamp="1608719457130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="73" key="GridCell.Tab.1.left/0.0.1440.920@0.0.1440.920" timestamp="1608367158346" />
-    <state width="1877" height="345" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608631628191" />
-    <state width="1877" height="345" key="GridCell.Tab.1.right" timestamp="1608631628191">
+    <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608719457130" />
+    <state width="1877" height="282" key="GridCell.Tab.1.right" timestamp="1608719457130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="73" key="GridCell.Tab.1.right/0.0.1440.920@0.0.1440.920" timestamp="1608367158346" />
-    <state width="1877" height="345" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608631628191" />
+    <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608719457130" />
     <state x="268" y="40" width="996" height="787" key="SettingsEditor" timestamp="1608614660424">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -554,14 +612,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/controllers/KejiaPowerController.java</url>
-          <line>416</line>
+          <line>415</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/MultipleAxesLineChart.java</url>
+          <line>181</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="voltageChartInDisplayTab.getXAxis()" language="JAVA" />
+        <watch expression="backgroundCharts.size()" language="JAVA" />
+        <watch expression="baseChart" language="JAVA" />
+        <watch expression="heightProperty().getValue()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

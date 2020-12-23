@@ -1,0 +1,4 @@
+/** file: overlay-chart.css (place in same directory as MultiAxisChart) */
+.chart-plot-background {
+    -fx-background-color: transparent;
+}

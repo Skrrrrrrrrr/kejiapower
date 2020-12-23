@@ -129,7 +129,7 @@
                                     <Label fx:id="powerIdInDisplayTab" prefHeight="14.0" prefWidth="424.0" text="Id：" />
                                     <LineChart fx:id="voltageChartInDisplayTab" alternativeColumnFillVisible="true" animated="false" legendVisible="false" title="电压" titleSide="RIGHT" GridPane.rowIndex="1">
                                       <xAxis>
-                                        <CategoryAxis fx:id="vX" side="BOTTOM" tickLabelRotation="45.0" />
+                                        <CategoryAxis fx:id="vX" side="BOTTOM" />
                                       </xAxis>
                                       <yAxis>
                                         <NumberAxis fx:id="vY" minorTickVisible="false" side="LEFT" tickMarkVisible="false" />
