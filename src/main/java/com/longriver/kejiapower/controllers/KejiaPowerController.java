@@ -11,9 +11,12 @@ import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.geometry.Side;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,6 +58,9 @@ public class KejiaPowerController {
     private RadioButton remoteRadioBtn;
 
     @FXML
+    private ToggleGroup controlTypeToggleGroup;
+
+    @FXML
     private RadioButton localRadioBtn;
 
     @FXML
@@ -76,16 +82,16 @@ public class KejiaPowerController {
     private Tab tab1;
 
     @FXML
-    private LineChart<String, Number> voltageChartInDisplayTab;
-
-    @FXML
-    private LineChart<String, Number> currentChartInDisplayTab;
-
-    @FXML
-    private LineChart<String, Number> powerChartInDisplayTab;
-
-    @FXML
     private Label powerIdInDisplayTab;
+
+    @FXML
+    private VBox displayCHartVbox;
+
+    @FXML
+    private CategoryAxis vX;
+
+    @FXML
+    private NumberAxis vY;
 
     @FXML
     private TabPane powerStatusTab;
@@ -97,10 +103,10 @@ public class KejiaPowerController {
     private ListView<?> powerStatusList;
 
     @FXML
-    private ChoiceBox<?> powerSelectedChoiceBox;
+    private Button powerConnectedBtn;
 
     @FXML
-    private Button powerConnectedBtn;
+    private ChoiceBox<?> powerSelectedChoiceBox;
 
     @FXML
     private TextField portTextField;
@@ -190,49 +196,40 @@ public class KejiaPowerController {
 
     @FXML
     private void initialize() {
+        NumberAxis xAxis = new NumberAxis(0, 120, 5);
+        NumberAxis vAxis = new NumberAxis();
+//        vAxis.setLabel("Voltage");
 
-////        defining the axes
-//        xAxisofVoltage.setLowerBound(0.0);
-//        xAxisofVoltage.setUpperBound(60);
-//        xAxisofVoltage.setLabel("时间（s）");
-//        xAxisofCurrent.setLowerBound(0.0);
-//        xAxisofCurrent.setUpperBound(60);
-//        xAxisofCurrent.setLabel("时间（s）");
-//        xAxisofPower.setLowerBound(0.0);
-//        xAxisofPower.setUpperBound(60);
-//        xAxisofPower.setLabel("时间（s）");
-////            final NumberAxis xAxisofVoltage = new NumberAxis();
-//        yAxisofVoltage.setLowerBound(0.0);
-//        yAxisofVoltage.setUpperBound(1000.0);
-//        yAxisofVoltage.setLabel("电压（V）");
-//        yAxisofCurrent.setLowerBound(0.0);
-//        yAxisofCurrent.setUpperBound(100.0);
-//        yAxisofCurrent.setLabel("电流（A）");
-//        yAxisofPower.setLowerBound(0.0);
-//        yAxisofPower.setUpperBound(20000.0);
-//        yAxisofPower.setLabel("功率（W）");
+        NumberAxis cAxis = new NumberAxis();
+//        cAxis.setLabel("Current");
+        NumberAxis pAxis = new NumberAxis();
+//        pAxis.setLabel("Power");
+        LineChart<Number, Number> vChart = new LineChart<Number, Number>(xAxis,vAxis);
+        LineChart<Number, Number> cChart = new LineChart<Number, Number>(xAxis,cAxis);
+        LineChart<Number, Number> pChart = new LineChart<Number, Number>(xAxis,pAxis);
 
-        //creating the chart
-//        voltageChartInDisplayTab = new LineChart<>(xAxisofVoltage, yAxisofVoltage);
-//        voltageChartInDisplayTab.setTitle("电压");
-//        voltageChartInDisplayTab.setCreateSymbols(false);
-//        currentChartInDisplayTab = new LineChart<>(xAxisofCurrent, yAxisofCurrent);
-//        currentChartInDisplayTab.setTitle("电流");
-//        currentChartInDisplayTab.setCreateSymbols(false);
-//        powerChartInDisplayTab = new LineChart<>(xAxisofPower, yAxisofPower);
-//        powerChartInDisplayTab.setTitle("功率");
-//        powerChartInDisplayTab.setCreateSymbols(false);
-//        voltageSeries.setName("Voltage");
-//        currentSeries.setName("Current");
-//        powerSeries.setName("Power");
+        vChart.setPrefHeight(200);
+        vChart.setMouseTransparent(true);
+        vChart.setLegendSide(Side.RIGHT);
+        vChart.setLegendVisible(true);
 
-//        CategoryAxis x = new CategoryAxis();
-//        currentChartInDisplayTab.getXAxis().setLabel("");
-//        powerChartInDisplayTab.getXAxis().setLabel("");
-        voltageChartInDisplayTab.getData().add(voltageSeries);
-        currentChartInDisplayTab.getData().add(currentSeries);
-        powerChartInDisplayTab.getData().add(powerSeries);
-//
+        cChart.setPrefHeight(200);
+        cChart.setMouseTransparent(true);
+        cChart.setLegendSide(Side.RIGHT);
+        cChart.setLegendVisible(true);
+        cChart.setTranslateY(-40);
+
+        pChart.setPrefHeight(200);
+        pChart.setMouseTransparent(true);
+        pChart.setLegendSide(Side.RIGHT);
+        pChart.setLegendVisible(true);
+        pChart.setTranslateY(-80);
+
+        displayCHartVbox.setAlignment(Pos.BOTTOM_LEFT);
+        displayCHartVbox.getChildren().add(vChart);
+        displayCHartVbox.getChildren().add(cChart);
+        displayCHartVbox.getChildren().add(pChart);
+
     }
 
     @FXML
@@ -545,9 +542,6 @@ public class KejiaPowerController {
                 powerSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), (Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() * Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue()) / Base));
 
                 Platform.runLater(() -> {//修改界面的工作
-                    voltageChartInDisplayTab.getData().add(voltageSeries);
-                    currentChartInDisplayTab.getData().add(currentSeries);
-                    powerChartInDisplayTab.getData().add(powerSeries);
                 });
             } catch (Exception e) {
                 logger.error(e.getMessage());

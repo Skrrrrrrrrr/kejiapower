@@ -171,13 +171,15 @@ public class MultipleAxesLineChart extends StackPane {
 //
 //        return lineChart;
         VBox vBox = new VBox(lineChart);
-        vBox.setAlignment(Pos.BOTTOM_CENTER);
+        vBox.setAlignment(Pos.BOTTOM_LEFT);
         vBox.prefHeightProperty().bind(heightProperty());
         vBox.prefWidthProperty().bind(widthProperty());
 
+        System.out.println(lineChart.getHeight());
         lineChart.minHeightProperty().bind(heightProperty().subtract((xAxisWidth + lineChart.getHeight() / (backgroundCharts.size() + 1)) * backgroundCharts.size()));
         lineChart.prefHeightProperty().bind(heightProperty().subtract((xAxisWidth + lineChart.getHeight() / (backgroundCharts.size() + 1)) * backgroundCharts.size()));
         lineChart.maxHeightProperty().bind(heightProperty().subtract((xAxisWidth + lineChart.getHeight() / (backgroundCharts.size() + 1)) * backgroundCharts.size()));
+        System.out.println(lineChart.getHeight());
 
         return lineChart;
     }
@@ -199,7 +201,7 @@ public class MultipleAxesLineChart extends StackPane {
 //        return hBox;
 
         VBox vBox = new VBox(lineChart);
-//        vBox.setAlignment(Pos.BOTTOM_CENTER);
+        vBox.setAlignment(Pos.BOTTOM_LEFT);
         vBox.prefHeightProperty().bind(heightProperty());
         vBox.prefWidthProperty().bind(widthProperty());
         vBox.setMouseTransparent(true);
@@ -208,7 +210,8 @@ public class MultipleAxesLineChart extends StackPane {
         lineChart.prefHeightProperty().bind(heightProperty().subtract((xAxisWidth + lineChart.getHeight() / (backgroundCharts.size() + 1)) * backgroundCharts.size()));
         lineChart.maxHeightProperty().bind(heightProperty().subtract((xAxisWidth + lineChart.getHeight() / (backgroundCharts.size() + 1)) * backgroundCharts.size()));
 
-        lineChart.translateYProperty().bind(baseChart.getYAxis().heightProperty());
+        lineChart.setTranslateY(300 * backgroundCharts.indexOf(lineChart));
+//        lineChart.translateYProperty().bind(baseChart.getYAxis().heightProperty());
 //        lineChart.setTranslateY(baseChart.getYAxis().getHeight() * backgroundCharts.indexOf(lineChart));
 //        lineChart.getXAxis().setTranslateY((xAxisWidth + lineChart.getHeight()) * backgroundCharts.indexOf(lineChart));
 //        lineChart.translateYProperty().bind(baseChart.getXAxis().heightProperty());
