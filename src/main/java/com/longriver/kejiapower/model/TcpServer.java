@@ -178,6 +178,7 @@ public class TcpServer implements Runnable {
         }
 
         public void run() {
+            logger.info("Current Thread is  " + Thread.currentThread());
             logger.info("Server Handler Thread starts!");
             logger.info("Attempting to connect a user...");
             logger.info("User's Addr : " + serverSocketAccept.getInetAddress().getHostAddress() + ':' + serverSocketAccept.getPort());

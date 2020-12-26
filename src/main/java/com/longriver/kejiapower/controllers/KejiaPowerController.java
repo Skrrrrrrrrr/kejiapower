@@ -12,13 +12,18 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.property.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.geometry.Side;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -100,10 +105,10 @@ public class KejiaPowerController {
     private TabPane powerStatusTab;
 
     @FXML
-    private ListView<?> powerList;
+    private ListView<String> powerList;
 
     @FXML
-    private ListView<?> powerStatusList;
+    private ListView<String> powerStatusList;
 
     @FXML
     private Button powerConnectedBtn;
@@ -118,12 +123,10 @@ public class KejiaPowerController {
     void portTextFieldOnClick(ActionEvent event) {
     }
 
-    //    private final NumberAxis xAxisofVoltage = new NumberAxis();
-//    private final NumberAxis xAxisofCurrent = new NumberAxis();
-//    private final NumberAxis xAxisofPower = new NumberAxis();
-//    private final NumberAxis yAxisofVoltage = new NumberAxis();
-//    private final NumberAxis yAxisofCurrent = new NumberAxis();
-//    private final NumberAxis yAxisofPower = new NumberAxis();
+
+    LineChart<Number, Number> vChart ;
+    LineChart<Number, Number> cChart ;
+    LineChart<Number, Number> pChart ;
     private XYChart.Series voltageSeries = new XYChart.Series();
     private XYChart.Series currentSeries = new XYChart.Series();
     private XYChart.Series powerSeries = new XYChart.Series();
@@ -209,9 +212,9 @@ public class KejiaPowerController {
         NumberAxis pAxis = new NumberAxis(0, 40, 10);
         vAxis.setMinorTickVisible(false);
 
-        LineChart<Number, Number> vChart = new LineChart<Number, Number>(vx, vAxis);
-        LineChart<Number, Number> cChart = new LineChart<Number, Number>(cx, cAxis);
-        LineChart<Number, Number> pChart = new LineChart<Number, Number>(px, pAxis);
+        vChart = new LineChart<Number, Number>(vx, vAxis);
+        cChart = new LineChart<Number, Number>(cx, cAxis);
+        pChart = new LineChart<Number, Number>(px, pAxis);
 
         vChart.setPrefHeight(200);
         vChart.setMouseTransparent(true);
@@ -222,6 +225,7 @@ public class KejiaPowerController {
 //        voltageSeries.getData().add(vData);
         vChart.getData().add(voltageSeries);
         vChart.setCreateSymbols(false);
+        vChart.setAnimated(false);
 
         cChart.setPrefHeight(200);
         cChart.setMouseTransparent(true);
@@ -232,6 +236,7 @@ public class KejiaPowerController {
 //        currentSeries.getData().add(cData);
         cChart.getData().add(currentSeries);
         cChart.setCreateSymbols(false);
+        cChart.setAnimated(false);
 
         pChart.setPrefHeight(200);
         pChart.setMouseTransparent(true);
@@ -242,18 +247,20 @@ public class KejiaPowerController {
 //        powerSeries.getData().add(pData);
         pChart.getData().add(powerSeries);
         pChart.setCreateSymbols(false);
+        pChart.setAnimated(false);
 
 //        displayCHartVbox.setAlignment(Pos.BOTTOM_LEFT);
-        displayCHartVbox.getChildren().add(vChart);
-        displayCHartVbox.getChildren().add(cChart);
-        displayCHartVbox.getChildren().add(pChart);
+        displayCHartVbox.getChildren().addAll(vChart,cChart,pChart);
+//        displayCHartVbox.getChildren().add(vChart);
+//        displayCHartVbox.getChildren().add(cChart);
+//        displayCHartVbox.getChildren().add(pChart);
 
-
-//        voltageSeries.getData().add(new XYChart.Data<Number, Number>(count++, Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
-//        currentSeries.getData().add(new XYChart.Data<Number, Number>(count++, Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
-//        powerSeries.getData().add(new XYChart.Data<Number, Number>(count++, Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
-
+        powerList.setItems(powerObservableList);
+        powerStatusList.setItems(powerStatusObservableList);
     }
+
+    private ObservableList powerObservableList = FXCollections.observableArrayList();
+    private ObservableList powerStatusObservableList = FXCollections.observableArrayList();
 
 //    private XYChart.Data vData = new XYChart.Data();
 //    private XYChart.Data cData = new XYChart.Data();
@@ -329,6 +336,15 @@ public class KejiaPowerController {
                                             break;
                                         default:
                                     }
+                                    Platform.runLater(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            if (!powerObservableList.contains(clientMessage.getClientIp().toString())) {
+                                                powerObservableList.add(clientMessage.getClientIp().toString());
+                                                powerStatusObservableList.add(clientMessage.getStatus().toString());
+                                            }
+                                        }
+                                    });
                                 } catch (InterruptedException e) {
 //                                    e.printStackTrace();
                                     logger.error(e.getMessage());
@@ -341,6 +357,7 @@ public class KejiaPowerController {
                             }
                         }
                     }).start();
+
                     logger.info("TcpServer start!");
                     logger.info("powerConnectedBtnOnClick!");
                     powerConnectedBtn.setText("断开设备");
@@ -387,15 +404,15 @@ public class KejiaPowerController {
         switch (rxTextBtn.getText()) {
             case "开始接收":
                 rxTextBtn.setText("停止接收");
-                rxTextArea.clear();
                 rxTextArea.textProperty().bind(messageStringProperty);
 //        currentSeries.getData().add(new XYChart.Data<Number, Number>(count++, Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
 //        powerSeries.getData().add(new XYChart.Data<Number, Number>(count++, Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
                 break;
             case "停止接收":
                 rxTextBtn.setText("开始接收");
-                //        voltageSeries.getData()
                 rxTextArea.textProperty().unbind();
+                messageStringProperty.setValue("");
+                rxTextArea.setText("");
                 break;
             default:
                 break;
@@ -431,40 +448,17 @@ public class KejiaPowerController {
         }
     }
 
-//    //主界面刷新线程，现阶段是刷rxxTextArea
-//    private Thread repaintThread = new Thread(new Runnable() {
-//        Message message = new Message();
-//        int count = 0;
+//    private Task powerConnectTask = new Task<String>() {
 //
 //        @Override
-//        public void run() {
-//            while (!Thread.currentThread().isInterrupted()) {
-//                try {
-//                    message = repaintBlockingQueue.take();
-//                    rxTextArea.setText(StringUtils.getStringAddSpace(message.toString(), 2));
-////                    voltageSeries.getData().add(new XYChart.Data<String, Number>(new SimpleDateFormat("HH:mm:ss").format(new Date()), Integer.valueOf(message.getVoltage().toString(), 16).floatValue() / Base));
-////                    currentSeries.getData().add(new XYChart.Data<String, Number>(new SimpleDateFormat("HH:mm:ss").format(new Date()), Integer.valueOf(message.getCurrent().toString(), 16).floatValue() / Base));
-//
-//                    Platform.runLater(new Runnable() {//此处Runnable内部使用runlater，代码需要优化
-//                        @Override
-//                        public void run() {
-//                            //更新JavaFX的主线程的代码放在此处
-////                            voltageSeries.getData().add(new XYChart.Data<String, Number>(new SimpleDateFormat("HH:mm:ss").format(new Date()), Integer.valueOf(message.getVoltage().toString(), 16).floatValue() / Base));
-////                            currentSeries.getData().add(new XYChart.Data<String, Number>(new SimpleDateFormat("HH:mm:ss").format(new Date()), Integer.valueOf(message.getCurrent().toString(), 16).floatValue() / Base));
-////                            powerSeries.getData().add(new XYChart.Data<String, Number>(new SimpleDateFormat("HH:mm:ss").format(new Date()), Integer.valueOf(message.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(message.getCurrent().toString(), 16).floatValue() / Base));
-//                            voltageSeries.getData().add(new XYChart.Data<Number, Number>(count++, Integer.valueOf(message.getVoltage().toString(), 16).floatValue() / Base));
-//                            currentSeries.getData().add(new XYChart.Data<Number, Number>(count++, Integer.valueOf(message.getCurrent().toString(), 16).floatValue() / Base));
-//                            powerSeries.getData().add(new XYChart.Data<Number, Number>(count++, Integer.valueOf(message.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(message.getCurrent().toString(), 16).floatValue() / Base));
-//                        }
-//                    });
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                    logger.error(e.getMessage());
-//
-//                }
+//        protected String call() throws Exception {
+//            if (!powerObservableList.contains(tcpServer.getSocket().getRemoteSocketAddress().toString())){
+//                powerObservableList.add(tcpServer.getSocket().getRemoteSocketAddress().toString());
+//                powerStatusObservableList.add(clientMessage.getStatus().toString());
 //            }
+//            return null;
 //        }
-//    });
+//    };
 
     private Thread fileWriteThread = new Thread(new Runnable() {
 
