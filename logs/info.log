@@ -933,3 +933,94 @@
 2020-12-28 16:16:14:074  [ pool-2-thread-1:5722 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
 2020-12-28 16:16:14:362  [ pool-2-thread-1:6010 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
 2020-12-28 16:16:14:362  [ pool-2-thread-1:6010 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:37:961  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-28 17:52:37:967  [ JavaFX Application Thread:6 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-28 17:52:37:961  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-28 17:52:37:968  [ Thread-6:7 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-28 17:52:51:179  [ Thread-6:13218 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-28 17:52:51:179  [ pool-2-thread-1:13218 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-28 17:52:51:180  [ pool-2-thread-1:13219 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-28 17:52:51:180  [ pool-2-thread-1:13219 ] - [ INFO ]  Attempting to connect a user...
+2020-12-28 17:52:51:181  [ pool-2-thread-1:13220 ] - [ INFO ]  User's Addr : 127.0.0.1:61452
+2020-12-28 17:52:53:496  [ pool-2-thread-1:15535 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:53:497  [ pool-2-thread-1:15536 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:55:333  [ pool-2-thread-1:17372 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:55:334  [ pool-2-thread-1:17373 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:55:482  [ pool-2-thread-1:17521 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:55:483  [ pool-2-thread-1:17522 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:55:628  [ pool-2-thread-1:17667 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:55:630  [ pool-2-thread-1:17669 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:55:780  [ pool-2-thread-1:17819 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:55:780  [ pool-2-thread-1:17819 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:55:934  [ pool-2-thread-1:17973 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:55:934  [ pool-2-thread-1:17973 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:56:080  [ pool-2-thread-1:18119 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:56:081  [ pool-2-thread-1:18120 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:56:221  [ pool-2-thread-1:18260 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:56:221  [ pool-2-thread-1:18260 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:56:373  [ pool-2-thread-1:18412 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:56:374  [ pool-2-thread-1:18413 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:56:505  [ pool-2-thread-1:18544 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:56:506  [ pool-2-thread-1:18545 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:56:663  [ pool-2-thread-1:18702 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:56:663  [ pool-2-thread-1:18702 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:56:797  [ pool-2-thread-1:18836 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:56:797  [ pool-2-thread-1:18836 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:56:931  [ pool-2-thread-1:18970 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:56:931  [ pool-2-thread-1:18970 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:57:088  [ pool-2-thread-1:19127 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:57:088  [ pool-2-thread-1:19127 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:57:230  [ pool-2-thread-1:19269 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:57:231  [ pool-2-thread-1:19270 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 17:52:57:448  [ pool-2-thread-1:19487 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 17:52:57:449  [ pool-2-thread-1:19488 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:09:414  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-28 21:30:09:453  [ JavaFX Application Thread:39 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-28 21:30:09:414  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-28 21:30:09:455  [ Thread-6:41 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-28 21:30:20:745  [ Thread-6:11331 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-28 21:30:20:745  [ pool-2-thread-1:11331 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-28 21:30:20:745  [ pool-2-thread-1:11331 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-28 21:30:20:746  [ pool-2-thread-1:11332 ] - [ INFO ]  Attempting to connect a user...
+2020-12-28 21:30:20:746  [ pool-2-thread-1:11332 ] - [ INFO ]  User's Addr : 127.0.0.1:50662
+2020-12-28 21:30:24:773  [ pool-2-thread-1:15359 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:24:773  [ pool-2-thread-1:15359 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:30:325  [ pool-2-thread-1:20911 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:30:326  [ pool-2-thread-1:20912 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:30:485  [ pool-2-thread-1:21071 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:30:485  [ pool-2-thread-1:21071 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:30:625  [ pool-2-thread-1:21211 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:30:626  [ pool-2-thread-1:21212 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:30:768  [ pool-2-thread-1:21354 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:30:768  [ pool-2-thread-1:21354 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:30:914  [ pool-2-thread-1:21500 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:30:914  [ pool-2-thread-1:21500 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:31:076  [ pool-2-thread-1:21662 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:31:076  [ pool-2-thread-1:21662 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:31:220  [ pool-2-thread-1:21806 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:31:221  [ pool-2-thread-1:21807 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:31:364  [ pool-2-thread-1:21950 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:31:366  [ pool-2-thread-1:21952 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:31:504  [ pool-2-thread-1:22090 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:31:504  [ pool-2-thread-1:22090 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:31:657  [ pool-2-thread-1:22243 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:31:658  [ pool-2-thread-1:22244 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:31:800  [ pool-2-thread-1:22386 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:31:800  [ pool-2-thread-1:22386 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:31:947  [ pool-2-thread-1:22533 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:31:947  [ pool-2-thread-1:22533 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:32:100  [ pool-2-thread-1:22686 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:32:101  [ pool-2-thread-1:22687 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:32:256  [ pool-2-thread-1:22842 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:32:257  [ pool-2-thread-1:22843 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:32:390  [ pool-2-thread-1:22976 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:32:390  [ pool-2-thread-1:22976 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:32:551  [ pool-2-thread-1:23137 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:32:552  [ pool-2-thread-1:23138 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:32:709  [ pool-2-thread-1:23295 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:32:709  [ pool-2-thread-1:23295 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:32:858  [ pool-2-thread-1:23444 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:32:859  [ pool-2-thread-1:23445 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:33:074  [ pool-2-thread-1:23660 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
+2020-12-28 21:30:33:075  [ pool-2-thread-1:23661 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-28 21:30:34:483  [ pool-2-thread-1:25069 ] - [ INFO ]  closeConnections() method Exit

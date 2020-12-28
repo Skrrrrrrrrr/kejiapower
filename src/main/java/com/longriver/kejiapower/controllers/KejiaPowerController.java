@@ -33,7 +33,9 @@ import org.slf4j.LoggerFactory;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
@@ -87,14 +89,6 @@ public class KejiaPowerController {
     @FXML
     private TabPane powerDisplayTab;
 
-    @FXML
-    private Tab tab1;
-
-    @FXML
-    private Label powerIdInDisplayTab;
-
-    @FXML
-    private VBox displayCHartVbox;
 
     @FXML
     private TabPane powerStatusTab;
@@ -118,15 +112,6 @@ public class KejiaPowerController {
     void portTextFieldOnClick(ActionEvent event) {
     }
 
-
-    LineChart<Number, Number> vChart;
-    LineChart<Number, Number> cChart;
-    LineChart<Number, Number> pChart;
-    private XYChart.Series voltageSeries = new XYChart.Series();
-    private XYChart.Series currentSeries = new XYChart.Series();
-    private XYChart.Series powerSeries = new XYChart.Series();
-
-
     private static final int BUFF_SIZE = 1024;
     private static final float Base = 10.0f;
     private static final float KILO = 1000.0f;
@@ -145,6 +130,8 @@ public class KejiaPowerController {
     private TcpServer tcpServer = new TcpServer(inBlockingQueue, outBlockingQueue);//
     private ReadMessageFromClientService readMessageFromClientService = new ReadMessageFromClientService();
     private String firstStringOfInBlockingQueue = null;//
+
+    private Map<String, XYChart.Series> clinetSeriesMap = new HashMap<>();
 
     private List<Client> clientList;
     private ClientMessage clientMessage;
@@ -195,7 +182,14 @@ public class KejiaPowerController {
         this.serverMessage = serverMessage;
     }
 
-    private void initChart() {
+    private VBox initChart() {
+
+        LineChart<Number, Number> vChart;
+        LineChart<Number, Number> cChart;
+        LineChart<Number, Number> pChart;
+        XYChart.Series voltageSeries = new XYChart.Series();
+        XYChart.Series currentSeries = new XYChart.Series();
+        XYChart.Series powerSeries = new XYChart.Series();
         NumberAxis vx = new NumberAxis(0, 120, 20);
         NumberAxis cx = new NumberAxis(0, 120, 20);
         NumberAxis px = new NumberAxis(0, 120, 20);
@@ -219,6 +213,8 @@ public class KejiaPowerController {
 //        voltageSeries.getData().add()
         voltageSeries.setName("Voltage(V)");
 //        voltageSeries.getData().add(vData);
+        vChart.setPrefWidth(530);
+        vChart.setPrefHeight(300);
         vChart.getData().add(voltageSeries);
         vChart.setCreateSymbols(false);
         vChart.setAnimated(false);
@@ -245,29 +241,40 @@ public class KejiaPowerController {
         pChart.setCreateSymbols(false);
         pChart.setAnimated(false);
 
-//        displayCHartVbox.setAlignment(Pos.BOTTOM_LEFT);
-        displayCHartVbox.getChildren().addAll(vChart, cChart, pChart);
-//        displayCHartVbox.getChildren().add(vChart);
-//        displayCHartVbox.getChildren().add(cChart);
-//        displayCHartVbox.getChildren().add(pChart);
 
-        powerList.setItems(powerObservableList);
-        powerStatusList.setItems(powerStatusObservableList);
+        VBox vBox = new VBox();
+//        displayCHartVbox.setAlignment(Pos.BOTTOM_LEFT);
+        vBox.getChildren().addAll(vChart, cChart, pChart);
+
+        return vBox;
     }
 
-    private void powerTabGenerate(){
+    private void powerTabGenerate() {
         Tab tab = new Tab();
-        tab.setId(new StringBuilder("power").append(powerDisplayTab.getTabs().size()+1).toString());
-        tab.setText(new StringBuilder("电源-").append(powerDisplayTab.getTabs().size()+1).toString());
+        tab.setId(new StringBuilder("power").append(powerDisplayTab.getTabs().size() + 1).toString());
+        tab.setText(new StringBuilder("电源-").append(powerDisplayTab.getTabs().size() + 1).toString());
         AnchorPane anchorPane = new AnchorPane();
+        anchorPane.setPrefHeight(650);
+        anchorPane.setPrefWidth(550);
         GridPane gridPane = new GridPane();
+        gridPane.setPrefWidth(570);
+        gridPane.setPrefHeight(200);
         gridPane.setHgap(2);
         gridPane.setVgap(1);
-        gridPane.add(new Label("编号："),0,0);
-        gridPane.add(new Label("编号："),0,1);
-        anchorPane.getChildren().add(gridPane);
+        VBox vBox = new VBox();
+        Label idLabel = new Label("编号：");
+        idLabel.setPrefHeight(20);
+        gridPane.add(idLabel, 0, 0);
+        gridPane.add(initChart(), 0, 1);
 
+        anchorPane.getChildren().add(gridPane);
+        tab.setContent(anchorPane);
         powerDisplayTab.getTabs().add(tab);
+    }
+
+    private void powerListInit() {
+        powerList.setItems(powerObservableList);
+        powerStatusList.setItems(powerStatusObservableList);
     }
 
     private void initInteractMessage() {
@@ -283,9 +290,7 @@ public class KejiaPowerController {
     private void initialize() {
         initChart();
         initInteractMessage();
-        powerTabGenerate();
-        powerTabGenerate();
-        powerTabGenerate();
+        powerListInit();
         powerTabGenerate();
     }
 
@@ -400,22 +405,22 @@ public class KejiaPowerController {
                                     break;
                                 case Report:
                                     Platform.runLater(() -> {
-                                        voltageSeries.getData().add(new XYChart.Data(voltageSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
-                                        currentSeries.getData().add(new XYChart.Data(currentSeries.getData().size(), Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
-                                        powerSeries.getData().add(new XYChart.Data(powerSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base / KILO));
+//                                        voltageSeries.getData().add(new XYChart.Data(voltageSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
+//                                        currentSeries.getData().add(new XYChart.Data(currentSeries.getData().size(), Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
+//                                        powerSeries.getData().add(new XYChart.Data(powerSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base / KILO));
                                     });
                                     break;
                             }
-                            Platform.runLater(new Runnable() {
-                                @Override
-                                public void run() {
-                                    if (!powerObservableList.contains(clientMessage.getClientIp().toString())) {
-                                        powerObservableList.add(clientMessage.getClientIp().toString());
-                                        powerStatusObservableList.add(clientMessage.getStatus().toString());
-                                        powerIdInDisplayTab.setText(new StringBuilder(powerIdInDisplayTab.getText()).append(clientMessage.getClientIp()).toString());
-                                    }
-                                }
-                            });
+//                            Platform.runLater(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    if (!powerObservableList.contains(clientMessage.getClientIp().toString())) {
+//                                        powerObservableList.add(clientMessage.getClientIp().toString());
+//                                        powerStatusObservableList.add(clientMessage.getStatus().toString());
+//                                        powerIdInDisplayTab.setText(new StringBuilder(powerIdInDisplayTab.getText()).append(clientMessage.getClientIp()).toString());
+//                                    }
+//                                }
+//                            });
                         } catch (InterruptedException e) {
 //                                    e.printStackTrace();
                             logger.error(e.getMessage());
@@ -540,9 +545,9 @@ public class KejiaPowerController {
                         rxTextArea.setText(StringUtils.getStringAddSpace(clientMessage.toString(), 2));
                     }
                     //Linecharts
-                    voltageSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
-                    currentSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
-                    powerSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), (Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() * Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue()) / Base));
+//                    voltageSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
+//                    currentSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
+//                    powerSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), (Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() * Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue()) / Base));
 
                     Platform.runLater(() -> {//修改界面的工作
                     });
