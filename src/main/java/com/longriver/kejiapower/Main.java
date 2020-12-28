@@ -1,6 +1,5 @@
 package com.longriver.kejiapower;
 
-import com.longriver.kejiapower.controllers.KejiaPowerController;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +10,6 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-import java.net.URL;
 import java.util.Optional;
 
 public class Main extends Application {

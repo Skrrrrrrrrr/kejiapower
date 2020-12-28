@@ -11,26 +11,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.README.md.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/debug.log.2020-12-23" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/error.log.2020-12-22" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_12_12_11_09_[Default]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_12_12_11_09__Default_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/error.log.2020-12-25" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/info.log.2020-12-26" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_30.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kejiapower.iml" beforeDir="false" afterPath="$PROJECT_DIR$/kejiapower.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kejiapower.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/kejiapower.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kejiapower.iws" beforeDir="false" afterPath="$PROJECT_DIR$/kejiapower.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/info.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/POJO/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/POJO/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/controllers/KejiaPowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/controllers/KejiaPowerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/model/TcpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/model/TcpServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/utils/StringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/css/chart.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/css/chart.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/kejiapowerLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/kejiapowerLayout.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/POJO/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/POJO/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$1$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$2$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$PaintBrush.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$PaintBrush.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController$PaintBrush.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/controllers/KejiaPowerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/TcpServer$Handler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/TcpServer$Handler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/TcpServer$HandlerSocketThreadPool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/TcpServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/model/TcpServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/utils/StringUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/longriver/kejiapower/utils/StringUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/css/chart.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/css/chart.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/fxml/kejiapowerLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/fxml/kejiapowerLayout.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,6 +123,9 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="1.8" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1lMpp4H9wXZ89IdDLAmGrm96uM7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -137,11 +152,11 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15285172" />
     <property name="project.structure.side.proportion" value="0.29296425" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -273,6 +288,7 @@
       <workItem from="1607932432864" duration="345000" />
       <workItem from="1608184240804" duration="13882000" />
       <workItem from="1608883331102" duration="6811000" />
+      <workItem from="1609139109925" duration="5361000" />
     </task>
     <servers />
   </component>
@@ -311,18 +327,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1607418811626" />
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608883343946">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609139883659">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608883343946" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609139883659" />
     <state x="658" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607592217055">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="658" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1607592217055" />
-    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1607759289238">
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1609141977371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1607759289238" />
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1609141977371" />
     <state x="580" y="198" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1607417401857">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -339,42 +355,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="409" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1608883406625" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1607760015155">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1609139305633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607760015155" />
-    <state width="1877" height="291" key="GridCell.Tab.0.bottom" timestamp="1608890256107">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609139305633" />
+    <state width="1877" height="291" key="GridCell.Tab.0.bottom" timestamp="1609144511593">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="291" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608890256107" />
-    <state width="1877" height="291" key="GridCell.Tab.0.center" timestamp="1608890256107">
+    <state width="1877" height="291" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609144511593" />
+    <state width="1877" height="291" key="GridCell.Tab.0.center" timestamp="1609144511592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="291" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608890256107" />
-    <state width="1877" height="291" key="GridCell.Tab.0.left" timestamp="1608890256107">
+    <state width="1877" height="291" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609144511592" />
+    <state width="1877" height="291" key="GridCell.Tab.0.left" timestamp="1609144511592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="291" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608890256107" />
-    <state width="1877" height="291" key="GridCell.Tab.0.right" timestamp="1608890256107">
+    <state width="1877" height="291" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609144511592" />
+    <state width="1877" height="291" key="GridCell.Tab.0.right" timestamp="1609144511592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="291" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608890256107" />
-    <state width="1877" height="291" key="GridCell.Tab.1.bottom" timestamp="1608890256107">
+    <state width="1877" height="291" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609144511592" />
+    <state width="1877" height="291" key="GridCell.Tab.1.bottom" timestamp="1609144511593">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="291" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608890256107" />
-    <state width="1877" height="291" key="GridCell.Tab.1.center" timestamp="1608890256107">
+    <state width="1877" height="291" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609144511593" />
+    <state width="1877" height="291" key="GridCell.Tab.1.center" timestamp="1609144511593">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="291" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608890256107" />
-    <state width="1877" height="291" key="GridCell.Tab.1.left" timestamp="1608890256107">
+    <state width="1877" height="291" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609144511593" />
+    <state width="1877" height="291" key="GridCell.Tab.1.left" timestamp="1609144511593">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="291" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608890256107" />
-    <state width="1877" height="291" key="GridCell.Tab.1.right" timestamp="1608890256107">
+    <state width="1877" height="291" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609144511593" />
+    <state width="1877" height="291" key="GridCell.Tab.1.right" timestamp="1609144511593">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="291" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608890256107" />
+    <state width="1877" height="291" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609144511593" />
     <state width="1877" height="215" key="GridCell.Tab.2.bottom" timestamp="1607747683685">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -395,10 +411,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="86" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607742604055" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1608186665856">
+    <state x="461" y="164" key="SettingsEditor" timestamp="1609139390142">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1608186665856" />
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1609139390142" />
     <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607742569281">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -420,31 +436,20 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/Main.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/Main.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/POJO/ServerMessage.java</url>
           <line>16</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/longriver/kejiapower/controllers/KejiaPowerController.java</url>
-          <line>464</line>
+          <line>460</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="voltageSeries.getData().size()" language="JAVA" />
-        <watch expression="Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue()" language="JAVA" />
+        <watch expression="tcpServer" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

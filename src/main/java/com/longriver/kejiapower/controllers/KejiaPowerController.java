@@ -8,29 +8,30 @@ import com.longriver.kejiapower.model.TcpServer;
 import com.longriver.kejiapower.utils.DataFrame;
 import com.longriver.kejiapower.utils.StringUtils;
 import javafx.application.Platform;
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.*;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.geometry.Side;
-import javafx.scene.chart.*;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.ComboBoxListCell;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -96,12 +97,6 @@ public class KejiaPowerController {
     private VBox displayCHartVbox;
 
     @FXML
-    private CategoryAxis vX;
-
-    @FXML
-    private NumberAxis vY;
-
-    @FXML
     private TabPane powerStatusTab;
 
     @FXML
@@ -124,9 +119,9 @@ public class KejiaPowerController {
     }
 
 
-    LineChart<Number, Number> vChart ;
-    LineChart<Number, Number> cChart ;
-    LineChart<Number, Number> pChart ;
+    LineChart<Number, Number> vChart;
+    LineChart<Number, Number> cChart;
+    LineChart<Number, Number> pChart;
     private XYChart.Series voltageSeries = new XYChart.Series();
     private XYChart.Series currentSeries = new XYChart.Series();
     private XYChart.Series powerSeries = new XYChart.Series();
@@ -137,6 +132,7 @@ public class KejiaPowerController {
     private static final float KILO = 1000.0f;
 
     public static Logger logger = LoggerFactory.getLogger(KejiaPowerController.class);
+
     private BlockingQueue<String> inBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
     private BlockingQueue<String> outBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
 
@@ -146,10 +142,8 @@ public class KejiaPowerController {
 
 //    ExecutorService es = Executors.newFixedThreadPool(1);
 
-    private TcpServer tcpServer = null;//
-    private Thread st = null;//服务器线程.服务器socket.accpt()线程，需要不停的检测数据到来
-    //        Thread st = new Thread(new TcpServer(inBlockingQueue, outBlockingQueue));
-//    private Thread wd = null;//检测活着的Client
+    private TcpServer tcpServer = new TcpServer(inBlockingQueue, outBlockingQueue);//
+    private ReadMessageFromClientService readMessageFromClientService = new ReadMessageFromClientService();
     private String firstStringOfInBlockingQueue = null;//
 
     private List<Client> clientList;
@@ -201,8 +195,7 @@ public class KejiaPowerController {
         this.serverMessage = serverMessage;
     }
 
-    @FXML
-    private void initialize() {
+    private void initChart() {
         NumberAxis vx = new NumberAxis(0, 120, 20);
         NumberAxis cx = new NumberAxis(0, 120, 20);
         NumberAxis px = new NumberAxis(0, 120, 20);
@@ -210,6 +203,9 @@ public class KejiaPowerController {
         NumberAxis vAxis = new NumberAxis(0, 1000, 100);
         NumberAxis cAxis = new NumberAxis(0, 100, 10);
         NumberAxis pAxis = new NumberAxis(0, 40, 10);
+        vAxis.setTickLabelFill(Color.RED);
+        cAxis.setTickLabelFill(Color.CHOCOLATE);
+        pAxis.setTickLabelFill(Color.FIREBRICK);
         vAxis.setMinorTickVisible(false);
 
         vChart = new LineChart<Number, Number>(vx, vAxis);
@@ -250,7 +246,7 @@ public class KejiaPowerController {
         pChart.setAnimated(false);
 
 //        displayCHartVbox.setAlignment(Pos.BOTTOM_LEFT);
-        displayCHartVbox.getChildren().addAll(vChart,cChart,pChart);
+        displayCHartVbox.getChildren().addAll(vChart, cChart, pChart);
 //        displayCHartVbox.getChildren().add(vChart);
 //        displayCHartVbox.getChildren().add(cChart);
 //        displayCHartVbox.getChildren().add(pChart);
@@ -259,17 +255,49 @@ public class KejiaPowerController {
         powerStatusList.setItems(powerStatusObservableList);
     }
 
+    private void powerTabGenerate(){
+        Tab tab = new Tab();
+        tab.setId(new StringBuilder("power").append(powerDisplayTab.getTabs().size()+1).toString());
+        tab.setText(new StringBuilder("电源-").append(powerDisplayTab.getTabs().size()+1).toString());
+        AnchorPane anchorPane = new AnchorPane();
+        GridPane gridPane = new GridPane();
+        gridPane.setHgap(2);
+        gridPane.setVgap(1);
+        gridPane.add(new Label("编号："),0,0);
+        gridPane.add(new Label("编号："),0,1);
+        anchorPane.getChildren().add(gridPane);
+
+        powerDisplayTab.getTabs().add(tab);
+    }
+
+    private void initInteractMessage() {
+        messageStringProperty.addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                rxStringToAddSpace.setValue(StringUtils.getStringAddSpace(messageStringProperty.getValue(), 2));
+            }
+        });
+    }
+
+    @FXML
+    private void initialize() {
+        initChart();
+        initInteractMessage();
+        powerTabGenerate();
+        powerTabGenerate();
+        powerTabGenerate();
+        powerTabGenerate();
+    }
+
     private ObservableList powerObservableList = FXCollections.observableArrayList();
     private ObservableList powerStatusObservableList = FXCollections.observableArrayList();
-
-//    private XYChart.Data vData = new XYChart.Data();
-//    private XYChart.Data cData = new XYChart.Data();
-//    private XYChart.Data pData = new XYChart.Data();
 
     @FXML
     private StringProperty messageStringProperty = new SimpleStringProperty("");
     @FXML
     private StringProperty paintStringProperty = new SimpleStringProperty("");
+
+    private StringProperty rxStringToAddSpace = new SimpleStringProperty("");
 
 
     @FXML
@@ -279,114 +307,22 @@ public class KejiaPowerController {
         try {
             switch (powerConnectedBtn.getText()) {
                 case "连接设备":
-                    if (null != st) {
-                        st = null;
-                    }
-
+                    tcpServer.setPORT(Integer.parseInt(portTextField.getText(), 10));
+                    tcpServer.start();
+                    readMessageFromClientService.start();
                     rxTextBtn.setDisable(false);
                     txTextBtn.setDisable(false);
-                    tcpServer = new TcpServer(inBlockingQueue, outBlockingQueue);
-                    tcpServer.setPORT(Integer.parseInt(portTextField.getText(), 10));
-                    (st = new Thread(tcpServer)).start();
-//                    (st = new Thread(tcpServer = new TcpServer(inBlockingQueue, outBlockingQueue))).start();
-//                    st.start();
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            while (!Thread.currentThread().isInterrupted()) {
-                                logger.info("pause");
-                                try {
-//                                    firstStringOfInBlockingQueue = getInBlockingQueue().take();
-//                                    clientMessage.getHeartBeatMessage(firstStringOfInBlockingQueue);
-                                    messageStringProperty.setValue(getInBlockingQueue().take());
-                                    clientMessage = new ClientMessage();
-                                    clientMessage.getClientMessage(messageStringProperty.getValue());
-//                                    clientMessage.getClientMessage(getInBlockingQueue().take());
-                                    serverMessage = new ServerMessage();
-                                    switch (DataFrame.dataFrameTypeClassify(clientMessage)) {
-                                        case HeartBeat:
-                                            serverMessage.generateHeartBeatMessage(clientMessage);
-                                            tcpServer.getSocket().getOutputStream().write(serverMessage.toString().getBytes());
-                                            tcpServer.getSocket().getOutputStream().flush();
-//                                            if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
-//                                                fileWriteThread.start();//是否每次需要打开文件操作IO
-//                                            }
-                                            if (fileInBlockingQueue.size() >= BUFF_SIZE) {
-                                                fileInBlockingQueue.take();
-                                                fileInBlockingQueue.take();
-                                            }
-                                            fileInBlockingQueue.put(clientMessage.toString().getBytes());
-                                            fileInBlockingQueue.put(serverMessage.toString().getBytes());
-                                            break;
-                                        case Control:
-//                                            if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
-                                            fileWriteThread.start();//是否每次需要打开文件操作IO
-//                                            }
-                                            break;
-                                        case Report:
-                                            Platform.runLater(() -> {
-                                                voltageSeries.getData().add(new XYChart.Data(voltageSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
-                                                currentSeries.getData().add(new XYChart.Data(currentSeries.getData().size(), Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
-                                                powerSeries.getData().add(new XYChart.Data(powerSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base / KILO));
-                                            });
-//                                            if ("停止接收".equals(rxTextBtn.getText()) && null != tcpServer && !tcpServer.getServerSocket().isClosed()) {
-//                                                repaintBlockingQueue.put(clientMessage);
-////                                                fileWriteThread.start();//是否每次需要打开文件操作IO
-//                                            }
-                                            break;
-                                        default:
-                                    }
-                                    Platform.runLater(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            if (!powerObservableList.contains(clientMessage.getClientIp().toString())) {
-                                                powerObservableList.add(clientMessage.getClientIp().toString());
-                                                powerStatusObservableList.add(clientMessage.getStatus().toString());
-                                            }
-                                        }
-                                    });
-                                } catch (InterruptedException e) {
-//                                    e.printStackTrace();
-                                    logger.error(e.getMessage());
-//                                    Thread.currentThread().interrupt();
-                                } catch (IOException e) {
-//                                    e.printStackTrace();
-                                    logger.error(e.getMessage());
-//                                    Thread.currentThread().isInterrupted();
-                                }
-                            }
-                        }
-                    }).start();
-
                     logger.info("TcpServer start!");
                     logger.info("powerConnectedBtnOnClick!");
                     powerConnectedBtn.setText("断开设备");
                     break;
                 case "断开设备":
+                    tcpServer.cancel();
+                    tcpServer.reset();
+                    readMessageFromClientService.cancel();
+                    readMessageFromClientService.reset();
                     rxTextBtn.setDisable(true);
                     txTextBtn.setDisable(true);
-                    if (null != st) {
-                        try {
-                            st.interrupt();
-                        } catch (Exception e) {
-                            logger.error(e.getMessage());
-                        } finally {
-                            st = null;
-                            logger.info("TcpServer Stopped!");
-                        }
-                    }
-                    if (null != tcpServer.getSocket()) {
-                        tcpServer.getSocket().close();
-                        tcpServer.setSocket(null);
-                        logger.info("TcpServer server socket.accept interrupted!");
-                    }
-                    if (null != tcpServer.getServerSocket()) {
-                        tcpServer.getServerSocket().close();
-                        tcpServer.setServerSocket(null);
-                        logger.info("TcpServer server socket interrupted!");
-                    }
-//                logger.info("线程中止" + String.valueOf(st.isInterrupted()));
-//                    es.shutdownNow();
                     powerConnectedBtn.setText("连接设备");
                     break;
                 default:
@@ -403,16 +339,14 @@ public class KejiaPowerController {
     void rxTextBtnOnClick(ActionEvent event) {
         switch (rxTextBtn.getText()) {
             case "开始接收":
+                rxTextArea.setText("");
                 rxTextBtn.setText("停止接收");
-                rxTextArea.textProperty().bind(messageStringProperty);
-//        currentSeries.getData().add(new XYChart.Data<Number, Number>(count++, Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
-//        powerSeries.getData().add(new XYChart.Data<Number, Number>(count++, Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
+                rxTextArea.textProperty().bind(rxStringToAddSpace);
                 break;
             case "停止接收":
                 rxTextBtn.setText("开始接收");
                 rxTextArea.textProperty().unbind();
                 messageStringProperty.setValue("");
-                rxTextArea.setText("");
                 break;
             default:
                 break;
@@ -421,25 +355,14 @@ public class KejiaPowerController {
 
     @FXML
     void txTextBtnOnClick(ActionEvent event) {
-        if (null == st) {
-            return;
-        }
-        if (null == tcpServer) {
-            return;
-        }
-        if (null == tcpServer.getServerSocket()) {
-            return;
-        }
-        if (null == tcpServer.getSocket()) {
-            return;
-        }
 
-        if (!(txTextArea.getText() == null || txTextArea.getText().length() <= 0) && null != tcpServer.getSocket()) {
+
+        if (!(txTextArea.getText() == null || txTextArea.getText().length() <= 0) && null != tcpServer.getSocketMap().get(clientMessage.getClientIp().toString())) {
             try {
 //                outBlockingQueue.put(txTextArea.getText().replaceAll(" +", ""));
 //                tcpServer.getSocket().getOutputStream().write(outBlockingQueue.take().replaceAll(" +", "").getBytes());
-                tcpServer.getSocket().getOutputStream().write(txTextArea.getText().replaceAll(" +", "").getBytes());
-                tcpServer.getSocket().getOutputStream().flush();
+                tcpServer.getSocketMap().get(clientMessage.getClientIp().toString()).getOutputStream().write(txTextArea.getText().replaceAll(" +", "").getBytes());
+                tcpServer.getSocketMap().get(clientMessage.getClientIp().toString()).getOutputStream().flush();
 //                tcpServer.Send(outBlockingQueue);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -448,22 +371,72 @@ public class KejiaPowerController {
         }
     }
 
-//    private Task powerConnectTask = new Task<String>() {
-//
-//        @Override
-//        protected String call() throws Exception {
-//            if (!powerObservableList.contains(tcpServer.getSocket().getRemoteSocketAddress().toString())){
-//                powerObservableList.add(tcpServer.getSocket().getRemoteSocketAddress().toString());
-//                powerStatusObservableList.add(clientMessage.getStatus().toString());
-//            }
-//            return null;
-//        }
-//    };
+    private class ReadMessageFromClientService extends Service {
+        @Override
+        protected Task<Void> createTask() {
+            Task<Void> task = new Task<Void>() {
+                @Override
+                protected Void call() throws Exception {
+                    while (!Thread.currentThread().isInterrupted()) {
+                        try {
+                            messageStringProperty.setValue(getInBlockingQueue().take());
+                            clientMessage = new ClientMessage();
+                            clientMessage.getClientMessage(messageStringProperty.getValue());
+                            serverMessage = new ServerMessage();
+                            switch (DataFrame.dataFrameTypeClassify(clientMessage)) {
+                                case HeartBeat:
+                                    serverMessage.generateHeartBeatMessage(clientMessage);
+                                    tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString())).getOutputStream().write(serverMessage.toString().getBytes());
+                                    tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString())).getOutputStream().flush();
+                                    if (fileInBlockingQueue.size() >= BUFF_SIZE) {
+                                        fileInBlockingQueue.take();
+                                        fileInBlockingQueue.take();
+                                    }
+                                    fileInBlockingQueue.put(clientMessage.toString().getBytes());
+                                    fileInBlockingQueue.put(serverMessage.toString().getBytes());
+                                    break;
+                                case Control:
+                                    fileWriteThread.start();//是否每次需要打开文件操作IO
+                                    break;
+                                case Report:
+                                    Platform.runLater(() -> {
+                                        voltageSeries.getData().add(new XYChart.Data(voltageSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
+                                        currentSeries.getData().add(new XYChart.Data(currentSeries.getData().size(), Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
+                                        powerSeries.getData().add(new XYChart.Data(powerSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base / KILO));
+                                    });
+                                    break;
+                            }
+                            Platform.runLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    if (!powerObservableList.contains(clientMessage.getClientIp().toString())) {
+                                        powerObservableList.add(clientMessage.getClientIp().toString());
+                                        powerStatusObservableList.add(clientMessage.getStatus().toString());
+                                        powerIdInDisplayTab.setText(new StringBuilder(powerIdInDisplayTab.getText()).append(clientMessage.getClientIp()).toString());
+                                    }
+                                }
+                            });
+                        } catch (InterruptedException e) {
+//                                    e.printStackTrace();
+                            logger.error(e.getMessage());
+                            Thread.currentThread().interrupt();
+                        } catch (IOException e) {
+//                                    e.printStackTrace();
+                            logger.error(e.getMessage());
+                            Thread.currentThread().isInterrupted();
+                        }
+                    }
+                    return null;
+                }
+            };
+            return task;
+        }
 
-    private Thread fileWriteThread = new Thread(new Runnable() {
 
-        FileOutputStream output = null;
-        byte[] bytes = new byte[BUFF_SIZE];
+        private Thread fileWriteThread = new Thread(new Runnable() {
+
+            FileOutputStream output = null;
+            byte[] bytes = new byte[BUFF_SIZE];
 
 //        {
 //            try {
@@ -477,41 +450,41 @@ public class KejiaPowerController {
 //        }
 
 
-        @Override
-        public void run() {
-            try {
+            @Override
+            public void run() {
                 try {
-                    file = new File("./logs/runtime.log");
-                    if (!file.exists()) file.createNewFile();
-                    output = new FileOutputStream(file);
-                } catch (
-                        IOException ie) {
-                    logger.error(ie.getMessage());
-                }
-                bytes = new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())).append(clientMessage).toString().getBytes();
-                output.write(bytes);                //将数组的信息写入文件中
-                bytes = new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())).append(serverMessage).toString().getBytes();
-                output.write(bytes);                //将数组的信息写入文件中
-            } catch (Exception e) {
-                logger.error(e.getMessage());
-            } finally {
-                try {
-                    output.flush();
-                    output.close();
-
-                    Thread.currentThread().interrupt();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    try {
+                        file = new File("./logs/runtime.log");
+                        if (!file.exists()) file.createNewFile();
+                        output = new FileOutputStream(file);
+                    } catch (
+                            IOException ie) {
+                        logger.error(ie.getMessage());
+                    }
+                    bytes = new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())).append(clientMessage).toString().getBytes();
+                    output.write(bytes);                //将数组的信息写入文件中
+                    bytes = new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())).append(serverMessage).toString().getBytes();
+                    output.write(bytes);                //将数组的信息写入文件中
+                } catch (Exception e) {
                     logger.error(e.getMessage());
+                } finally {
+                    try {
+                        output.flush();
+                        output.close();
+
+                        Thread.currentThread().interrupt();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        logger.error(e.getMessage());
+                    }
                 }
             }
-        }
-    });
+        });
 
-    private Thread fileReadThread = new Thread(new Runnable() {
+        private Thread fileReadThread = new Thread(new Runnable() {
 
-        byte[] bytes = new byte[BUFF_SIZE];
-        BufferedInputStream bufferedInput = null;
+            byte[] bytes = new byte[BUFF_SIZE];
+            BufferedInputStream bufferedInput = null;
 
 //        {
 //            try {
@@ -522,65 +495,60 @@ public class KejiaPowerController {
 //            }
 //        }
 
-        @Override
-        public void run() {
-            try {
-                if (!file.exists()) file.createNewFile();
-                BufferedInputStream bufferedInput = new BufferedInputStream(new FileInputStream(file));
-                fileInBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
-            } catch (IOException ie) {
-                logger.error(ie.getMessage());
-            }
-            while (!Thread.currentThread().isInterrupted()) {
+            @Override
+            public void run() {
                 try {
-                    while (bufferedInput.read(bytes) != -1) {
-                        fileInBlockingQueue.put(bytes);
-                    }
-                } catch (Exception e) {
-                    logger.error(e.getMessage());
-                } finally {
+                    if (!file.exists()) file.createNewFile();
+                    BufferedInputStream bufferedInput = new BufferedInputStream(new FileInputStream(file));
+                    fileInBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
+                } catch (IOException ie) {
+                    logger.error(ie.getMessage());
+                }
+                while (!Thread.currentThread().isInterrupted()) {
                     try {
-                        bufferedInput.close();
-                        Thread.currentThread().interrupt();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        while (bufferedInput.read(bytes) != -1) {
+                            fileInBlockingQueue.put(bytes);
+                        }
+                    } catch (Exception e) {
+                        logger.error(e.getMessage());
+                    } finally {
+                        try {
+                            bufferedInput.close();
+                            Thread.currentThread().interrupt();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
+
             }
+        });
 
-        }
-    });
+        //内部类，画图
+        private class PaintBrush implements Runnable {
 
-//    public void refreshLineChart(LineChart chart, XYChart.Series series) {
-//        chart.getData().add(series);
-//    }
-//
-
-
-    //内部类，画图
-    private class PaintBrush implements Runnable {
-
-        @Override
-        public void run() {
+            @Override
+            public void run() {
 //            long nowTime = System.currentTimeMillis();
 //            Calendar cal = Calendar.getInstance();
 //            cal.setTimeInMillis(nowTime);
 
-            XYChart.Data data = new XYChart.Data();
+                XYChart.Data data = new XYChart.Data();
 
-            try {
-                if ("停止接收".equals(rxTextBtn.getText())) {
-                    rxTextArea.setText(StringUtils.getStringAddSpace(clientMessage.toString(), 2));
+                try {
+                    if ("停止接收".equals(rxTextBtn.getText())) {
+                        rxTextArea.setText(StringUtils.getStringAddSpace(clientMessage.toString(), 2));
+                    }
+                    //Linecharts
+                    voltageSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
+                    currentSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
+                    powerSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), (Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() * Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue()) / Base));
+
+                    Platform.runLater(() -> {//修改界面的工作
+                    });
+                } catch (Exception e) {
+                    logger.error(e.getMessage());
                 }
-                //Linecharts
-                voltageSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
-                currentSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
-                powerSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), (Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() * Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue()) / Base));
-
-                Platform.runLater(() -> {//修改界面的工作
-                });
-            } catch (Exception e) {
-                logger.error(e.getMessage());
             }
         }
     }

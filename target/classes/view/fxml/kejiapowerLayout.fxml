@@ -109,7 +109,7 @@
          <children>
             <TabPane fx:id="powerDisplayTab" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab fx:id="tab1" text="电源A">
+                <Tab fx:id="power1" text="电源-1">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0">
                            <children>

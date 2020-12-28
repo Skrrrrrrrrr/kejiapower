@@ -1,12 +1,19 @@
 package com.longriver.kejiapower.model;
 
 
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.*;
 
 /**
@@ -19,20 +26,20 @@ import java.util.concurrent.*;
  */
 
 
-public class TcpServer implements Runnable {
+public class TcpServer extends Service {
 
     //必须实现线程，否则主界面卡死在内部类的.accept()
     /* Setting up variables */
     private int PORT;
     private static final int BUFF_SIZE = 1024;
+    private static final int CLIENT_AMOUNT = 8;
 
     static String inputString;
     static String outputString;
     private final Logger logger = LoggerFactory.getLogger(TcpServer.class);
 
 
-    private Socket socket;
-    private ServerSocket serverSocket;
+    private Map<String, Socket> socketMap = new HashMap<>(CLIENT_AMOUNT);
 
 //    private static InputStream is;
     //        ObjectInputStream input = new ObjectInputStream(is);
@@ -62,28 +69,12 @@ public class TcpServer implements Runnable {
         this.outBlockingQueue = outBlockingQueue;
     }
 
-    public Socket getSocket() {
-        return socket;
-    }
-
-    public void setSocket(Socket socket) {
-        this.socket = socket;
-    }
-
     public String getOutputString() {
         return outputString;
     }
 
     public void setOutputString(String outputString) {//用来赋值发送数据
         this.outputString = outputString;
-    }
-
-    public ServerSocket getServerSocket() {
-        return serverSocket;
-    }
-
-    public void setServerSocket(ServerSocket serverSocket) {
-        this.serverSocket = serverSocket;
     }
 
     public BlockingQueue<String> getInBlockingQueue() {
@@ -102,70 +93,72 @@ public class TcpServer implements Runnable {
         this.outBlockingQueue = outBlockingQueue;
     }
 
+    public Map<String, Socket> getSocketMap() {
+        return socketMap;
+    }
 
-    public void startServer() throws Exception {
-        logger.info("The TCP Server is running.");
-        serverSocket = new ServerSocket(getPORT());
-        HandlerSocketThreadPool handlerSocketThreadPool =
-                new HandlerSocketThreadPool(8, BUFF_SIZE);
-        try {
-            while (!Thread.currentThread().isInterrupted()) {
-//                new Handler(socket = serverSocket.accept()).start();
-                handlerSocketThreadPool.execute(new Handler(socket = serverSocket.accept()));
-                logger.info("Server Thread starts!");
-//                if (Thread.currentThread().isInterrupted()) {
-//                    logger.info("TcpServer Thread interrupted");
-//                    serverSocket.close();
-//                    break;
-//                }
-            }
-
-        } catch (Exception e) {
-//            e.printStackTrace();
-            logger.info(e.toString());
-//            Thread.currentThread().interrupt();
-        } finally {
-            try {
-                if (null != serverSocket) {
-                    serverSocket.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-                logger.error(e.getMessage());
-            } catch (NullPointerException e) {
-                e.printStackTrace();
-                logger.error("NullPointerException: OutputStream already closed!");
-            }
-            logger.info("closeConnections() method Exit");
-        }
+    public void setSocketMap(Map<String, Socket> socketMap) {
+        this.socketMap = socketMap;
     }
 
     @Override
-    public void run() {
+    protected Task createTask() {
+
+        Task<Void> task = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                logger.info("The TCP Server is running.");
+                logger.info("Current Thread is  " + Thread.currentThread());
+                ServerSocket serverSocket = new ServerSocket(getPORT());
+                ExecutorService pool;
+                pool = Executors.newFixedThreadPool(2);
+                try {
+                    while (!Thread.currentThread().isInterrupted()) {
+                        pool.execute(new Handler( serverSocket.accept()));
+                        logger.info("Server Thread -" + Thread.currentThread() + " starts!");
+                    }
+                } catch (Exception e) {
+                    logger.info(e.toString());
+                } finally {
+                    try {
+                        if (null != serverSocket) {
+                            serverSocket.close();
+                        }
+                        shutdownAndAwaitTermination(pool);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        logger.error(e.getMessage());
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
+                        logger.error("NullPointerException: OutputStream already closed!");
+                    }
+                    logger.info("closeConnections() method Exit");
+                }
+                return null;
+            }
+        };
+
+        return task;
+    }
+
+    private void shutdownAndAwaitTermination(ExecutorService pool) {
+        pool.shutdown(); // Disable new tasks from being submitted
         try {
-            startServer();
-        } catch (Exception e) {
-            e.printStackTrace();
+            // Wait a while for existing tasks to terminate
+            if (!pool.awaitTermination(5, TimeUnit.SECONDS)) {
+                pool.shutdownNow(); // Cancel currently executing tasks
+                // Wait a while for tasks to respond to being cancelled
+                if (!pool.awaitTermination(5, TimeUnit.SECONDS))
+                    logger.error("Pool did not terminate");
+            }
+        } catch (InterruptedException ie) {
+            // (Re-)Cancel if current thread also interrupted
+            pool.shutdownNow();
+            // Preserve interrupt status
+            Thread.currentThread().interrupt();
         }
     }
 
-    public static class HandlerSocketThreadPool {
-        // 线程池
-        private ExecutorService executor;
-
-        public HandlerSocketThreadPool(int maxPoolSize, int queueSize) {
-            this.executor = new ThreadPoolExecutor(
-                    1, // 8
-                    maxPoolSize,
-                    60L,
-                    TimeUnit.SECONDS,
-                    new ArrayBlockingQueue<Runnable>(queueSize));
-        }
-
-        public void execute(Runnable task) {
-            this.executor.execute(task);
-        }
-    }
 
     private class Handler extends Thread {
         private Socket serverSocketAccept;
@@ -178,11 +171,13 @@ public class TcpServer implements Runnable {
         }
 
         public void run() {
-            logger.info("Current Thread is  " + Thread.currentThread());
+            logger.info("Current Handler Thread is  " + Thread.currentThread());
             logger.info("Server Handler Thread starts!");
             logger.info("Attempting to connect a user...");
             logger.info("User's Addr : " + serverSocketAccept.getInetAddress().getHostAddress() + ':' + serverSocketAccept.getPort());
             try {
+                socketMap.put(serverSocketAccept.getInetAddress().getHostAddress(),serverSocketAccept);
+
                 InputStream is = serverSocketAccept.getInputStream();
                 OutputStream os = serverSocketAccept.getOutputStream();
 

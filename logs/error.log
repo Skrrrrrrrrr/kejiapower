@@ -1,2 +1,4 @@
-2020-12-25 13:58:04:066  [ Thread-4:73208 ] - [ ERROR ]  
-2020-12-25 14:16:03:432  [ Thread-4:117011 ] - [ ERROR ]  
+2020-12-28 15:18:18:903  [ JavaFX Application Thread:0 ] - [ ERROR ]  java.lang.NullPointerException
+2020-12-28 15:19:40:631  [ JavaFX Application Thread:0 ] - [ ERROR ]  java.lang.NullPointerException
+2020-12-28 15:20:16:284  [ JavaFX Application Thread:0 ] - [ ERROR ]  java.lang.NullPointerException
+2020-12-28 15:20:59:927  [ JavaFX Application Thread:0 ] - [ ERROR ]  java.lang.NullPointerException

@@ -1,12 +1,5 @@
 package com.longriver.kejiapower.POJO;
 
-import com.longriver.kejiapower.utils.DataFrame;
-import com.longriver.kejiapower.utils.DataFrameType;
-import com.longriver.kejiapower.utils.StringUtils;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Message {
     private StringBuilder head;
     private StringBuilder type;
