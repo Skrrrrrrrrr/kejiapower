@@ -39,7 +39,7 @@ public class TcpServer extends Service {
     private final Logger logger = LoggerFactory.getLogger(TcpServer.class);
 
 
-    private Map<String, Socket> socketMap = new HashMap<>(CLIENT_AMOUNT);
+    private Map<String, Socket> socketMap = new HashMap<>(CLIENT_AMOUNT);//存储客户端的socket连接，识别号是IP
 
 //    private static InputStream is;
     //        ObjectInputStream input = new ObjectInputStream(is);
@@ -111,7 +111,7 @@ public class TcpServer extends Service {
                 logger.info("Current Thread is  " + Thread.currentThread());
                 ServerSocket serverSocket = new ServerSocket(getPORT());
                 ExecutorService pool;
-                pool = Executors.newFixedThreadPool(2);
+                pool = Executors.newFixedThreadPool(CLIENT_AMOUNT);
                 try {
                     while (!Thread.currentThread().isInterrupted()) {
                         pool.execute(new Handler( serverSocket.accept()));
@@ -121,16 +121,13 @@ public class TcpServer extends Service {
                     logger.info(e.toString());
                 } finally {
                     try {
-                        if (null != serverSocket) {
+                        shutdownAndAwaitTermination(pool);
+                        if (!serverSocket.isClosed()) {
                             serverSocket.close();
                         }
-                        shutdownAndAwaitTermination(pool);
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                         logger.error(e.getMessage());
-                    } catch (NullPointerException e) {
-                        e.printStackTrace();
-                        logger.error("NullPointerException: OutputStream already closed!");
                     }
                     logger.info("closeConnections() method Exit");
                 }
@@ -176,7 +173,7 @@ public class TcpServer extends Service {
             logger.info("Attempting to connect a user...");
             logger.info("User's Addr : " + serverSocketAccept.getInetAddress().getHostAddress() + ':' + serverSocketAccept.getPort());
             try {
-                socketMap.put(serverSocketAccept.getInetAddress().getHostAddress(),serverSocketAccept);
+                socketMap.put(String.format("%s:%s",serverSocketAccept.getInetAddress(),serverSocketAccept.getPort() ),serverSocketAccept);
 
                 InputStream is = serverSocketAccept.getInputStream();
                 OutputStream os = serverSocketAccept.getOutputStream();
@@ -223,14 +220,12 @@ public class TcpServer extends Service {
          */
         private synchronized void closeConnections() {
             try {
-//                input.close();
                 output.close();
                 serverSocketAccept.close();
             } catch (IOException e) {
                 e.printStackTrace();
                 logger.error(e.toString());
             }
-
             logger.info("closeConnections() method Exit");
         }
     }

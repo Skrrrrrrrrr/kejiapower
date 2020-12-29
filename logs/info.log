@@ -1024,3 +1024,451 @@
 2020-12-28 21:30:33:074  [ pool-2-thread-1:23660 ] - [ INFO ]  采集到的数据是FFFF0BCCDE0CFFDEAA090323021201222101DD
 2020-12-28 21:30:33:075  [ pool-2-thread-1:23661 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
 2020-12-28 21:30:34:483  [ pool-2-thread-1:25069 ] - [ INFO ]  closeConnections() method Exit
+2020-12-29 11:47:48:185  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 11:47:48:185  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 11:47:48:190  [ JavaFX Application Thread:5 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 11:47:48:191  [ Thread-6:6 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 11:47:51:340  [ Thread-7:3155 ] - [ ERROR ]  
+2020-12-29 11:48:25:181  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 11:48:25:181  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 11:48:25:185  [ JavaFX Application Thread:4 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 11:48:25:185  [ Thread-6:4 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 11:48:29:349  [ Thread-7:4168 ] - [ ERROR ]  
+2020-12-29 11:49:52:009  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 11:49:52:013  [ Thread-6:4 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 11:49:52:029  [ JavaFX Application Thread:20 ] - [ INFO ]  TcpServer start!
+2020-12-29 11:49:52:030  [ JavaFX Application Thread:21 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 11:50:10:133  [ Thread-7:18124 ] - [ ERROR ]  
+2020-12-29 11:50:24:542  [ Thread-8:32533 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 11:50:24:542  [ JavaFX Application Thread:32533 ] - [ INFO ]  TcpServer start!
+2020-12-29 11:50:24:546  [ Thread-8:32537 ] - [ INFO ]  Current Thread is  Thread[Thread-8,1,javafx concurrent thread pool]
+2020-12-29 11:50:24:549  [ JavaFX Application Thread:32540 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 11:52:12:225  [ Thread-9:140216 ] - [ ERROR ]  
+2020-12-29 11:55:44:312  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 11:55:44:312  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 11:55:44:317  [ Thread-6:5 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 11:55:44:317  [ JavaFX Application Thread:5 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 11:55:48:844  [ Thread-7:4532 ] - [ ERROR ]  
+2020-12-29 11:56:42:737  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 11:56:42:737  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 11:56:42:741  [ JavaFX Application Thread:4 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 11:56:42:742  [ Thread-6:5 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 11:56:43:477  [ Thread-7:740 ] - [ ERROR ]  
+2020-12-29 11:57:02:745  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 11:57:02:745  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 11:57:02:749  [ JavaFX Application Thread:4 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 11:57:02:749  [ Thread-6:4 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 11:57:03:389  [ Thread-7:644 ] - [ INFO ]  
+2020-12-29 12:03:54:800  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 12:03:54:800  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 12:03:54:807  [ JavaFX Application Thread:7 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 12:03:54:807  [ Thread-6:7 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 12:03:56:813  [ Thread-7:2013 ] - [ INFO ]  
+2020-12-29 12:03:58:915  [ JavaFX Application Thread:4115 ] - [ INFO ]  TcpServer start!
+2020-12-29 12:03:58:915  [ Thread-8:4115 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 12:03:58:916  [ JavaFX Application Thread:4116 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 12:03:58:916  [ Thread-8:4116 ] - [ INFO ]  Current Thread is  Thread[Thread-8,1,javafx concurrent thread pool]
+2020-12-29 12:04:00:147  [ Thread-9:5347 ] - [ INFO ]  
+2020-12-29 12:15:25:873  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 12:15:25:873  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 12:15:25:877  [ Thread-6:4 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 12:15:25:878  [ JavaFX Application Thread:5 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 12:15:32:277  [ Thread-7:6404 ] - [ INFO ]  
+2020-12-29 12:30:29:626  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 12:30:29:626  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 12:30:29:631  [ JavaFX Application Thread:5 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 12:30:29:631  [ Thread-6:5 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 12:31:27:095  [ Thread-7:57469 ] - [ ERROR ]  
+2020-12-29 12:32:38:586  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 12:32:38:592  [ JavaFX Application Thread:6 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 12:32:38:586  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 12:32:38:594  [ Thread-6:8 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 12:41:43:513  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 12:41:43:513  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 12:41:43:518  [ Thread-6:5 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 12:41:43:519  [ JavaFX Application Thread:6 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 12:42:09:474  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 12:42:09:475  [ Thread-6:1 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 12:42:09:480  [ JavaFX Application Thread:6 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 12:42:09:481  [ Thread-6:7 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 12:42:50:099  [ Thread-6:40625 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 12:42:50:099  [ pool-2-thread-1:40625 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 12:42:50:100  [ pool-2-thread-1:40626 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 12:42:50:100  [ pool-2-thread-1:40626 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 12:42:50:101  [ pool-2-thread-1:40627 ] - [ INFO ]  User's Addr : 127.0.0.1:51369
+2020-12-29 12:42:55:342  [ pool-2-thread-1:45868 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:55:343  [ pool-2-thread-1:45869 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:55:932  [ pool-2-thread-1:46458 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:55:933  [ pool-2-thread-1:46459 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:56:084  [ pool-2-thread-1:46610 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:56:085  [ pool-2-thread-1:46611 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:56:229  [ pool-2-thread-1:46755 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:56:231  [ pool-2-thread-1:46757 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:56:365  [ pool-2-thread-1:46891 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:56:365  [ pool-2-thread-1:46891 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:56:501  [ pool-2-thread-1:47027 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:56:501  [ pool-2-thread-1:47027 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:56:645  [ pool-2-thread-1:47171 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:56:646  [ pool-2-thread-1:47172 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:56:789  [ pool-2-thread-1:47315 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:56:789  [ pool-2-thread-1:47315 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:56:933  [ pool-2-thread-1:47459 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:56:934  [ pool-2-thread-1:47460 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:57:076  [ pool-2-thread-1:47602 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:57:077  [ pool-2-thread-1:47603 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:57:221  [ pool-2-thread-1:47747 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:57:221  [ pool-2-thread-1:47747 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:57:357  [ pool-2-thread-1:47883 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:57:357  [ pool-2-thread-1:47883 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:57:500  [ pool-2-thread-1:48026 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:57:501  [ pool-2-thread-1:48027 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:57:645  [ pool-2-thread-1:48171 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:57:646  [ pool-2-thread-1:48172 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:57:788  [ pool-2-thread-1:48314 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:57:789  [ pool-2-thread-1:48315 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:57:924  [ pool-2-thread-1:48450 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:57:925  [ pool-2-thread-1:48451 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:58:069  [ pool-2-thread-1:48595 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:58:070  [ pool-2-thread-1:48596 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:58:220  [ pool-2-thread-1:48746 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:58:221  [ pool-2-thread-1:48747 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:58:356  [ pool-2-thread-1:48882 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:58:357  [ pool-2-thread-1:48883 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:58:509  [ pool-2-thread-1:49035 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:58:510  [ pool-2-thread-1:49036 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:58:652  [ pool-2-thread-1:49178 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:58:653  [ pool-2-thread-1:49179 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:58:789  [ pool-2-thread-1:49315 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:58:789  [ pool-2-thread-1:49315 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:58:924  [ pool-2-thread-1:49450 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:58:925  [ pool-2-thread-1:49451 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:59:068  [ pool-2-thread-1:49594 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:59:069  [ pool-2-thread-1:49595 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:59:229  [ pool-2-thread-1:49755 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:59:229  [ pool-2-thread-1:49755 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:59:373  [ pool-2-thread-1:49899 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:59:373  [ pool-2-thread-1:49899 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:59:509  [ pool-2-thread-1:50035 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:59:509  [ pool-2-thread-1:50035 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:59:637  [ pool-2-thread-1:50163 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:59:637  [ pool-2-thread-1:50163 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:59:797  [ pool-2-thread-1:50323 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:59:797  [ pool-2-thread-1:50323 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:42:59:933  [ pool-2-thread-1:50459 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:42:59:933  [ pool-2-thread-1:50459 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 12:43:27:830  [ pool-2-thread-1:78356 ] - [ INFO ]  closeConnections() method Exit
+2020-12-29 12:43:33:518  [ Thread-6:84044 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 12:43:33:519  [ pool-2-thread-2:84045 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-2,5,javafx concurrent thread pool]
+2020-12-29 12:43:33:519  [ pool-2-thread-2:84045 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 12:43:33:519  [ pool-2-thread-2:84045 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 12:43:33:519  [ pool-2-thread-2:84045 ] - [ INFO ]  User's Addr : 192.168.5.6:51375
+2020-12-29 12:43:34:693  [ pool-2-thread-2:85219 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:43:34:694  [ pool-2-thread-2:85220 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 12:43:34:852  [ pool-2-thread-2:85378 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:43:34:853  [ pool-2-thread-2:85379 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 12:43:35:004  [ pool-2-thread-2:85530 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:43:35:005  [ pool-2-thread-2:85531 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 12:43:35:157  [ pool-2-thread-2:85683 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:43:35:158  [ pool-2-thread-2:85684 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 12:43:35:292  [ pool-2-thread-2:85818 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:43:35:293  [ pool-2-thread-2:85819 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 12:43:35:429  [ pool-2-thread-2:85955 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:43:35:429  [ pool-2-thread-2:85955 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 12:43:35:564  [ pool-2-thread-2:86090 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:43:35:565  [ pool-2-thread-2:86091 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 12:43:39:214  [ pool-2-thread-2:89740 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 12:43:39:214  [ pool-2-thread-2:89740 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 12:43:42:510  [ pool-2-thread-2:93036 ] - [ INFO ]  closeConnections() method Exit
+2020-12-29 12:44:07:598  [ Thread-7:118124 ] - [ ERROR ]  
+2020-12-29 12:44:13:480  [ JavaFX Application Thread:124006 ] - [ INFO ]  TcpServer start!
+2020-12-29 12:44:13:480  [ Thread-10:124006 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 12:44:13:481  [ JavaFX Application Thread:124007 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 12:44:13:481  [ Thread-10:124007 ] - [ INFO ]  Current Thread is  Thread[Thread-10,1,javafx concurrent thread pool]
+2020-12-29 12:45:50:750  [ Thread-6:221276 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 12:45:50:750  [ pool-2-thread-1:221276 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 12:45:50:751  [ pool-2-thread-1:221277 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 12:45:50:751  [ pool-2-thread-1:221277 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 12:45:50:751  [ Thread-6:221277 ] - [ INFO ]  closeConnections() method Exit
+2020-12-29 12:45:50:752  [ pool-2-thread-1:221278 ] - [ INFO ]  User's Addr : 192.168.5.6:51539
+2020-12-29 12:45:50:752  [ pool-2-thread-1:221278 ] - [ INFO ]  closeConnections() method Exit
+2020-12-29 12:53:35:590  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 12:53:35:590  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 12:53:35:595  [ JavaFX Application Thread:5 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 12:53:35:595  [ Thread-6:5 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 12:53:43:303  [ Thread-6:7713 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 12:53:43:304  [ pool-2-thread-1:7714 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 12:53:43:304  [ pool-2-thread-1:7714 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 12:53:43:304  [ pool-2-thread-1:7714 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 12:53:43:304  [ pool-2-thread-1:7714 ] - [ INFO ]  User's Addr : 192.168.5.6:51598
+2020-12-29 12:54:33:753  [ Thread-6:58163 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 12:54:33:753  [ pool-2-thread-2:58163 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-2,5,javafx concurrent thread pool]
+2020-12-29 12:54:33:754  [ pool-2-thread-2:58164 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 12:54:33:754  [ pool-2-thread-2:58164 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 12:54:33:754  [ pool-2-thread-2:58164 ] - [ INFO ]  User's Addr : 192.168.5.6:51613
+2020-12-29 12:55:20:991  [ Thread-6:105401 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 12:55:30:222  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 12:55:30:222  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 12:55:30:226  [ Thread-6:4 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 12:55:30:227  [ JavaFX Application Thread:5 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 12:55:37:409  [ Thread-6:7187 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 12:55:37:409  [ pool-2-thread-1:7187 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 12:55:37:410  [ pool-2-thread-1:7188 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 12:55:37:410  [ pool-2-thread-1:7188 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 12:55:37:411  [ pool-2-thread-1:7189 ] - [ INFO ]  User's Addr : 192.168.5.6:51625
+2020-12-29 12:55:42:016  [ Thread-6:11794 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 12:55:42:017  [ pool-2-thread-2:11795 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-2,5,javafx concurrent thread pool]
+2020-12-29 12:55:42:018  [ pool-2-thread-2:11796 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 12:55:42:018  [ pool-2-thread-2:11796 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 12:55:42:018  [ pool-2-thread-2:11796 ] - [ INFO ]  User's Addr : 192.168.5.6:51627
+2020-12-29 12:56:20:897  [ Thread-6:50675 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 12:56:26:744  [ Thread-6:56522 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 12:56:59:588  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 12:56:59:588  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 12:56:59:593  [ JavaFX Application Thread:5 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 12:56:59:593  [ Thread-6:5 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 12:57:05:825  [ Thread-6:6237 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 12:57:05:825  [ pool-2-thread-1:6237 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 12:57:05:826  [ pool-2-thread-1:6238 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 12:57:05:826  [ pool-2-thread-1:6238 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 12:57:05:827  [ pool-2-thread-1:6239 ] - [ INFO ]  User's Addr : 192.168.5.6:51648
+2020-12-29 13:01:20:757  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 13:01:20:757  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 13:01:20:761  [ Thread-6:4 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 13:01:20:762  [ JavaFX Application Thread:5 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 13:01:27:872  [ Thread-6:7115 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 13:01:27:872  [ pool-2-thread-1:7115 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 13:01:27:873  [ pool-2-thread-1:7116 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 13:01:27:873  [ pool-2-thread-1:7116 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 13:01:27:874  [ pool-2-thread-1:7117 ] - [ INFO ]  User's Addr : 192.168.5.6:51914
+2020-12-29 13:02:02:900  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 13:02:02:900  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 13:02:02:905  [ JavaFX Application Thread:5 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 13:02:02:905  [ Thread-6:5 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 13:02:09:025  [ Thread-6:6125 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 13:02:09:025  [ pool-2-thread-1:6125 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 13:02:09:026  [ pool-2-thread-1:6126 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 13:02:09:026  [ pool-2-thread-1:6126 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 13:02:09:027  [ pool-2-thread-1:6127 ] - [ INFO ]  User's Addr : 192.168.5.6:51934
+2020-12-29 13:02:59:214  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 13:02:59:214  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 13:02:59:217  [ Thread-6:3 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 13:02:59:218  [ JavaFX Application Thread:4 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 13:03:03:328  [ Thread-6:4114 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 13:03:03:328  [ pool-2-thread-1:4114 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 13:03:03:329  [ pool-2-thread-1:4115 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 13:03:03:329  [ pool-2-thread-1:4115 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 13:03:03:329  [ pool-2-thread-1:4115 ] - [ INFO ]  User's Addr : 192.168.5.6:51946
+2020-12-29 13:03:35:156  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 13:03:35:156  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 13:03:35:160  [ JavaFX Application Thread:4 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 13:03:35:161  [ Thread-6:5 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 13:03:41:112  [ Thread-6:5956 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 13:03:41:112  [ pool-2-thread-1:5956 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 13:03:41:113  [ pool-2-thread-1:5957 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 13:03:41:113  [ pool-2-thread-1:5957 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 13:03:41:114  [ pool-2-thread-1:5958 ] - [ INFO ]  User's Addr : 192.168.5.6:51958
+2020-12-29 13:03:51:182  [ pool-2-thread-2:16026 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-2,5,javafx concurrent thread pool]
+2020-12-29 13:03:51:184  [ Thread-6:16028 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 13:03:51:184  [ pool-2-thread-2:16028 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 13:03:53:742  [ pool-2-thread-2:18586 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 13:03:53:742  [ pool-2-thread-2:18586 ] - [ INFO ]  User's Addr : 192.168.5.6:51961
+2020-12-29 13:18:34:438  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 13:18:34:438  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 13:18:34:442  [ JavaFX Application Thread:4 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 13:18:34:442  [ Thread-6:4 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 13:18:44:354  [ Thread-6:9916 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 13:18:44:354  [ pool-2-thread-1:9916 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 13:18:44:355  [ pool-2-thread-1:9917 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 13:18:44:355  [ pool-2-thread-1:9917 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 13:18:44:356  [ pool-2-thread-1:9918 ] - [ INFO ]  User's Addr : 192.168.5.6:52223
+2020-12-29 13:18:44:362  [ pool-2-thread-1:9924 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DDFFFF0BCCDD0CFFF1DD010F100246011ECF12DDFFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:18:44:363  [ pool-2-thread-1:9925 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:18:52:422  [ pool-2-thread-1:17984 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:18:52:423  [ pool-2-thread-1:17985 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:18:58:366  [ pool-2-thread-1:23928 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:18:58:367  [ pool-2-thread-1:23929 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:18:58:967  [ pool-2-thread-1:24529 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:18:58:969  [ pool-2-thread-1:24531 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:18:59:118  [ pool-2-thread-1:24680 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:18:59:118  [ pool-2-thread-1:24680 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:18:59:270  [ pool-2-thread-1:24832 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:18:59:271  [ pool-2-thread-1:24833 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:18:59:415  [ pool-2-thread-1:24977 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:18:59:415  [ pool-2-thread-1:24977 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:18:59:558  [ pool-2-thread-1:25120 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:18:59:558  [ pool-2-thread-1:25120 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:18:59:694  [ pool-2-thread-1:25256 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:18:59:695  [ pool-2-thread-1:25257 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:18:59:839  [ pool-2-thread-1:25401 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:18:59:840  [ pool-2-thread-1:25402 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:18:59:982  [ pool-2-thread-1:25544 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:18:59:983  [ pool-2-thread-1:25545 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:19:00:126  [ pool-2-thread-1:25688 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:19:00:127  [ pool-2-thread-1:25689 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:19:00:254  [ pool-2-thread-1:25816 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:19:00:256  [ pool-2-thread-1:25818 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:19:05:839  [ Thread-6:31401 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 13:19:05:840  [ pool-2-thread-2:31402 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-2,5,javafx concurrent thread pool]
+2020-12-29 13:19:05:840  [ pool-2-thread-2:31402 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 13:19:05:841  [ pool-2-thread-2:31403 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 13:19:05:841  [ pool-2-thread-2:31403 ] - [ INFO ]  User's Addr : 192.168.5.6:52226
+2020-12-29 13:19:06:990  [ pool-2-thread-2:32552 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:19:06:991  [ pool-2-thread-2:32553 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:19:07:142  [ pool-2-thread-2:32704 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:19:07:143  [ pool-2-thread-2:32705 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:19:07:286  [ pool-2-thread-2:32848 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:19:07:287  [ pool-2-thread-2:32849 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:19:07:430  [ pool-2-thread-2:32992 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:19:07:431  [ pool-2-thread-2:32993 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:19:07:574  [ pool-2-thread-2:33136 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:19:07:575  [ pool-2-thread-2:33137 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:19:12:015  [ pool-2-thread-2:37577 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD030F100246011ECF12DD
+2020-12-29 13:19:12:015  [ pool-2-thread-2:37577 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:19:12:167  [ pool-2-thread-2:37729 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD030F100246011ECF12DD
+2020-12-29 13:19:12:167  [ pool-2-thread-2:37729 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:19:12:310  [ pool-2-thread-2:37872 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD030F100246011ECF12DD
+2020-12-29 13:19:12:311  [ pool-2-thread-2:37873 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:19:12:447  [ pool-2-thread-2:38009 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD030F100246011ECF12DD
+2020-12-29 13:19:12:448  [ pool-2-thread-2:38010 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:19:12:614  [ pool-2-thread-2:38176 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD030F100246011ECF12DD
+2020-12-29 13:19:12:614  [ pool-2-thread-2:38176 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:19:17:344  [ Thread-6:42906 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 13:19:27:840  [ Thread-6:53402 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 13:20:07:804  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 13:20:07:809  [ JavaFX Application Thread:5 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 13:20:07:804  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 13:20:07:809  [ Thread-6:5 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 13:20:11:217  [ Thread-6:3413 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 13:20:11:217  [ pool-2-thread-1:3413 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 13:20:11:218  [ pool-2-thread-1:3414 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 13:20:11:218  [ pool-2-thread-1:3414 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 13:20:11:218  [ pool-2-thread-1:3414 ] - [ INFO ]  User's Addr : 192.168.5.6:52245
+2020-12-29 13:20:12:031  [ pool-2-thread-1:4227 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:20:12:032  [ pool-2-thread-1:4228 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:20:12:182  [ pool-2-thread-1:4378 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:20:12:183  [ pool-2-thread-1:4379 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:20:12:326  [ pool-2-thread-1:4522 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:20:12:327  [ pool-2-thread-1:4523 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:20:12:471  [ pool-2-thread-1:4667 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:20:12:473  [ pool-2-thread-1:4669 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:20:12:622  [ pool-2-thread-1:4818 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:20:12:623  [ pool-2-thread-1:4819 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:20:12:751  [ pool-2-thread-1:4947 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:20:12:751  [ pool-2-thread-1:4947 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 13:20:16:024  [ Thread-6:8220 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 13:20:16:025  [ pool-2-thread-2:8221 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-2,5,javafx concurrent thread pool]
+2020-12-29 13:20:16:025  [ pool-2-thread-2:8221 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 13:20:16:025  [ pool-2-thread-2:8221 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 13:20:16:026  [ pool-2-thread-2:8222 ] - [ INFO ]  User's Addr : 192.168.5.6:52247
+2020-12-29 13:20:16:791  [ pool-2-thread-2:8987 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD030F100246011ECF12DD
+2020-12-29 13:20:16:792  [ pool-2-thread-2:8988 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:20:16:926  [ pool-2-thread-2:9122 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD030F100246011ECF12DD
+2020-12-29 13:20:16:926  [ pool-2-thread-2:9122 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:20:17:071  [ pool-2-thread-2:9267 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD030F100246011ECF12DD
+2020-12-29 13:20:17:071  [ pool-2-thread-2:9267 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:20:17:207  [ pool-2-thread-2:9403 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD030F100246011ECF12DD
+2020-12-29 13:20:17:207  [ pool-2-thread-2:9403 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:20:17:494  [ pool-2-thread-2:9690 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD030F100246011ECF12DD
+2020-12-29 13:20:17:495  [ pool-2-thread-2:9691 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2020-12-29 13:20:19:927  [ Thread-6:12123 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 13:20:19:928  [ pool-2-thread-3:12124 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-3,5,javafx concurrent thread pool]
+2020-12-29 13:20:19:928  [ pool-2-thread-3:12124 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 13:20:19:930  [ pool-2-thread-3:12126 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 13:20:19:930  [ pool-2-thread-3:12126 ] - [ INFO ]  User's Addr : 192.168.5.6:52248
+2020-12-29 13:20:20:839  [ pool-2-thread-3:13035 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:20:20:839  [ pool-2-thread-3:13035 ] - [ INFO ]  pool-2-thread-3服务器接收数据，目前总共有1个；
+2020-12-29 13:20:20:991  [ pool-2-thread-3:13187 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:20:20:991  [ pool-2-thread-3:13187 ] - [ INFO ]  pool-2-thread-3服务器接收数据，目前总共有1个；
+2020-12-29 13:20:21:142  [ pool-2-thread-3:13338 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:20:21:143  [ pool-2-thread-3:13339 ] - [ INFO ]  pool-2-thread-3服务器接收数据，目前总共有1个；
+2020-12-29 13:20:21:287  [ pool-2-thread-3:13483 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:20:21:287  [ pool-2-thread-3:13483 ] - [ INFO ]  pool-2-thread-3服务器接收数据，目前总共有1个；
+2020-12-29 13:20:21:446  [ pool-2-thread-3:13642 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 13:20:21:447  [ pool-2-thread-3:13643 ] - [ INFO ]  pool-2-thread-3服务器接收数据，目前总共有1个；
+2020-12-29 13:20:34:369  [ Thread-7:26565 ] - [ ERROR ]  
+2020-12-29 13:20:35:575  [ JavaFX Application Thread:27771 ] - [ INFO ]  TcpServer start!
+2020-12-29 13:20:35:575  [ Thread-11:27771 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 13:20:35:576  [ JavaFX Application Thread:27772 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 13:20:35:576  [ Thread-11:27772 ] - [ INFO ]  Current Thread is  Thread[Thread-11,1,javafx concurrent thread pool]
+2020-12-29 13:20:39:248  [ pool-2-thread-1:31444 ] - [ INFO ]  closeConnections() method Exit
+2020-12-29 13:20:40:032  [ Thread-6:32228 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 13:20:40:033  [ pool-2-thread-4:32229 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-4,5,javafx concurrent thread pool]
+2020-12-29 13:20:40:033  [ pool-2-thread-4:32229 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 13:20:40:033  [ pool-2-thread-4:32229 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 13:20:40:033  [ Thread-6:32229 ] - [ INFO ]  closeConnections() method Exit
+2020-12-29 13:20:40:034  [ pool-2-thread-4:32230 ] - [ INFO ]  User's Addr : 192.168.5.6:52250
+2020-12-29 13:20:40:034  [ pool-2-thread-4:32230 ] - [ INFO ]  closeConnections() method Exit
+2020-12-29 13:20:46:336  [ pool-2-thread-2:38532 ] - [ INFO ]  closeConnections() method Exit
+2020-12-29 13:20:51:111  [ pool-2-thread-3:43307 ] - [ INFO ]  closeConnections() method Exit
+2020-12-29 14:25:05:023  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 14:25:05:023  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 14:25:05:028  [ Thread-6:5 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 14:25:05:028  [ JavaFX Application Thread:5 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 14:25:07:555  [ Thread-6:2532 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 14:25:07:556  [ pool-2-thread-1:2533 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 14:25:07:556  [ pool-2-thread-1:2533 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 14:25:07:557  [ pool-2-thread-1:2534 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 14:25:07:557  [ pool-2-thread-1:2534 ] - [ INFO ]  User's Addr : 192.168.5.6:53267
+2020-12-29 14:25:11:066  [ pool-2-thread-1:6043 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 14:25:11:066  [ pool-2-thread-1:6043 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 14:25:24:746  [ pool-2-thread-1:19723 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 14:25:24:747  [ pool-2-thread-1:19724 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 14:25:30:418  [ pool-2-thread-1:25395 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 14:25:30:419  [ pool-2-thread-1:25396 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 14:25:45:793  [ pool-2-thread-1:40770 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 14:25:45:795  [ pool-2-thread-1:40772 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 14:26:58:108  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 14:26:58:108  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 14:26:58:113  [ JavaFX Application Thread:5 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 14:26:58:113  [ Thread-6:5 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 14:27:01:411  [ Thread-6:3303 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 14:27:01:411  [ pool-2-thread-1:3303 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 14:27:01:412  [ pool-2-thread-1:3304 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 14:27:01:412  [ pool-2-thread-1:3304 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 14:27:01:412  [ pool-2-thread-1:3304 ] - [ INFO ]  User's Addr : 192.168.5.6:53291
+2020-12-29 14:27:02:642  [ pool-2-thread-1:4534 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 14:27:02:642  [ pool-2-thread-1:4534 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 14:29:16:831  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 14:29:16:831  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 14:29:16:836  [ JavaFX Application Thread:5 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 14:29:16:836  [ Thread-6:5 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 14:29:19:723  [ Thread-6:2892 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 14:29:19:724  [ pool-2-thread-1:2893 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 14:29:19:724  [ pool-2-thread-1:2893 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 14:29:19:724  [ pool-2-thread-1:2893 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 14:29:19:725  [ pool-2-thread-1:2894 ] - [ INFO ]  User's Addr : 192.168.5.6:53316
+2020-12-29 14:29:20:762  [ pool-2-thread-1:3931 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 14:29:20:763  [ pool-2-thread-1:3932 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 14:29:38:951  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 14:29:38:951  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 14:29:38:955  [ JavaFX Application Thread:4 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 14:29:38:955  [ Thread-6:4 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 14:29:42:011  [ Thread-6:3060 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 14:29:42:011  [ pool-2-thread-1:3060 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 14:29:42:012  [ pool-2-thread-1:3061 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 14:29:42:012  [ pool-2-thread-1:3061 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 14:29:42:012  [ pool-2-thread-1:3061 ] - [ INFO ]  User's Addr : 192.168.5.6:53326
+2020-12-29 14:29:42:946  [ pool-2-thread-1:3995 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 14:29:42:947  [ pool-2-thread-1:3996 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 14:30:49:080  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 14:30:49:080  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 14:30:49:085  [ JavaFX Application Thread:5 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 14:30:49:085  [ Thread-6:5 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 14:30:52:091  [ Thread-6:3011 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 14:30:52:092  [ pool-2-thread-1:3012 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 14:30:52:092  [ pool-2-thread-1:3012 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 14:30:52:092  [ pool-2-thread-1:3012 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 14:30:52:093  [ pool-2-thread-1:3013 ] - [ INFO ]  User's Addr : 192.168.5.6:53342
+2020-12-29 14:30:53:106  [ pool-2-thread-1:4026 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 14:30:53:107  [ pool-2-thread-1:4027 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2020-12-29 14:31:38:096  [ JavaFX Application Thread:0 ] - [ INFO ]  TcpServer start!
+2020-12-29 14:31:38:096  [ Thread-6:0 ] - [ INFO ]  The TCP Server is running.
+2020-12-29 14:31:38:102  [ JavaFX Application Thread:6 ] - [ INFO ]  powerConnectedBtnOnClick!
+2020-12-29 14:31:38:102  [ Thread-6:6 ] - [ INFO ]  Current Thread is  Thread[Thread-6,1,javafx concurrent thread pool]
+2020-12-29 14:31:41:075  [ Thread-6:2979 ] - [ INFO ]  Server Thread -Thread[Thread-6,1,javafx concurrent thread pool] starts!
+2020-12-29 14:31:41:076  [ pool-2-thread-1:2980 ] - [ INFO ]  Current Handler Thread is  Thread[pool-2-thread-1,5,javafx concurrent thread pool]
+2020-12-29 14:31:41:076  [ pool-2-thread-1:2980 ] - [ INFO ]  Server Handler Thread starts!
+2020-12-29 14:31:41:076  [ pool-2-thread-1:2980 ] - [ INFO ]  Attempting to connect a user...
+2020-12-29 14:31:41:077  [ pool-2-thread-1:2981 ] - [ INFO ]  User's Addr : 192.168.5.6:53352
+2020-12-29 14:31:42:098  [ pool-2-thread-1:4002 ] - [ INFO ]  采集到的数据是FFFF0BCCDD0CFFF1DD010F100246011ECF12DD
+2020-12-29 14:31:42:099  [ pool-2-thread-1:4003 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；

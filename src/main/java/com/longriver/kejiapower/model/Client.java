@@ -11,14 +11,23 @@ public class Client {
 //    duration = new StringBuilder(4);
 //    serverTime = new StringBuilder(12);
 
+    private int id;
     private String name;
     private String ip;
     private OperateModel operateModel;
-    private WorkingStatus workingStatus;
+    private WorkingStatus status;
 
     private float voltage = 0.0f;
     private float current = 0.0f;
     private float power = 0.0f;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -44,12 +53,12 @@ public class Client {
         this.operateModel = operateModel;
     }
 
-    public WorkingStatus getWorkingStatus() {
-        return workingStatus;
+    public WorkingStatus getStatus() {
+        return status;
     }
 
-    public void setWorkingStatus(WorkingStatus workingStatus) {
-        this.workingStatus = workingStatus;
+    public void setStatus(WorkingStatus status) {
+        this.status = status;
     }
 
     public float getVoltage() {
