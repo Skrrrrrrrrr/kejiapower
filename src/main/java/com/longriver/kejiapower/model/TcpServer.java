@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.*;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 /**
  * Program:TcpServer
  * Description:
@@ -110,11 +112,13 @@ public class TcpServer extends Service {
                 logger.info("The TCP Server is running.");
                 logger.info("Current Thread is  " + Thread.currentThread());
                 ServerSocket serverSocket = new ServerSocket(getPORT());
-                ExecutorService pool;
-                pool = Executors.newFixedThreadPool(CLIENT_AMOUNT);
+//                ExecutorService pool;
+//                pool = Executors.newCachedThreadPool();
+                ThreadPoolExecutor pool = new ThreadPoolExecutor(1, 8, 60, SECONDS,  new PriorityBlockingQueue<Runnable>());
+                pool.allowCoreThreadTimeOut(true);
                 try {
                     while (!Thread.currentThread().isInterrupted()) {
-                        pool.execute(new Handler( serverSocket.accept()));
+                        pool.execute(new Handler(serverSocket.accept()));
                         logger.info("Server Thread -" + Thread.currentThread() + " starts!");
                     }
                 } catch (Exception e) {
@@ -129,7 +133,7 @@ public class TcpServer extends Service {
                         e.printStackTrace();
                         logger.error(e.getMessage());
                     }
-                    logger.info("closeConnections() method Exit");
+                    logger.info("closeConnections TcpServer：handler method Exit");
                 }
                 return null;
             }
@@ -142,10 +146,10 @@ public class TcpServer extends Service {
         pool.shutdown(); // Disable new tasks from being submitted
         try {
             // Wait a while for existing tasks to terminate
-            if (!pool.awaitTermination(5, TimeUnit.SECONDS)) {
+            if (!pool.awaitTermination(5, SECONDS)) {
                 pool.shutdownNow(); // Cancel currently executing tasks
                 // Wait a while for tasks to respond to being cancelled
-                if (!pool.awaitTermination(5, TimeUnit.SECONDS))
+                if (!pool.awaitTermination(5, SECONDS))
                     logger.error("Pool did not terminate");
             }
         } catch (InterruptedException ie) {
@@ -155,7 +159,6 @@ public class TcpServer extends Service {
             Thread.currentThread().interrupt();
         }
     }
-
 
     private class Handler extends Thread {
         private Socket serverSocketAccept;
@@ -173,7 +176,7 @@ public class TcpServer extends Service {
             logger.info("Attempting to connect a user...");
             logger.info("User's Addr : " + serverSocketAccept.getInetAddress().getHostAddress() + ':' + serverSocketAccept.getPort());
             try {
-                socketMap.put(String.format("%s:%s",serverSocketAccept.getInetAddress(),serverSocketAccept.getPort() ),serverSocketAccept);
+                socketMap.put(String.format("%s:%s", serverSocketAccept.getInetAddress(), serverSocketAccept.getPort()), serverSocketAccept);
 
                 InputStream is = serverSocketAccept.getInputStream();
                 OutputStream os = serverSocketAccept.getOutputStream();
