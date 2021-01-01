@@ -6,6 +6,7 @@ import com.longriver.kejiapower.POJO.ServerMessage;
 import com.longriver.kejiapower.model.Client;
 import com.longriver.kejiapower.model.TcpServer;
 import com.longriver.kejiapower.utils.DataFrame;
+import com.longriver.kejiapower.utils.OperateModel;
 import com.longriver.kejiapower.utils.StringUtils;
 import com.longriver.kejiapower.utils.WorkingStatus;
 import javafx.application.Platform;
@@ -20,8 +21,6 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Side;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -31,10 +30,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.tools.jar.CommandLine;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -202,12 +199,12 @@ public class KejiaPowerController {
         Client client = new Client();
         client.setId(clientObservableList.size() + 1);
         client.setIp("127.0.0.1:15195");
-        client.setStatus(WorkingStatus.getWorkingStatusByCode((short)0x08));
+        client.setStatus(WorkingStatus.getWorkingStatusByCode((short) 0x08));
         clientObservableList.add(client);
         client = new Client();
         client.setId(clientObservableList.size() + 1);
         client.setIp("127.0.0.1:15196");
-        client.setStatus(WorkingStatus.getWorkingStatusByCode((short)0x10));
+        client.setStatus(WorkingStatus.getWorkingStatusByCode((short) 0x10));
         clientObservableList.add(client);
     }
 
@@ -314,7 +311,7 @@ public class KejiaPowerController {
         messageStringProperty.addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (newValue == ""){
+                if (newValue == "") {
                     return;
                 }
                 rxStringToAddSpace.setValue(StringUtils.getStringAddSpace(messageStringProperty.getValue(), 2));
@@ -344,20 +341,20 @@ public class KejiaPowerController {
                     case Control:
                         break;
                     case Report:
-
+                        updateClient(clientMessage);
                         //获取tab里控件，进行画图
                         AnchorPane anchorPane = (AnchorPane) powerDisplayTab.getSelectionModel().getSelectedItem().getContent();
                         GridPane gridPane = (GridPane) anchorPane.getChildren().get(0);
                         VBox vb = (VBox) gridPane.getChildren().get(1);
                         LineChart<Number, Number> lineChart = (LineChart<Number, Number>) vb.getChildren().get(0);
 
-                        XYChart.Series<Number,Number> vSeries = (XYChart.Series<Number,Number>) lineChart.getData().get(0);
+                        XYChart.Series<Number, Number> vSeries = (XYChart.Series<Number, Number>) lineChart.getData().get(0);
                         vSeries.getData().add(new XYChart.Data<Number, Number>(vSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
                         lineChart = (LineChart<Number, Number>) vb.getChildren().get(1);
-                        XYChart.Series<Number,Number> cSeries = (XYChart.Series) lineChart.getData().get(0);
+                        XYChart.Series<Number, Number> cSeries = (XYChart.Series) lineChart.getData().get(0);
                         cSeries.getData().add(new XYChart.Data(cSeries.getData().size(), Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
                         lineChart = (LineChart<Number, Number>) vb.getChildren().get(2);
-                        XYChart.Series<Number,Number> pSeries = (XYChart.Series) lineChart.getData().get(0);
+                        XYChart.Series<Number, Number> pSeries = (XYChart.Series) lineChart.getData().get(0);
                         pSeries.getData().add(new XYChart.Data(pSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base / KILO));
                         //
                         updateClientList(clientMessage);
@@ -379,19 +376,42 @@ public class KejiaPowerController {
     }
 
     /*
-    * 根据采样的信号message，更新tab和table里的组件
-    * 包括：tab的曲线图，table里的设备列表
-    * 需要：同时更新clientObservableList和clientMap
-    * */
-    private void updateClientList(ClientMessage clientMessage){
+     * 根据采样的信号message，更新tab和table里的组件
+     * 包括：tab的曲线图，table里的设备列表
+     * 需要：同时更新clientObservableList和clientMap
+     * */
+    private void updateClientList(ClientMessage clientMessage) {
         //更新ClientTable/clientMap
-        if (clientMap.get(clientMessage.getClientIp().toString()) ==null){
+        if (clientMap.get(clientMessage.getClientIp().toString()) == null) {
             Client ct = new Client();
-            ct.setId(clientObservableList.size()+1);
+            ct.setId(clientObservableList.size() + 1);
+            ct.setName((new  StringBuilder("电源-").append(clientObservableList.size() + 1)).toString());
             ct.setIp(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString()));
-            ct.setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(),10)));
-            clientMap.put(clientMessage.getClientIp().toString(),ct);
+            ct.setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 10)));
+            clientMap.put(clientMessage.getClientIp().toString(), ct);
             clientObservableList.add(ct);
+        }
+    }
+
+    /*
+     * 根据采样的信号message，更新Client状态值
+     * 包括：tab的曲线图
+     * 同时更新clientObservableList和clientMap
+     * */
+    private void updateClient(ClientMessage clientMessage) {
+        //更新ClientTable/clientMap
+        if (clientMap.get(clientMessage.getClientIp().toString()) == null) {
+            updateClientList(clientMessage);
+        } else {
+            Client client = clientMap.get(clientMessage.getClientIp().toString());
+            client.setVoltage(Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base);
+            client.setCurrent(Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base);
+            client.setPower(Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base / KILO);
+            client.setOperateModel(OperateModel.getOperateModelByCode(Short.parseShort(clientMessage.getModel().toString(), 10)));
+            client.setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 10)));
+            clientMap.replace(clientMessage.getClientIp().toString(),client);
+            clientObservableList.remove(client.getId());
+            clientObservableList.add(client.getId(),client);
         }
     }
 

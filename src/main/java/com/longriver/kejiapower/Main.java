@@ -47,7 +47,10 @@ public class Main extends Application {
                 final ButtonType rtn = opt.get();
                 if (rtn == ButtonType.CANCEL) {
                     event.consume();
+                }else {
+                    System.exit(0);//暴力退出
                 }
+
             }
         });
     }

@@ -2,24 +2,23 @@ package com.longriver.kejiapower.utils;
 
 public enum OperateModel {
 
-    ConstantCurrent("CC", 0),
-    ConstantVoltage("CV", 1),
-    ConstantPower("CP", 2),
-    Invalid("Invalid", -1),
-    ;
+    LOCAL("LOCAL",(short)0x00),
+    DAEMON50A("50A_24/100", (short)0x02),
+    DAEMON35A("35A", (short)0x03),
+    DAEMON15A("15A", (short)0x04),
+    DAEMON15A_24_100("15A_24/100", (short)0x05),
+    INVALID("INVALID",(short)0xff);
+
 
     private String runningModel;
-    /**
-     * 枚举信息
-     */
-    private int code;
+    private short code;
 
     OperateModel() {
         runningModel = "CV";
         code = -1;
     }
 
-    private OperateModel(String runningModel, int code) {
+    private OperateModel(String runningModel, short code) {
         this.runningModel = runningModel;
         this.code = code;
     }
@@ -32,22 +31,28 @@ public enum OperateModel {
      */
     public static OperateModel getOperateModelByModel(String runningModel) {
         for (OperateModel operateModel : OperateModel.values()) {
-            if (operateModel.getFrameType().equals(runningModel)) {
+            if (operateModel.getRunningModel().equals(runningModel)) {
                 return operateModel;
             }
         }
         return null;
     }
 
-    /*
-     * getter
-     */
+    public static OperateModel getOperateModelByCode(Short code) {
+        for (OperateModel operateModel : OperateModel.values()) {
+            if (operateModel.getCode() == code) {
+                return operateModel;
+            }
+        }
+        return null;
+    }
 
-    public String getFrameType() {
+
+    public String getRunningModel() {
         return runningModel;
     }
 
-    public int getCode() {
+    public short getCode() {
         return code;
     }
 }
