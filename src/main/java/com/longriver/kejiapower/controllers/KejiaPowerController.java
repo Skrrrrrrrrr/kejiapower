@@ -196,16 +196,16 @@ public class KejiaPowerController {
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         powerTableView.setItems(clientObservableList);
 
-        Client client = new Client();
-        client.setId(clientObservableList.size() + 1);
-        client.setIp("127.0.0.1:15195");
-        client.setStatus(WorkingStatus.getWorkingStatusByCode((short) 0x08));
-        clientObservableList.add(client);
-        client = new Client();
-        client.setId(clientObservableList.size() + 1);
-        client.setIp("127.0.0.1:15196");
-        client.setStatus(WorkingStatus.getWorkingStatusByCode((short) 0x10));
-        clientObservableList.add(client);
+//        Client client = new Client();
+//        client.setId(clientObservableList.size() + 1);
+//        client.setIp("127.0.0.1:15195");
+//        client.setStatus(WorkingStatus.getWorkingStatusByCode((short) 0x08));
+//        clientObservableList.add(client);
+//        client = new Client();
+//        client.setId(clientObservableList.size() + 1);
+//        client.setIp("127.0.0.1:15196");
+//        client.setStatus(WorkingStatus.getWorkingStatusByCode((short) 0x10));
+//        clientObservableList.add(client);
     }
 
 
@@ -342,12 +342,15 @@ public class KejiaPowerController {
                         break;
                     case Report:
                         updateClient(clientMessage);
+                        //获取tab：根据clientIP获得存入clientMap的client和存入clientObservableList的client对应的序号：序号 == tab的index==电源ID-1。
+//                        Tab tab = powerDisplayTab.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString())));
                         //获取tab里控件，进行画图
-                        AnchorPane anchorPane = (AnchorPane) powerDisplayTab.getSelectionModel().getSelectedItem().getContent();
+//                        AnchorPane anchorPane = (AnchorPane) powerDisplayTab.getSelectionModel().getSelectedItem().getContent();
+                        AnchorPane anchorPane = (AnchorPane) powerDisplayTab.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString()))).getContent();
+
                         GridPane gridPane = (GridPane) anchorPane.getChildren().get(0);
                         VBox vb = (VBox) gridPane.getChildren().get(1);
                         LineChart<Number, Number> lineChart = (LineChart<Number, Number>) vb.getChildren().get(0);
-
                         XYChart.Series<Number, Number> vSeries = (XYChart.Series<Number, Number>) lineChart.getData().get(0);
                         vSeries.getData().add(new XYChart.Data<Number, Number>(vSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
                         lineChart = (LineChart<Number, Number>) vb.getChildren().get(1);
@@ -357,7 +360,6 @@ public class KejiaPowerController {
                         XYChart.Series<Number, Number> pSeries = (XYChart.Series) lineChart.getData().get(0);
                         pSeries.getData().add(new XYChart.Data(pSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base / KILO));
                         //
-                        updateClientList(clientMessage);
                         break;
                 }
 //                            Platform.runLater(new Runnable() {
@@ -385,11 +387,14 @@ public class KejiaPowerController {
         if (clientMap.get(clientMessage.getClientIp().toString()) == null) {
             Client ct = new Client();
             ct.setId(clientObservableList.size() + 1);
-            ct.setName((new  StringBuilder("电源-").append(clientObservableList.size() + 1)).toString());
+            ct.setName((new StringBuilder("电源-").append(clientObservableList.size() + 1)).toString());
             ct.setIp(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString()));
             ct.setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 10)));
             clientMap.put(clientMessage.getClientIp().toString(), ct);
             clientObservableList.add(ct);
+            if (powerDisplayTab.getTabs().size()>1){
+                powerTabGenerate();
+            }
         }
     }
 
@@ -409,9 +414,8 @@ public class KejiaPowerController {
             client.setPower(Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base / KILO);
             client.setOperateModel(OperateModel.getOperateModelByCode(Short.parseShort(clientMessage.getModel().toString(), 10)));
             client.setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 10)));
-            clientMap.replace(clientMessage.getClientIp().toString(),client);
-            clientObservableList.remove(client.getId());
-            clientObservableList.add(client.getId(),client);
+            clientMap.replace(clientMessage.getClientIp().toString(), client);
+            clientObservableList.set(client.getId() - 1, client);
         }
     }
 
@@ -422,7 +426,7 @@ public class KejiaPowerController {
         initInteractMessage();
         initClientTable();
         powerTabGenerate();
-        powerTabGenerate();
+//        powerTabGenerate();
     }
 
     private ObservableList powerObservableList = FXCollections.observableArrayList();
@@ -445,6 +449,7 @@ public class KejiaPowerController {
                 case "连接设备":
                     tcpServer.setPORT(Integer.parseInt(portTextField.getText(), 10));
                     tcpServer.start();
+                    Thread.sleep(10);
                     readMessageFromClientService.start();
                     rxTextBtn.setDisable(false);
                     txTextBtn.setDisable(false);

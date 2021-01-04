@@ -122,7 +122,8 @@ public class TcpServer extends Service {
                         logger.info("Server Thread -" + Thread.currentThread() + " starts!");
                     }
                 } catch (Exception e) {
-                    logger.info(e.toString());
+                    e.printStackTrace();
+                    logger.error(e.toString());
                 } finally {
                     try {
                         shutdownAndAwaitTermination(pool);
@@ -191,7 +192,7 @@ public class TcpServer extends Service {
                         break;
                     }
                     inputString = new String(bytes, 0, len);
-                    logger.info("采集到的数据是" + inputString);
+                    logger.info("采集到"+ serverSocketAccept.getInetAddress()+":" + serverSocketAccept.getPort() + " 的数据是" + inputString);
                     try {
                         if (inBlockingQueue.size() >= BUFF_SIZE) {
                             inBlockingQueue.take();
@@ -231,6 +232,36 @@ public class TcpServer extends Service {
             }
             logger.info("closeConnections() method Exit");
         }
+
+//        @Override
+//        @SuppressWarnings("unchecked")
+//        public int compareTo(Object o) {
+//            Handler h = (Handler)o;
+//            if (this == o) {
+//                return 0;
+//            }
+//            if (o == null) {
+//                return -1; // high priority
+//            }
+//            if (getId() == h.getId()){
+//                return 0;
+//            }else if (getId() > h.getId()){
+//                return  -1;
+//            }else {
+//                return 1;
+//            }
+//        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return super.equals(obj);
+        }
+
+        @Override
+        public int hashCode() {
+            return super.hashCode();
+        }
+
     }
 }
 
