@@ -7,3 +7,15 @@
 2021-01-02 21:54:39:128  [ Thread-6:22791 ] - [ ERROR ]  Pool did not terminate
 2021-01-02 22:48:47:509  [ Thread-6:22928 ] - [ ERROR ]  java.lang.ClassCastException: com.longriver.kejiapower.model.TcpServer$Handler cannot be cast to java.lang.Comparable
 2021-01-02 22:48:57:512  [ Thread-6:32931 ] - [ ERROR ]  Pool did not terminate
+2021-01-04 13:34:03:205  [ Thread-7:36395 ] - [ ERROR ]  
+2021-01-04 13:34:37:764  [ Thread-9:70954 ] - [ ERROR ]  
+2021-01-04 13:34:40:460  [ Thread-12:73650 ] - [ ERROR ]  
+2021-01-04 13:34:44:236  [ Thread-14:77426 ] - [ ERROR ]  
+2021-01-04 13:36:00:333  [ Thread-7:1588 ] - [ ERROR ]  
+2021-01-04 13:36:38:670  [ Thread-7:1256 ] - [ ERROR ]  
+2021-01-04 13:36:41:476  [ Thread-9:4062 ] - [ ERROR ]  
+2021-01-04 14:37:29:729  [ Thread-6:29060 ] - [ ERROR ]  java.lang.ClassCastException: com.longriver.kejiapower.model.TcpServer$Handler cannot be cast to java.lang.Comparable
+2021-01-04 14:37:39:731  [ Thread-6:39062 ] - [ ERROR ]  Pool did not terminate
+2021-01-04 17:32:25:314  [ Thread-7:5685 ] - [ ERROR ]  java.util.concurrent.RejectedExecutionException: Task Thread[Thread-10,1,javafx concurrent thread pool] rejected from java.util.concurrent.ThreadPoolExecutor@7931c6c1[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1]
+2021-01-04 17:32:25:472  [ Thread-7:5843 ] - [ ERROR ]  java.util.concurrent.RejectedExecutionException: Task Thread[Thread-11,1,javafx concurrent thread pool] rejected from java.util.concurrent.ThreadPoolExecutor@7931c6c1[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1]
+2021-01-04 17:32:25:633  [ Thread-7:6004 ] - [ ERROR ]  java.util.concurrent.RejectedExecutionException: Task Thread[Thread-12,1,javafx concurrent thread pool] rejected from java.util.concurrent.ThreadPoolExecutor@7931c6c1[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1]

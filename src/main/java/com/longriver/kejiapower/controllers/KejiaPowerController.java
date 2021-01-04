@@ -34,10 +34,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.net.ServerSocket;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.*;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class KejiaPowerController {
 
@@ -121,6 +123,8 @@ public class KejiaPowerController {
     private static final float Base = 10.0f;
     private static final float KILO = 1000.0f;
     private static final int CLIENT_AMOUNT = 8;
+    private static final int ALIVE_TIME = 60;//seconds
+
 
     public static Logger logger = LoggerFactory.getLogger(KejiaPowerController.class);
 
@@ -131,7 +135,6 @@ public class KejiaPowerController {
     //    private BlockingQueue<byte[]> fileOutBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
     private BlockingQueue<Message> repaintBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
 
-//    ExecutorService es = Executors.newFixedThreadPool(1);
 
     private TcpServer tcpServer = new TcpServer(inBlockingQueue, outBlockingQueue);//
     private ReadMessageFromClientService readMessageFromClientService = new ReadMessageFromClientService();
@@ -186,6 +189,7 @@ public class KejiaPowerController {
 
     private ObservableList<Client> clientObservableList = FXCollections.observableArrayList();
     private Map<String, Client> clientMap = new HashMap<>(CLIENT_AMOUNT);//根据Client的 IP，放入，加速遍历更新clientObservableList
+    private ExecutorService pool = Executors.newFixedThreadPool(CLIENT_AMOUNT);// 线程池
 
     @FXML
     private void initClientTable() {
@@ -316,11 +320,49 @@ public class KejiaPowerController {
                 }
                 rxStringToAddSpace.setValue(StringUtils.getStringAddSpace(messageStringProperty.getValue(), 2));
 
+
                 clientMessage = new ClientMessage();
                 clientMessage.getClientMessage(messageStringProperty.getValue());
+
+//                try {
+//                    pool.execute(new Handler(clientMessage));
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                    logger.error(e.toString());
+//                } finally {
+//                    try {
+//                        shutdownAndAwaitTermination(pool);
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                        logger.error(e.getMessage());
+//                    }
+//                }
+
                 serverMessage = new ServerMessage();
                 switch (DataFrame.dataFrameTypeClassify(clientMessage)) {
                     case HeartBeat:
+                        if (clientMap.get(clientMessage.getClientIp().toString()) == null) {
+                            Thread t = new Thread() {
+                                String ip = clientMessage.getClientIp().toString();
+                                long startTime = System.currentTimeMillis();
+
+                                @Override
+                                public void run() {
+                                    try {
+                                        Thread.sleep(ALIVE_TIME * 1000);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            };
+                            t.setName(clientMessage.getClientIp().toString());
+                            pool.execute(t);
+                        } else {
+
+
+                        }
+
+
                         serverMessage.generateHeartBeatMessage(clientMessage);
                         try {
                             tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString())).getOutputStream().write(serverMessage.toString().getBytes());
@@ -342,6 +384,11 @@ public class KejiaPowerController {
                         break;
                     case Report:
                         updateClient(clientMessage);
+                        try {
+                            Thread.currentThread().sleep(50);//！！！此处应该时一个大坑，如果（高并发下）messageStringProperty在 50ms 之内变化，数据应该接收不到
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                         //获取tab：根据clientIP获得存入clientMap的client和存入clientObservableList的client对应的序号：序号 == tab的index==电源ID-1。
 //                        Tab tab = powerDisplayTab.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString())));
                         //获取tab里控件，进行画图
@@ -377,6 +424,75 @@ public class KejiaPowerController {
 
     }
 
+//    private class Handler extends Thread{
+//        private ClientMessage cm;
+//
+//        public Handler(ClientMessage cm) {
+//            this.cm = cm;
+//        }
+//
+//        public ClientMessage getCm() {
+//            return cm;
+//        }
+//
+//        public void setCm(ClientMessage cm) {
+//            this.cm = cm;
+//        }
+//
+//        @Override
+//        public void run() {
+//            serverMessage = new ServerMessage();
+//            switch (DataFrame.dataFrameTypeClassify(clientMessage)) {
+//                case HeartBeat:
+//                    serverMessage.generateHeartBeatMessage(clientMessage);
+//                    try {
+//                        tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString())).getOutputStream().write(serverMessage.toString().getBytes());
+//                        tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString())).getOutputStream().flush();
+//                        if (fileInBlockingQueue.size() >= BUFF_SIZE) {
+//                            fileInBlockingQueue.take();
+//                            fileInBlockingQueue.take();
+//                        }
+//
+//                        fileInBlockingQueue.put(clientMessage.toString().getBytes());
+//                        fileInBlockingQueue.put(serverMessage.toString().getBytes());
+//                        updateClientList(clientMessage);
+//                    } catch (InterruptedException | IOException e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                    break;
+//                case Control:
+//                    break;
+//                case Report:
+//                    updateClient(clientMessage);
+//                    try {
+//                        Thread.currentThread().sleep(50);//！！！此处应该时一个大坑，如果（高并发下）messageStringProperty在 50ms 之内变化，数据应该接收不到
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                    //获取tab：根据clientIP获得存入clientMap的client和存入clientObservableList的client对应的序号：序号 == tab的index==电源ID-1。
+////                        Tab tab = powerDisplayTab.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString())));
+//                    //获取tab里控件，进行画图
+////                        AnchorPane anchorPane = (AnchorPane) powerDisplayTab.getSelectionModel().getSelectedItem().getContent();
+//                    AnchorPane anchorPane = (AnchorPane) powerDisplayTab.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString()))).getContent();
+//
+//                    GridPane gridPane = (GridPane) anchorPane.getChildren().get(0);
+//                    VBox vb = (VBox) gridPane.getChildren().get(1);
+//                    LineChart<Number, Number> lineChart = (LineChart<Number, Number>) vb.getChildren().get(0);
+//                    XYChart.Series<Number, Number> vSeries = (XYChart.Series<Number, Number>) lineChart.getData().get(0);
+//                    vSeries.getData().add(new XYChart.Data<Number, Number>(vSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
+//                    lineChart = (LineChart<Number, Number>) vb.getChildren().get(1);
+//                    XYChart.Series<Number, Number> cSeries = (XYChart.Series) lineChart.getData().get(0);
+//                    cSeries.getData().add(new XYChart.Data(cSeries.getData().size(), Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
+//                    lineChart = (LineChart<Number, Number>) vb.getChildren().get(2);
+//                    XYChart.Series<Number, Number> pSeries = (XYChart.Series) lineChart.getData().get(0);
+//                    pSeries.getData().add(new XYChart.Data(pSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base / KILO));
+//                    //
+//                    break;
+//            }
+//        }
+//    }
+
     /*
      * 根据采样的信号message，更新tab和table里的组件
      * 包括：tab的曲线图，table里的设备列表
@@ -392,8 +508,13 @@ public class KejiaPowerController {
             ct.setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 10)));
             clientMap.put(clientMessage.getClientIp().toString(), ct);
             clientObservableList.add(ct);
-            if (powerDisplayTab.getTabs().size()>1){
-                powerTabGenerate();
+            if (clientMap.size() > 1) {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        powerTabGenerate();//生成的tab的index和clientMap的序号一致
+                    }
+                });
             }
         }
     }
@@ -407,6 +528,7 @@ public class KejiaPowerController {
         //更新ClientTable/clientMap
         if (clientMap.get(clientMessage.getClientIp().toString()) == null) {
             updateClientList(clientMessage);
+            updateClient(clientMessage);
         } else {
             Client client = clientMap.get(clientMessage.getClientIp().toString());
             client.setVoltage(Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base);
@@ -419,6 +541,26 @@ public class KejiaPowerController {
         }
     }
 
+//    private ThreadPoolExecutor pool = new ThreadPoolExecutor(CLIENT_AMOUNT, CLIENT_AMOUNT, ALIVE_TIME, SECONDS, new PriorityBlockingQueue<Runnable>());
+
+//    private void shutdownAndAwaitTermination(ExecutorService pool) {
+//        pool.shutdown(); // Disable new tasks from being submitted
+//        try {
+//            // Wait a while for existing tasks to terminate
+//            if (!pool.awaitTermination(5, SECONDS)) {
+//                pool.shutdownNow(); // Cancel currently executing tasks
+//                // Wait a while for tasks to respond to being cancelled
+//                if (!pool.awaitTermination(5, SECONDS))
+//                    logger.error("Pool did not terminate");
+//            }
+//        } catch (InterruptedException ie) {
+//            // (Re-)Cancel if current thread also interrupted
+//            pool.shutdownNow();
+//            // Preserve interrupt status
+//            Thread.currentThread().interrupt();
+//        }
+//    }
+
 
     @FXML
     private void initialize() {
@@ -427,6 +569,8 @@ public class KejiaPowerController {
         initClientTable();
         powerTabGenerate();
 //        powerTabGenerate();
+//        pool.allowCoreThreadTimeOut(true);
+
     }
 
     private ObservableList powerObservableList = FXCollections.observableArrayList();
@@ -465,6 +609,11 @@ public class KejiaPowerController {
                     rxTextBtn.setDisable(true);
                     txTextBtn.setDisable(true);
                     powerConnectedBtn.setText("连接设备");
+                    if (rxTextBtn.getText().equals("停止接收")) {
+                        rxTextBtn.setText("开始接收");
+                        rxTextArea.textProperty().unbind();
+                        messageStringProperty.setValue("");
+                    }
                     break;
                 default:
             }
@@ -475,6 +624,7 @@ public class KejiaPowerController {
         }
 
     }
+
 
     @FXML
     void rxTextBtnOnClick(ActionEvent event) {

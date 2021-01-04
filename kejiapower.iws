@@ -26,8 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="408d8349-e6b8-4a39-a9a8-6b733ca653cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/logs/error.log.2021-01-01" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/info.log.2021-01-01" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kejiapower.iws" beforeDir="false" afterPath="$PROJECT_DIR$/kejiapower.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/error.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/info.log" afterDir="false" />
@@ -428,6 +427,7 @@
       <workItem from="1609317704032" duration="1163000" />
       <workItem from="1609381048033" duration="14447000" />
       <workItem from="1609467937481" duration="4288000" />
+      <workItem from="1609738330006" duration="13416000" />
     </task>
     <servers />
   </component>
@@ -530,11 +530,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608872077282" />
-    <state x="574" y="180" key="#com.intellij.ide.util.MemberChooser" timestamp="1609598250615">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state x="765" y="204" key="#com.intellij.ide.util.MemberChooser" timestamp="1609752569598">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="574" y="180" key="#com.intellij.ide.util.MemberChooser/0.0.1440.920@0.0.1440.920" timestamp="1609598250615" />
-    <state x="765" y="204" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1609471482665" />
+    <state x="765" y="204" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1609752569598" />
     <state width="462" height="466" key="DebuggerActiveHint" timestamp="1608527983800">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -544,46 +544,46 @@
     </state>
     <state x="480" y="145" key="FileChooserDialogImpl/0.0.1440.920@0.0.1440.920" timestamp="1609150852872" />
     <state x="640" y="164" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609137450822" />
-    <state width="1397" height="242" key="GridCell.Tab.0.bottom" timestamp="1609598964475">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state width="1877" height="223" key="GridCell.Tab.0.bottom" timestamp="1609758230030">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="242" key="GridCell.Tab.0.bottom/0.0.1440.920@0.0.1440.920" timestamp="1609598964475" />
-    <state width="1877" height="350" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609472240096" />
-    <state width="1397" height="242" key="GridCell.Tab.0.center" timestamp="1609598964475">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state width="1877" height="223" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609758230030" />
+    <state width="1877" height="223" key="GridCell.Tab.0.center" timestamp="1609758230030">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="242" key="GridCell.Tab.0.center/0.0.1440.920@0.0.1440.920" timestamp="1609598964475" />
-    <state width="1877" height="350" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609472240096" />
-    <state width="1397" height="242" key="GridCell.Tab.0.left" timestamp="1609598964475">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state width="1877" height="223" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609758230030" />
+    <state width="1877" height="223" key="GridCell.Tab.0.left" timestamp="1609758230030">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="242" key="GridCell.Tab.0.left/0.0.1440.920@0.0.1440.920" timestamp="1609598964475" />
-    <state width="1877" height="350" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609472240096" />
-    <state width="1397" height="242" key="GridCell.Tab.0.right" timestamp="1609598964475">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state width="1877" height="223" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609758230030" />
+    <state width="1877" height="223" key="GridCell.Tab.0.right" timestamp="1609758230030">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="242" key="GridCell.Tab.0.right/0.0.1440.920@0.0.1440.920" timestamp="1609598964475" />
-    <state width="1877" height="350" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609472240096" />
-    <state width="1397" height="251" key="GridCell.Tab.1.bottom" timestamp="1609598964475">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state width="1877" height="223" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609758230030" />
+    <state width="1877" height="223" key="GridCell.Tab.1.bottom" timestamp="1609758230031">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="251" key="GridCell.Tab.1.bottom/0.0.1440.920@0.0.1440.920" timestamp="1609598964475" />
-    <state width="1877" height="350" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609472240097" />
-    <state width="1397" height="251" key="GridCell.Tab.1.center" timestamp="1609598964475">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state width="1877" height="223" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609758230031" />
+    <state width="1877" height="223" key="GridCell.Tab.1.center" timestamp="1609758230031">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="251" key="GridCell.Tab.1.center/0.0.1440.920@0.0.1440.920" timestamp="1609598964475" />
-    <state width="1877" height="350" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609472240096" />
-    <state width="1397" height="251" key="GridCell.Tab.1.left" timestamp="1609598964475">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state width="1877" height="223" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609758230031" />
+    <state width="1877" height="223" key="GridCell.Tab.1.left" timestamp="1609758230031">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="251" key="GridCell.Tab.1.left/0.0.1440.920@0.0.1440.920" timestamp="1609598964475" />
-    <state width="1877" height="350" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609472240096" />
-    <state width="1397" height="251" key="GridCell.Tab.1.right" timestamp="1609598964475">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state width="1877" height="223" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609758230031" />
+    <state width="1877" height="223" key="GridCell.Tab.1.right" timestamp="1609758230031">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1397" height="251" key="GridCell.Tab.1.right/0.0.1440.920@0.0.1440.920" timestamp="1609598964475" />
-    <state width="1877" height="350" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609472240097" />
+    <state width="1877" height="223" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609758230031" />
     <state width="1877" height="350" key="GridCell.Tab.2.bottom" timestamp="1609468555406">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -629,10 +629,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609134984450" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609399562780">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609744514899">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609399562780" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609744514899" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString()))" language="JAVA" />
+        <watch expression="powerDisplayTab.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString())))" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/kejiapower$Main.ic" NAME="Main Coverage Results" MODIFIED="1609593862475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

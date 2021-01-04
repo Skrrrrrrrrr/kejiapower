@@ -35,6 +35,7 @@ public class TcpServer extends Service {
     private int PORT;
     private static final int BUFF_SIZE = 1024;
     private static final int CLIENT_AMOUNT = 8;
+    private static final int ALIVE_TIME = 60;//seconds
 
     static String inputString;
     static String outputString;
@@ -114,7 +115,7 @@ public class TcpServer extends Service {
                 ServerSocket serverSocket = new ServerSocket(getPORT());
 //                ExecutorService pool;
 //                pool = Executors.newCachedThreadPool();
-                ThreadPoolExecutor pool = new ThreadPoolExecutor(1, 8, 60, SECONDS,  new PriorityBlockingQueue<Runnable>());
+                ThreadPoolExecutor pool = new ThreadPoolExecutor(CLIENT_AMOUNT, CLIENT_AMOUNT, ALIVE_TIME, SECONDS, new PriorityBlockingQueue<Runnable>());
                 pool.allowCoreThreadTimeOut(true);
                 try {
                     while (!Thread.currentThread().isInterrupted()) {
@@ -161,7 +162,7 @@ public class TcpServer extends Service {
         }
     }
 
-    private class Handler extends Thread {
+    private class Handler extends Thread implements Comparable {
         private Socket serverSocketAccept;
         private ObjectInputStream input;
         private ObjectOutputStream output;
@@ -172,7 +173,7 @@ public class TcpServer extends Service {
         }
 
         public void run() {
-            logger.info("Current Handler Thread is  " + Thread.currentThread());
+            logger.info("Current Handler Thread is : " + Thread.currentThread());
             logger.info("Server Handler Thread starts!");
             logger.info("Attempting to connect a user...");
             logger.info("User's Addr : " + serverSocketAccept.getInetAddress().getHostAddress() + ':' + serverSocketAccept.getPort());
@@ -192,7 +193,7 @@ public class TcpServer extends Service {
                         break;
                     }
                     inputString = new String(bytes, 0, len);
-                    logger.info("采集到"+ serverSocketAccept.getInetAddress()+":" + serverSocketAccept.getPort() + " 的数据是" + inputString);
+                    logger.info("采集到" + serverSocketAccept.getInetAddress() + ":" + serverSocketAccept.getPort() + " 的数据是" + inputString);
                     try {
                         if (inBlockingQueue.size() >= BUFF_SIZE) {
                             inBlockingQueue.take();
@@ -233,24 +234,24 @@ public class TcpServer extends Service {
             logger.info("closeConnections() method Exit");
         }
 
-//        @Override
-//        @SuppressWarnings("unchecked")
-//        public int compareTo(Object o) {
-//            Handler h = (Handler)o;
-//            if (this == o) {
-//                return 0;
-//            }
-//            if (o == null) {
-//                return -1; // high priority
-//            }
-//            if (getId() == h.getId()){
-//                return 0;
-//            }else if (getId() > h.getId()){
-//                return  -1;
-//            }else {
-//                return 1;
-//            }
-//        }
+        @Override
+        @SuppressWarnings("unchecked")
+        public int compareTo(Object o) {
+            Handler h = (Handler) o;
+            if (this == o) {
+                return 0;
+            }
+            if (o == null) {
+                return -1; // high priority
+            }
+            if (getId() == h.getId()) {
+                return 0;
+            } else if (getId() > h.getId()) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }
 
         @Override
         public boolean equals(Object obj) {
