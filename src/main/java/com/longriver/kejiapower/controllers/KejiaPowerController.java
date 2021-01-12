@@ -16,6 +16,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.ScheduledService;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -30,16 +31,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
-import java.net.ServerSocket;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.*;
-
-import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class KejiaPowerController {
 
@@ -123,7 +122,7 @@ public class KejiaPowerController {
     private static final float Base = 10.0f;
     private static final float KILO = 1000.0f;
     private static final int CLIENT_AMOUNT = 8;
-    private static final int ALIVE_TIME = 60;//seconds
+    private static final int ALIVE_TIME = 10000;//milliseconds
 
 
     public static Logger logger = LoggerFactory.getLogger(KejiaPowerController.class);
@@ -140,12 +139,12 @@ public class KejiaPowerController {
     private ReadMessageFromClientService readMessageFromClientService = new ReadMessageFromClientService();
     private String firstStringOfInBlockingQueue = null;//
 
-    private Map<String, XYChart.Series> clinetSeriesMap = new HashMap<>();
+    private Map<String, XYChart.Series> clientSeriesMap = new HashMap<>();
 
-    private List<Client> clientList;
     private ClientMessage clientMessage;
     private ServerMessage serverMessage;
 
+    //    private List<Long> clientBirthTimeList = new ArrayList<Long>(CLIENT_AMOUNT);//Client出生时间
     private File file = null;//存取文件
 
     public KejiaPowerController() {
@@ -167,9 +166,6 @@ public class KejiaPowerController {
         this.outBlockingQueue = outBlockingQueue;
     }
 
-    public void setClientList(List<Client> clientList) {
-        this.clientList = clientList;
-    }
 
     public ClientMessage getClientMessage() {
         return clientMessage;
@@ -341,28 +337,6 @@ public class KejiaPowerController {
                 serverMessage = new ServerMessage();
                 switch (DataFrame.dataFrameTypeClassify(clientMessage)) {
                     case HeartBeat:
-                        if (clientMap.get(clientMessage.getClientIp().toString()) == null) {
-                            Thread t = new Thread() {
-                                String ip = clientMessage.getClientIp().toString();
-                                long startTime = System.currentTimeMillis();
-
-                                @Override
-                                public void run() {
-                                    try {
-                                        Thread.sleep(ALIVE_TIME * 1000);
-                                    } catch (InterruptedException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            };
-                            t.setName(clientMessage.getClientIp().toString());
-                            pool.execute(t);
-                        } else {
-
-
-                        }
-
-
                         serverMessage.generateHeartBeatMessage(clientMessage);
                         try {
                             tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString())).getOutputStream().write(serverMessage.toString().getBytes());
@@ -375,6 +349,7 @@ public class KejiaPowerController {
                             fileInBlockingQueue.put(clientMessage.toString().getBytes());
                             fileInBlockingQueue.put(serverMessage.toString().getBytes());
                             updateClientList(clientMessage);
+
                         } catch (InterruptedException | IOException e) {
                             e.printStackTrace();
                         }
@@ -407,6 +382,9 @@ public class KejiaPowerController {
                         XYChart.Series<Number, Number> pSeries = (XYChart.Series) lineChart.getData().get(0);
                         pSeries.getData().add(new XYChart.Data(pSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base / KILO));
                         //
+                        clientObservableList.get(clientMap.get(clientMessage.getClientIp().toString()).getId() - 1).setTime(System.currentTimeMillis());
+                        clientMap.get(clientMessage.getClientIp().toString()).setTime(System.currentTimeMillis());      //指向同一个Client，地址相同
+
                         break;
                 }
 //                            Platform.runLater(new Runnable() {
@@ -499,15 +477,17 @@ public class KejiaPowerController {
      * 需要：同时更新clientObservableList和clientMap
      * */
     private void updateClientList(ClientMessage clientMessage) {
-        //更新ClientTable/clientMap
+        //更新ClientTable/clientMap，目前在心跳部分调用
         if (clientMap.get(clientMessage.getClientIp().toString()) == null) {
             Client ct = new Client();
             ct.setId(clientObservableList.size() + 1);
             ct.setName((new StringBuilder("电源-").append(clientObservableList.size() + 1)).toString());
             ct.setIp(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString()));
             ct.setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 10)));
+            ct.setTime(System.currentTimeMillis());
             clientMap.put(clientMessage.getClientIp().toString(), ct);
             clientObservableList.add(ct);
+//            clientBirthTimeList.add(System.currentTimeMillis());
             if (clientMap.size() > 1) {
                 Platform.runLater(new Runnable() {
                     @Override
@@ -516,6 +496,9 @@ public class KejiaPowerController {
                     }
                 });
             }
+        } else {
+            clientObservableList.get(clientMap.get(clientMessage.getClientIp().toString()).getId() - 1).setTime(System.currentTimeMillis());
+            clientMap.get(clientMessage.getClientIp().toString()).setTime(System.currentTimeMillis());      //指向同一个Client，地址相同
         }
     }
 
@@ -530,14 +513,17 @@ public class KejiaPowerController {
             updateClientList(clientMessage);
             updateClient(clientMessage);
         } else {
-            Client client = clientMap.get(clientMessage.getClientIp().toString());
-            client.setVoltage(Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base);
-            client.setCurrent(Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base);
-            client.setPower(Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base / KILO);
-            client.setOperateModel(OperateModel.getOperateModelByCode(Short.parseShort(clientMessage.getModel().toString(), 10)));
-            client.setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 10)));
-            clientMap.replace(clientMessage.getClientIp().toString(), client);
-            clientObservableList.set(client.getId() - 1, client);
+            Client ct = clientMap.get(clientMessage.getClientIp().toString());
+            ct.setVoltage(Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base);
+            ct.setCurrent(Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base);
+            ct.setPower(Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base / KILO);
+            ct.setOperateModel(OperateModel.getOperateModelByCode(Short.parseShort(clientMessage.getModel().toString(), 10)));
+            ct.setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 10)));
+            if (ct.getTime() < 0) {
+                ct.setTime(System.currentTimeMillis());
+            }
+            clientMap.replace(clientMessage.getClientIp().toString(), ct);
+            clientObservableList.set(ct.getId() - 1, ct);
         }
     }
 
@@ -587,25 +573,36 @@ public class KejiaPowerController {
     @FXML
     void powerConnectedBtnOnClick(ActionEvent event) {
 
-//        int clientThread = powerDisplayTab.getTabs().size();
+        //        int clientThread = powerDisplayTab.getTabs().size();
         try {
             switch (powerConnectedBtn.getText()) {
                 case "连接设备":
                     tcpServer.setPORT(Integer.parseInt(portTextField.getText(), 10));
                     tcpServer.start();
-                    Thread.sleep(10);
+                    Thread.sleep(10);//服务器完全启动
                     readMessageFromClientService.start();
                     rxTextBtn.setDisable(false);
                     txTextBtn.setDisable(false);
                     logger.info("TcpServer start!");
                     logger.info("powerConnectedBtnOnClick!");
                     powerConnectedBtn.setText("断开设备");
+
+                    //心跳包
+                    heartBeatService.setPeriod(Duration.millis(ALIVE_TIME));
+                    if (!heartBeatService.isRunning()) {
+                        heartBeatService.start();
+                    }
                     break;
                 case "断开设备":
                     tcpServer.cancel();
                     tcpServer.reset();
                     readMessageFromClientService.cancel();
                     readMessageFromClientService.reset();
+                    if (heartBeatService.isRunning()) {
+                        heartBeatService.cancel();
+                        heartBeatService.reset();
+                    }
+
                     rxTextBtn.setDisable(true);
                     txTextBtn.setDisable(true);
                     powerConnectedBtn.setText("连接设备");
@@ -684,12 +681,43 @@ public class KejiaPowerController {
             };
             return task;
         }
+    }
 
 
-        private Thread fileWriteThread = new Thread(new Runnable() {
+    private ScheduledService heartBeatService = new ScheduledService() {
+        protected Task createTask() {
+            return new Task<Void>() {
 
-            FileOutputStream output = null;
-            byte[] bytes = new byte[BUFF_SIZE];
+                @Override
+                protected Void call() {
+//                    if (clientBirthTimeList.size() <= 0) {
+//                        return null;
+//                    }
+
+                    for (Client client : clientObservableList) {
+                        long currentTime = System.currentTimeMillis();
+
+                        if (currentTime - client.getTime() > ALIVE_TIME) {
+                            Client newClient = client;
+                            newClient.setStatus(WorkingStatus.COMMUNICATION_TIMEOUT);
+                            clientObservableList.set(clientObservableList.indexOf(client), newClient);
+                            clientMap.replace(client.getIp(), newClient);
+//                            clientObservableList.get(clientObservableList.indexOf(client)).setStatus(WorkingStatus.COMMUNICATION_TIMEOUT);
+//                            clientMap.get(client.getId() -1 ).setStatus(WorkingStatus.COMMUNICATION_TIMEOUT);
+                        } else {
+
+                        }
+                    }
+                    return null;
+                }
+            };
+        }
+    };
+
+    private Thread fileWriteThread = new Thread(new Runnable() {
+
+        FileOutputStream output = null;
+        byte[] bytes = new byte[BUFF_SIZE];
 
 //        {
 //            try {
@@ -703,41 +731,42 @@ public class KejiaPowerController {
 //        }
 
 
-            @Override
-            public void run() {
+        @Override
+        public void run() {
+            try {
                 try {
-                    try {
-                        file = new File("./logs/runtime.log");
-                        if (!file.exists()) file.createNewFile();
-                        output = new FileOutputStream(file);
-                    } catch (
-                            IOException ie) {
-                        logger.error(ie.getMessage());
-                    }
-                    bytes = new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())).append(clientMessage).toString().getBytes();
-                    output.write(bytes);                //将数组的信息写入文件中
-                    bytes = new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())).append(serverMessage).toString().getBytes();
-                    output.write(bytes);                //将数组的信息写入文件中
-                } catch (Exception e) {
-                    logger.error(e.getMessage());
-                } finally {
-                    try {
-                        output.flush();
-                        output.close();
+                    file = new File("./logs/runtime.log");
+                    if (!file.exists()) file.createNewFile();
+                    output = new FileOutputStream(file);
+                } catch (
+                        IOException ie) {
+                    logger.error(ie.getMessage());
+                }
+                bytes = new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())).append(clientMessage).toString().getBytes();
+                output.write(bytes);                //将数组的信息写入文件中
+                bytes = new StringBuilder(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())).append(serverMessage).toString().getBytes();
+                output.write(bytes);                //将数组的信息写入文件中
+            } catch (Exception e) {
+                logger.error(e.getMessage());
+            } finally {
+                try {
+                    output.flush();
+                    output.close();
 
-                        Thread.currentThread().interrupt();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        logger.error(e.getMessage());
-                    }
+                    Thread.currentThread().interrupt();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    logger.error(e.getMessage());
                 }
             }
-        });
+        }
+    });
 
-        private Thread fileReadThread = new Thread(new Runnable() {
 
-            byte[] bytes = new byte[BUFF_SIZE];
-            BufferedInputStream bufferedInput = null;
+    private Thread fileReadThread = new Thread(new Runnable() {
+
+        byte[] bytes = new byte[BUFF_SIZE];
+        BufferedInputStream bufferedInput = null;
 
 //        {
 //            try {
@@ -748,60 +777,60 @@ public class KejiaPowerController {
 //            }
 //        }
 
-            @Override
-            public void run() {
+        @Override
+        public void run() {
+            try {
+                if (!file.exists()) file.createNewFile();
+                BufferedInputStream bufferedInput = new BufferedInputStream(new FileInputStream(file));
+                fileInBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
+            } catch (IOException ie) {
+                logger.error(ie.getMessage());
+            }
+            while (!Thread.currentThread().isInterrupted()) {
                 try {
-                    if (!file.exists()) file.createNewFile();
-                    BufferedInputStream bufferedInput = new BufferedInputStream(new FileInputStream(file));
-                    fileInBlockingQueue = new ArrayBlockingQueue<>(BUFF_SIZE);
-                } catch (IOException ie) {
-                    logger.error(ie.getMessage());
-                }
-                while (!Thread.currentThread().isInterrupted()) {
+                    while (bufferedInput.read(bytes) != -1) {
+                        fileInBlockingQueue.put(bytes);
+                    }
+                } catch (Exception e) {
+                    logger.error(e.getMessage());
+                } finally {
                     try {
-                        while (bufferedInput.read(bytes) != -1) {
-                            fileInBlockingQueue.put(bytes);
-                        }
-                    } catch (Exception e) {
-                        logger.error(e.getMessage());
-                    } finally {
-                        try {
-                            bufferedInput.close();
-                            Thread.currentThread().interrupt();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                        bufferedInput.close();
+                        Thread.currentThread().interrupt();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 }
-
             }
-        });
 
-        //内部类，画图
-        private class PaintBrush implements Runnable {
+        }
+    });
 
-            @Override
-            public void run() {
+
+    //内部类，画图
+    private class PaintBrush implements Runnable {
+
+        @Override
+        public void run() {
 //            long nowTime = System.currentTimeMillis();
 //            Calendar cal = Calendar.getInstance();
 //            cal.setTimeInMillis(nowTime);
 
-                XYChart.Data data = new XYChart.Data();
+            XYChart.Data data = new XYChart.Data();
 
-                try {
-                    if ("停止接收".equals(rxTextBtn.getText())) {
-                        rxTextArea.setText(StringUtils.getStringAddSpace(clientMessage.toString(), 2));
-                    }
-                    //Linecharts
+            try {
+                if ("停止接收".equals(rxTextBtn.getText())) {
+                    rxTextArea.setText(StringUtils.getStringAddSpace(clientMessage.toString(), 2));
+                }
+                //Linecharts
 //                    voltageSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
 //                    currentSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
 //                    powerSeries.getData().add(new XYChart.Data(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()), (Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() * Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue()) / Base));
 
-                    Platform.runLater(() -> {//修改界面的工作
-                    });
-                } catch (Exception e) {
-                    logger.error(e.getMessage());
-                }
+                Platform.runLater(() -> {//修改界面的工作
+                });
+            } catch (Exception e) {
+                logger.error(e.getMessage());
             }
         }
     }

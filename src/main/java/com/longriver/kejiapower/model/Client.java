@@ -16,6 +16,8 @@ public class Client {
     private String ip;
     private OperateModel operateModel;
     private WorkingStatus status;
+    private long time;
+
 
     private float voltage = 0.0f;
     private float current = 0.0f;
@@ -59,6 +61,14 @@ public class Client {
 
     public void setStatus(WorkingStatus status) {
         this.status = status;
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
     }
 
     public float getVoltage() {
