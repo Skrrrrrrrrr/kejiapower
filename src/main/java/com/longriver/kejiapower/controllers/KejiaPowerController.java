@@ -1,5 +1,6 @@
 package com.longriver.kejiapower.controllers;
 
+import com.longriver.kejiapower.Main;
 import com.longriver.kejiapower.POJO.ClientMessage;
 import com.longriver.kejiapower.POJO.Message;
 import com.longriver.kejiapower.POJO.ServerMessage;
@@ -20,8 +21,12 @@ import javafx.concurrent.ScheduledService;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Side;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -31,11 +36,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.*;
@@ -113,6 +121,21 @@ public class KejiaPowerController {
 
     @FXML
     private TableColumn<Client, String> statusColumn = new TableColumn<Client, String>("状态");
+
+    @FXML
+    private CheckBox hardwareFaultCheckBox;
+
+    @FXML
+    private CheckBox otCheckBox;
+
+    @FXML
+    private CheckBox inputUVCheckBox;
+
+    @FXML
+    private CheckBox startupCheckBox;
+
+    @FXML
+    private CheckBox commStatusCheckBox;
 
     @FXML
     void portTextFieldOnClick(ActionEvent event) {
@@ -832,6 +855,58 @@ public class KejiaPowerController {
             } catch (Exception e) {
                 logger.error(e.getMessage());
             }
+        }
+    }
+
+    @FXML
+    void fastConfigBtnOnClick(ActionEvent event) {
+        if (clientObservableList.size() <= 0) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("信息");
+            alert.setHeaderText("未连接电源设备。");
+            final Optional<ButtonType> opt = alert.showAndWait();
+
+            return;
+        }
+        try {
+//            Parent fastConfigRoot = FXMLLoader.load(getClass().getClassLoader().getResource("view/fxml/fastpowerconfig.fxml"));
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            URL url = getClass().getClassLoader().getResource("view/fxml/fastpowerconfig.fxml");
+            fxmlLoader.setLocation(url);
+            Parent fastConfigRoot = fxmlLoader.load();
+            FastPowerConfigController fastPowerConfigController = fxmlLoader.getController();
+            fastPowerConfigController.setClientObservableList(clientObservableList);
+//            fastPowerConfigController.updateInnerClientObservableList(clientObservableList);
+
+            Stage[] stage = {new Stage()};
+            stage[0].setTitle("快速配置");
+            stage[0].setScene(new Scene(fastConfigRoot));
+            stage[0].show();
+            stage[0].setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent event) {
+
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("退出程序");
+                    alert.setHeaderText("");
+                    alert.setContentText("您真的要退出吗？");
+                    final Optional<ButtonType> opt = alert.showAndWait();
+                    final ButtonType rtn = opt.get();
+                    if (rtn == ButtonType.CANCEL) {
+                        event.consume();
+                    } else {
+                        stage[0].close();
+                        if (stage[0] != null) {
+                            stage[0] = null;
+                        }
+                    }
+
+                }
+            });
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
