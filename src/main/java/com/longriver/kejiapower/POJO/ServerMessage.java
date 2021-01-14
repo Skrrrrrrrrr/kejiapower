@@ -2,6 +2,7 @@ package com.longriver.kejiapower.POJO;
 
 import com.longriver.kejiapower.utils.DataFrame;
 import com.longriver.kejiapower.utils.DataFrameType;
+import javafx.beans.DefaultProperty;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,6 +30,9 @@ public class ServerMessage extends Message {
         }
     }
 
+    public void generateHeartBeatMessage(String message) {
+    }
+
     public void generateHeartBeatMessage(Message message) {
 //        if (!DataFrame.dataFrameTypeClassify(message.toString().replaceAll(" +", "")).equals(DataFrameType.HeartBeat))
 //            throw new RuntimeException("setServerHeartBeatMessage Error, not a HeartBeat frame from Client!");
@@ -51,6 +55,7 @@ public class ServerMessage extends Message {
 
     }
 
+    @Deprecated
     public void generateControlMessage() {
         setHead(new StringBuilder("FFFF"));
         setType(new StringBuilder("0C"));
@@ -77,21 +82,41 @@ public class ServerMessage extends Message {
         setTail(new StringBuilder("DD"));
     }
 
-    @Deprecated
     public void generateControlMessage(String message) {
+        if (!DataFrame.dataFrameTypeClassify(message).equals(DataFrameType.Control)){
+            return;
+        }
         setHead(new StringBuilder("FFFF"));
         setType(new StringBuilder("0C"));
-        setIdentification(new StringBuilder(Integer.parseInt(getIdentification().toString(), 16) + 1));
+        setIdentification(new StringBuilder(message.substring(6, 10)));
         setLength(new StringBuilder("0C"));
-        setVoltage(new StringBuilder("00"));
-        setCurrent(new StringBuilder("00"));
-        setControl(new StringBuilder("00"));
+        setClientIp(new StringBuilder(message.substring(12, 20)));
+        setVoltage(new StringBuilder(message.substring(20, 24)));
+        setCurrent(new StringBuilder(message.substring(24, 28)));
+        setControl(new StringBuilder(message.substring(28, 30)));
+        setModel(new StringBuilder(message.substring(30, 32)));
         setPreserveByte(new StringBuilder("0000"));
-        setClientIp(new StringBuilder("127.0.0.1"));
         //其他置空
-        setClientIp(new StringBuilder(8));
         setStatus(new StringBuilder(2));
-        setModel(new StringBuilder(2));
+        setDuration(new StringBuilder(4));
+        setServerTime(new StringBuilder(12));
+        setTail(new StringBuilder("DD"));
+    }
+
+    public void generateControlMessage(String identification,String ip,Float voltage,Float current, Short control, Short model) {
+
+        setHead(new StringBuilder("FFFF"));
+        setType(new StringBuilder("0C"));
+        setIdentification(new StringBuilder(identification));
+        setLength(new StringBuilder("0C"));
+        setClientIp(new StringBuilder(ip));
+        setVoltage(new StringBuilder(voltage.intValue()));
+        setCurrent(new StringBuilder(current.intValue()));
+        setControl(new StringBuilder(control));
+        setModel(new StringBuilder(model));
+        setPreserveByte(new StringBuilder("0000"));
+        //其他置空
+        setStatus(new StringBuilder(2));
         setDuration(new StringBuilder(4));
         setServerTime(new StringBuilder(12));
         setTail(new StringBuilder("DD"));
@@ -101,7 +126,7 @@ public class ServerMessage extends Message {
     public void generateControlMessage(Message message) {
         setHead(new StringBuilder("FFFF"));
         setType(new StringBuilder("0C"));
-        setIdentification(new StringBuilder(Integer.parseInt(getIdentification().toString(), 16)));
+        setIdentification(new StringBuilder(Integer.parseInt(getIdentification().toString(), 16)+1));
         setLength(new StringBuilder("0C"));
         setVoltage(new StringBuilder("00"));
         setCurrent(new StringBuilder("00"));
@@ -117,6 +142,9 @@ public class ServerMessage extends Message {
         setTail(new StringBuilder("DD"));
     }
 
+    public void generateRespondMessage(String message) {
+
+    }
 
     public void generateRespondMessage(Message message) {
 //        if (!DataFrame.dataFrameTypeClassify(message.toString().replaceAll(" +", "")).equals(DataFrameType.Report))
@@ -137,7 +165,6 @@ public class ServerMessage extends Message {
         setPreserveByte(new StringBuilder(4));
         setTail(new StringBuilder("DD"));
     }
-
 
 
 }

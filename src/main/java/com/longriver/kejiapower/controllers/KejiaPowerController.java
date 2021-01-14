@@ -24,7 +24,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.geometry.Side;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
@@ -32,10 +34,10 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
@@ -122,20 +124,43 @@ public class KejiaPowerController {
     @FXML
     private TableColumn<Client, String> statusColumn = new TableColumn<Client, String>("状态");
 
-    @FXML
-    private CheckBox hardwareFaultCheckBox;
 
     @FXML
-    private CheckBox otCheckBox;
+    private VBox statusVbox;
 
     @FXML
-    private CheckBox inputUVCheckBox;
+    private Button hardwareFaultBtn;
 
     @FXML
-    private CheckBox startupCheckBox;
+    private Button otBtn;
 
     @FXML
-    private CheckBox commStatusCheckBox;
+    private Button inputUVBtn;
+
+    @FXML
+    private Button startupBtn;
+
+    @FXML
+    private Button commStatusbtn;
+
+    @FXML
+    private VBox modelVbox;
+
+    @FXML
+    private Button localModelBtn;
+
+    @FXML
+    private Button a50Btn;
+
+    @FXML
+    private Button a35Btn;
+
+    @FXML
+    private Button a15Btn;
+
+    @FXML
+    private Button a15_24_100Btn;
+
 
     @FXML
     void portTextFieldOnClick(ActionEvent event) {
@@ -210,9 +235,13 @@ public class KejiaPowerController {
     private Map<String, Client> clientMap = new HashMap<>(CLIENT_AMOUNT);//根据Client的 IP，放入，加速遍历更新clientObservableList
     private ExecutorService pool = Executors.newFixedThreadPool(CLIENT_AMOUNT);// 线程池
 
+    private Background defaultBtnBackground;//存储默认btn样式属性
+    private String defaultColor = "#D2D2D2";
+
+
+
     @FXML
     private void initClientTable() {
-
         //绑定数据到TableView
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         ipColumn.setCellValueFactory(new PropertyValueFactory<>("ip"));
@@ -379,6 +408,12 @@ public class KejiaPowerController {
 
                         break;
                     case Control:
+                        //更新状态（无电压电流信息）
+                        clientObservableList.get(clientMap.get(clientMessage.getClientIp().toString()).getId() - 1).setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString())));
+                        clientMap.get(clientMessage.getClientIp().toString()).setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString())));      //指向同一个Client，地址相同
+                        //更新时间
+                        clientObservableList.get(clientMap.get(clientMessage.getClientIp().toString()).getId() - 1).setTime(System.currentTimeMillis());
+                        clientMap.get(clientMessage.getClientIp().toString()).setTime(System.currentTimeMillis());      //指向同一个Client，地址相同
                         break;
                     case Report:
                         updateClient(clientMessage);
@@ -572,6 +607,11 @@ public class KejiaPowerController {
 
 
     @FXML
+    private void nodePropertyArchive() {
+        defaultBtnBackground = (Background) localModelBtn.getBackground();
+    }
+
+    @FXML
     private void initialize() {
         initChart();
         initInteractMessage();
@@ -579,7 +619,6 @@ public class KejiaPowerController {
         powerTabGenerate();
 //        powerTabGenerate();
 //        pool.allowCoreThreadTimeOut(true);
-
     }
 
     private ObservableList powerObservableList = FXCollections.observableArrayList();
@@ -595,6 +634,9 @@ public class KejiaPowerController {
 
     @FXML
     void powerConnectedBtnOnClick(ActionEvent event) {
+        if (defaultBtnBackground == null) {
+            nodePropertyArchive();
+        }
 
         //        int clientThread = powerDisplayTab.getTabs().size();
         try {
@@ -606,7 +648,6 @@ public class KejiaPowerController {
                     readMessageFromClientService.start();
                     rxTextBtn.setDisable(false);
                     txTextBtn.setDisable(false);
-                    logger.info("TcpServer start!");
                     logger.info("powerConnectedBtnOnClick!");
                     powerConnectedBtn.setText("断开设备");
 
@@ -666,20 +707,77 @@ public class KejiaPowerController {
 
     @FXML
     void txTextBtnOnClick(ActionEvent event) {
-
-
-        if (!(txTextArea.getText() == null || txTextArea.getText().length() <= 0) && null != tcpServer.getSocketMap().get(clientMessage.getClientIp().toString())) {
-            try {
+        if (txTextArea.getText() == null || txTextArea.getText().length() <= 0) {
+            return;
+        }
+        try {
+            DataFrame.invalidDataFrameCheck(txTextArea.getText().replaceAll(" +", ""));
+        } catch (RuntimeException re) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("数据非法");
+            alert.setHeaderText("");
+            alert.setContentText("发送的数据不正确");
+            final Optional<ButtonType> opt = alert.showAndWait();
+            return;
+        }
+        ServerMessage sm = new ServerMessage();
+        sm.generateControlMessage(txTextArea.getText().replaceAll(" +", ""));
+        try {
+            if (null != tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString()))) {
 //                outBlockingQueue.put(txTextArea.getText().replaceAll(" +", ""));
 //                tcpServer.getSocket().getOutputStream().write(outBlockingQueue.take().replaceAll(" +", "").getBytes());
-                tcpServer.getSocketMap().get(clientMessage.getClientIp().toString()).getOutputStream().write(txTextArea.getText().replaceAll(" +", "").getBytes());
-                tcpServer.getSocketMap().get(clientMessage.getClientIp().toString()).getOutputStream().flush();
+                tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().write(txTextArea.getText().replaceAll(" +", "").getBytes());
+                tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().flush();
 //                tcpServer.Send(outBlockingQueue);
-            } catch (IOException e) {
-                e.printStackTrace();
-                logger.error(e.getMessage());
+                updateStatusGroup(sm);
             }
+        } catch (IOException | NullPointerException e) {
+//            e.printStackTrace();
+            logger.error(e.getMessage());
         }
+    }
+
+
+    private void updateStatusGroup(ServerMessage serverMessage) {
+
+
+        for (Node b : modelVbox.getChildren()) {
+            Button btn = (Button) b;
+//                btn.setBackground();
+            btn.setBackground(defaultBtnBackground);
+            btn.setFont(Font.getDefault());
+
+        }
+
+        switch (OperateModel.getOperateModelByCode(Short.parseShort(serverMessage.getModel().toString()))) {
+            case LOCAL:
+                btnStyleSet(localModelBtn);
+                break;
+            case DAEMON50A:
+                btnStyleSet(a50Btn);
+                break;
+            case DAEMON35A:
+                btnStyleSet(a35Btn);
+                break;
+            case DAEMON15A:
+                btnStyleSet(a15Btn);
+                break;
+            case DAEMON15A_24_100:
+                btnStyleSet(a15_24_100Btn);
+                break;
+            case INVALID:
+            default:
+                break;
+
+        }
+    }
+
+    private void btnStyleSet(Button btn){
+        Background background = new Background(new BackgroundFill(Paint.valueOf(defaultColor), defaultBtnBackground.getFills().get(0).getRadii(), defaultBtnBackground.getFills().get(0).getInsets()));
+
+        btn.setBackground(background);
+        btn.setTextFill(Paint.valueOf("#000000"));
+        btn.setFont(Font.font(btn.getFont().getSize()+2));
     }
 
     private class ReadMessageFromClientService extends Service {
@@ -876,13 +974,14 @@ public class KejiaPowerController {
             fxmlLoader.setLocation(url);
             Parent fastConfigRoot = fxmlLoader.load();
             FastPowerConfigController fastPowerConfigController = fxmlLoader.getController();
-            fastPowerConfigController.setClientObservableList(clientObservableList);
-//            fastPowerConfigController.updateInnerClientObservableList(clientObservableList);
+//            fastPowerConfigController.setClientObservableList(clientObservableList);
+            fastPowerConfigController.getInnerClassObservableList(clientObservableList);
 
             Stage[] stage = {new Stage()};
             stage[0].setTitle("快速配置");
             stage[0].setScene(new Scene(fastConfigRoot));
             stage[0].show();
+
             stage[0].setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent event) {

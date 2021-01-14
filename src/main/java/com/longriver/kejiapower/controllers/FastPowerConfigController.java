@@ -4,6 +4,7 @@ import com.longriver.kejiapower.POJO.ClientMessage;
 import com.longriver.kejiapower.model.Client;
 import com.longriver.kejiapower.test.Os;
 import com.longriver.kejiapower.utils.OperateModel;
+import com.longriver.kejiapower.utils.WorkingStatus;
 import javafx.beans.InvalidationListener;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -26,7 +27,7 @@ import java.util.*;
 public class FastPowerConfigController {
 
     @FXML
-    private TableView<Client> fastConfigTableView;
+    private TableView<InnerClient> fastConfigTableView;
 
 //    @FXML
 //    private TableColumn<InnerClient, Integer> idColumn;
@@ -110,39 +111,39 @@ public class FastPowerConfigController {
 //
 //        fastConfigTableView.setEditable(true);
 
-        final ObservableList<TableColumn<Client, ?>> columns = fastConfigTableView.getColumns();
+        final ObservableList<TableColumn<InnerClient, ?>> columns = fastConfigTableView.getColumns();
 
-        TableColumn<Client, Integer> idColumn = new TableColumn<>("序号");
-        TableColumn<Client, String> ipColumn = new TableColumn<>("地址");
-        TableColumn<Client, Float> voltageColumn = new TableColumn<>("电压");
-        TableColumn<Client, Float> currentColumn = new TableColumn<>("电流");
-        TableColumn<Client, Short> controlColumn = new TableColumn<>("控制");
-        TableColumn<Client, OperateModel> modelColumn = new TableColumn<>("模式");
-        TableColumn<Client, Boolean> selectiveColumn = new TableColumn<>("");
+        TableColumn<InnerClient, Integer> idColumn = new TableColumn<>("序号");
+        TableColumn<InnerClient, String> nameColumn = new TableColumn<>("名称");
+        TableColumn<InnerClient, String> ipColumn = new TableColumn<>("地址");
+        TableColumn<InnerClient, Float> voltageColumn = new TableColumn<>("电压");
+        TableColumn<InnerClient, Float> currentColumn = new TableColumn<>("电流");
+        TableColumn<InnerClient, WorkingStatus> statusColumn = new TableColumn<>("状态");
+        TableColumn<InnerClient, OperateModel> modelColumn = new TableColumn<>("模式");
+        TableColumn<InnerClient, Boolean> selectiveColumn = new TableColumn<>("勾选");
 
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         ipColumn.setCellValueFactory(new PropertyValueFactory<>("ip"));
         voltageColumn.setCellValueFactory(new PropertyValueFactory<>("voltage"));
         currentColumn.setCellValueFactory(new PropertyValueFactory<>("current"));
-        controlColumn.setCellValueFactory(new PropertyValueFactory<>("control"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         modelColumn.setCellValueFactory(new PropertyValueFactory<>("operateModel"));
         selectiveColumn.setCellValueFactory(new PropertyValueFactory<>("selected"));
-        selectiveColumn.setCellFactory((TableColumn<Client, Boolean> tc) -> {
+        selectiveColumn.setCellFactory((TableColumn<InnerClient, Boolean> tc) -> {
             return new CheckBoxTableCell<>();
         });
-        columns.addAll(idColumn, ipColumn, voltageColumn, currentColumn, controlColumn, modelColumn, selectiveColumn);
+        columns.addAll(idColumn,nameColumn, ipColumn, voltageColumn, currentColumn, statusColumn, modelColumn, selectiveColumn);
 
-        fastConfigTableView.setItems(clientObservableList);
+        fastConfigTableView.setItems(innerClientObservableList);
 //        fastConfigTableView.setItems(innerClientObservableList);
         fastConfigTableView.setEditable(true);
 //        innerClientObservableList = InnerClient.getInnerClassObservableList(clientObservableList);
 
     }
 
-    public void updateInnerClientObservableList(ObservableList<Client> clientObservableList) {
+    private void updateInnerClientObservableList(ObservableList<Client> clientObservableList) {
         setClientObservableList(clientObservableList);
-        innerClientObservableList = InnerClient.getInnerClassObservableList(clientObservableList);
-
     }
 
 
@@ -152,10 +153,28 @@ public class FastPowerConfigController {
         return null;
     }
 
-    private static class InnerClient extends Client {
-        private BooleanProperty selected = new SimpleBooleanProperty();
-        private BooleanProperty control = new SimpleBooleanProperty();
+    public void getInnerClassObservableList(ObservableList<Client> clientObservableList) {
+        innerClientObservableList = FXCollections.observableArrayList();
+        if (clientObservableList != null && clientObservableList.size() > 0) {
+            for (Client ct : clientObservableList) {
+                InnerClient innerClient = new InnerClient();
+                innerClient.setId(ct.getId());
+                innerClient.setIp(ct.getIp());
+                innerClient.setName(ct.getName());
+                innerClient.setVoltage(ct.getVoltage());
+                innerClient.setCurrent(ct.getCurrent());
+                innerClient.setOperateModel(ct.getOperateModel());
+                innerClient.setStatus(ct.getStatus());
+                innerClient.setSelected(true);
 
+                innerClientObservableList.add(innerClient);
+            }
+        }
+    }
+
+    private  class InnerClient extends Client {
+        private BooleanProperty selected = new SimpleBooleanProperty();
+//        private BooleanProperty control = new SimpleBooleanProperty();
 
         public boolean isSelected() {
             return selected.get();
@@ -167,30 +186,6 @@ public class FastPowerConfigController {
 
         public void setSelected(boolean selected) {
             this.selected.set(selected);
-        }
-
-        public boolean isControl() {
-            return control.get();
-        }
-
-        public BooleanProperty controlProperty() {
-            return control;
-        }
-
-        public void setControl(boolean control) {
-            this.control.set(control);
-        }
-
-        private static ObservableList<InnerClient> getInnerClassObservableList(ObservableList<Client> clientObservableList) {
-            ObservableList<InnerClient> innerClientObservableList = FXCollections.observableArrayList();
-            if (clientObservableList != null && clientObservableList.size() > 0) {
-                for (Client ct : clientObservableList) {
-                    InnerClient innerClient = (InnerClient) ct;
-                    innerClient.setSelected(false);
-                    innerClientObservableList.add(innerClient);
-                }
-            }
-            return innerClientObservableList;
         }
     }
 

@@ -178,7 +178,8 @@ public class TcpServer extends Service {
             logger.info("Attempting to connect a user...");
             logger.info("User's Addr : " + serverSocketAccept.getInetAddress().getHostAddress() + ':' + serverSocketAccept.getPort());
             try {
-                socketMap.put(String.format("%s:%s", serverSocketAccept.getInetAddress(), serverSocketAccept.getPort()), serverSocketAccept);
+//                socketMap.put(String.format("%s:%s", serverSocketAccept.getInetAddress(), serverSocketAccept.getPort()), serverSocketAccept);
+                socketMap.put(String.format("%s", serverSocketAccept.getInetAddress().getHostAddress().toString()), serverSocketAccept);
 
                 InputStream is = serverSocketAccept.getInputStream();
                 OutputStream os = serverSocketAccept.getOutputStream();

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
@@ -176,22 +175,22 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <VBox>
+                        <VBox fx:id="statusVbox">
                            <children>
-                              <CheckBox fx:id="hardwareFaultCheckBox" mnemonicParsing="false" text="硬件故障" />
-                              <CheckBox fx:id="otCheckBox" mnemonicParsing="false" text="过温故障" />
-                              <CheckBox fx:id="inputUVCheckBox" mnemonicParsing="false" text="输入欠压" />
-                              <CheckBox fx:id="startupCheckBox" mnemonicParsing="false" text="启动" />
-                              <CheckBox fx:id="commStatusCheckBox" mnemonicParsing="false" text="通信状态" />
+                              <Button fx:id="hardwareFaultBtn" mnemonicParsing="false" prefWidth="100.0" text="硬件故障" />
+                              <Button fx:id="otBtn" mnemonicParsing="false" prefWidth="100.0" text="过温故障" />
+                              <Button fx:id="inputUVBtn" mnemonicParsing="false" prefWidth="100.0" text="输入欠压" />
+                              <Button fx:id="startupBtn" mnemonicParsing="false" prefWidth="100.0" text="启动" />
+                              <Button fx:id="commStatusbtn" mnemonicParsing="false" prefWidth="100.0" text="通信状态" />
                            </children>
                         </VBox>
-                        <VBox GridPane.columnIndex="1">
+                        <VBox fx:id="modelVbox" GridPane.columnIndex="1">
                            <children>
-                              <CheckBox mnemonicParsing="false" text="当前模式" />
-                              <CheckBox mnemonicParsing="false" text="50A" />
-                              <CheckBox mnemonicParsing="false" text="35A" />
-                              <CheckBox mnemonicParsing="false" text="15A" />
-                              <CheckBox mnemonicParsing="false" text="15A(24/100)" />
+                              <Button fx:id="localModelBtn" mnemonicParsing="false" prefWidth="100.0" text="当前模式" />
+                              <Button fx:id="a50Btn" mnemonicParsing="false" prefWidth="100.0" text="50A" />
+                              <Button fx:id="a35Btn" mnemonicParsing="false" prefWidth="100.0" text="35A" />
+                              <Button fx:id="a15Btn" mnemonicParsing="false" prefWidth="100.0" text="15A" />
+                              <Button fx:id="a15_24_100Btn" mnemonicParsing="false" prefWidth="100.0" text="15A(24/100)" />
                            </children>
                         </VBox>
                      </children>
