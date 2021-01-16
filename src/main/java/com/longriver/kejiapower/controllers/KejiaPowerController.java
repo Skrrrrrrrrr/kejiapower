@@ -170,7 +170,7 @@ public class KejiaPowerController {
     private static final float Base = 10.0f;
     private static final float KILO = 1000.0f;
     private static final int CLIENT_AMOUNT = 8;
-    private static final int ALIVE_TIME = 10000;//milliseconds
+    private static final int ALIVE_TIME = 60000;//milliseconds
 
 
     public static Logger logger = LoggerFactory.getLogger(KejiaPowerController.class);
@@ -237,7 +237,6 @@ public class KejiaPowerController {
 
     private Background defaultBtnBackground;//存储默认btn样式属性
     private String defaultColor = "#D2D2D2";
-
 
 
     @FXML
@@ -367,7 +366,6 @@ public class KejiaPowerController {
                     return;
                 }
                 rxStringToAddSpace.setValue(StringUtils.getStringAddSpace(messageStringProperty.getValue(), 2));
-
 
                 clientMessage = new ClientMessage();
                 clientMessage.getClientMessage(messageStringProperty.getValue());
@@ -772,12 +770,12 @@ public class KejiaPowerController {
         }
     }
 
-    private void btnStyleSet(Button btn){
+    private void btnStyleSet(Button btn) {
         Background background = new Background(new BackgroundFill(Paint.valueOf(defaultColor), defaultBtnBackground.getFills().get(0).getRadii(), defaultBtnBackground.getFills().get(0).getInsets()));
 
         btn.setBackground(background);
         btn.setTextFill(Paint.valueOf("#000000"));
-        btn.setFont(Font.font(btn.getFont().getSize()+2));
+        btn.setFont(Font.font(btn.getFont().getSize() + 2));
     }
 
     private class ReadMessageFromClientService extends Service {
@@ -975,34 +973,34 @@ public class KejiaPowerController {
             Parent fastConfigRoot = fxmlLoader.load();
             FastPowerConfigController fastPowerConfigController = fxmlLoader.getController();
 //            fastPowerConfigController.setClientObservableList(clientObservableList);
+
+            Stage stage = new Stage();
+            stage.setTitle("快速配置");
+            stage.setScene(new Scene(fastConfigRoot));
+            stage.show();
             fastPowerConfigController.getInnerClassObservableList(clientObservableList);
 
-            Stage[] stage = {new Stage()};
-            stage[0].setTitle("快速配置");
-            stage[0].setScene(new Scene(fastConfigRoot));
-            stage[0].show();
-
-            stage[0].setOnCloseRequest(new EventHandler<WindowEvent>() {
-                @Override
-                public void handle(WindowEvent event) {
-
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("退出程序");
-                    alert.setHeaderText("");
-                    alert.setContentText("您真的要退出吗？");
-                    final Optional<ButtonType> opt = alert.showAndWait();
-                    final ButtonType rtn = opt.get();
-                    if (rtn == ButtonType.CANCEL) {
-                        event.consume();
-                    } else {
-                        stage[0].close();
-                        if (stage[0] != null) {
-                            stage[0] = null;
-                        }
-                    }
-
-                }
-            });
+//            stage[0].setOnCloseRequest(new EventHandler<WindowEvent>() {
+//                @Override
+//                public void handle(WindowEvent event) {
+//
+//                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//                    alert.setTitle("退出程序");
+//                    alert.setHeaderText("");
+//                    alert.setContentText("您真的要退出吗？");
+//                    final Optional<ButtonType> opt = alert.showAndWait();
+//                    final ButtonType rtn = opt.get();
+//                    if (rtn == ButtonType.CANCEL) {
+//                        event.consume();
+//                    } else {
+//                        stage[0].close();
+//                        if (stage[0] != null) {
+//                            stage[0] = null;
+//                        }
+//                    }
+//
+//                }
+//            });
 
         } catch (IOException e) {
             e.printStackTrace();

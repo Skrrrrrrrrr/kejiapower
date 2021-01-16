@@ -2,6 +2,7 @@ package com.longriver.kejiapower.controllers;
 
 import com.longriver.kejiapower.POJO.ClientMessage;
 import com.longriver.kejiapower.model.Client;
+import com.longriver.kejiapower.model.InnerClient;
 import com.longriver.kejiapower.test.Os;
 import com.longriver.kejiapower.utils.OperateModel;
 import com.longriver.kejiapower.utils.WorkingStatus;
@@ -19,10 +20,14 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javafx.util.Callback;
 
 import java.util.*;
+
+import static javafx.scene.control.cell.TextFieldTableCell.*;
 
 public class FastPowerConfigController {
 
@@ -57,25 +62,24 @@ public class FastPowerConfigController {
     private Button returnBtn;
 
     @FXML
-    void fastSetUpBtnOnClick(ActionEvent event) {
-
-    }
-
-    @FXML
     void returnBtnOnClick(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("退出程序");
-        alert.setHeaderText("");
-        alert.setContentText("您真的要退出吗？");
-        final Optional<ButtonType> opt = alert.showAndWait();
-        final ButtonType rtn = opt.get();
-        if (rtn == ButtonType.CANCEL) {
-            event.consume();
-        } else {
-            Node source = (Node) event.getSource();
-            Stage stage = (Stage) source.getScene().getWindow();
-            stage.close();
-        }
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+
+        //        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//        alert.setTitle("退出程序");
+//        alert.setHeaderText("");
+//        alert.setContentText("您真的要退出吗？");
+//        final Optional<ButtonType> opt = alert.showAndWait();
+//        final ButtonType rtn = opt.get();
+//        if (rtn == ButtonType.CANCEL) {
+//            event.consume();
+//        } else {
+//            Node source = (Node) event.getSource();
+//            Stage stage = (Stage) source.getScene().getWindow();
+//            stage.close();
+//        }
     }
 
     private ObservableList<Client> clientObservableList = FXCollections.observableArrayList();
@@ -133,9 +137,45 @@ public class FastPowerConfigController {
         selectiveColumn.setCellFactory((TableColumn<InnerClient, Boolean> tc) -> {
             return new CheckBoxTableCell<>();
         });
-        columns.addAll(idColumn,nameColumn, ipColumn, voltageColumn, currentColumn, statusColumn, modelColumn, selectiveColumn);
+
+        ipColumn.setCellFactory(new Callback<TableColumn<InnerClient, String>, TableCell<InnerClient, String>>() {
+            @Override
+            public TableCell<InnerClient, String> call(TableColumn<InnerClient, String> param) {
+                return new TextFieldTableCell<>();
+            }
+        });
+
+        voltageColumn.setCellFactory(new Callback<TableColumn<InnerClient, Float>, TableCell<InnerClient, Float>>() {
+            @Override
+            public TableCell<InnerClient, Float> call(TableColumn<InnerClient, Float> param) {
+                return new TextFieldTableCell<>();
+            }
+        });
+
+        currentColumn.setCellFactory(new Callback<TableColumn<InnerClient, Float>, TableCell<InnerClient, Float>>() {
+            @Override
+            public TableCell<InnerClient, Float> call(TableColumn<InnerClient, Float> param) {
+                return new TextFieldTableCell<>();
+            }
+        });
+
+        columns.addAll(idColumn, nameColumn, ipColumn, voltageColumn, currentColumn, statusColumn, modelColumn, selectiveColumn);
 
         fastConfigTableView.setItems(innerClientObservableList);
+
+//        idColumn.setCellFactory(col->{
+//            TableCell<InnerClient, Integer> cell = new TableCell<InnerClient, Integer>(){
+//                @Override
+//                protected void updateItem(Integer item, boolean empty) {
+//                    super.updateItem(item, empty);
+//                    this.setText(null);
+//                    this.setGraphic(null);
+//                }
+//            };
+//            return cell;
+//        });
+
+//        idColumn.setCellFactory(TextFieldTableCell.<String>forTableColumn());
 //        fastConfigTableView.setItems(innerClientObservableList);
         fastConfigTableView.setEditable(true);
 //        innerClientObservableList = InnerClient.getInnerClassObservableList(clientObservableList);
@@ -146,7 +186,7 @@ public class FastPowerConfigController {
         setClientObservableList(clientObservableList);
     }
 
-
+    //TODO
     private ObservableList<ClientMessage> getObservableListFromTableView() {
         ObservableList<ClientMessage> clientMessageObservableList;
 
@@ -154,7 +194,7 @@ public class FastPowerConfigController {
     }
 
     public void getInnerClassObservableList(ObservableList<Client> clientObservableList) {
-        innerClientObservableList = FXCollections.observableArrayList();
+//        innerClientObservableList = FXCollections.observableArrayList();
         if (clientObservableList != null && clientObservableList.size() > 0) {
             for (Client ct : clientObservableList) {
                 InnerClient innerClient = new InnerClient();
@@ -172,30 +212,48 @@ public class FastPowerConfigController {
         }
     }
 
-    private  class InnerClient extends Client {
-        private BooleanProperty selected = new SimpleBooleanProperty();
-//        private BooleanProperty control = new SimpleBooleanProperty();
-
-        public boolean isSelected() {
-            return selected.get();
-        }
-
-        public BooleanProperty selectedProperty() {
-            return selected;
-        }
-
-        public void setSelected(boolean selected) {
-            this.selected.set(selected);
-        }
-    }
 
     @FXML
+//    void deleteBtnOnClick(TableColumn.CellEditEvent<InnerClient,String> value) {
     void deleteBtnOnClick(ActionEvent event) {
+        int selectedIndex = fastConfigTableView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            innerClientObservableList.remove(selectedIndex);
+        }
 
+//            TableColumn<InnerClient, String> tableColumn = value.getTableColumn();//获取了正在编辑的列命名为tc
+//        InnerClient cell = value.getRowValue();//获取了正在编辑的行
+//        System.out.println(tableColumn.getCellData(cell));//打印了正在编辑的单元格的值旧值
+//        System.out.println(value.getNewValue());//
     }
 
     @FXML
     void increaseBtnOnClick(ActionEvent event) {
+        InnerClient innerClient = new InnerClient();
+        innerClient.setId(innerClientObservableList.get(innerClientObservableList.size() - 1).getId() + 1);
+//        innerClient.setId(innerClientObservableList.get(innerClientObservableList.size()).getId() + 1);
+        innerClient.setName(new StringBuilder("电源-" + innerClient.getId()).toString());
+        innerClient.setStatus(WorkingStatus.UNKNOWN);
+        innerClient.setSelected(false);
+        innerClientObservableList.add(innerClient);
+    }
+
+    @FXML
+    public ObservableList<Client> fastSetUpBtnOnClick(ActionEvent event) {
+        ObservableList<Client> clientSetUpObservableList = FXCollections.observableArrayList();
+        for (int i = 0; i < innerClientObservableList.size(); i++) {
+            Client client = new Client();
+            client.setId(innerClientObservableList.get(i).getId());
+            client.setName(innerClientObservableList.get(i).getName());
+            client.setIp(innerClientObservableList.get(i).getIp());
+            client.setVoltage(innerClientObservableList.get(i).getVoltage());
+            client.setCurrent(innerClientObservableList.get(i).getCurrent());
+            client.setOperateModel(innerClientObservableList.get(i).getOperateModel());
+            client.setTime(innerClientObservableList.get(i).getTime());
+            clientSetUpObservableList.add(client);
+
+        }
+        return clientSetUpObservableList;
 
     }
 

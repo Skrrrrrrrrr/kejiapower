@@ -8,6 +8,8 @@ public enum WorkingStatus {
     SHUTOFF("SHUTOFF", (short) 0x08),
     STARTUP("STARTUP", (short) 0x10),
     COMMUNICATION_TIMEOUT("COMMUNICATIONTIMEOUT", (short) 0x20),
+    UNKNOWN("UNKNOWN", (short) 0xff),
+
     ;
 
     private String status;
