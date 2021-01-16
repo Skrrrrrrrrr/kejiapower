@@ -1,6 +1,5 @@
 package com.longriver.kejiapower.controllers;
 
-import com.longriver.kejiapower.Main;
 import com.longriver.kejiapower.POJO.ClientMessage;
 import com.longriver.kejiapower.POJO.Message;
 import com.longriver.kejiapower.POJO.ServerMessage;
@@ -21,10 +20,8 @@ import javafx.concurrent.ScheduledService;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -39,7 +36,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -191,6 +187,9 @@ public class KejiaPowerController {
 
     private ClientMessage clientMessage;
     private ServerMessage serverMessage;
+
+    private ObservableList<Client> clientSetUpObservableList = FXCollections.observableArrayList();
+
 
     //    private List<Long> clientBirthTimeList = new ArrayList<Long>(CLIENT_AMOUNT);//Client出生时间
     private File file = null;//存取文件
@@ -978,7 +977,12 @@ public class KejiaPowerController {
             stage.setTitle("快速配置");
             stage.setScene(new Scene(fastConfigRoot));
             stage.show();
-            fastPowerConfigController.getInnerClassObservableList(clientObservableList);
+            if (clientSetUpObservableList.size() <= 0) {
+                fastPowerConfigController.setInnerClassObservableList(clientObservableList);
+            } else {
+                fastPowerConfigController.setInnerClassObservableList(clientSetUpObservableList);
+            }
+            clientSetUpObservableList = fastPowerConfigController.getInnerClassObservableList();
 
 //            stage[0].setOnCloseRequest(new EventHandler<WindowEvent>() {
 //                @Override
@@ -1005,6 +1009,23 @@ public class KejiaPowerController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void startBtnOnClick(ActionEvent event) {
+        if (clientSetUpObservableList.size() <= 0) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("信息");
+            alert.setHeaderText("未设置电源设备参数。");
+            final Optional<ButtonType> opt = alert.showAndWait();
+            return;
+        }
+        for (Client ct : clientSetUpObservableList) {
+
+        }
+
+
+        clientSetUpObservableList = FXCollections.observableArrayList();
     }
 }
 

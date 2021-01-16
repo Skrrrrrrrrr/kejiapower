@@ -3,16 +3,9 @@ package com.longriver.kejiapower.controllers;
 import com.longriver.kejiapower.POJO.ClientMessage;
 import com.longriver.kejiapower.model.Client;
 import com.longriver.kejiapower.model.InnerClient;
-import com.longriver.kejiapower.test.Os;
 import com.longriver.kejiapower.utils.OperateModel;
 import com.longriver.kejiapower.utils.WorkingStatus;
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,12 +15,7 @@ import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.util.Callback;
-
-import java.util.*;
-
-import static javafx.scene.control.cell.TextFieldTableCell.*;
 
 public class FastPowerConfigController {
 
@@ -193,8 +181,9 @@ public class FastPowerConfigController {
         return null;
     }
 
-    public void getInnerClassObservableList(ObservableList<Client> clientObservableList) {
+    public void setInnerClassObservableList(ObservableList<Client> clientObservableList) {
 //        innerClientObservableList = FXCollections.observableArrayList();
+//        this.clientObservableList = clientObservableList;
         if (clientObservableList != null && clientObservableList.size() > 0) {
             for (Client ct : clientObservableList) {
                 InnerClient innerClient = new InnerClient();
@@ -212,6 +201,10 @@ public class FastPowerConfigController {
         }
     }
 
+    public ObservableList<Client> getInnerClassObservableList() {
+
+        return clientSetUpObservableList;
+    }
 
     @FXML
 //    void deleteBtnOnClick(TableColumn.CellEditEvent<InnerClient,String> value) {
@@ -238,23 +231,24 @@ public class FastPowerConfigController {
         innerClientObservableList.add(innerClient);
     }
 
+    private ObservableList<Client> clientSetUpObservableList = FXCollections.observableArrayList();
+
     @FXML
-    public ObservableList<Client> fastSetUpBtnOnClick(ActionEvent event) {
-        ObservableList<Client> clientSetUpObservableList = FXCollections.observableArrayList();
-        for (int i = 0; i < innerClientObservableList.size(); i++) {
-            Client client = new Client();
-            client.setId(innerClientObservableList.get(i).getId());
-            client.setName(innerClientObservableList.get(i).getName());
-            client.setIp(innerClientObservableList.get(i).getIp());
-            client.setVoltage(innerClientObservableList.get(i).getVoltage());
-            client.setCurrent(innerClientObservableList.get(i).getCurrent());
-            client.setOperateModel(innerClientObservableList.get(i).getOperateModel());
-            client.setTime(innerClientObservableList.get(i).getTime());
-            clientSetUpObservableList.add(client);
+    public void fastSetUpBtnOnClick(ActionEvent event) {
 
+        for (InnerClient ic : innerClientObservableList) {
+            if (ic.isSelected()) {
+                Client client = new Client();
+                client.setId(ic.getId());
+                client.setName(ic.getName());
+                client.setIp(ic.getIp());
+                client.setVoltage(ic.getVoltage());
+                client.setCurrent(ic.getCurrent());
+                client.setOperateModel(ic.getOperateModel());
+                client.setTime(ic.getTime());
+                clientSetUpObservableList.add(client);
+            }
         }
-        return clientSetUpObservableList;
-
     }
 
 }

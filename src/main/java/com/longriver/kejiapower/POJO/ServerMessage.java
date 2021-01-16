@@ -1,8 +1,8 @@
 package com.longriver.kejiapower.POJO;
 
+import com.longriver.kejiapower.model.Client;
 import com.longriver.kejiapower.utils.DataFrame;
 import com.longriver.kejiapower.utils.DataFrameType;
-import javafx.beans.DefaultProperty;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,7 +21,7 @@ public class ServerMessage extends Message {
                 break;
             case Control:
 //                generateControlMessage(message);
-                generateControlMessage();//
+                generateControlMessage(message);//
                 break;
             case Report:
                 generateRespondMessage(message);
@@ -55,18 +55,22 @@ public class ServerMessage extends Message {
 
     }
 
-    @Deprecated
-    public void generateControlMessage() {
+    public void generateControlMessage(Client client) {
         setHead(new StringBuilder("FFFF"));
         setType(new StringBuilder("0C"));
         setIdentification(new StringBuilder(Integer.parseInt(getIdentification().toString(), 16) + 1));
         setLength(new StringBuilder("0C"));
 
         //单独设置，然后需要生成ClientMessage时不用再次设置，此处可以加一个校验，判断是否非法
-        if (Integer.parseInt(getVoltage().toString(), 16) > 1000 ||
-                Integer.parseInt(getCurrent().toString(), 16) > 100) {
-            throw new RuntimeException("Voltage or Current out of range!");
+        if (Integer.parseInt(getVoltage().toString(), 16) > 1000) {
+            throw new RuntimeException("Voltage out of range!");
         }
+        setVoltage(new StringBuilder((int) (client.getVoltage() * 10.0)));
+        if (Integer.parseInt(getCurrent().toString(), 16) > 100) {
+            throw new RuntimeException("Current out of range!");
+        }
+        setCurrent(new StringBuilder((int) (client.getCurrent() * 10.0)));
+        setModel(new StringBuilder(client.getOperateModel().toString()));
 //        setVoltage(new StringBuilder("00"));
 //        setCurrent(new StringBuilder("00"));
 //        setControl(new StringBuilder("00"));
@@ -83,12 +87,13 @@ public class ServerMessage extends Message {
     }
 
     public void generateControlMessage(String message) {
-        if (!DataFrame.dataFrameTypeClassify(message).equals(DataFrameType.Control)){
+        if (!DataFrame.dataFrameTypeClassify(message).equals(DataFrameType.Control)) {
             return;
         }
         setHead(new StringBuilder("FFFF"));
         setType(new StringBuilder("0C"));
         setIdentification(new StringBuilder(message.substring(6, 10)));
+        setIdentification(new StringBuilder((String.format("%04X", Integer.parseInt(message.substring(6,10), 16) + 1))));
         setLength(new StringBuilder("0C"));
         setClientIp(new StringBuilder(message.substring(12, 20)));
         setVoltage(new StringBuilder(message.substring(20, 24)));
@@ -103,7 +108,7 @@ public class ServerMessage extends Message {
         setTail(new StringBuilder("DD"));
     }
 
-    public void generateControlMessage(String identification,String ip,Float voltage,Float current, Short control, Short model) {
+    public void generateControlMessage(String identification, String ip, Float voltage, Float current, Short control, Short model) {
 
         setHead(new StringBuilder("FFFF"));
         setType(new StringBuilder("0C"));
@@ -126,7 +131,7 @@ public class ServerMessage extends Message {
     public void generateControlMessage(Message message) {
         setHead(new StringBuilder("FFFF"));
         setType(new StringBuilder("0C"));
-        setIdentification(new StringBuilder(Integer.parseInt(getIdentification().toString(), 16)+1));
+        setIdentification(new StringBuilder(Integer.parseInt(getIdentification().toString(), 16) + 1));
         setLength(new StringBuilder("0C"));
         setVoltage(new StringBuilder("00"));
         setCurrent(new StringBuilder("00"));
