@@ -61,4 +61,9 @@ public enum WorkingStatus {
     public short getCode() {
         return code;
     }
+
+    @Override
+    public String toString() {
+        return status ;
+    }
 }

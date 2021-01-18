@@ -2,23 +2,23 @@ package com.longriver.kejiapower.utils;
 
 public enum Control {
 
-    ONLINE("OnLine", 0),
-    OFFLINE("OffLine", 1),
-    Invalid("Invalid", -1),
+    INITIATE("INITIATE", (short)0x01 ),
+    TERMINATE("TERMINATE", (short)0x00),
+    INVALID("INVALID", (short)0xff),
     ;
 
     private String status;
     /**
      * 枚举信息
      */
-    private int code;
+    private short code;
 
     Control() {
         status = "Invalid";
-        code = -1;
+        code = 0xff;
     }
 
-    private Control(String status, int code) {
+    private Control(String status, short code) {
         this.status = status;
         this.code = code;
     }
@@ -37,7 +37,14 @@ public enum Control {
         }
         return null;
     }
-
+    public static Control getWorkingStatusByCode(short code) {
+        for (Control control : Control.values()) {
+            if (control.getCode() == code) {
+                return control;
+            }
+        }
+        return null;
+    }
     /*
      * getter
      */
@@ -46,7 +53,12 @@ public enum Control {
         return status;
     }
 
-    public int getCode() {
+    public short getCode() {
         return code;
+    }
+
+    @Override
+    public String toString() {
+        return status ;
     }
 }

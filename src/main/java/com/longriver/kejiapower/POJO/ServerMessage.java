@@ -1,8 +1,10 @@
 package com.longriver.kejiapower.POJO;
 
 import com.longriver.kejiapower.model.Client;
+import com.longriver.kejiapower.utils.Control;
 import com.longriver.kejiapower.utils.DataFrame;
 import com.longriver.kejiapower.utils.DataFrameType;
+import com.longriver.kejiapower.utils.StringUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -58,27 +60,28 @@ public class ServerMessage extends Message {
     public void generateControlMessage(Client client) {
         setHead(new StringBuilder("FFFF"));
         setType(new StringBuilder("0C"));
-        setIdentification(new StringBuilder(Integer.parseInt(getIdentification().toString(), 16) + 1));
+//        setIdentification(new StringBuilder(Integer.parseInt(getIdentification().toString(), 16) + 1));
+        setIdentification(new StringBuilder("0000"));
         setLength(new StringBuilder("0C"));
-
+        setClientIp(new StringBuilder(StringUtils.ip2HexStr(client.getIp())));
         //单独设置，然后需要生成ClientMessage时不用再次设置，此处可以加一个校验，判断是否非法
-        if (Integer.parseInt(getVoltage().toString(), 16) > 1000) {
+        if (client.getVoltage() > 1000) {
             throw new RuntimeException("Voltage out of range!");
         }
-        setVoltage(new StringBuilder((int) (client.getVoltage() * 10.0)));
-        if (Integer.parseInt(getCurrent().toString(), 16) > 100) {
+        setVoltage(new StringBuilder(String.format("%04X",(int) (client.getVoltage() * 10.0))));
+        if (client.getCurrent()> 100) {
             throw new RuntimeException("Current out of range!");
         }
-        setCurrent(new StringBuilder((int) (client.getCurrent() * 10.0)));
-        setModel(new StringBuilder(client.getOperateModel().toString()));
+        setCurrent(new StringBuilder(String.format("%04X",(int) (client.getVoltage() * 10.0))));
+        setControl(new StringBuilder());//不要设置，开始按钮设置过了
+        setModel(new StringBuilder(String.format("%04X",client.getOperateModel().getCode())));
 //        setVoltage(new StringBuilder("00"));
 //        setCurrent(new StringBuilder("00"));
 //        setControl(new StringBuilder("00"));
 //        setClientIp(new StringBuilder("127.0.0.1"));
 
-        setPreserveByte(new StringBuilder("FFFF"));
+        setPreserveByte(new StringBuilder("0000"));
 //其他置空
-        setClientIp(new StringBuilder(8));
         setStatus(new StringBuilder(2));
         setModel(new StringBuilder(2));
         setDuration(new StringBuilder(4));

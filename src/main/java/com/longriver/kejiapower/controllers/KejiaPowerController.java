@@ -5,10 +5,8 @@ import com.longriver.kejiapower.POJO.Message;
 import com.longriver.kejiapower.POJO.ServerMessage;
 import com.longriver.kejiapower.model.Client;
 import com.longriver.kejiapower.model.TcpServer;
-import com.longriver.kejiapower.utils.DataFrame;
-import com.longriver.kejiapower.utils.OperateModel;
-import com.longriver.kejiapower.utils.StringUtils;
-import com.longriver.kejiapower.utils.WorkingStatus;
+import com.longriver.kejiapower.utils.Control;
+import com.longriver.kejiapower.utils.*;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -44,7 +42,10 @@ import java.io.*;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.concurrent.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class KejiaPowerController {
 
@@ -188,7 +189,8 @@ public class KejiaPowerController {
     private ClientMessage clientMessage;
     private ServerMessage serverMessage;
 
-    private ObservableList<Client> clientSetUpObservableList = FXCollections.observableArrayList();
+    private ObservableList<Client> clientSetUpObservableList = FXCollections.observableArrayList();//配置界面传回来的ClientList
+    private Map<Client, Control> clientControlMap = new HashMap<>();//主界面、配置界面之间传送Client
 
 
     //    private List<Long> clientBirthTimeList = new ArrayList<Long>(CLIENT_AMOUNT);//Client出生时间
@@ -245,6 +247,8 @@ public class KejiaPowerController {
         ipColumn.setCellValueFactory(new PropertyValueFactory<>("ip"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         powerTableView.setItems(clientObservableList);
+        powerTableView.setPlaceholder(new Label(""));
+
 
 //        Client client = new Client();
 //        client.setId(clientObservableList.size() + 1);
@@ -358,6 +362,7 @@ public class KejiaPowerController {
 
 
     private void initInteractMessage() {
+        //接收到客户端数据后的处理
         messageStringProperty.addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -955,14 +960,10 @@ public class KejiaPowerController {
 
     @FXML
     void fastConfigBtnOnClick(ActionEvent event) {
-        if (clientObservableList.size() <= 0) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("信息");
-            alert.setHeaderText("未连接电源设备。");
-            final Optional<ButtonType> opt = alert.showAndWait();
-
-            return;
+        for (Client ct : clientMap.values()) {
+            clientControlMap.put(ct, Control.INVALID);
         }
+
         try {
 //            Parent fastConfigRoot = FXMLLoader.load(getClass().getClassLoader().getResource("view/fxml/fastpowerconfig.fxml"));
 
@@ -972,17 +973,16 @@ public class KejiaPowerController {
             Parent fastConfigRoot = fxmlLoader.load();
             FastPowerConfigController fastPowerConfigController = fxmlLoader.getController();
 //            fastPowerConfigController.setClientObservableList(clientObservableList);
+//            if (clientControlMap.size() > 0) {
+//                clientControlMap.clear();
+//            }
+            fastPowerConfigController.setInnerClassObservableList(clientControlMap);
+            clientControlMap = fastPowerConfigController.getClientControlMap();
 
             Stage stage = new Stage();
             stage.setTitle("快速配置");
             stage.setScene(new Scene(fastConfigRoot));
             stage.show();
-            if (clientSetUpObservableList.size() <= 0) {
-                fastPowerConfigController.setInnerClassObservableList(clientObservableList);
-            } else {
-                fastPowerConfigController.setInnerClassObservableList(clientSetUpObservableList);
-            }
-            clientSetUpObservableList = fastPowerConfigController.getInnerClassObservableList();
 
 //            stage[0].setOnCloseRequest(new EventHandler<WindowEvent>() {
 //                @Override
@@ -1013,19 +1013,46 @@ public class KejiaPowerController {
 
     @FXML
     private void startBtnOnClick(ActionEvent event) {
-        if (clientSetUpObservableList.size() <= 0) {
+        if (clientControlMap.size() <= 0) {
+            return;
+        }
+//        if (powerConnectedBtn.getText().equals("连接设备")) {
+
+        if (!(tcpServer.isRunning() && readMessageFromClientService.isRunning() && heartBeatService.isRunning()) ){
+//            powerConnectedBtnOnClick(event);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("信息");
-            alert.setHeaderText("未设置电源设备参数。");
+            alert.setTitle("设备开启监听服务");
+            alert.setHeaderText("");
+            alert.setContentText("连接服务尚未打开");
             final Optional<ButtonType> opt = alert.showAndWait();
             return;
         }
-        for (Client ct : clientSetUpObservableList) {
+
+        for (Client ct : clientControlMap.keySet()) {
+            ServerMessage sm = new ServerMessage();
+            sm.generateControlMessage(ct);
+//            sm.setIdentification();
+            sm.setControl(new StringBuilder(String.format("%04X", clientControlMap.get(ct).getCode())));
+            try {
+                tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString())).getOutputStream().write(sm.toString().getBytes());
+                tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString())).getOutputStream().flush();
+                if (fileInBlockingQueue.size() >= BUFF_SIZE) {
+                    fileInBlockingQueue.take();
+                    fileInBlockingQueue.take();
+                }
+
+                fileInBlockingQueue.put(clientMessage.toString().getBytes());
+                fileInBlockingQueue.put(sm.toString().getBytes());
+                updateClientList(clientMessage);
+
+            } catch (InterruptedException | IOException e) {
+                e.printStackTrace();
+            }
 
         }
 
 
-        clientSetUpObservableList = FXCollections.observableArrayList();
+//        clientSetUpObservableList = FXCollections.observableArrayList();
     }
 }
 

@@ -1,4 +1,11 @@
-20200104
+20210118
+1.配置界面检测到电压电流为负值后，无法自动重设为0.0；检测到数据非法后，无法捕捉异常进行处理，暂时用try屏蔽；
+2.配置界面数据如何传回主界面？
+3.如何遍历传回数据进行数据发送？开始检测按钮
+4.发送数据和收到数据的存储？
+5.Caused by: java.lang.NullPointerException
+  	at com.longriver.kejiapower.controllers.KejiaPowerController.startBtnOnClick(KejiaPowerController.java:1037)
+20210104
 1.采用线程sleep方法处理tab生成及折线图更新的问题（高并发有雷）
 20210101
 1.解决主界面关闭后，后台线程继续运行的问题。

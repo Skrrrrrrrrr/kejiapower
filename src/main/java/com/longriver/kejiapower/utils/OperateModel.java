@@ -14,8 +14,8 @@ public enum OperateModel {
     private short code;
 
     OperateModel() {
-        runningModel = "CV";
-        code = -1;
+        runningModel = "INVALID";
+        code = (short)0xff;
     }
 
     private OperateModel(String runningModel, short code) {
@@ -46,6 +46,15 @@ public enum OperateModel {
         }
         return null;
     }
+//
+//    public static Short getOperateModelCode(String runningModel) {
+//        for (OperateModel operateModel : OperateModel.values()) {
+//            if (operateModel.getRunningModel().equals(runningModel)) {
+//                return operateModel.code;
+//            }
+//        }
+//        return null;
+//    }
 
 
     public String getRunningModel() {
@@ -54,5 +63,10 @@ public enum OperateModel {
 
     public short getCode() {
         return code;
+    }
+
+    @Override
+    public String toString() {
+        return runningModel;
     }
 }
