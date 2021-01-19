@@ -64,7 +64,7 @@
                                                     </toggleGroup>
                                                 </RadioButton>
                                                 <RadioButton fx:id="localRadioBtn" mnemonicParsing="false" selected="true" text="本地" toggleGroup="$controlTypeToggleGroup" GridPane.rowIndex="1" />
-                                                <Button fx:id="startBtn" mnemonicParsing="false" onAction="#startBtnOnClick" text="开始测试" GridPane.columnIndex="1" />
+                                                <Button fx:id="fastStartBtn" mnemonicParsing="false" onAction="#startBtnOnClick" text="开始测试" GridPane.columnIndex="1" />
                                                 <Button fx:id="fastConfigBtn" mnemonicParsing="false" onAction="#fastConfigBtnOnClick" text="快速配置" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                             </children>
                                         </GridPane>
@@ -87,8 +87,8 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                             <children>
-                                                <Button mnemonicParsing="false" text="开始测试" GridPane.columnIndex="1" />
-                                                <Button mnemonicParsing="false" text="电源配置" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Button fx:id="autoStartBtn" mnemonicParsing="false" onAction="#autoStartBtnOnClick" text="开始测试" GridPane.columnIndex="1" />
+                                                <Button fx:id="autoConfigBtn" mnemonicParsing="false" onAction="#autoConfigBtnOnClick" text="电源配置" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                             </children>
                                         </GridPane>
                                     </children>

@@ -4,6 +4,7 @@ import com.longriver.kejiapower.POJO.ClientMessage;
 import com.longriver.kejiapower.POJO.Message;
 import com.longriver.kejiapower.POJO.ServerMessage;
 import com.longriver.kejiapower.model.Client;
+import com.longriver.kejiapower.model.InnerClient;
 import com.longriver.kejiapower.model.TcpServer;
 import com.longriver.kejiapower.utils.Control;
 import com.longriver.kejiapower.utils.*;
@@ -18,8 +19,10 @@ import javafx.concurrent.ScheduledService;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -29,8 +32,6 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -85,13 +86,19 @@ public class KejiaPowerController {
     private RadioButton localRadioBtn;
 
     @FXML
-    private Button startBtn;
+    private Button fastStartBtn;
 
     @FXML
-    private Button configBtn;
+    private Button fastConfigBtn;
 
     @FXML
     private Tab autotestTab;
+
+    @FXML
+    private Button autoStartBtn;
+
+    @FXML
+    private Button autoConfigBtn;
 
     @FXML
     private GridPane gridOfDisplayTab;
@@ -928,11 +935,6 @@ public class KejiaPowerController {
             fxmlLoader.setLocation(url);
             Parent fastConfigRoot = fxmlLoader.load();
             FastPowerConfigController fastPowerConfigController = fxmlLoader.getController();
-//            fastPowerConfigController.setClientObservableList(clientObservableList);
-//            if (clientControlMap.size() > 0) {
-//                clientControlMap.clear();
-//            }
-//            fastPowerConfigController.getInnerClientObservableList().clear();
             fastPowerConfigController.setInnerClassObservableList(clientControlMap);
             clientControlMap = fastPowerConfigController.getClientControlMap();
 
@@ -940,28 +942,6 @@ public class KejiaPowerController {
             stage.setTitle("快速配置");
             stage.setScene(new Scene(fastConfigRoot));
             stage.show();
-
-//            stage[0].setOnCloseRequest(new EventHandler<WindowEvent>() {
-//                @Override
-//                public void handle(WindowEvent event) {
-//
-//                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//                    alert.setTitle("退出程序");
-//                    alert.setHeaderText("");
-//                    alert.setContentText("您真的要退出吗？");
-//                    final Optional<ButtonType> opt = alert.showAndWait();
-//                    final ButtonType rtn = opt.get();
-//                    if (rtn == ButtonType.CANCEL) {
-//                        event.consume();
-//                    } else {
-//                        stage[0].close();
-//                        if (stage[0] != null) {
-//                            stage[0] = null;
-//                        }
-//                    }
-//
-//                }
-//            });
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -1015,6 +995,108 @@ public class KejiaPowerController {
                 e.printStackTrace();
             }
         }
+    }
+
+    private List<List<InnerClient>> innerClientsArrayListForAutoTest = new ArrayList<>(CLIENT_AMOUNT);//自动测试数据：认为状态不同的同一地址Client为不同的Client实体
+
+    //自动测试页面
+    @FXML
+    void autoConfigBtnOnClick(ActionEvent event) {
+        if (clientObservableList.size() <= 0) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("电源未连接");
+            alert.setHeaderText("");
+            alert.setContentText("没有找到连接的设备！");
+            final Optional<ButtonType> opt = alert.showAndWait();
+            return;
+        }
+        innerClientsArrayListForAutoTest.clear();
+        try {
+            AnchorPane anchorPane = new AnchorPane();
+            anchorPane.setPrefSize(600, 500);
+            VBox vBox = new VBox();
+            TabPane tabPane = new TabPane();
+            tabPane.setPrefSize(600, 500);
+            for (Client c : clientObservableList) {
+
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                URL url = getClass().getClassLoader().getResource("view/fxml/autoTestPowerTab.fxml");
+                fxmlLoader.setLocation(url);
+                Parent autoTestPowerConfigRoot = fxmlLoader.load();
+//                Parent autoTestPowerConfigRoot = FXMLLoader.load(getClass().getClassLoader().getResource("view/fxml/autoTestPowerTab.fxml"));
+                Tab tab = new Tab(c.getName(), autoTestPowerConfigRoot);
+                tab.setClosable(false);
+                tab.setId(String.valueOf(c.getId()));
+                tabPane.getTabs().add(tab);
+                AutoTestPowerTabController autoTestPowerTabController = fxmlLoader.getController();
+                autoTestPowerTabController.clientToInnerClientPara(c);
+                innerClientsArrayListForAutoTest.add(autoTestPowerTabController.generateInnerClientArrayListForAutoTest());
+            }
+            GridPane gridPane = new GridPane();
+//            Button addTabBtn = new Button("增加");
+//            Button delTabBtn = new Button("删除");
+            Button autoConfigBtn = new Button("配置");
+            Button returnBtn = new Button("返回");
+//            addTabBtn.setPrefWidth(100);
+//            delTabBtn.setPrefWidth(100);
+            autoConfigBtn.setPrefWidth(100);
+            returnBtn.setPrefWidth(100);
+            //////////////////////////
+
+//            addTabBtn.setOnAction(new EventHandler<ActionEvent>() {
+//                @Override
+//                public void handle(ActionEvent event) {
+//                    System.out.println("Hello World!");
+//                }
+//            });
+//            delTabBtn.setOnAction(new EventHandler<ActionEvent>() {
+//                @Override
+//                public void handle(ActionEvent event) {
+//
+//                }
+//            });
+            autoConfigBtn.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    for (Tab t : tabPane.getTabs()) {
+
+                    }
+                }
+            });
+            returnBtn.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    ((Stage) anchorPane.getScene().getWindow()).close();
+                }
+            });
+            ///////////////////
+            //设置网格位置
+//            gridPane.add(addTabBtn, 0, 0);
+//            gridPane.add(delTabBtn, 1, 0);
+            gridPane.add(autoConfigBtn, 0, 0);
+            gridPane.add(returnBtn, 1, 0);
+            gridPane.setAlignment(Pos.CENTER);
+//            //设置垂直间距
+//            gridPane.setVgap(10);
+            //设置水平间距
+            gridPane.setHgap(20);
+            anchorPane.setBottomAnchor(gridPane, 20.0);
+//            gridPane.getChildren().addAll(addTabBtn, delTabBtn, autoConfigBtn, returnBtn);
+            vBox.getChildren().addAll(tabPane, gridPane);
+            anchorPane.getChildren().add(vBox);
+
+            Stage stage = new Stage();
+            stage.setTitle("自动测试");
+            stage.setScene(new Scene(anchorPane));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    void autoStartBtnOnClick(ActionEvent event) {
     }
 }
 

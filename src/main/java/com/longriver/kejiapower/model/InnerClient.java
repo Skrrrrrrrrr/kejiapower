@@ -1,16 +1,27 @@
 package com.longriver.kejiapower.model;
 
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
+import sun.plugin2.ipc.InProcEvent;
 
 
 //构造新实体，为了在配置页tableview展示，增加了一项：selected
 public class InnerClient extends Client {
 
+    private IntegerProperty gap = new SimpleIntegerProperty(0);//设置自动测试时，每个状态的时间间隔
     private StringProperty controlled = new SimpleStringProperty();
     private BooleanProperty selected = new SimpleBooleanProperty();
+
+    public int getGap() {
+        return gap.get();
+    }
+
+    public IntegerProperty gapProperty() {
+        return gap;
+    }
+
+    public void setGap(int gap) {
+        this.gap.set(gap);
+    }
 
     public String getControlled() {
         return controlled.get();

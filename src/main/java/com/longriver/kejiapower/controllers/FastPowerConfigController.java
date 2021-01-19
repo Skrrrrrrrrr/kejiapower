@@ -207,6 +207,8 @@ public class FastPowerConfigController {
 //        fastConfigTableView.setItems(innerClientObservableList);
         fastConfigTableView.setEditable(true);
         fastConfigTableView.setPlaceholder(new Label(""));
+        fastConfigTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
 //        innerClientObservableList = InnerClient.getInnerClassObservableList(clientObservableList);
         //表格可以多选
 //        fastConfigTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
