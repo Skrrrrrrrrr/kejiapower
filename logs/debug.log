@@ -1,0 +1,780 @@
+2021-01-19 11:16:43:446  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:16:43:452  [ Thread-7:6 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:16:43:455  [ JavaFX Application Thread:9 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:16:46:248  [ Thread-7:2802 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:16:46:249  [ pool-3-thread-1:2803 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:16:46:249  [ pool-3-thread-1:2803 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:16:46:249  [ pool-3-thread-1:2803 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:16:46:250  [ pool-3-thread-1:2804 ] - [ INFO ]  User's Addr : 192.168.5.10:50874
+2021-01-19 11:16:46:959  [ pool-3-thread-1:3513 ] - [ INFO ]  采集到/192.168.5.10:50874 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:16:46:959  [ pool-3-thread-1:3513 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有0个；
+2021-01-19 11:16:47:255  [ pool-3-thread-1:3809 ] - [ INFO ]  采集到/192.168.5.10:50874 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:16:47:256  [ pool-3-thread-1:3810 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:16:47:367  [ pool-3-thread-1:3921 ] - [ INFO ]  采集到/192.168.5.10:50874 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:16:47:367  [ pool-3-thread-1:3921 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:16:47:511  [ pool-3-thread-1:4065 ] - [ INFO ]  采集到/192.168.5.10:50874 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:16:47:511  [ pool-3-thread-1:4065 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:16:47:647  [ pool-3-thread-1:4201 ] - [ INFO ]  采集到/192.168.5.10:50874 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:16:47:648  [ pool-3-thread-1:4202 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:16:47:775  [ pool-3-thread-1:4329 ] - [ INFO ]  采集到/192.168.5.10:50874 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:16:47:776  [ pool-3-thread-1:4330 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:16:48:167  [ pool-3-thread-1:4721 ] - [ INFO ]  采集到/192.168.5.10:50874 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:16:48:167  [ pool-3-thread-1:4721 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:16:48:327  [ pool-3-thread-1:4881 ] - [ INFO ]  采集到/192.168.5.10:50874 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:16:48:328  [ pool-3-thread-1:4882 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:16:48:503  [ pool-3-thread-1:5057 ] - [ INFO ]  采集到/192.168.5.10:50874 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:16:48:504  [ pool-3-thread-1:5058 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:21:48:846  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:21:48:850  [ Thread-7:4 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:21:48:855  [ JavaFX Application Thread:9 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:21:50:984  [ Thread-7:2138 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:21:50:985  [ pool-3-thread-1:2139 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:21:50:985  [ pool-3-thread-1:2139 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:21:50:985  [ pool-3-thread-1:2139 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:21:50:986  [ pool-3-thread-1:2140 ] - [ INFO ]  User's Addr : 192.168.5.10:50903
+2021-01-19 11:21:51:566  [ pool-3-thread-1:2720 ] - [ INFO ]  采集到/192.168.5.10:50903 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:21:51:567  [ pool-3-thread-1:2721 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:21:51:694  [ pool-3-thread-1:2848 ] - [ INFO ]  采集到/192.168.5.10:50903 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:21:51:695  [ pool-3-thread-1:2849 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:21:51:830  [ pool-3-thread-1:2984 ] - [ INFO ]  采集到/192.168.5.10:50903 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:21:51:830  [ pool-3-thread-1:2984 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:21:51:966  [ pool-3-thread-1:3120 ] - [ INFO ]  采集到/192.168.5.10:50903 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:21:51:967  [ pool-3-thread-1:3121 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:25:37:733  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:25:37:737  [ Thread-7:4 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:25:37:743  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:25:40:303  [ Thread-7:2570 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:25:40:304  [ pool-3-thread-1:2571 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:25:40:304  [ pool-3-thread-1:2571 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:25:40:305  [ pool-3-thread-1:2572 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:25:40:305  [ pool-3-thread-1:2572 ] - [ INFO ]  User's Addr : 192.168.5.10:50927
+2021-01-19 11:25:41:126  [ pool-3-thread-1:3393 ] - [ INFO ]  采集到/192.168.5.10:50927 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:25:41:127  [ pool-3-thread-1:3394 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有0个；
+2021-01-19 11:25:41:254  [ pool-3-thread-1:3521 ] - [ INFO ]  采集到/192.168.5.10:50927 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:25:41:254  [ pool-3-thread-1:3521 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:25:41:382  [ pool-3-thread-1:3649 ] - [ INFO ]  采集到/192.168.5.10:50927 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:25:41:383  [ pool-3-thread-1:3650 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:25:41:518  [ pool-3-thread-1:3785 ] - [ INFO ]  采集到/192.168.5.10:50927 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:25:41:519  [ pool-3-thread-1:3786 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:25:41:678  [ pool-3-thread-1:3945 ] - [ INFO ]  采集到/192.168.5.10:50927 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:25:41:679  [ pool-3-thread-1:3946 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:28:16:758  [ Thread-7:1 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:28:16:763  [ Thread-7:6 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:28:16:767  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:28:18:951  [ Thread-7:2194 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:28:18:952  [ pool-3-thread-1:2195 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:28:18:953  [ pool-3-thread-1:2196 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:28:18:953  [ pool-3-thread-1:2196 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:28:18:953  [ pool-3-thread-1:2196 ] - [ INFO ]  User's Addr : 192.168.5.10:50943
+2021-01-19 11:28:19:646  [ pool-3-thread-1:2889 ] - [ INFO ]  采集到/192.168.5.10:50943 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:28:19:646  [ pool-3-thread-1:2889 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:28:19:774  [ pool-3-thread-1:3017 ] - [ INFO ]  采集到/192.168.5.10:50943 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:28:19:774  [ pool-3-thread-1:3017 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:28:19:917  [ pool-3-thread-1:3160 ] - [ INFO ]  采集到/192.168.5.10:50943 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:28:19:917  [ pool-3-thread-1:3160 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:28:20:078  [ pool-3-thread-1:3321 ] - [ INFO ]  采集到/192.168.5.10:50943 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:28:20:078  [ pool-3-thread-1:3321 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:30:46:149  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:30:46:153  [ Thread-7:4 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:30:46:158  [ JavaFX Application Thread:9 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:30:49:071  [ Thread-7:2922 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:30:49:071  [ pool-3-thread-1:2922 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:30:49:072  [ pool-3-thread-1:2923 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:30:49:072  [ pool-3-thread-1:2923 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:30:49:072  [ pool-3-thread-1:2923 ] - [ INFO ]  User's Addr : 192.168.5.10:50968
+2021-01-19 11:30:49:950  [ pool-3-thread-1:3801 ] - [ INFO ]  采集到/192.168.5.10:50968 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:30:49:950  [ pool-3-thread-1:3801 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:30:50:069  [ pool-3-thread-1:3920 ] - [ INFO ]  采集到/192.168.5.10:50968 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:30:50:070  [ pool-3-thread-1:3921 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:30:50:196  [ pool-3-thread-1:4047 ] - [ INFO ]  采集到/192.168.5.10:50968 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:30:50:197  [ pool-3-thread-1:4048 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:30:50:365  [ pool-3-thread-1:4216 ] - [ INFO ]  采集到/192.168.5.10:50968 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:30:50:366  [ pool-3-thread-1:4217 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:33:32:868  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:33:32:873  [ Thread-7:5 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:33:32:876  [ JavaFX Application Thread:8 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:33:35:271  [ Thread-7:2403 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:33:35:272  [ pool-3-thread-1:2404 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:33:35:272  [ pool-3-thread-1:2404 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:33:35:272  [ pool-3-thread-1:2404 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:33:35:273  [ pool-3-thread-1:2405 ] - [ INFO ]  User's Addr : 192.168.5.10:50988
+2021-01-19 11:33:35:877  [ pool-3-thread-1:3009 ] - [ INFO ]  采集到/192.168.5.10:50988 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:33:35:878  [ pool-3-thread-1:3010 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:33:36:021  [ pool-3-thread-1:3153 ] - [ INFO ]  采集到/192.168.5.10:50988 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:33:36:022  [ pool-3-thread-1:3154 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:33:36:165  [ pool-3-thread-1:3297 ] - [ INFO ]  采集到/192.168.5.10:50988 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:33:36:165  [ pool-3-thread-1:3297 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:33:36:317  [ pool-3-thread-1:3449 ] - [ INFO ]  采集到/192.168.5.10:50988 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:33:36:318  [ pool-3-thread-1:3450 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:33:36:437  [ pool-3-thread-1:3569 ] - [ INFO ]  采集到/192.168.5.10:50988 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:33:36:438  [ pool-3-thread-1:3570 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:41:20:483  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:41:20:488  [ Thread-7:5 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:41:20:493  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:41:23:182  [ Thread-7:2699 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:41:23:183  [ pool-3-thread-1:2700 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:41:23:183  [ pool-3-thread-1:2700 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:41:23:184  [ pool-3-thread-1:2701 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:41:23:184  [ pool-3-thread-1:2701 ] - [ INFO ]  User's Addr : 192.168.5.10:51025
+2021-01-19 11:41:23:765  [ pool-3-thread-1:3282 ] - [ INFO ]  采集到/192.168.5.10:51025 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:41:23:766  [ pool-3-thread-1:3283 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:41:23:908  [ pool-3-thread-1:3425 ] - [ INFO ]  采集到/192.168.5.10:51025 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:41:23:909  [ pool-3-thread-1:3426 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:41:24:044  [ pool-3-thread-1:3561 ] - [ INFO ]  采集到/192.168.5.10:51025 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:41:24:045  [ pool-3-thread-1:3562 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:41:24:180  [ pool-3-thread-1:3697 ] - [ INFO ]  采集到/192.168.5.10:51025 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:41:24:181  [ pool-3-thread-1:3698 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:41:24:324  [ pool-3-thread-1:3841 ] - [ INFO ]  采集到/192.168.5.10:51025 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:41:24:325  [ pool-3-thread-1:3842 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:45:08:435  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:45:08:442  [ Thread-7:7 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:45:08:444  [ JavaFX Application Thread:9 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:45:10:566  [ Thread-7:2131 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:45:10:567  [ pool-3-thread-1:2132 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:45:10:567  [ pool-3-thread-1:2132 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:45:10:567  [ pool-3-thread-1:2132 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:45:10:568  [ pool-3-thread-1:2133 ] - [ INFO ]  User's Addr : 192.168.5.10:51047
+2021-01-19 11:45:11:268  [ pool-3-thread-1:2833 ] - [ INFO ]  采集到/192.168.5.10:51047 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:45:11:269  [ pool-3-thread-1:2834 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有0个；
+2021-01-19 11:45:11:404  [ pool-3-thread-1:2969 ] - [ INFO ]  采集到/192.168.5.10:51047 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:45:11:405  [ pool-3-thread-1:2970 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:45:11:555  [ pool-3-thread-1:3120 ] - [ INFO ]  采集到/192.168.5.10:51047 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:45:11:556  [ pool-3-thread-1:3121 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:45:12:084  [ pool-3-thread-1:3649 ] - [ INFO ]  采集到/192.168.5.10:51047 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:45:12:085  [ pool-3-thread-1:3650 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:48:01:499  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:48:01:504  [ Thread-7:5 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:48:01:508  [ JavaFX Application Thread:9 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:48:03:678  [ Thread-7:2179 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:48:03:679  [ pool-3-thread-1:2180 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:48:03:679  [ pool-3-thread-1:2180 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:48:03:679  [ pool-3-thread-1:2180 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:48:03:679  [ pool-3-thread-1:2180 ] - [ INFO ]  User's Addr : 192.168.5.10:51063
+2021-01-19 11:48:04:199  [ pool-3-thread-1:2700 ] - [ INFO ]  采集到/192.168.5.10:51063 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:48:04:199  [ pool-3-thread-1:2700 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有0个；
+2021-01-19 11:48:04:331  [ pool-3-thread-1:2832 ] - [ INFO ]  采集到/192.168.5.10:51063 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:48:04:332  [ pool-3-thread-1:2833 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:48:04:483  [ pool-3-thread-1:2984 ] - [ INFO ]  采集到/192.168.5.10:51063 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:48:04:483  [ pool-3-thread-1:2984 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:48:04:604  [ pool-3-thread-1:3105 ] - [ INFO ]  采集到/192.168.5.10:51063 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:48:04:604  [ pool-3-thread-1:3105 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:51:59:586  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:51:59:590  [ Thread-7:4 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:51:59:596  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:52:02:109  [ Thread-7:2523 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:52:02:110  [ pool-3-thread-1:2524 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:52:02:110  [ pool-3-thread-1:2524 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:52:02:111  [ pool-3-thread-1:2525 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:52:02:111  [ pool-3-thread-1:2525 ] - [ INFO ]  User's Addr : 192.168.5.10:51086
+2021-01-19 11:52:02:739  [ pool-3-thread-1:3153 ] - [ INFO ]  采集到/192.168.5.10:51086 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:52:02:740  [ pool-3-thread-1:3154 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:52:02:883  [ pool-3-thread-1:3297 ] - [ INFO ]  采集到/192.168.5.10:51086 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:52:02:884  [ pool-3-thread-1:3298 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:52:03:010  [ pool-3-thread-1:3424 ] - [ INFO ]  采集到/192.168.5.10:51086 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:52:03:011  [ pool-3-thread-1:3425 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:52:03:148  [ pool-3-thread-1:3562 ] - [ INFO ]  采集到/192.168.5.10:51086 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:52:03:148  [ pool-3-thread-1:3562 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:52:03:291  [ pool-3-thread-1:3705 ] - [ INFO ]  采集到/192.168.5.10:51086 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:52:03:292  [ pool-3-thread-1:3706 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:52:03:427  [ pool-3-thread-1:3841 ] - [ INFO ]  采集到/192.168.5.10:51086 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:52:03:428  [ pool-3-thread-1:3842 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:52:03:563  [ pool-3-thread-1:3977 ] - [ INFO ]  采集到/192.168.5.10:51086 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:52:03:564  [ pool-3-thread-1:3978 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:52:03:730  [ pool-3-thread-1:4144 ] - [ INFO ]  采集到/192.168.5.10:51086 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:52:03:731  [ pool-3-thread-1:4145 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:53:24:851  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:53:24:855  [ Thread-7:4 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:53:24:859  [ JavaFX Application Thread:8 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:53:28:494  [ Thread-7:3643 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:53:28:494  [ pool-3-thread-1:3643 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:53:28:495  [ pool-3-thread-1:3644 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:53:28:495  [ pool-3-thread-1:3644 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:53:28:495  [ pool-3-thread-1:3644 ] - [ INFO ]  User's Addr : 192.168.5.10:51196
+2021-01-19 11:53:29:204  [ pool-3-thread-1:4353 ] - [ INFO ]  采集到/192.168.5.10:51196 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:53:29:205  [ pool-3-thread-1:4354 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:53:29:347  [ pool-3-thread-1:4496 ] - [ INFO ]  采集到/192.168.5.10:51196 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:53:29:347  [ pool-3-thread-1:4496 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:53:29:475  [ pool-3-thread-1:4624 ] - [ INFO ]  采集到/192.168.5.10:51196 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:53:29:476  [ pool-3-thread-1:4625 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:53:29:628  [ pool-3-thread-1:4777 ] - [ INFO ]  采集到/192.168.5.10:51196 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:53:29:628  [ pool-3-thread-1:4777 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:53:52:586  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:53:52:590  [ Thread-7:4 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:53:52:596  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:53:54:565  [ Thread-7:1979 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:53:54:566  [ pool-3-thread-1:1980 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:53:54:566  [ pool-3-thread-1:1980 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:53:54:566  [ pool-3-thread-1:1980 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:53:54:567  [ pool-3-thread-1:1981 ] - [ INFO ]  User's Addr : 192.168.5.10:51207
+2021-01-19 11:53:55:187  [ pool-3-thread-1:2601 ] - [ INFO ]  采集到/192.168.5.10:51207 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:53:55:188  [ pool-3-thread-1:2602 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:53:55:331  [ pool-3-thread-1:2745 ] - [ INFO ]  采集到/192.168.5.10:51207 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:53:55:332  [ pool-3-thread-1:2746 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:53:55:450  [ pool-3-thread-1:2864 ] - [ INFO ]  采集到/192.168.5.10:51207 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:53:55:451  [ pool-3-thread-1:2865 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:53:55:596  [ pool-3-thread-1:3010 ] - [ INFO ]  采集到/192.168.5.10:51207 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:53:55:596  [ pool-3-thread-1:3010 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:55:11:842  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:55:11:848  [ Thread-7:6 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:55:11:850  [ JavaFX Application Thread:8 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:55:14:205  [ Thread-7:2363 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:55:14:206  [ pool-3-thread-1:2364 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:55:14:206  [ pool-3-thread-1:2364 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:55:14:206  [ pool-3-thread-1:2364 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:55:14:207  [ pool-3-thread-1:2365 ] - [ INFO ]  User's Addr : 192.168.5.10:51231
+2021-01-19 11:55:15:020  [ pool-3-thread-1:3178 ] - [ INFO ]  采集到/192.168.5.10:51231 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:55:15:021  [ pool-3-thread-1:3179 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有0个；
+2021-01-19 11:55:15:162  [ pool-3-thread-1:3320 ] - [ INFO ]  采集到/192.168.5.10:51231 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:55:15:163  [ pool-3-thread-1:3321 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:55:15:307  [ pool-3-thread-1:3465 ] - [ INFO ]  采集到/192.168.5.10:51231 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:55:15:307  [ pool-3-thread-1:3465 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:55:15:443  [ pool-3-thread-1:3601 ] - [ INFO ]  采集到/192.168.5.10:51231 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:55:15:443  [ pool-3-thread-1:3601 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:55:15:587  [ pool-3-thread-1:3745 ] - [ INFO ]  采集到/192.168.5.10:51231 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:55:15:587  [ pool-3-thread-1:3745 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:55:57:083  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:55:57:089  [ Thread-7:6 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:55:57:093  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:56:01:030  [ Thread-7:3947 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:56:01:030  [ pool-3-thread-1:3947 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:56:01:030  [ pool-3-thread-1:3947 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:56:01:030  [ pool-3-thread-1:3947 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:56:01:030  [ pool-3-thread-1:3947 ] - [ INFO ]  User's Addr : 192.168.5.10:51245
+2021-01-19 11:56:01:684  [ pool-3-thread-1:4601 ] - [ INFO ]  采集到/192.168.5.10:51245 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:56:01:684  [ pool-3-thread-1:4601 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:56:01:818  [ pool-3-thread-1:4735 ] - [ INFO ]  采集到/192.168.5.10:51245 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:56:01:819  [ pool-3-thread-1:4736 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:56:01:954  [ pool-3-thread-1:4871 ] - [ INFO ]  采集到/192.168.5.10:51245 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:56:01:955  [ pool-3-thread-1:4872 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:56:02:083  [ pool-3-thread-1:5000 ] - [ INFO ]  采集到/192.168.5.10:51245 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:56:02:084  [ pool-3-thread-1:5001 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:56:24:623  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 11:56:24:627  [ Thread-7:4 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 11:56:24:631  [ JavaFX Application Thread:8 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 11:56:28:332  [ Thread-7:3709 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 11:56:28:333  [ pool-3-thread-1:3710 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 11:56:28:333  [ pool-3-thread-1:3710 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 11:56:28:333  [ pool-3-thread-1:3710 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 11:56:28:334  [ pool-3-thread-1:3711 ] - [ INFO ]  User's Addr : 192.168.5.10:51254
+2021-01-19 11:56:29:083  [ pool-3-thread-1:4460 ] - [ INFO ]  采集到/192.168.5.10:51254 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:56:29:083  [ pool-3-thread-1:4460 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:56:29:227  [ pool-3-thread-1:4604 ] - [ INFO ]  采集到/192.168.5.10:51254 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:56:29:233  [ pool-3-thread-1:4610 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 11:56:29:499  [ pool-3-thread-1:4876 ] - [ INFO ]  采集到/192.168.5.10:51254 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 11:56:29:500  [ pool-3-thread-1:4877 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:04:40:073  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 12:04:40:078  [ Thread-7:5 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 12:04:40:083  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 12:04:42:700  [ Thread-7:2627 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 12:04:42:701  [ pool-3-thread-1:2628 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 12:04:42:701  [ pool-3-thread-1:2628 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 12:04:42:702  [ pool-3-thread-1:2629 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 12:04:42:702  [ pool-3-thread-1:2629 ] - [ INFO ]  User's Addr : 192.168.5.10:51306
+2021-01-19 12:04:43:538  [ pool-3-thread-1:3465 ] - [ INFO ]  采集到/192.168.5.10:51306 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:04:43:539  [ pool-3-thread-1:3466 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:04:43:698  [ pool-3-thread-1:3625 ] - [ INFO ]  采集到/192.168.5.10:51306 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:04:43:699  [ pool-3-thread-1:3626 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:04:43:841  [ pool-3-thread-1:3768 ] - [ INFO ]  采集到/192.168.5.10:51306 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:04:43:842  [ pool-3-thread-1:3769 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:04:43:978  [ pool-3-thread-1:3905 ] - [ INFO ]  采集到/192.168.5.10:51306 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:04:43:979  [ pool-3-thread-1:3906 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:26:104  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 12:05:26:110  [ Thread-7:6 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 12:05:26:114  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 12:05:31:164  [ Thread-7:5060 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 12:05:31:164  [ pool-3-thread-1:5060 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 12:05:31:165  [ pool-3-thread-1:5061 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 12:05:31:165  [ pool-3-thread-1:5061 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 12:05:31:165  [ pool-3-thread-1:5061 ] - [ INFO ]  User's Addr : 192.168.5.10:51316
+2021-01-19 12:05:31:810  [ pool-3-thread-1:5706 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:05:31:811  [ pool-3-thread-1:5707 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:31:946  [ pool-3-thread-1:5842 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:05:31:946  [ pool-3-thread-1:5842 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:32:081  [ pool-3-thread-1:5977 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:05:32:082  [ pool-3-thread-1:5978 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:32:226  [ pool-3-thread-1:6122 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:05:32:227  [ pool-3-thread-1:6123 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:33:978  [ pool-3-thread-1:7874 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:05:33:978  [ pool-3-thread-1:7874 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:34:122  [ pool-3-thread-1:8018 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:05:34:122  [ pool-3-thread-1:8018 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:34:250  [ pool-3-thread-1:8146 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:05:34:251  [ pool-3-thread-1:8147 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:34:394  [ pool-3-thread-1:8290 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:05:34:395  [ pool-3-thread-1:8291 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:34:522  [ pool-3-thread-1:8418 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:05:34:522  [ pool-3-thread-1:8418 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:34:650  [ pool-3-thread-1:8546 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:05:34:651  [ pool-3-thread-1:8547 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:34:778  [ pool-3-thread-1:8674 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:05:34:779  [ pool-3-thread-1:8675 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:35:049  [ pool-3-thread-1:8945 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:05:35:050  [ pool-3-thread-1:8946 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:35:204  [ pool-3-thread-1:9100 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:05:35:204  [ pool-3-thread-1:9100 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:35:338  [ pool-3-thread-1:9234 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:05:35:338  [ pool-3-thread-1:9234 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:49:482  [ pool-3-thread-1:23378 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100346011ECF12DD
+2021-01-19 12:05:49:483  [ pool-3-thread-1:23379 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:49:874  [ pool-3-thread-1:23770 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100346011ECF12DD
+2021-01-19 12:05:49:875  [ pool-3-thread-1:23771 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:50:169  [ pool-3-thread-1:24065 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100346011ECF12DD
+2021-01-19 12:05:50:170  [ pool-3-thread-1:24066 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:50:306  [ pool-3-thread-1:24202 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100346011ECF12DD
+2021-01-19 12:05:50:307  [ pool-3-thread-1:24203 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:05:50:433  [ pool-3-thread-1:24329 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100346011ECF12DD
+2021-01-19 12:05:50:434  [ pool-3-thread-1:24330 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:06:15:081  [ pool-3-thread-1:48977 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246021ECF12DD
+2021-01-19 12:06:15:082  [ pool-3-thread-1:48978 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:06:16:241  [ pool-3-thread-1:50137 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246021ECF12DD
+2021-01-19 12:06:16:242  [ pool-3-thread-1:50138 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:06:16:393  [ pool-3-thread-1:50289 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246021ECF12DD
+2021-01-19 12:06:16:394  [ pool-3-thread-1:50290 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:06:16:545  [ pool-3-thread-1:50441 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246021ECF12DD
+2021-01-19 12:06:16:546  [ pool-3-thread-1:50442 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:06:16:698  [ pool-3-thread-1:50594 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246021ECF12DD
+2021-01-19 12:06:16:699  [ pool-3-thread-1:50595 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:08:51:313  [ pool-3-thread-1:205209 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 12:08:51:314  [ pool-3-thread-1:205210 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:08:52:722  [ pool-3-thread-1:206618 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 12:08:52:722  [ pool-3-thread-1:206618 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:08:52:889  [ pool-3-thread-1:206785 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 12:08:52:890  [ pool-3-thread-1:206786 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:08:53:041  [ pool-3-thread-1:206937 ] - [ INFO ]  采集到/192.168.5.10:51316 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 12:08:53:042  [ pool-3-thread-1:206938 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:41:590  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 12:10:41:595  [ Thread-7:5 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 12:10:41:600  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 12:10:43:659  [ Thread-7:2069 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 12:10:43:660  [ pool-3-thread-1:2070 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 12:10:43:660  [ pool-3-thread-1:2070 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 12:10:43:660  [ pool-3-thread-1:2070 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 12:10:43:661  [ pool-3-thread-1:2071 ] - [ INFO ]  User's Addr : 192.168.5.10:51342
+2021-01-19 12:10:44:233  [ pool-3-thread-1:2643 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 12:10:44:234  [ pool-3-thread-1:2644 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:44:377  [ pool-3-thread-1:2787 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 12:10:44:378  [ pool-3-thread-1:2788 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:44:513  [ pool-3-thread-1:2923 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 12:10:44:513  [ pool-3-thread-1:2923 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:44:650  [ pool-3-thread-1:3060 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 12:10:44:651  [ pool-3-thread-1:3061 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:44:793  [ pool-3-thread-1:3203 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 12:10:44:794  [ pool-3-thread-1:3204 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:44:945  [ pool-3-thread-1:3355 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 12:10:44:945  [ pool-3-thread-1:3355 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:45:090  [ pool-3-thread-1:3500 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 12:10:45:090  [ pool-3-thread-1:3500 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:48:721  [ pool-3-thread-1:7131 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:10:48:722  [ pool-3-thread-1:7132 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:48:857  [ pool-3-thread-1:7267 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:10:48:858  [ pool-3-thread-1:7268 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:49:008  [ pool-3-thread-1:7418 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:10:49:009  [ pool-3-thread-1:7419 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:49:145  [ pool-3-thread-1:7555 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:10:49:146  [ pool-3-thread-1:7556 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:49:289  [ pool-3-thread-1:7699 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:10:49:290  [ pool-3-thread-1:7700 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:49:441  [ pool-3-thread-1:7851 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:10:49:441  [ pool-3-thread-1:7851 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:49:577  [ pool-3-thread-1:7987 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:10:49:578  [ pool-3-thread-1:7988 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:49:697  [ pool-3-thread-1:8107 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:10:49:698  [ pool-3-thread-1:8108 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:49:841  [ pool-3-thread-1:8251 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:10:49:842  [ pool-3-thread-1:8252 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:50:001  [ pool-3-thread-1:8411 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:10:50:002  [ pool-3-thread-1:8412 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:57:705  [ pool-3-thread-1:16115 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 12:10:57:706  [ pool-3-thread-1:16116 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:57:849  [ pool-3-thread-1:16259 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 12:10:57:850  [ pool-3-thread-1:16260 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:57:984  [ pool-3-thread-1:16394 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 12:10:57:985  [ pool-3-thread-1:16395 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:58:113  [ pool-3-thread-1:16523 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 12:10:58:114  [ pool-3-thread-1:16524 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:58:249  [ pool-3-thread-1:16659 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 12:10:58:250  [ pool-3-thread-1:16660 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:58:400  [ pool-3-thread-1:16810 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 12:10:58:401  [ pool-3-thread-1:16811 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:10:58:554  [ pool-3-thread-1:16964 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 12:10:58:554  [ pool-3-thread-1:16964 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:03:546  [ pool-3-thread-1:21956 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 12:11:03:546  [ pool-3-thread-1:21956 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:03:681  [ pool-3-thread-1:22091 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 12:11:03:681  [ pool-3-thread-1:22091 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:03:801  [ pool-3-thread-1:22211 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 12:11:03:802  [ pool-3-thread-1:22212 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:03:953  [ pool-3-thread-1:22363 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 12:11:03:953  [ pool-3-thread-1:22363 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:04:089  [ pool-3-thread-1:22499 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 12:11:04:090  [ pool-3-thread-1:22500 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:04:217  [ pool-3-thread-1:22627 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 12:11:04:218  [ pool-3-thread-1:22628 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:04:369  [ pool-3-thread-1:22779 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 12:11:04:370  [ pool-3-thread-1:22780 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:10:529  [ pool-3-thread-1:28939 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F1002461001ECF12DD
+2021-01-19 12:11:10:530  [ pool-3-thread-1:28940 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:10:680  [ pool-3-thread-1:29090 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F1002461001ECF12DD
+2021-01-19 12:11:10:681  [ pool-3-thread-1:29091 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:10:817  [ pool-3-thread-1:29227 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F1002461001ECF12DD
+2021-01-19 12:11:10:817  [ pool-3-thread-1:29227 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:10:970  [ pool-3-thread-1:29380 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F1002461001ECF12DD
+2021-01-19 12:11:10:970  [ pool-3-thread-1:29380 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:16:065  [ pool-3-thread-1:34475 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:11:16:066  [ pool-3-thread-1:34476 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:16:433  [ pool-3-thread-1:34843 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:11:16:434  [ pool-3-thread-1:34844 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:16:593  [ pool-3-thread-1:35003 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:11:16:594  [ pool-3-thread-1:35004 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:16:737  [ pool-3-thread-1:35147 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:11:16:737  [ pool-3-thread-1:35147 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:16:889  [ pool-3-thread-1:35299 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:11:16:890  [ pool-3-thread-1:35300 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:17:025  [ pool-3-thread-1:35435 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:11:17:026  [ pool-3-thread-1:35436 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:11:38:153  [ pool-3-thread-1:56563 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:11:38:154  [ pool-3-thread-1:56564 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:55:26:445  [ pool-3-thread-1:2684855 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:55:26:446  [ pool-3-thread-1:2684856 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:55:26:605  [ pool-3-thread-1:2685015 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:55:26:605  [ pool-3-thread-1:2685015 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:55:37:773  [ pool-3-thread-1:2696183 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:55:37:774  [ pool-3-thread-1:2696184 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:55:37:932  [ pool-3-thread-1:2696342 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:55:37:933  [ pool-3-thread-1:2696343 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:55:38:061  [ pool-3-thread-1:2696471 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:55:38:061  [ pool-3-thread-1:2696471 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:55:38:212  [ pool-3-thread-1:2696622 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:55:38:213  [ pool-3-thread-1:2696623 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:55:38:348  [ pool-3-thread-1:2696758 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:55:38:349  [ pool-3-thread-1:2696759 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:55:38:493  [ pool-3-thread-1:2696903 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:55:38:493  [ pool-3-thread-1:2696903 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:55:38:636  [ pool-3-thread-1:2697046 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:55:38:637  [ pool-3-thread-1:2697047 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:55:39:309  [ pool-3-thread-1:2697719 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:55:39:310  [ pool-3-thread-1:2697720 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:56:14:757  [ pool-3-thread-1:2733167 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:56:14:757  [ pool-3-thread-1:2733167 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:56:15:044  [ pool-3-thread-1:2733454 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:56:15:045  [ pool-3-thread-1:2733455 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:56:15:197  [ pool-3-thread-1:2733607 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:56:15:198  [ pool-3-thread-1:2733608 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:56:15:340  [ pool-3-thread-1:2733750 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:56:15:341  [ pool-3-thread-1:2733751 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:56:15:468  [ pool-3-thread-1:2733878 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:56:15:469  [ pool-3-thread-1:2733879 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:56:15:604  [ pool-3-thread-1:2734014 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:56:15:605  [ pool-3-thread-1:2734015 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:56:15:780  [ pool-3-thread-1:2734190 ] - [ INFO ]  采集到/192.168.5.10:51342 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:56:15:781  [ pool-3-thread-1:2734191 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:14:004  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 12:59:14:010  [ Thread-7:6 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 12:59:14:014  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 12:59:17:950  [ Thread-7:3946 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 12:59:17:951  [ pool-3-thread-1:3947 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 12:59:17:951  [ pool-3-thread-1:3947 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 12:59:17:951  [ pool-3-thread-1:3947 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 12:59:17:952  [ pool-3-thread-1:3948 ] - [ INFO ]  User's Addr : 192.168.5.10:51565
+2021-01-19 12:59:18:677  [ pool-3-thread-1:4673 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:59:18:678  [ pool-3-thread-1:4674 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:18:820  [ pool-3-thread-1:4816 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:59:18:821  [ pool-3-thread-1:4817 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:18:956  [ pool-3-thread-1:4952 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:59:18:957  [ pool-3-thread-1:4953 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:19:100  [ pool-3-thread-1:5096 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:59:19:101  [ pool-3-thread-1:5097 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:19:428  [ pool-3-thread-1:5424 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:59:19:430  [ pool-3-thread-1:5426 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:19:644  [ pool-3-thread-1:5640 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 12:59:19:645  [ pool-3-thread-1:5641 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:24:429  [ pool-3-thread-1:10425 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:59:24:430  [ pool-3-thread-1:10426 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:25:877  [ pool-3-thread-1:11873 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:59:25:877  [ pool-3-thread-1:11873 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:26:019  [ pool-3-thread-1:12015 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 12:59:26:020  [ pool-3-thread-1:12016 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:31:292  [ pool-3-thread-1:17288 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 12:59:31:293  [ pool-3-thread-1:17289 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:31:732  [ pool-3-thread-1:17728 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 12:59:31:733  [ pool-3-thread-1:17729 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:31:884  [ pool-3-thread-1:17880 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 12:59:31:885  [ pool-3-thread-1:17881 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:32:588  [ pool-3-thread-1:18584 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 12:59:32:589  [ pool-3-thread-1:18585 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:32:772  [ pool-3-thread-1:18768 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 12:59:32:772  [ pool-3-thread-1:18768 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 12:59:41:844  [ pool-3-thread-1:27840 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 12:59:41:845  [ pool-3-thread-1:27841 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:08:03:404  [ pool-3-thread-1:529400 ] - [ INFO ]  采集到/192.168.5.10:51565 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:08:03:404  [ pool-3-thread-1:529400 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:15:02:114  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:15:02:119  [ Thread-7:5 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:15:02:124  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:15:06:949  [ Thread-7:4835 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:15:06:950  [ pool-3-thread-1:4836 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:15:06:950  [ pool-3-thread-1:4836 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:15:06:950  [ pool-3-thread-1:4836 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:15:06:951  [ pool-3-thread-1:4837 ] - [ INFO ]  User's Addr : 192.168.5.10:51924
+2021-01-19 13:15:07:571  [ pool-3-thread-1:5457 ] - [ INFO ]  采集到/192.168.5.10:51924 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:15:07:572  [ pool-3-thread-1:5458 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:15:15:126  [ pool-3-thread-1:13012 ] - [ INFO ]  采集到/192.168.5.10:51924 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:15:15:126  [ pool-3-thread-1:13012 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:15:15:127  [ pool-3-thread-1:13013 ] - [ INFO ]  采集到/192.168.5.10:51924 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DDFFFF0BCCDD0CC0A8050A0F100246101ECF12DDFFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:15:15:127  [ pool-3-thread-1:13013 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:15:24:682  [ pool-3-thread-1:22568 ] - [ INFO ]  采集到/192.168.5.10:51924 的数据是FFFF0BCCDD0CC0A8050A0F100246201ECF12DD
+2021-01-19 13:15:24:683  [ pool-3-thread-1:22569 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:15:35:842  [ pool-3-thread-1:33728 ] - [ INFO ]  采集到/192.168.5.10:51924 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:15:35:843  [ pool-3-thread-1:33729 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:16:41:130  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:16:41:135  [ Thread-7:5 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:16:41:140  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:16:43:276  [ Thread-7:2146 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:16:43:277  [ pool-3-thread-1:2147 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:16:43:277  [ pool-3-thread-1:2147 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:16:43:278  [ pool-3-thread-1:2148 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:16:43:278  [ pool-3-thread-1:2148 ] - [ INFO ]  User's Addr : 192.168.5.10:51937
+2021-01-19 13:16:43:915  [ pool-3-thread-1:2785 ] - [ INFO ]  采集到/192.168.5.10:51937 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:16:43:915  [ pool-3-thread-1:2785 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:16:44:058  [ pool-3-thread-1:2928 ] - [ INFO ]  采集到/192.168.5.10:51937 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:16:44:059  [ pool-3-thread-1:2929 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:16:44:203  [ pool-3-thread-1:3073 ] - [ INFO ]  采集到/192.168.5.10:51937 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:16:44:204  [ pool-3-thread-1:3074 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:16:44:338  [ pool-3-thread-1:3208 ] - [ INFO ]  采集到/192.168.5.10:51937 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:16:44:339  [ pool-3-thread-1:3209 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:16:44:483  [ pool-3-thread-1:3353 ] - [ INFO ]  采集到/192.168.5.10:51937 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:16:44:483  [ pool-3-thread-1:3353 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:16:44:642  [ pool-3-thread-1:3512 ] - [ INFO ]  采集到/192.168.5.10:51937 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:16:44:642  [ pool-3-thread-1:3512 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:16:44:803  [ pool-3-thread-1:3673 ] - [ INFO ]  采集到/192.168.5.10:51937 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:16:44:803  [ pool-3-thread-1:3673 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:16:56:491  [ pool-3-thread-1:15361 ] - [ INFO ]  采集到/192.168.5.10:51937 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 13:16:56:491  [ pool-3-thread-1:15361 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:17:39:859  [ pool-3-thread-1:58729 ] - [ INFO ]  采集到/192.168.5.10:51937 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 13:17:39:860  [ pool-3-thread-1:58730 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:18:12:418  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:18:12:422  [ Thread-7:4 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:18:12:427  [ JavaFX Application Thread:9 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:18:15:268  [ Thread-7:2850 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:18:15:269  [ pool-3-thread-1:2851 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:18:15:269  [ pool-3-thread-1:2851 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:18:15:269  [ pool-3-thread-1:2851 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:18:15:270  [ pool-3-thread-1:2852 ] - [ INFO ]  User's Addr : 192.168.5.10:51948
+2021-01-19 13:18:16:051  [ pool-3-thread-1:3633 ] - [ INFO ]  采集到/192.168.5.10:51948 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 13:18:16:052  [ pool-3-thread-1:3634 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:18:19:053  [ pool-3-thread-1:6635 ] - [ INFO ]  采集到/192.168.5.10:51948 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 13:18:19:054  [ pool-3-thread-1:6636 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:18:29:402  [ pool-3-thread-1:16984 ] - [ INFO ]  采集到/192.168.5.10:51948 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:18:29:403  [ pool-3-thread-1:16985 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:18:48:786  [ pool-3-thread-1:36368 ] - [ INFO ]  采集到/192.168.5.10:51948 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:18:48:787  [ pool-3-thread-1:36369 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:22:210  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:20:22:214  [ Thread-7:4 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:20:22:219  [ JavaFX Application Thread:9 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:20:26:748  [ Thread-7:4538 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:20:26:748  [ pool-3-thread-1:4538 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:20:26:749  [ pool-3-thread-1:4539 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:20:26:749  [ pool-3-thread-1:4539 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:20:26:749  [ pool-3-thread-1:4539 ] - [ INFO ]  User's Addr : 192.168.5.10:51963
+2021-01-19 13:20:27:482  [ pool-3-thread-1:5272 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:20:27:483  [ pool-3-thread-1:5273 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:30:437  [ pool-3-thread-1:8227 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:20:30:437  [ pool-3-thread-1:8227 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:30:438  [ pool-3-thread-1:8228 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DDFFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:20:30:438  [ pool-3-thread-1:8228 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:33:370  [ pool-3-thread-1:11160 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:20:33:371  [ pool-3-thread-1:11161 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:33:818  [ pool-3-thread-1:11608 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:20:33:819  [ pool-3-thread-1:11609 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:38:114  [ pool-3-thread-1:15904 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 13:20:38:115  [ pool-3-thread-1:15905 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:38:698  [ pool-3-thread-1:16488 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 13:20:38:699  [ pool-3-thread-1:16489 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:38:850  [ pool-3-thread-1:16640 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 13:20:38:851  [ pool-3-thread-1:16641 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:43:570  [ pool-3-thread-1:21360 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 13:20:43:572  [ pool-3-thread-1:21362 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:44:130  [ pool-3-thread-1:21920 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 13:20:44:131  [ pool-3-thread-1:21921 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:44:273  [ pool-3-thread-1:22063 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246041ECF12DD
+2021-01-19 13:20:44:274  [ pool-3-thread-1:22064 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:49:474  [ pool-3-thread-1:27264 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:20:49:474  [ pool-3-thread-1:27264 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:50:474  [ pool-3-thread-1:28264 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:20:50:475  [ pool-3-thread-1:28265 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:50:633  [ pool-3-thread-1:28423 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:20:50:634  [ pool-3-thread-1:28424 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:20:56:394  [ pool-3-thread-1:34184 ] - [ INFO ]  采集到/192.168.5.10:51963 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:20:56:395  [ pool-3-thread-1:34185 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:23:30:609  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:23:30:615  [ Thread-7:6 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:23:30:618  [ JavaFX Application Thread:9 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:23:33:067  [ Thread-7:2458 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:23:33:068  [ pool-3-thread-1:2459 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:23:33:068  [ pool-3-thread-1:2459 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:23:33:069  [ pool-3-thread-1:2460 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:23:33:069  [ pool-3-thread-1:2460 ] - [ INFO ]  User's Addr : 192.168.5.10:51982
+2021-01-19 13:23:33:867  [ pool-3-thread-1:3258 ] - [ INFO ]  采集到/192.168.5.10:51982 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:23:33:867  [ pool-3-thread-1:3258 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:24:16:873  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:24:16:878  [ Thread-7:5 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:24:16:883  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:24:19:219  [ Thread-7:2346 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:24:19:220  [ pool-3-thread-1:2347 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:24:19:221  [ pool-3-thread-1:2348 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:24:19:221  [ pool-3-thread-1:2348 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:24:19:221  [ pool-3-thread-1:2348 ] - [ INFO ]  User's Addr : 192.168.5.10:51991
+2021-01-19 13:24:19:906  [ pool-3-thread-1:3033 ] - [ INFO ]  采集到/192.168.5.10:51991 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:24:19:906  [ pool-3-thread-1:3033 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:26:18:705  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:26:18:709  [ Thread-7:4 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:26:18:714  [ JavaFX Application Thread:9 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:26:21:076  [ Thread-7:2371 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:26:21:076  [ pool-3-thread-1:2371 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:26:21:077  [ pool-3-thread-1:2372 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:26:21:077  [ pool-3-thread-1:2372 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:26:21:078  [ pool-3-thread-1:2373 ] - [ INFO ]  User's Addr : 192.168.5.10:52005
+2021-01-19 13:26:22:018  [ pool-3-thread-1:3313 ] - [ INFO ]  采集到/192.168.5.10:52005 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:26:22:018  [ pool-3-thread-1:3313 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:27:31:401  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:27:31:406  [ Thread-7:5 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:27:31:409  [ JavaFX Application Thread:8 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:27:33:932  [ Thread-7:2531 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:27:33:932  [ pool-3-thread-1:2531 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:27:33:933  [ pool-3-thread-1:2532 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:27:33:933  [ pool-3-thread-1:2532 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:27:33:933  [ pool-3-thread-1:2532 ] - [ INFO ]  User's Addr : 192.168.5.10:52021
+2021-01-19 13:27:34:610  [ pool-3-thread-1:3209 ] - [ INFO ]  采集到/192.168.5.10:52021 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:27:34:610  [ pool-3-thread-1:3209 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:27:34:761  [ pool-3-thread-1:3360 ] - [ INFO ]  采集到/192.168.5.10:52021 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:27:34:762  [ pool-3-thread-1:3361 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:27:34:905  [ pool-3-thread-1:3504 ] - [ INFO ]  采集到/192.168.5.10:52021 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:27:34:906  [ pool-3-thread-1:3505 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:27:35:050  [ pool-3-thread-1:3649 ] - [ INFO ]  采集到/192.168.5.10:52021 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:27:35:051  [ pool-3-thread-1:3650 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:27:35:193  [ pool-3-thread-1:3792 ] - [ INFO ]  采集到/192.168.5.10:52021 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:27:35:194  [ pool-3-thread-1:3793 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:27:35:337  [ pool-3-thread-1:3936 ] - [ INFO ]  采集到/192.168.5.10:52021 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:27:35:338  [ pool-3-thread-1:3937 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:27:35:482  [ pool-3-thread-1:4081 ] - [ INFO ]  采集到/192.168.5.10:52021 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:27:35:483  [ pool-3-thread-1:4082 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:27:35:617  [ pool-3-thread-1:4216 ] - [ INFO ]  采集到/192.168.5.10:52021 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:27:35:618  [ pool-3-thread-1:4217 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:27:35:761  [ pool-3-thread-1:4360 ] - [ INFO ]  采集到/192.168.5.10:52021 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:27:35:762  [ pool-3-thread-1:4361 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:27:35:921  [ pool-3-thread-1:4520 ] - [ INFO ]  采集到/192.168.5.10:52021 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:27:35:922  [ pool-3-thread-1:4521 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:30:31:208  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:30:31:212  [ Thread-7:4 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:30:31:218  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:30:35:619  [ Thread-7:4411 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:30:35:620  [ pool-3-thread-1:4412 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:30:35:620  [ pool-3-thread-1:4412 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:30:35:620  [ pool-3-thread-1:4412 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:30:35:621  [ pool-3-thread-1:4413 ] - [ INFO ]  User's Addr : 192.168.5.10:52049
+2021-01-19 13:30:36:242  [ pool-3-thread-1:5034 ] - [ INFO ]  采集到/192.168.5.10:52049 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:30:36:242  [ pool-3-thread-1:5034 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:32:20:640  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:32:20:645  [ Thread-7:5 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:32:20:650  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:32:22:667  [ Thread-7:2027 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:32:22:667  [ pool-3-thread-1:2027 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:32:22:668  [ pool-3-thread-1:2028 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:32:22:668  [ pool-3-thread-1:2028 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:32:22:668  [ pool-3-thread-1:2028 ] - [ INFO ]  User's Addr : 192.168.5.10:52065
+2021-01-19 13:32:23:337  [ pool-3-thread-1:2697 ] - [ INFO ]  采集到/192.168.5.10:52065 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:32:23:337  [ pool-3-thread-1:2697 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:33:12:048  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:33:12:054  [ Thread-7:6 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:33:12:057  [ JavaFX Application Thread:9 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:33:13:867  [ Thread-7:1819 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:33:13:867  [ pool-3-thread-1:1819 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:33:13:868  [ pool-3-thread-1:1820 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:33:13:868  [ pool-3-thread-1:1820 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:33:13:868  [ pool-3-thread-1:1820 ] - [ INFO ]  User's Addr : 192.168.5.10:52073
+2021-01-19 13:33:14:585  [ pool-3-thread-1:2537 ] - [ INFO ]  采集到/192.168.5.10:52073 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:33:14:585  [ pool-3-thread-1:2537 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:33:14:745  [ pool-3-thread-1:2697 ] - [ INFO ]  采集到/192.168.5.10:52073 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:33:14:745  [ pool-3-thread-1:2697 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:33:14:888  [ pool-3-thread-1:2840 ] - [ INFO ]  采集到/192.168.5.10:52073 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:33:14:889  [ pool-3-thread-1:2841 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:33:15:025  [ pool-3-thread-1:2977 ] - [ INFO ]  采集到/192.168.5.10:52073 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:33:15:026  [ pool-3-thread-1:2978 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:33:15:185  [ pool-3-thread-1:3137 ] - [ INFO ]  采集到/192.168.5.10:52073 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:33:15:186  [ pool-3-thread-1:3138 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:33:15:320  [ pool-3-thread-1:3272 ] - [ INFO ]  采集到/192.168.5.10:52073 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:33:15:321  [ pool-3-thread-1:3273 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:33:16:329  [ pool-3-thread-1:4281 ] - [ INFO ]  采集到/192.168.5.10:52073 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:33:16:330  [ pool-3-thread-1:4282 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:33:16:600  [ pool-3-thread-1:4552 ] - [ INFO ]  采集到/192.168.5.10:52073 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:33:16:601  [ pool-3-thread-1:4553 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:33:17:001  [ pool-3-thread-1:4953 ] - [ INFO ]  采集到/192.168.5.10:52073 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:33:17:002  [ pool-3-thread-1:4954 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:33:17:176  [ pool-3-thread-1:5128 ] - [ INFO ]  采集到/192.168.5.10:52073 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:33:17:177  [ pool-3-thread-1:5129 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:34:25:840  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:34:25:845  [ Thread-7:5 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:34:25:849  [ JavaFX Application Thread:9 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:34:27:979  [ Thread-7:2139 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:34:27:979  [ pool-3-thread-1:2139 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:34:27:980  [ pool-3-thread-1:2140 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:34:27:980  [ pool-3-thread-1:2140 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:34:27:980  [ pool-3-thread-1:2140 ] - [ INFO ]  User's Addr : 192.168.5.10:52140
+2021-01-19 13:34:28:713  [ pool-3-thread-1:2873 ] - [ INFO ]  采集到/192.168.5.10:52140 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:34:28:714  [ pool-3-thread-1:2874 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:34:28:865  [ pool-3-thread-1:3025 ] - [ INFO ]  采集到/192.168.5.10:52140 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:34:28:866  [ pool-3-thread-1:3026 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:34:29:000  [ pool-3-thread-1:3160 ] - [ INFO ]  采集到/192.168.5.10:52140 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:34:29:001  [ pool-3-thread-1:3161 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:34:29:145  [ pool-3-thread-1:3305 ] - [ INFO ]  采集到/192.168.5.10:52140 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:34:29:146  [ pool-3-thread-1:3306 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:37:43:167  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:37:43:173  [ Thread-7:6 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:37:43:177  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:37:44:571  [ Thread-7:1404 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:37:44:571  [ pool-3-thread-1:1404 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:37:44:571  [ pool-3-thread-1:1404 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:37:44:571  [ pool-3-thread-1:1404 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:37:44:571  [ pool-3-thread-1:1404 ] - [ INFO ]  User's Addr : 192.168.5.10:52230
+2021-01-19 13:37:45:360  [ pool-3-thread-1:2193 ] - [ INFO ]  采集到/192.168.5.10:52230 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:37:45:361  [ pool-3-thread-1:2194 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:37:45:488  [ pool-3-thread-1:2321 ] - [ INFO ]  采集到/192.168.5.10:52230 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:37:45:489  [ pool-3-thread-1:2322 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:37:45:625  [ pool-3-thread-1:2458 ] - [ INFO ]  采集到/192.168.5.10:52230 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:37:45:626  [ pool-3-thread-1:2459 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:38:44:544  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:38:44:548  [ Thread-7:4 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:38:44:553  [ JavaFX Application Thread:9 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:38:46:530  [ Thread-7:1986 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:38:46:531  [ pool-3-thread-1:1987 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:38:46:531  [ pool-3-thread-1:1987 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:38:46:532  [ pool-3-thread-1:1988 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:38:46:532  [ pool-3-thread-1:1988 ] - [ INFO ]  User's Addr : 192.168.5.10:52244
+2021-01-19 13:38:47:200  [ pool-3-thread-1:2656 ] - [ INFO ]  采集到/192.168.5.10:52244 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:38:47:201  [ pool-3-thread-1:2657 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:38:50:337  [ pool-3-thread-1:5793 ] - [ INFO ]  采集到/192.168.5.10:52244 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:38:50:338  [ pool-3-thread-1:5794 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:38:54:144  [ pool-3-thread-1:9600 ] - [ INFO ]  采集到/192.168.5.10:52244 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:38:54:145  [ pool-3-thread-1:9601 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:38:55:416  [ pool-3-thread-1:10872 ] - [ INFO ]  采集到/192.168.5.10:52244 的数据是FFFF0BCCDD0CC0A8050A0F100246081ECF12DD
+2021-01-19 13:38:55:417  [ pool-3-thread-1:10873 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:39:02:520  [ pool-3-thread-1:17976 ] - [ INFO ]  采集到/192.168.5.10:52244 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:39:02:521  [ pool-3-thread-1:17977 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:39:43:423  [ Thread-7:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-19 13:39:43:428  [ Thread-7:5 ] - [ INFO ]  Current Thread is  Thread[Thread-7,1,javafx concurrent thread pool]
+2021-01-19 13:39:43:433  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-19 13:39:45:601  [ Thread-7:2178 ] - [ INFO ]  Server Thread -Thread[Thread-7,1,javafx concurrent thread pool] starts!
+2021-01-19 13:39:45:602  [ pool-3-thread-1:2179 ] - [ INFO ]  Current Handler Thread is : Thread[pool-3-thread-1,5,javafx concurrent thread pool]
+2021-01-19 13:39:45:602  [ pool-3-thread-1:2179 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-19 13:39:45:603  [ pool-3-thread-1:2180 ] - [ INFO ]  Attempting to connect a user...
+2021-01-19 13:39:45:603  [ pool-3-thread-1:2180 ] - [ INFO ]  User's Addr : 192.168.5.10:52258
+2021-01-19 13:39:46:416  [ pool-3-thread-1:2993 ] - [ INFO ]  采集到/192.168.5.10:52258 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:39:46:417  [ pool-3-thread-1:2994 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:39:46:568  [ pool-3-thread-1:3145 ] - [ INFO ]  采集到/192.168.5.10:52258 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:39:46:569  [ pool-3-thread-1:3146 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:39:46:695  [ pool-3-thread-1:3272 ] - [ INFO ]  采集到/192.168.5.10:52258 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:39:46:696  [ pool-3-thread-1:3273 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:39:46:832  [ pool-3-thread-1:3409 ] - [ INFO ]  采集到/192.168.5.10:52258 的数据是FFFF0BCCDD0CC0A8050A0F100246101ECF12DD
+2021-01-19 13:39:46:833  [ pool-3-thread-1:3410 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；
+2021-01-19 13:39:53:224  [ pool-3-thread-1:9801 ] - [ INFO ]  采集到/192.168.5.10:52258 的数据是FFFF0BCCDD0CC0A8050A0F100246011ECF12DD
+2021-01-19 13:39:53:225  [ pool-3-thread-1:9802 ] - [ INFO ]  pool-3-thread-1服务器接收数据，目前总共有1个；

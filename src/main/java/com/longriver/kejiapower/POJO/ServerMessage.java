@@ -74,7 +74,7 @@ public class ServerMessage extends Message {
         }
         setCurrent(new StringBuilder(String.format("%04X",(int) (client.getVoltage() * 10.0))));
         setControl(new StringBuilder());//不要设置，开始按钮设置过了
-        setModel(new StringBuilder(String.format("%04X",client.getOperateModel().getCode())));
+        setModel(new StringBuilder(String.format("%02X",client.getOperateModel().getCode())));
 //        setVoltage(new StringBuilder("00"));
 //        setCurrent(new StringBuilder("00"));
 //        setControl(new StringBuilder("00"));
@@ -83,7 +83,6 @@ public class ServerMessage extends Message {
         setPreserveByte(new StringBuilder("0000"));
 //其他置空
         setStatus(new StringBuilder(2));
-        setModel(new StringBuilder(2));
         setDuration(new StringBuilder(4));
         setServerTime(new StringBuilder(12));
         setTail(new StringBuilder("DD"));

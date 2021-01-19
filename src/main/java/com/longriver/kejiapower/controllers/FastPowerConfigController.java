@@ -64,6 +64,7 @@ public class FastPowerConfigController {
 
     @FXML
     void returnBtnOnClick(ActionEvent event) {
+
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
@@ -334,7 +335,17 @@ public class FastPowerConfigController {
         return null;
     }
 
+    public ObservableList<InnerClient> getInnerClientObservableList() {
+        return innerClientObservableList;
+    }
+
+    public void setInnerClientObservableList(ObservableList<InnerClient> innerClientObservableList) {
+        this.innerClientObservableList = innerClientObservableList;
+    }
+
     public void setInnerClassObservableList(Map<Client, Control> clientControlMap) {
+        innerClientObservableList.clear();
+
         if (clientControlMap != null && clientControlMap.size() > 0) {
             for (Client ct : clientControlMap.keySet()) {
                 InnerClient innerClient = new InnerClient();
@@ -403,6 +414,8 @@ public class FastPowerConfigController {
             return;
         }
         try {
+            clientControlMap.clear();
+
             for (InnerClient ic : innerClientObservableList) {
                 if (ic.getOperateModel() == null) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -444,12 +457,16 @@ public class FastPowerConfigController {
                     client.setCurrent(ic.getCurrent());
                     client.setOperateModel(ic.getOperateModel());
                     client.setTime(ic.getTime());
-                    if (clientControlMap.size() <= 0 || !clientControlMap.keySet().contains(client)) {
-                        clientControlMap.put(client, Control.getWorkingStatusByStatus(ic.getControlled()));
+                    clientControlMap.put(client, Control.getWorkingStatusByStatus(ic.getControlled()));//配合 clientControlMap.clear()使用
 
-                    } else {
-                        clientControlMap.replace(client, Control.getWorkingStatusByStatus(ic.getControlled()));
-                    }
+                    //出现了Client控制模式等改变后，加入了Map的情况，暂时不用
+//                    if (clientControlMap.size() <= 0 || !clientControlMap.keySet().contains(client)) {
+//                        if ()
+//                        clientControlMap.put(client, Control.getWorkingStatusByStatus(ic.getControlled()));
+//
+//                    } else {
+//                        clientControlMap.replace(client, Control.getWorkingStatusByStatus(ic.getControlled()));
+//                    }
                 }
             }
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

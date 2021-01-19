@@ -29,6 +29,8 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -184,12 +186,10 @@ public class KejiaPowerController {
     private ReadMessageFromClientService readMessageFromClientService = new ReadMessageFromClientService();
     private String firstStringOfInBlockingQueue = null;//
 
-    private Map<String, XYChart.Series> clientSeriesMap = new HashMap<>();
-
     private ClientMessage clientMessage;
     private ServerMessage serverMessage;
 
-    private ObservableList<Client> clientSetUpObservableList = FXCollections.observableArrayList();//配置界面传回来的ClientList
+    //    private ObservableList<Client> clientSetUpObservableList = FXCollections.observableArrayList();//配置界面传回来的ClientList
     private Map<Client, Control> clientControlMap = new HashMap<>();//主界面、配置界面之间传送Client
 
 
@@ -249,17 +249,6 @@ public class KejiaPowerController {
         powerTableView.setItems(clientObservableList);
         powerTableView.setPlaceholder(new Label(""));
 
-
-//        Client client = new Client();
-//        client.setId(clientObservableList.size() + 1);
-//        client.setIp("127.0.0.1:15195");
-//        client.setStatus(WorkingStatus.getWorkingStatusByCode((short) 0x08));
-//        clientObservableList.add(client);
-//        client = new Client();
-//        client.setId(clientObservableList.size() + 1);
-//        client.setIp("127.0.0.1:15196");
-//        client.setStatus(WorkingStatus.getWorkingStatusByCode((short) 0x10));
-//        clientObservableList.add(client);
     }
 
 
@@ -411,8 +400,8 @@ public class KejiaPowerController {
                         break;
                     case Control:
                         //更新状态（无电压电流信息）
-                        clientObservableList.get(clientMap.get(clientMessage.getClientIp().toString()).getId() - 1).setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString())));
-                        clientMap.get(clientMessage.getClientIp().toString()).setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString())));      //指向同一个Client，地址相同
+                        clientObservableList.get(clientMap.get(clientMessage.getClientIp().toString()).getId() - 1).setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 16)));
+                        clientMap.get(clientMessage.getClientIp().toString()).setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 16)));      //指向同一个Client，地址相同
                         //更新时间
                         clientObservableList.get(clientMap.get(clientMessage.getClientIp().toString()).getId() - 1).setTime(System.currentTimeMillis());
                         clientMap.get(clientMessage.getClientIp().toString()).setTime(System.currentTimeMillis());      //指向同一个Client，地址相同
@@ -444,92 +433,14 @@ public class KejiaPowerController {
                         //
                         clientObservableList.get(clientMap.get(clientMessage.getClientIp().toString()).getId() - 1).setTime(System.currentTimeMillis());
                         clientMap.get(clientMessage.getClientIp().toString()).setTime(System.currentTimeMillis());      //指向同一个Client，地址相同
-
+                        updateStatusGroup(clientMessage);
                         break;
                 }
-//                            Platform.runLater(new Runnable() {
-//                                @Override
-//                                public void run() {
-//                                    if (!powerObservableList.contains(clientMessage.getClientIp().toString())) {
-//                                        powerObservableList.add(clientMessage.getClientIp().toString());
-//                                        powerStatusObservableList.add(clientMessage.getStatus().toString());
-//                                        powerIdInDisplayTab.setText(new StringBuilder(powerIdInDisplayTab.getText()).append(clientMessage.getClientIp()).toString());
-//                                    }
-//                                }
-//                            });
+
             }
         });
 
     }
-
-//    private class Handler extends Thread{
-//        private ClientMessage cm;
-//
-//        public Handler(ClientMessage cm) {
-//            this.cm = cm;
-//        }
-//
-//        public ClientMessage getCm() {
-//            return cm;
-//        }
-//
-//        public void setCm(ClientMessage cm) {
-//            this.cm = cm;
-//        }
-//
-//        @Override
-//        public void run() {
-//            serverMessage = new ServerMessage();
-//            switch (DataFrame.dataFrameTypeClassify(clientMessage)) {
-//                case HeartBeat:
-//                    serverMessage.generateHeartBeatMessage(clientMessage);
-//                    try {
-//                        tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString())).getOutputStream().write(serverMessage.toString().getBytes());
-//                        tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString())).getOutputStream().flush();
-//                        if (fileInBlockingQueue.size() >= BUFF_SIZE) {
-//                            fileInBlockingQueue.take();
-//                            fileInBlockingQueue.take();
-//                        }
-//
-//                        fileInBlockingQueue.put(clientMessage.toString().getBytes());
-//                        fileInBlockingQueue.put(serverMessage.toString().getBytes());
-//                        updateClientList(clientMessage);
-//                    } catch (InterruptedException | IOException e) {
-//                        e.printStackTrace();
-//                    }
-//
-//                    break;
-//                case Control:
-//                    break;
-//                case Report:
-//                    updateClient(clientMessage);
-//                    try {
-//                        Thread.currentThread().sleep(50);//！！！此处应该时一个大坑，如果（高并发下）messageStringProperty在 50ms 之内变化，数据应该接收不到
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                    //获取tab：根据clientIP获得存入clientMap的client和存入clientObservableList的client对应的序号：序号 == tab的index==电源ID-1。
-////                        Tab tab = powerDisplayTab.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString())));
-//                    //获取tab里控件，进行画图
-////                        AnchorPane anchorPane = (AnchorPane) powerDisplayTab.getSelectionModel().getSelectedItem().getContent();
-//                    AnchorPane anchorPane = (AnchorPane) powerDisplayTab.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString()))).getContent();
-//
-//                    GridPane gridPane = (GridPane) anchorPane.getChildren().get(0);
-//                    VBox vb = (VBox) gridPane.getChildren().get(1);
-//                    LineChart<Number, Number> lineChart = (LineChart<Number, Number>) vb.getChildren().get(0);
-//                    XYChart.Series<Number, Number> vSeries = (XYChart.Series<Number, Number>) lineChart.getData().get(0);
-//                    vSeries.getData().add(new XYChart.Data<Number, Number>(vSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base));
-//                    lineChart = (LineChart<Number, Number>) vb.getChildren().get(1);
-//                    XYChart.Series<Number, Number> cSeries = (XYChart.Series) lineChart.getData().get(0);
-//                    cSeries.getData().add(new XYChart.Data(cSeries.getData().size(), Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base));
-//                    lineChart = (LineChart<Number, Number>) vb.getChildren().get(2);
-//                    XYChart.Series<Number, Number> pSeries = (XYChart.Series) lineChart.getData().get(0);
-//                    pSeries.getData().add(new XYChart.Data(pSeries.getData().size(), Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base / KILO));
-//                    //
-//                    break;
-//            }
-//        }
-//    }
 
     /*
      * 根据采样的信号message，更新tab和table里的组件
@@ -543,7 +454,7 @@ public class KejiaPowerController {
             ct.setId(clientObservableList.size() + 1);
             ct.setName((new StringBuilder("电源-").append(clientObservableList.size() + 1)).toString());
             ct.setIp(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString()));
-            ct.setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 10)));
+            ct.setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 16)));
             ct.setTime(System.currentTimeMillis());
             clientMap.put(clientMessage.getClientIp().toString(), ct);
             clientObservableList.add(ct);
@@ -577,8 +488,8 @@ public class KejiaPowerController {
             ct.setVoltage(Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base);
             ct.setCurrent(Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base);
             ct.setPower(Integer.valueOf(clientMessage.getVoltage().toString(), 16).floatValue() / Base * Integer.valueOf(clientMessage.getCurrent().toString(), 16).floatValue() / Base / KILO);
-            ct.setOperateModel(OperateModel.getOperateModelByCode(Short.parseShort(clientMessage.getModel().toString(), 10)));
-            ct.setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 10)));
+            ct.setOperateModel(OperateModel.getOperateModelByCode(Short.parseShort(clientMessage.getModel().toString(), 16)));
+            ct.setStatus(WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 16)));
             if (ct.getTime() < 0) {
                 ct.setTime(System.currentTimeMillis());
             }
@@ -619,8 +530,6 @@ public class KejiaPowerController {
         initInteractMessage();
         initClientTable();
         powerTabGenerate();
-//        powerTabGenerate();
-//        pool.allowCoreThreadTimeOut(true);
     }
 
     private ObservableList powerObservableList = FXCollections.observableArrayList();
@@ -739,16 +648,62 @@ public class KejiaPowerController {
         }
     }
 
+    private void updateStatusGroup(ClientMessage clientMessage) {
+
+        for (Node b : statusVbox.getChildren()) {
+            Button btn = (Button) b;
+            btn.setBackground(defaultBtnBackground);
+            btn.setFont(Font.getDefault());
+            btn.setTextFill(Paint.valueOf("#000000"));
+        }
+        switch (WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 16))) {
+            case HARDWARE_FAULT:
+                btnStyleSet(hardwareFaultBtn);
+                break;
+            case OT:
+                btnStyleSet(otBtn);
+                break;
+            case INPUT_UV:
+                btnStyleSet(inputUVBtn);
+                break;
+            case SHUTOFF:
+                btnStyleSet(startupBtn);
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        startupBtn.setText("停止");
+                    }
+                });
+                break;
+            case STARTUP:
+                Background background = new Background(new BackgroundFill(Paint.valueOf(defaultColor), defaultBtnBackground.getFills().get(0).getRadii(), defaultBtnBackground.getFills().get(0).getInsets()));
+                startupBtn.setBackground(background);
+                startupBtn.setTextFill(Paint.valueOf("#000000"));
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        startupBtn.setText("运行");
+                    }
+                });
+                break;
+            case COMMUNICATION_TIMEOUT:
+                btnStyleSet(commStatusbtn);
+                break;
+            case UNKNOWN:
+
+            default:
+                break;
+
+        }
+    }
 
     private void updateStatusGroup(ServerMessage serverMessage) {
 
-
         for (Node b : modelVbox.getChildren()) {
             Button btn = (Button) b;
-//                btn.setBackground();
             btn.setBackground(defaultBtnBackground);
             btn.setFont(Font.getDefault());
-
+            btn.setTextFill(Paint.valueOf("#000000"));
         }
 
         switch (OperateModel.getOperateModelByCode(Short.parseShort(serverMessage.getModel().toString()))) {
@@ -778,8 +733,8 @@ public class KejiaPowerController {
         Background background = new Background(new BackgroundFill(Paint.valueOf(defaultColor), defaultBtnBackground.getFills().get(0).getRadii(), defaultBtnBackground.getFills().get(0).getInsets()));
 
         btn.setBackground(background);
-        btn.setTextFill(Paint.valueOf("#000000"));
-        btn.setFont(Font.font(btn.getFont().getSize() + 2));
+        btn.setTextFill(Paint.valueOf("#00993d"));
+//        btn.setFont(Font.font(btn.getFont().getSize() + 2));
     }
 
     private class ReadMessageFromClientService extends Service {
@@ -960,15 +915,16 @@ public class KejiaPowerController {
 
     @FXML
     void fastConfigBtnOnClick(ActionEvent event) {
+        clientControlMap.clear();
         for (Client ct : clientMap.values()) {
             clientControlMap.put(ct, Control.INVALID);
         }
 
         try {
-//            Parent fastConfigRoot = FXMLLoader.load(getClass().getClassLoader().getResource("view/fxml/fastpowerconfig.fxml"));
+//            Parent fastConfigRoot = FXMLLoader.load(getClass().getClassLoader().getResource("view/fxml/fastTestPowerConfig.fxml"));
 
             FXMLLoader fxmlLoader = new FXMLLoader();
-            URL url = getClass().getClassLoader().getResource("view/fxml/fastpowerconfig.fxml");
+            URL url = getClass().getClassLoader().getResource("view/fxml/fastTestPowerConfig.fxml");
             fxmlLoader.setLocation(url);
             Parent fastConfigRoot = fxmlLoader.load();
             FastPowerConfigController fastPowerConfigController = fxmlLoader.getController();
@@ -976,6 +932,7 @@ public class KejiaPowerController {
 //            if (clientControlMap.size() > 0) {
 //                clientControlMap.clear();
 //            }
+//            fastPowerConfigController.getInnerClientObservableList().clear();
             fastPowerConfigController.setInnerClassObservableList(clientControlMap);
             clientControlMap = fastPowerConfigController.getClientControlMap();
 
@@ -1018,7 +975,7 @@ public class KejiaPowerController {
         }
 //        if (powerConnectedBtn.getText().equals("连接设备")) {
 
-        if (!(tcpServer.isRunning() && readMessageFromClientService.isRunning() && heartBeatService.isRunning()) ){
+        if (!(tcpServer.isRunning() || readMessageFromClientService.isRunning() || heartBeatService.isRunning())) {
 //            powerConnectedBtnOnClick(event);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("设备开启监听服务");
@@ -1032,27 +989,32 @@ public class KejiaPowerController {
             ServerMessage sm = new ServerMessage();
             sm.generateControlMessage(ct);
 //            sm.setIdentification();
-            sm.setControl(new StringBuilder(String.format("%04X", clientControlMap.get(ct).getCode())));
+            sm.setControl(new StringBuilder(String.format("%02X", clientControlMap.get(ct).getCode())));
             try {
-                tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString())).getOutputStream().write(sm.toString().getBytes());
-                tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(clientMessage.getClientIp().toString())).getOutputStream().flush();
+                try {
+                    tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().write(sm.toString().getBytes());
+                    tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().flush();
+                } catch (NullPointerException ne) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("未找到连接的设备");
+                    alert.setHeaderText("");
+                    alert.setContentText(ct.getName() + "连接服务尚未打开");
+                    final Optional<ButtonType> opt = alert.showAndWait();
+                }
+
                 if (fileInBlockingQueue.size() >= BUFF_SIZE) {
                     fileInBlockingQueue.take();
                     fileInBlockingQueue.take();
                 }
 
-                fileInBlockingQueue.put(clientMessage.toString().getBytes());
                 fileInBlockingQueue.put(sm.toString().getBytes());
-                updateClientList(clientMessage);
+                fileInBlockingQueue.put(sm.toString().getBytes());
+                updateStatusGroup(sm);
 
             } catch (InterruptedException | IOException e) {
                 e.printStackTrace();
             }
-
         }
-
-
-//        clientSetUpObservableList = FXCollections.observableArrayList();
     }
 }
 
