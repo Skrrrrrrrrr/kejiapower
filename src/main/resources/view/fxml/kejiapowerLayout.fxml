@@ -107,7 +107,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <TabPane fx:id="powerDisplayTab" tabClosingPolicy="UNAVAILABLE" />
+                <TabPane fx:id="powerDisplayTabpane" tabClosingPolicy="UNAVAILABLE" />
             </children>
         </GridPane>
         <GridPane layoutX="600.0" prefHeight="517.0" prefWidth="280.0" AnchorPane.rightAnchor="10.0">

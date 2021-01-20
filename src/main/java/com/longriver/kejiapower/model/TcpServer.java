@@ -113,13 +113,14 @@ public class TcpServer extends Service {
                 logger.info("The TCP Server is running.");
                 logger.info("Current Thread is  " + Thread.currentThread());
                 ServerSocket serverSocket = new ServerSocket(getPORT());
+                Socket socket = new Socket();
 //                ExecutorService pool;
 //                pool = Executors.newCachedThreadPool();
                 ThreadPoolExecutor pool = new ThreadPoolExecutor(CLIENT_AMOUNT, CLIENT_AMOUNT, ALIVE_TIME, SECONDS, new PriorityBlockingQueue<Runnable>());
                 pool.allowCoreThreadTimeOut(true);
                 try {
-                    while (!Thread.currentThread().isInterrupted()) {
-                        pool.execute(new Handler(serverSocket.accept()));
+                    while (!Thread.currentThread().isInterrupted() && !this.isCancelled()) {
+                        pool.execute(new Handler(socket = serverSocket.accept()));
                         logger.info("Server Thread -" + Thread.currentThread() + " starts!");
                     }
                 } catch (Exception e) {
@@ -129,6 +130,9 @@ public class TcpServer extends Service {
                     try {
                         shutdownAndAwaitTermination(pool);
                         if (!serverSocket.isClosed()) {
+                            serverSocket.close();
+                        }
+                        if (!socket.isConnected()) {
                             serverSocket.close();
                         }
                     } catch (Exception e) {
@@ -232,7 +236,7 @@ public class TcpServer extends Service {
                 e.printStackTrace();
                 logger.error(e.toString());
             }
-            logger.info("closeConnections() method Exit");
+            logger.info("handler closeConnections() method Exit");
         }
 
         @Override

@@ -104,7 +104,7 @@ public class KejiaPowerController {
     private GridPane gridOfDisplayTab;
 
     @FXML
-    private TabPane powerDisplayTab;
+    private TabPane powerDisplayTabpane;
 
     @FXML
     private TabPane powerStatusTab;
@@ -198,9 +198,10 @@ public class KejiaPowerController {
 
     //    private ObservableList<Client> clientSetUpObservableList = FXCollections.observableArrayList();//配置界面传回来的ClientList
     private Map<Client, Control> clientControlMap = new HashMap<>();//主界面、配置界面之间传送Client
+    private List<WorkingStatus> workingStatusListForClientsRecieved = new ArrayList<>(CLIENT_AMOUNT);//存储所接入的client工作状态，更新状态按钮（没有采用多页按钮组合的方式）
+    private List<OperateModel> operateModelListForClientControlled = new ArrayList<>(CLIENT_AMOUNT);//同workingStatusList
 
 
-    //    private List<Long> clientBirthTimeList = new ArrayList<Long>(CLIENT_AMOUNT);//Client出生时间
     private File file = null;//存取文件
 
     public KejiaPowerController() {
@@ -255,6 +256,8 @@ public class KejiaPowerController {
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         powerTableView.setItems(clientObservableList);
         powerTableView.setPlaceholder(new Label(""));
+        powerTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
 
     }
 
@@ -334,8 +337,8 @@ public class KejiaPowerController {
 
     private void powerTabGenerate() {
         Tab tab = new Tab();
-        tab.setId(new StringBuilder("powerTab").append(powerDisplayTab.getTabs().size() + 1).toString());
-        tab.setText(new StringBuilder("电源-").append(powerDisplayTab.getTabs().size() + 1).toString());
+        tab.setId(new StringBuilder("powerTab").append(powerDisplayTabpane.getTabs().size() + 1).toString());
+        tab.setText(new StringBuilder("电源-").append(powerDisplayTabpane.getTabs().size() + 1).toString());
 
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setPrefHeight(600);
@@ -353,7 +356,7 @@ public class KejiaPowerController {
 
         anchorPane.getChildren().add(gridPane);
         tab.setContent(anchorPane);
-        powerDisplayTab.getTabs().add(tab);
+        powerDisplayTabpane.getTabs().add(tab);
     }
 
 
@@ -424,7 +427,7 @@ public class KejiaPowerController {
 //                        Tab tab = powerDisplayTab.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString())));
                         //获取tab里控件，进行画图
 //                        AnchorPane anchorPane = (AnchorPane) powerDisplayTab.getSelectionModel().getSelectedItem().getContent();
-                        AnchorPane anchorPane = (AnchorPane) powerDisplayTab.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString()))).getContent();
+                        AnchorPane anchorPane = (AnchorPane) powerDisplayTabpane.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString()))).getContent();
 
                         GridPane gridPane = (GridPane) anchorPane.getChildren().get(0);
                         VBox vb = (VBox) gridPane.getChildren().get(1);
@@ -440,7 +443,9 @@ public class KejiaPowerController {
                         //
                         clientObservableList.get(clientMap.get(clientMessage.getClientIp().toString()).getId() - 1).setTime(System.currentTimeMillis());
                         clientMap.get(clientMessage.getClientIp().toString()).setTime(System.currentTimeMillis());      //指向同一个Client，地址相同
-                        updateStatusGroup(clientMessage);
+//                        updateStatusGroup(clientMessage);
+                        workingStatusListForClientsRecieved.set(clientMap.get(clientMessage.getClientIp().toString()).getId() - 1, clientMap.get(clientMessage.getClientIp().toString()).getStatus());
+                        updateStatusGroup(clientMap.get(clientMessage.getClientIp().toString()).getId() - 1, clientMap.get(clientMessage.getClientIp().toString()).getStatus());
                         break;
                 }
 
@@ -537,6 +542,27 @@ public class KejiaPowerController {
         initInteractMessage();
         initClientTable();
         powerTabGenerate();
+        initStatusBtn();
+        powerDispalyTabInit();
+    }
+
+    private void initStatusBtn() {
+        for (int i = 0; i < CLIENT_AMOUNT; i++) {
+            workingStatusListForClientsRecieved.add(WorkingStatus.UNKNOWN);
+            operateModelListForClientControlled.add(OperateModel.INVALID.INVALID);
+        }
+    }
+
+    private void powerDispalyTabInit(){
+        powerDisplayTabpane.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<Tab>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Tab> ov, Tab t, Tab t1) {
+                        updateStatusGroup(powerDisplayTabpane.getTabs().indexOf(t1),workingStatusListForClientsRecieved.get(powerDisplayTabpane.getTabs().indexOf(t1)));
+                        updateStatusGroup(powerDisplayTabpane.getTabs().indexOf(t1), operateModelListForClientControlled.get(powerDisplayTabpane.getTabs().indexOf(t1)));
+                    }
+                }
+        );
     }
 
     private ObservableList powerObservableList = FXCollections.observableArrayList();
@@ -647,7 +673,9 @@ public class KejiaPowerController {
                 tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().write(txTextArea.getText().replaceAll(" +", "").getBytes());
                 tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().flush();
 //                tcpServer.Send(outBlockingQueue);
-                updateStatusGroup(sm);
+//                updateStatusGroup(sm);
+                operateModelListForClientControlled.set(clientMap.get(sm.getClientIp()).getId()-1, clientMap.get(sm.getClientIp()).getOperateModel());
+
             }
         } catch (IOException | NullPointerException e) {
 //            e.printStackTrace();
@@ -655,7 +683,7 @@ public class KejiaPowerController {
         }
     }
 
-    private void updateStatusGroup(ClientMessage clientMessage) {
+    private void updateStatusGroup(int index, WorkingStatus    workingStatus) {
 
         for (Node b : statusVbox.getChildren()) {
             Button btn = (Button) b;
@@ -663,7 +691,7 @@ public class KejiaPowerController {
             btn.setFont(Font.getDefault());
             btn.setTextFill(Paint.valueOf("#000000"));
         }
-        switch (WorkingStatus.getWorkingStatusByCode(Short.parseShort(clientMessage.getStatus().toString(), 16))) {
+        switch (workingStatus) {
             case HARDWARE_FAULT:
                 btnStyleSet(hardwareFaultBtn);
                 break;
@@ -704,7 +732,7 @@ public class KejiaPowerController {
         }
     }
 
-    private void updateStatusGroup(ServerMessage serverMessage) {
+    private void updateStatusGroup(int index ,OperateModel operateModel) {
 
         for (Node b : modelVbox.getChildren()) {
             Button btn = (Button) b;
@@ -713,7 +741,7 @@ public class KejiaPowerController {
             btn.setTextFill(Paint.valueOf("#000000"));
         }
 
-        switch (OperateModel.getOperateModelByCode(Short.parseShort(serverMessage.getModel().toString()))) {
+        switch (operateModel) {
             case LOCAL:
                 btnStyleSet(localModelBtn);
                 break;
@@ -756,8 +784,8 @@ public class KejiaPowerController {
                             messageStringProperty.setValue("");
                             messageStringProperty.setValue(getInBlockingQueue().take());
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
-                            logger.error(e.getMessage());
+//                            e.printStackTrace();
+                            logger.info(e.getMessage());
                             Thread.currentThread().interrupt();
                         }
                     }
@@ -974,6 +1002,16 @@ public class KejiaPowerController {
                 try {
                     tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().write(sm.toString().getBytes());
                     tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().flush();
+                    if (fileInBlockingQueue.size() >= BUFF_SIZE) {
+                        fileInBlockingQueue.take();
+                        fileInBlockingQueue.take();
+                    }
+
+                    fileInBlockingQueue.put(sm.toString().getBytes());
+                    fileInBlockingQueue.put(sm.toString().getBytes());
+//                    updateStatusGroup(sm);
+                    operateModelListForClientControlled.set(ct.getId()-1, ct.getOperateModel());
+
                 } catch (NullPointerException ne) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("未找到连接的设备");
@@ -981,16 +1019,6 @@ public class KejiaPowerController {
                     alert.setContentText(ct.getName() + "连接服务尚未打开");
                     final Optional<ButtonType> opt = alert.showAndWait();
                 }
-
-                if (fileInBlockingQueue.size() >= BUFF_SIZE) {
-                    fileInBlockingQueue.take();
-                    fileInBlockingQueue.take();
-                }
-
-                fileInBlockingQueue.put(sm.toString().getBytes());
-                fileInBlockingQueue.put(sm.toString().getBytes());
-                updateStatusGroup(sm);
-
             } catch (InterruptedException | IOException e) {
                 e.printStackTrace();
             }
@@ -1026,7 +1054,7 @@ public class KejiaPowerController {
 //                Parent autoTestPowerConfigRoot = FXMLLoader.load(getClass().getClassLoader().getResource("view/fxml/autoTestPowerTab.fxml"));
                 Tab tab = new Tab(c.getName(), autoTestPowerConfigRoot);
                 tab.setClosable(false);
-                tab.setId(String.valueOf(c.getId()));
+                tab.setId(new StringBuilder("powerTab")+new StringBuilder((c.getId()-1)).toString());
                 tabPane.getTabs().add(tab);
                 AutoTestPowerTabController autoTestPowerTabController = fxmlLoader.getController();
                 autoTestPowerTabController.clientToInnerClientPara(c);
@@ -1097,6 +1125,58 @@ public class KejiaPowerController {
 
     @FXML
     void autoStartBtnOnClick(ActionEvent event) {
+        if (!(tcpServer.isRunning() || readMessageFromClientService.isRunning() || heartBeatService.isRunning())) {
+//            powerConnectedBtnOnClick(event);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("设备开启监听服务");
+            alert.setHeaderText("");
+            alert.setContentText("连接服务尚未打开");
+            final Optional<ButtonType> opt = alert.showAndWait();
+            return;
+        }
+        if (innerClientsArrayListForAutoTest.size() <= 0) {
+            return;
+        }
+        for (List<InnerClient> innerClientList : innerClientsArrayListForAutoTest) {
+            if (innerClientList.size() <= 0) {
+                continue;
+            }
+            for (InnerClient ic : innerClientList) {
+                Client client = new Client();
+                client.setId(ic.getId());
+                client.setName(ic.getName());
+                client.setIp(ic.getIp());
+                client.setVoltage(ic.getVoltage());
+                client.setCurrent(ic.getCurrent());
+                client.setOperateModel(ic.getOperateModel());
+                ServerMessage sm = new ServerMessage();
+                sm.generateControlMessage(client);
+                sm.setControl(new StringBuilder(String.format("%02X", Control.getWorkingStatusByStatus(ic.getControlled()).getCode())));
+                try {
+                    try {
+                        tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().write(sm.toString().getBytes());
+                        tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().flush();
+                        if (fileInBlockingQueue.size() >= BUFF_SIZE) {
+                            fileInBlockingQueue.take();
+                            fileInBlockingQueue.take();
+                        }
+
+                        fileInBlockingQueue.put(sm.toString().getBytes());
+                        fileInBlockingQueue.put(sm.toString().getBytes());
+//                        updateStatusGroup(sm);
+                        operateModelListForClientControlled.set(ic.getId(), ic.getOperateModel());
+                    } catch (NullPointerException ne) {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("未找到连接的设备");
+                        alert.setHeaderText("");
+                        alert.setContentText(client.getName() + "连接服务尚未打开");
+                        final Optional<ButtonType> opt = alert.showAndWait();
+                    }
+                } catch (InterruptedException | IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
 

@@ -92,13 +92,13 @@ public class AutoTestPowerTabController {
 
         TableColumn<InnerClient, Integer> gapColumn = new TableColumn<>("时间");
         TableColumn<InnerClient, Float> voltageColumn = new TableColumn<>("电压");
-//        TableColumn<InnerClient, Float> currentColumn = new TableColumn<>("电流");
+        TableColumn<InnerClient, Float> currentColumn = new TableColumn<>("电流");
         TableColumn<InnerClient, OperateModel> modelColumn = new TableColumn<>("模式");
         TableColumn<InnerClient, Control> controlColumn = new TableColumn<>("控制");
 
         gapColumn.setCellValueFactory(new PropertyValueFactory<>("gap"));
         voltageColumn.setCellValueFactory(new PropertyValueFactory<>("voltage"));
-//        currentColumn.setCellValueFactory(new PropertyValueFactory<>("current"));
+        currentColumn.setCellValueFactory(new PropertyValueFactory<>("current"));
         modelColumn.setCellValueFactory(new PropertyValueFactory<>("operateModel"));
         controlColumn.setCellValueFactory(new PropertyValueFactory<>("controlled"));
 
@@ -129,14 +129,14 @@ public class AutoTestPowerTabController {
             }
         });
 
-//        currentColumn.setCellFactory(new Callback<TableColumn<InnerClient, Float>, TableCell<InnerClient, Float>>() {
-//            @Override
-//            public TableCell<InnerClient, Float> call(TableColumn<InnerClient, Float> param) {
-//                return new TextFieldTableCell<>(new FloatStringConverter());
-//            }
-//        });
+        currentColumn.setCellFactory(new Callback<TableColumn<InnerClient, Float>, TableCell<InnerClient, Float>>() {
+            @Override
+            public TableCell<InnerClient, Float> call(TableColumn<InnerClient, Float> param) {
+                return new TextFieldTableCell<>(new FloatStringConverter());
+            }
+        });
 
-        columns.addAll(gapColumn, voltageColumn, modelColumn, controlColumn);
+        columns.addAll(gapColumn, voltageColumn, currentColumn,modelColumn, controlColumn);
 
         dataTableView.setItems(innerClientObservableList);
         dataTableView.setEditable(true);
@@ -174,6 +174,25 @@ public class AutoTestPowerTabController {
             } catch (NumberFormatException ne) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("电压值错误");
+                alert.setHeaderText("");
+                alert.setContentText("请输入正确数值!");
+                final Optional<ButtonType> opt = alert.showAndWait();
+            }
+        });
+        currentColumn.setOnEditCommit((TableColumn.CellEditEvent<InnerClient, Float> event) -> {
+            try {
+                if (event.getNewValue() < 0.0) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("电流值错误");
+                    alert.setHeaderText("");
+                    alert.setContentText("电流值不能为负!");
+                    final Optional<ButtonType> opt = alert.showAndWait();
+                    return;
+                }
+                innerClientObservableList.get(event.getTablePosition().getRow()).setVoltage(event.getNewValue());
+            } catch (NumberFormatException ne) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("电流值错误");
                 alert.setHeaderText("");
                 alert.setContentText("请输入正确数值!");
                 final Optional<ButtonType> opt = alert.showAndWait();
@@ -217,7 +236,7 @@ public class AutoTestPowerTabController {
         innerClient.setIp(client.getIp());
 //        innerClient.setStatus(client.getStatus());
         innerClient.setStatus(WorkingStatus.UNKNOWN);
-        innerClient.setOperateModel(client.getOperateModel());
+        innerClient.setOperateModel(OperateModel.INVALID);
         innerClient.setControlled(Control.INVALID.toString());
         innerClientObservableList.add(innerClient);
 

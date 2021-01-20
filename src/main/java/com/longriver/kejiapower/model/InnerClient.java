@@ -1,7 +1,6 @@
 package com.longriver.kejiapower.model;
 
 import javafx.beans.property.*;
-import sun.plugin2.ipc.InProcEvent;
 
 
 //构造新实体，为了在配置页tableview展示，增加了一项：selected
