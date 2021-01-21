@@ -4,7 +4,7 @@ import javafx.beans.property.*;
 
 
 //构造新实体，为了在配置页tableview展示，增加了一项：selected
-public class InnerClient extends Client {
+public class InnerClient extends Client implements Cloneable {
 
     private IntegerProperty gap = new SimpleIntegerProperty(0);//设置自动测试时，每个状态的时间间隔
     private StringProperty controlled = new SimpleStringProperty();
@@ -46,5 +46,12 @@ public class InnerClient extends Client {
 
     public void setSelected(boolean selected) {
         this.selected.set(selected);
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException
+    {
+        Object object = super.clone();
+        return object;
     }
 }

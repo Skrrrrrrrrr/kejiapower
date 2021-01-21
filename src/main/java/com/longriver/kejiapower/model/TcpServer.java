@@ -28,7 +28,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
  */
 
 
-public class TcpServer extends Service {
+public class TcpServer extends Service<ThreadPoolExecutor> {
 
     //必须实现线程，否则主界面卡死在内部类的.accept()
     /* Setting up variables */
@@ -105,11 +105,13 @@ public class TcpServer extends Service {
     }
 
     @Override
-    protected Task createTask() {
+    protected Task<ThreadPoolExecutor> createTask() {
 
-        Task<Void> task = new Task<Void>() {
+        Task<ThreadPoolExecutor> task = new Task<ThreadPoolExecutor>() {
             @Override
-            protected Void call() throws Exception {
+            protected ThreadPoolExecutor call() throws Exception {
+
+
                 logger.info("The TCP Server is running.");
                 logger.info("Current Thread is  " + Thread.currentThread());
                 ServerSocket serverSocket = new ServerSocket(getPORT());
@@ -141,7 +143,7 @@ public class TcpServer extends Service {
                     }
                     logger.info("closeConnections TcpServer：handler method Exit");
                 }
-                return null;
+                return pool;
             }
         };
 

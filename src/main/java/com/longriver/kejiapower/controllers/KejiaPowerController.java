@@ -18,6 +18,7 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.ScheduledService;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -448,10 +449,8 @@ public class KejiaPowerController {
                         updateStatusGroup(clientMap.get(clientMessage.getClientIp().toString()).getId() - 1, clientMap.get(clientMessage.getClientIp().toString()).getStatus());
                         break;
                 }
-
             }
         });
-
     }
 
     /*
@@ -553,12 +552,12 @@ public class KejiaPowerController {
         }
     }
 
-    private void powerDispalyTabInit(){
+    private void powerDispalyTabInit() {
         powerDisplayTabpane.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<Tab>() {
                     @Override
                     public void changed(ObservableValue<? extends Tab> ov, Tab t, Tab t1) {
-                        updateStatusGroup(powerDisplayTabpane.getTabs().indexOf(t1),workingStatusListForClientsRecieved.get(powerDisplayTabpane.getTabs().indexOf(t1)));
+                        updateStatusGroup(powerDisplayTabpane.getTabs().indexOf(t1), workingStatusListForClientsRecieved.get(powerDisplayTabpane.getTabs().indexOf(t1)));
                         updateStatusGroup(powerDisplayTabpane.getTabs().indexOf(t1), operateModelListForClientControlled.get(powerDisplayTabpane.getTabs().indexOf(t1)));
                     }
                 }
@@ -581,8 +580,6 @@ public class KejiaPowerController {
         if (defaultBtnBackground == null) {
             nodePropertyArchive();
         }
-
-        //        int clientThread = powerDisplayTab.getTabs().size();
         try {
             switch (powerConnectedBtn.getText()) {
                 case "连接设备":
@@ -599,6 +596,21 @@ public class KejiaPowerController {
                     heartBeatService.setPeriod(Duration.millis(ALIVE_TIME));
                     if (!heartBeatService.isRunning()) {
                         heartBeatService.start();
+                    }
+
+                    for (int i = 0; i < clientMap.size(); i++) {
+                        AnchorPane anchorPane = (AnchorPane) powerDisplayTabpane.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString()))).getContent();
+                        GridPane gridPane = (GridPane) anchorPane.getChildren().get(0);
+                        VBox vb = (VBox) gridPane.getChildren().get(1);
+                        LineChart<Number, Number> lineChart = (LineChart<Number, Number>) vb.getChildren().get(0);
+                        XYChart.Series<Number, Number> vSeries = (XYChart.Series<Number, Number>) lineChart.getData().get(0);
+                        lineChart = (LineChart<Number, Number>) vb.getChildren().get(1);
+                        XYChart.Series<Number, Number> cSeries = (XYChart.Series) lineChart.getData().get(0);
+                        lineChart = (LineChart<Number, Number>) vb.getChildren().get(2);
+                        XYChart.Series<Number, Number> pSeries = (XYChart.Series) lineChart.getData().get(0);
+                        vSeries.getData().clear();
+                        cSeries.getData().clear();
+                        pSeries.getData().clear();
                     }
                     break;
                 case "断开设备":
@@ -674,7 +686,7 @@ public class KejiaPowerController {
                 tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().flush();
 //                tcpServer.Send(outBlockingQueue);
 //                updateStatusGroup(sm);
-                operateModelListForClientControlled.set(clientMap.get(sm.getClientIp()).getId()-1, clientMap.get(sm.getClientIp()).getOperateModel());
+                operateModelListForClientControlled.set(clientMap.get(sm.getClientIp()).getId() - 1, clientMap.get(sm.getClientIp()).getOperateModel());
 
             }
         } catch (IOException | NullPointerException e) {
@@ -683,7 +695,7 @@ public class KejiaPowerController {
         }
     }
 
-    private void updateStatusGroup(int index, WorkingStatus    workingStatus) {
+    private void updateStatusGroup(int index, WorkingStatus workingStatus) {
 
         for (Node b : statusVbox.getChildren()) {
             Button btn = (Button) b;
@@ -732,7 +744,7 @@ public class KejiaPowerController {
         }
     }
 
-    private void updateStatusGroup(int index ,OperateModel operateModel) {
+    private void updateStatusGroup(int index, OperateModel operateModel) {
 
         for (Node b : modelVbox.getChildren()) {
             Button btn = (Button) b;
@@ -785,7 +797,7 @@ public class KejiaPowerController {
                             messageStringProperty.setValue(getInBlockingQueue().take());
                         } catch (InterruptedException e) {
 //                            e.printStackTrace();
-                            logger.info(e.getMessage());
+                            logger.info("ReadMessageFromClientService$Call method interrupted!");
                             Thread.currentThread().interrupt();
                         }
                     }
@@ -1010,7 +1022,7 @@ public class KejiaPowerController {
                     fileInBlockingQueue.put(sm.toString().getBytes());
                     fileInBlockingQueue.put(sm.toString().getBytes());
 //                    updateStatusGroup(sm);
-                    operateModelListForClientControlled.set(ct.getId()-1, ct.getOperateModel());
+                    operateModelListForClientControlled.set(ct.getId() - 1, ct.getOperateModel());
 
                 } catch (NullPointerException ne) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -1054,7 +1066,7 @@ public class KejiaPowerController {
 //                Parent autoTestPowerConfigRoot = FXMLLoader.load(getClass().getClassLoader().getResource("view/fxml/autoTestPowerTab.fxml"));
                 Tab tab = new Tab(c.getName(), autoTestPowerConfigRoot);
                 tab.setClosable(false);
-                tab.setId(new StringBuilder("powerTab")+new StringBuilder((c.getId()-1)).toString());
+                tab.setId(new StringBuilder("powerTab") + new StringBuilder((c.getId() - 1)).toString());
                 tabPane.getTabs().add(tab);
                 AutoTestPowerTabController autoTestPowerTabController = fxmlLoader.getController();
                 autoTestPowerTabController.clientToInnerClientPara(c);
@@ -1125,6 +1137,15 @@ public class KejiaPowerController {
 
     @FXML
     void autoStartBtnOnClick(ActionEvent event) {
+
+        if (innerClientsArrayListForAutoTest.size() <= 0) {
+            return;
+        }
+
+        if (tcpServer == null || readMessageFromClientService == null || heartBeatService == null) {
+            return;
+        }
+
         if (!(tcpServer.isRunning() || readMessageFromClientService.isRunning() || heartBeatService.isRunning())) {
 //            powerConnectedBtnOnClick(event);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -1134,50 +1155,166 @@ public class KejiaPowerController {
             final Optional<ButtonType> opt = alert.showAndWait();
             return;
         }
-        if (innerClientsArrayListForAutoTest.size() <= 0) {
-            return;
-        }
+
         for (List<InnerClient> innerClientList : innerClientsArrayListForAutoTest) {
             if (innerClientList.size() <= 0) {
                 continue;
             }
-            for (InnerClient ic : innerClientList) {
-                Client client = new Client();
-                client.setId(ic.getId());
-                client.setName(ic.getName());
-                client.setIp(ic.getIp());
-                client.setVoltage(ic.getVoltage());
-                client.setCurrent(ic.getCurrent());
-                client.setOperateModel(ic.getOperateModel());
-                ServerMessage sm = new ServerMessage();
-                sm.generateControlMessage(client);
-                sm.setControl(new StringBuilder(String.format("%02X", Control.getWorkingStatusByStatus(ic.getControlled()).getCode())));
-                try {
-                    try {
-                        tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().write(sm.toString().getBytes());
-                        tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().flush();
-                        if (fileInBlockingQueue.size() >= BUFF_SIZE) {
-                            fileInBlockingQueue.take();
-                            fileInBlockingQueue.take();
-                        }
 
-                        fileInBlockingQueue.put(sm.toString().getBytes());
-                        fileInBlockingQueue.put(sm.toString().getBytes());
-//                        updateStatusGroup(sm);
-                        operateModelListForClientControlled.set(ic.getId(), ic.getOperateModel());
-                    } catch (NullPointerException ne) {
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("未找到连接的设备");
-                        alert.setHeaderText("");
-                        alert.setContentText(client.getName() + "连接服务尚未打开");
-                        final Optional<ButtonType> opt = alert.showAndWait();
+            ControlMessageSendService controlMessageSendService = new ControlMessageSendService();
+            controlMessageSendService.valueProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                    if (innerClientList.size() <= 0) {
+                        controlMessageSendService.cancel();
+                        return;
                     }
-                } catch (InterruptedException | IOException e) {
-                    e.printStackTrace();
+                    logger.info(controlMessageSendService.getTitle() + ": oldValue ==>> " + newValue);
+                    InnerClient ic = innerClientList.get(0);
+                    if (newValue.intValue() != ic.getGap()) {
+                        return;
+                    }
+                    innerClientList.remove(ic);
+                    Client client = new Client();
+                    client.setId(ic.getId());
+                    client.setName(ic.getName());
+                    client.setIp(ic.getIp());
+                    client.setVoltage(ic.getVoltage());
+                    client.setCurrent(ic.getCurrent());
+                    client.setOperateModel(ic.getOperateModel());
+                    ServerMessage sm = new ServerMessage();
+                    sm.generateControlMessage(client);
+                    sm.setControl(new StringBuilder(String.format("%02X", Control.getWorkingStatusByStatus(ic.getControlled()).getCode())));
+                    try {
+                        try {
+                            tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().write(sm.toString().getBytes());
+                            tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().flush();
+                            if (fileInBlockingQueue.size() >= BUFF_SIZE) {
+                                fileInBlockingQueue.take();
+                                fileInBlockingQueue.take();
+                            }
+
+                            fileInBlockingQueue.put(sm.toString().getBytes());
+                            fileInBlockingQueue.put(sm.toString().getBytes());
+//                        updateStatusGroup(sm);
+                            operateModelListForClientControlled.set(ic.getId(), ic.getOperateModel());
+                        } catch (NullPointerException ne) {
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("未找到连接的设备");
+                            alert.setHeaderText("");
+                            alert.setContentText(client.getName() + "连接服务尚未打开");
+                            final Optional<ButtonType> opt = alert.showAndWait();
+                        }
+                    } catch (InterruptedException | IOException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
+            });
+            controlMessageSendService.setPeriod(Duration.seconds(1));
+            controlMessageSendService.setDelay(Duration.millis(50));
+            controlMessageSendService.start();
+            logger.info(Thread.currentThread() + " timeScheduledService init!");
         }
     }
+
+
+    private class ControlMessageSendService extends ScheduledService<Number> {
+
+        @Override
+        protected Task<Number> createTask() {
+
+            Task<Number> task = new Task<Number>() {
+                int timer_1S = 0;
+
+                @Override
+                protected Number call() throws Exception {
+                    this.updateTitle(Thread.currentThread().getName());
+                    while (!isCancelled()) {
+                        Thread.sleep(1000);
+                        this.updateValue(timer_1S++);
+                    }
+                    return null;
+                }
+            };
+
+            return task;
+        }
+    }
+
+//    private int timeCounter = 0;
+
+//    private class TimeScheduledService extends ScheduledService<Number> {
+//
+//        List<InnerClient> innerClientList;
+//
+//        public List<InnerClient> getInnerClientList() {
+//            return innerClientList;
+//        }
+//
+//        public void setInnerClientList(List<InnerClient> innerClientList) {
+//            this.innerClientList = innerClientList;
+//        }
+//        @Override
+//        protected Task<Number> createTask() {
+//
+//            Task<Number> task = new Task<Number>() {
+//                @Override
+//                protected void updateValue(Number value) {
+//                    super.updateValue(value);
+//                    logger.info(Thread.currentThread() +  " value  ==>> "+value);
+//                    InnerClient ic = innerClientList.get(0);
+//                    if (value.intValue() != ic.getGap()) {
+//                        return;
+//                    }
+//                    innerClientList.remove(ic);
+//                    Client client = new Client();
+//                    client.setId(ic.getId());
+//                    client.setName(ic.getName());
+//                    client.setIp(ic.getIp());
+//                    client.setVoltage(ic.getVoltage());
+//                    client.setCurrent(ic.getCurrent());
+//                    client.setOperateModel(ic.getOperateModel());
+//                    ServerMessage sm = new ServerMessage();
+//                    sm.generateControlMessage(client);
+//                    sm.setControl(new StringBuilder(String.format("%02X", Control.getWorkingStatusByStatus(ic.getControlled()).getCode())));
+//                    try {
+//                        try {
+//                            tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().write(sm.toString().getBytes());
+//                            tcpServer.getSocketMap().get(StringUtils.hexStr2Ip(sm.getClientIp().toString())).getOutputStream().flush();
+//                            if (fileInBlockingQueue.size() >= BUFF_SIZE) {
+//                                fileInBlockingQueue.take();
+//                                fileInBlockingQueue.take();
+//                            }
+//
+//                            fileInBlockingQueue.put(sm.toString().getBytes());
+//                            fileInBlockingQueue.put(sm.toString().getBytes());
+////                        updateStatusGroup(sm);
+//                            operateModelListForClientControlled.set(ic.getId(), ic.getOperateModel());
+//                        } catch (NullPointerException ne) {
+//                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                            alert.setTitle("未找到连接的设备");
+//                            alert.setHeaderText("");
+//                            alert.setContentText(client.getName() + "连接服务尚未打开");
+//                            final Optional<ButtonType> opt = alert.showAndWait();
+//                        }
+//                    } catch (InterruptedException | IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                    if (innerClientList.size() <= 0) {
+//                        this.cancel();
+//                    }
+//                }
+//
+//                @Override
+//                protected Number call() throws Exception {
+////                    timeCounter++;
+//                    logger.info(Thread.currentThread() + " timeCounter ==>" + timeCounter);
+//                    return timeCounter++;
+//                }
+//            };
+//            return task;
+//        }
+//    }
 }
 
 

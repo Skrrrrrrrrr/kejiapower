@@ -5,11 +5,13 @@ import com.longriver.kejiapower.model.InnerClient;
 import com.longriver.kejiapower.utils.Control;
 import com.longriver.kejiapower.utils.OperateModel;
 import com.longriver.kejiapower.utils.WorkingStatus;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Side;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -22,6 +24,7 @@ import javafx.util.Callback;
 import javafx.util.converter.FloatStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 
+import javax.print.attribute.standard.NumberUp;
 import java.util.*;
 
 public class AutoTestPowerTabController {
@@ -79,10 +82,15 @@ public class AutoTestPowerTabController {
     private void lineChartInit() {
         NumberAxis x = new NumberAxis(0, 120, 20);
         NumberAxis y = new NumberAxis(0, 1000, 100);
+        x.setAutoRanging(true);
+        y.setAutoRanging(true);
         voltageSeries.setName("Voltage(V)");
 //        pChart.setTranslateY(-80);
         setUpLineChart = new LineChart<Number, Number>(x, y);
         setUpLineChart.getData().add(voltageSeries);
+        setUpLineChart.setLegendSide(Side.TOP);
+//        setUpLineChart.setLegendVisible(true);
+        setUpLineChart.setCreateSymbols(false);
         ((GridPane) dataTableView.getParent()).add(setUpLineChart, 0, 0);
 
     }
@@ -136,7 +144,7 @@ public class AutoTestPowerTabController {
             }
         });
 
-        columns.addAll(gapColumn, voltageColumn, currentColumn,modelColumn, controlColumn);
+        columns.addAll(gapColumn, voltageColumn, currentColumn, modelColumn, controlColumn);
 
         dataTableView.setItems(innerClientObservableList);
         dataTableView.setEditable(true);
@@ -270,10 +278,30 @@ public class AutoTestPowerTabController {
 
     @FXML
     void setUpBtnOnClick(ActionEvent event) {
-//        innerClientArrayListForAutoTest= innerClientArrayListForAutoTest;//java中不能直接用=，否则为同一个应用
-        for (InnerClient ic : innerClientObservableList) {
-            innerClientArrayListForAutoTest.add(ic);
+        if (innerClientObservableList.size() <= 0) {
+            return;
         }
-    }
+        voltageSeries.getData().clear();
+        float voltage = 0;
+        voltageSeries.getData().add(new XYChart.Data<Number, Number>(0, voltage));
 
+        for (InnerClient ic : innerClientObservableList) {
+            voltageSeries.getData().add(new XYChart.Data<Number, Number>(ic.getGap(), voltage));
+            innerClientArrayListForAutoTest.add(ic);
+            voltage = ic.getVoltage();
+            voltageSeries.getData().add(new XYChart.Data<Number, Number>(ic.getGap(), voltage));
+        }
+        XYChart.Series tailSeries = new XYChart.Series();
+        tailSeries.getData().add(new XYChart.Data<Number, Number>(innerClientObservableList.get(innerClientObservableList.size() - 1).getGap(), innerClientObservableList.get(innerClientObservableList.size() - 1).getVoltage()));
+        tailSeries.getData().add(new XYChart.Data<Number, Number>(innerClientObservableList.get(innerClientObservableList.size() - 1).getGap() + 50, innerClientObservableList.get(innerClientObservableList.size() - 1).getVoltage()));
+        setUpLineChart.getData().add(tailSeries);
+//        ((NumberAxis) setUpLineChart.getXAxis()).getRange();
+//        Platform.runLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                voltageSeries.getData().add(new XYChart.Data<Number, Number>(setUpLineChart.getXAxis().getRange(), voltageSeries.getData().get(-1)));
+//            }
+//        });
+
+    }
 }
