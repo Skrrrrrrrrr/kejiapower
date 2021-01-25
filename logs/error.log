@@ -15,3 +15,17 @@
 2021-01-25 13:53:45:984  [ Thread-12:17149 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
 2021-01-25 13:53:46:139  [ Thread-12:17304 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
 2021-01-25 13:53:46:293  [ Thread-12:17458 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:33:565  [ pool-2-thread-1:83604 ] - [ ERROR ]  pool-2-thread-1::Socket closed
+2021-01-25 14:36:33:567  [ Thread-5:83606 ] - [ ERROR ]  java.net.SocketException: socket closed
+2021-01-25 14:36:33:567  [ pool-2-thread-1:83606 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-25 14:36:39:878  [ Thread-13:89917 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:40:033  [ Thread-13:90072 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:40:181  [ Thread-13:90220 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:40:334  [ Thread-13:90373 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:40:486  [ Thread-13:90525 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:40:640  [ Thread-13:90679 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:40:795  [ Thread-13:90834 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:40:946  [ Thread-13:90985 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:41:099  [ Thread-13:91138 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:41:251  [ Thread-13:91290 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:41:405  [ Thread-13:91444 ] - [ ERROR ]  Cannot write data, document seems to have been closed already

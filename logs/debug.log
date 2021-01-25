@@ -107,3 +107,85 @@
 2021-01-25 13:53:46:139  [ Thread-12:17304 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
 2021-01-25 13:53:46:290  [ Thread-14:17455 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
 2021-01-25 13:53:46:293  [ Thread-12:17458 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:35:09:961  [ Thread-5:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-25 14:35:09:966  [ Thread-5:5 ] - [ INFO ]  Current Thread is  Thread[Thread-5,1,javafx concurrent thread pool]
+2021-01-25 14:35:09:970  [ JavaFX Application Thread:9 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-25 14:35:14:374  [ Thread-5:4413 ] - [ INFO ]  Server Thread -Thread[Thread-5,1,javafx concurrent thread pool] starts!
+2021-01-25 14:35:14:375  [ pool-2-thread-1:4414 ] - [ INFO ]  Current Handler Thread is : Thread[pool-2-thread-1,5,main]
+2021-01-25 14:35:14:375  [ pool-2-thread-1:4414 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-25 14:35:14:375  [ pool-2-thread-1:4414 ] - [ INFO ]  Attempting to connect a user...
+2021-01-25 14:35:14:376  [ pool-2-thread-1:4415 ] - [ INFO ]  User's Addr : 192.168.5.10:53116
+2021-01-25 14:35:15:068  [ pool-2-thread-1:5107 ] - [ INFO ]  采集到/192.168.5.10:53116 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:35:15:069  [ pool-2-thread-1:5108 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-25 14:35:15:196  [ pool-2-thread-1:5235 ] - [ INFO ]  采集到/192.168.5.10:53116 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:35:15:197  [ pool-2-thread-1:5236 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-25 14:35:15:324  [ pool-2-thread-1:5363 ] - [ INFO ]  采集到/192.168.5.10:53116 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:35:15:325  [ pool-2-thread-1:5364 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-25 14:35:15:469  [ pool-2-thread-1:5508 ] - [ INFO ]  采集到/192.168.5.10:53116 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:35:15:469  [ pool-2-thread-1:5508 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-25 14:35:15:603  [ pool-2-thread-1:5642 ] - [ INFO ]  采集到/192.168.5.10:53116 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:35:15:604  [ pool-2-thread-1:5643 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-25 14:35:15:740  [ pool-2-thread-1:5779 ] - [ INFO ]  采集到/192.168.5.10:53116 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:35:15:740  [ pool-2-thread-1:5779 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-25 14:35:15:876  [ pool-2-thread-1:5915 ] - [ INFO ]  采集到/192.168.5.10:53116 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:35:15:877  [ pool-2-thread-1:5916 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-25 14:35:16:140  [ pool-2-thread-1:6179 ] - [ INFO ]  采集到/192.168.5.10:53116 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:35:16:140  [ pool-2-thread-1:6179 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-25 14:35:16:284  [ pool-2-thread-1:6323 ] - [ INFO ]  采集到/192.168.5.10:53116 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:35:16:285  [ pool-2-thread-1:6324 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-25 14:35:16:435  [ pool-2-thread-1:6474 ] - [ INFO ]  采集到/192.168.5.10:53116 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:35:16:436  [ pool-2-thread-1:6475 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-25 14:35:16:580  [ pool-2-thread-1:6619 ] - [ INFO ]  采集到/192.168.5.10:53116 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:35:16:581  [ pool-2-thread-1:6620 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-25 14:35:16:724  [ pool-2-thread-1:6763 ] - [ INFO ]  采集到/192.168.5.10:53116 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:35:16:725  [ pool-2-thread-1:6764 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-25 14:35:16:852  [ pool-2-thread-1:6891 ] - [ INFO ]  采集到/192.168.5.10:53116 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:35:16:852  [ pool-2-thread-1:6891 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-25 14:36:33:565  [ pool-2-thread-1:83604 ] - [ ERROR ]  pool-2-thread-1::Socket closed
+2021-01-25 14:36:33:567  [ pool-2-thread-1:83606 ] - [ INFO ]  pool-2-thread-1 terminated!
+2021-01-25 14:36:33:567  [ Thread-5:83606 ] - [ ERROR ]  java.net.SocketException: socket closed
+2021-01-25 14:36:33:567  [ Thread-5:83606 ] - [ INFO ]  closeConnections TcpServer：handler method Exit
+2021-01-25 14:36:33:567  [ pool-2-thread-1:83606 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-25 14:36:33:567  [ pool-2-thread-1:83606 ] - [ INFO ]  handler closeConnections() method Exit
+2021-01-25 14:36:33:574  [ Thread-8:83613 ] - [ INFO ]  ReadMessageFromClientService$Call method interrupted!
+2021-01-25 14:36:37:290  [ Thread-11:87329 ] - [ INFO ]  The TCP Server is running.
+2021-01-25 14:36:37:291  [ Thread-11:87330 ] - [ INFO ]  Current Thread is  Thread[Thread-11,1,javafx concurrent thread pool]
+2021-01-25 14:36:37:301  [ JavaFX Application Thread:87340 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-25 14:36:39:013  [ Thread-11:89052 ] - [ INFO ]  Server Thread -Thread[Thread-11,1,javafx concurrent thread pool] starts!
+2021-01-25 14:36:39:014  [ pool-2-thread-2:89053 ] - [ INFO ]  Current Handler Thread is : Thread[pool-2-thread-2,5,main]
+2021-01-25 14:36:39:015  [ pool-2-thread-2:89054 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-25 14:36:39:015  [ pool-2-thread-2:89054 ] - [ INFO ]  Attempting to connect a user...
+2021-01-25 14:36:39:015  [ pool-2-thread-2:89054 ] - [ INFO ]  User's Addr : 192.168.5.10:53144
+2021-01-25 14:36:39:820  [ pool-2-thread-2:89859 ] - [ INFO ]  采集到/192.168.5.10:53144 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:36:39:820  [ pool-2-thread-2:89859 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-25 14:36:39:878  [ Thread-13:89917 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:39:972  [ pool-2-thread-2:90011 ] - [ INFO ]  采集到/192.168.5.10:53144 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:36:39:972  [ pool-2-thread-2:90011 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-25 14:36:40:033  [ Thread-13:90072 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:40:099  [ pool-2-thread-2:90138 ] - [ INFO ]  采集到/192.168.5.10:53144 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:36:40:100  [ pool-2-thread-2:90139 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-25 14:36:40:181  [ Thread-13:90220 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:40:244  [ pool-2-thread-2:90283 ] - [ INFO ]  采集到/192.168.5.10:53144 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:36:40:244  [ pool-2-thread-2:90283 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-25 14:36:40:334  [ Thread-13:90373 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:40:388  [ pool-2-thread-2:90427 ] - [ INFO ]  采集到/192.168.5.10:53144 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:36:40:388  [ pool-2-thread-2:90427 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-25 14:36:40:486  [ Thread-13:90525 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:40:531  [ pool-2-thread-2:90570 ] - [ INFO ]  采集到/192.168.5.10:53144 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:36:40:532  [ pool-2-thread-2:90571 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-25 14:36:40:640  [ Thread-13:90679 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:40:661  [ pool-2-thread-2:90700 ] - [ INFO ]  采集到/192.168.5.10:53144 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:36:40:661  [ pool-2-thread-2:90700 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-25 14:36:40:795  [ Thread-13:90834 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:40:796  [ pool-2-thread-2:90835 ] - [ INFO ]  采集到/192.168.5.10:53144 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:36:40:796  [ pool-2-thread-2:90835 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-25 14:36:40:939  [ pool-2-thread-2:90978 ] - [ INFO ]  采集到/192.168.5.10:53144 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:36:40:940  [ pool-2-thread-2:90979 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-25 14:36:40:946  [ Thread-13:90985 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:41:077  [ pool-2-thread-2:91116 ] - [ INFO ]  采集到/192.168.5.10:53144 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:36:41:078  [ pool-2-thread-2:91117 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-25 14:36:41:099  [ Thread-13:91138 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:41:211  [ pool-2-thread-2:91250 ] - [ INFO ]  采集到/192.168.5.10:53144 的数据是FFFF0BCCDD0CFFF1DD020F100246011ECF12DD
+2021-01-25 14:36:41:212  [ pool-2-thread-2:91251 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-25 14:36:41:251  [ Thread-13:91290 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:36:41:405  [ Thread-13:91444 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
