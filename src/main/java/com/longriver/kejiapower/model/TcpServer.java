@@ -8,10 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.*;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -213,19 +210,24 @@ public class TcpServer extends Service<ThreadPoolExecutor> {
                 e.printStackTrace();
             }
         }
-        if (socket.isConnected()) {
-            try {
-                socket.shutdownInput();
-                socket.shutdownOutput();
-                socket.close();
-            } catch (SocketException e) {
+        Iterator<Map.Entry<String, Socket>> it = socketMap.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<String, Socket> entry = it.next();
+            if (entry.getValue().isConnected()) {
+                try {
+                    entry.getValue().shutdownInput();
+                    entry.getValue().shutdownOutput();
+                    entry.getValue().close();
+                } catch (SocketException e) {
 //                e.printStackTrace();
-                logger.error(e.getMessage());
-            } catch (IOException e) {
+                    logger.error(e.getMessage());
+                } catch (IOException e) {
 //                e.printStackTrace();
-                logger.error(e.getMessage());
+                    logger.error(e.getMessage());
+                }
             }
         }
+
         if (!serverSocket.isClosed()) {
             try {
                 serverSocket.close();

@@ -583,7 +583,7 @@ public class KejiaPowerController {
             switch (powerConnectedBtn.getText()) {
                 case "连接设备":
                     for (int i = 0; i < clientMap.size(); i++) {
-                        AnchorPane anchorPane = (AnchorPane) powerDisplayTabpane.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString()))).getContent();
+                        AnchorPane anchorPane = (AnchorPane) powerDisplayTabpane.getTabs().get(i).getContent();
                         GridPane gridPane = (GridPane) anchorPane.getChildren().get(0);
                         VBox vb = (VBox) gridPane.getChildren().get(1);
                         LineChart<Number, Number> lineChart = (LineChart<Number, Number>) vb.getChildren().get(0);
@@ -598,6 +598,9 @@ public class KejiaPowerController {
                     }
                     clientMap.clear();
                     clientObservableList.clear();
+                    if (powerDisplayTabpane.getTabs().size() > 1) {
+                        powerDisplayTabpane.getTabs().remove(1, powerDisplayTabpane.getTabs().size());
+                    }
 
                     tcpServer.setPORT(Integer.parseInt(portTextField.getText(), 10));
                     tcpServer.start();
