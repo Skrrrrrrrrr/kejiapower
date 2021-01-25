@@ -15,3 +15,21 @@
 2021-01-25 13:53:45:984  [ Thread-12:17149 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
 2021-01-25 13:53:46:139  [ Thread-12:17304 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
 2021-01-25 13:53:46:293  [ Thread-12:17458 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:45:36:676  [ pool-2-thread-1:13244 ] - [ ERROR ]  pool-2-thread-1::Socket closed
+2021-01-25 14:45:36:677  [ Thread-5:13245 ] - [ ERROR ]  java.net.SocketException: socket closed
+2021-01-25 14:45:36:677  [ pool-2-thread-1:13245 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-25 14:49:33:593  [ Thread-12:250161 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:49:46:256  [ Thread-12:262824 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:49:46:259  [ Thread-12:262827 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:49:46:262  [ Thread-12:262830 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:49:46:265  [ Thread-12:262833 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:49:46:268  [ Thread-12:262836 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:49:46:270  [ Thread-12:262838 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:49:46:272  [ Thread-12:262840 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-25 14:54:06:250  [ JavaFX Application Thread:249784 ] - [ ERROR ]  Socket is closed
+2021-01-25 14:54:06:252  [ Thread-5:249786 ] - [ ERROR ]  java.net.SocketException: socket closed
+2021-01-25 14:56:06:675  [ pool-2-thread-1:17349 ] - [ ERROR ]  pool-2-thread-1::Socket closed
+2021-01-25 14:56:06:676  [ Thread-5:17350 ] - [ ERROR ]  java.net.SocketException: socket closed
+2021-01-25 15:21:56:560  [ pool-2-thread-1:21176 ] - [ ERROR ]  pool-2-thread-1::Socket closed
+2021-01-25 15:21:56:562  [ Thread-5:21178 ] - [ ERROR ]  java.net.SocketException: socket closed
+2021-01-25 15:22:49:201  [ Thread-5:8223 ] - [ ERROR ]  java.net.SocketException: socket closed

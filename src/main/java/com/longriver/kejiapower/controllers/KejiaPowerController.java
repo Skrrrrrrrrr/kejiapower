@@ -43,9 +43,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Field;
 import java.net.URL;
 import java.text.ParseException;
@@ -287,12 +285,12 @@ public class KejiaPowerController {
         pAxis.setMinorTickVisible(false);
 
         if (voltageSeries.getData().size() > 720) {//5/s,一小时
-            vx.setLowerBound(vx.getLowerBound()+1);
-            cx.setLowerBound(cx.getLowerBound()+1);
-            px.setLowerBound(px.getLowerBound()+1);
-            vx.setUpperBound(vx.getUpperBound()+1);
-            cx.setUpperBound(cx.getUpperBound()+1);
-            px.setUpperBound(px.getUpperBound()+1);
+            vx.setLowerBound(vx.getLowerBound() + 1);
+            cx.setLowerBound(cx.getLowerBound() + 1);
+            px.setLowerBound(px.getLowerBound() + 1);
+            vx.setUpperBound(vx.getUpperBound() + 1);
+            cx.setUpperBound(cx.getUpperBound() + 1);
+            px.setUpperBound(px.getUpperBound() + 1);
 
         }
 
@@ -616,7 +614,6 @@ public class KejiaPowerController {
                         heartBeatService.start();
                     }
 
-                    fileWriteService.start();
                     break;
                 case "断开设备":
                     tcpServer.cancel();
@@ -627,8 +624,7 @@ public class KejiaPowerController {
                         heartBeatService.cancel();
                         heartBeatService.reset();
                     }
-                    fileWriteService.cancel();
-                    fileWriteService.reset();
+
                     rxTextBtn.setDisable(true);
                     txTextBtn.setDisable(true);
                     powerConnectedBtn.setText("连接设备");
@@ -664,6 +660,8 @@ public class KejiaPowerController {
                 rxTextArea.textProperty().bind(rxStringToAddSpace);
                 messageStringProperty.bind(messageFromClientService);
                 readMessageFromClientService.start();
+                fileWriteService.start();
+
                 break;
             case "停止接收":
                 rxTextBtn.setText("开始接收");
@@ -673,7 +671,8 @@ public class KejiaPowerController {
                 messageStringProperty.setValue("");
                 readMessageFromClientService.cancel();
                 readMessageFromClientService.reset();
-
+                fileWriteService.cancel();
+                fileWriteService.reset();
                 break;
             default:
                 break;
@@ -868,12 +867,10 @@ public class KejiaPowerController {
 
 
     private class FileWriteService extends Service {
-        private XSSFWorkbook workbook = null;
-        private Sheet sheet = null;
-        private org.apache.poi.ss.usermodel.Cell cell = null;
 
-        private FileOutputStream output = null;
+        //        private FileOutputStream output = null;
         private File file = null;//存取文件
+        BufferedWriter bw = null;
         private final Field[] fields = Client.class.getDeclaredFields();
 
 
@@ -882,27 +879,9 @@ public class KejiaPowerController {
             Task task = new Task() {
                 @Override
                 protected Object call() throws Exception {
-                    //创建Excel文件薄
-                    if (workbook == null) {
-                        workbook = new XSSFWorkbook();
-                    }
-                    //创建工作表sheet
-                    if (sheet == null) {
-                        sheet = workbook.createSheet();
-                    }
-                    //创建第一行
-                    Row row = sheet.createRow(0);
-                    cell = row.createCell(0);
-
-                    int index = 1;
-                    for (Field field : fields) {
-                        cell = row.createCell(index);
-                        cell.setCellValue(field.getName());
-                        index++;
-                    }
 
                     //创建一个文件
-                    file = new File(String.format("./logs//%s.xlsx", new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())));
+                    file = new File(String.format("./logs//%s.txt", new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())));
                     if (!file.exists()) {
                         try {
                             file.createNewFile();
@@ -910,19 +889,17 @@ public class KejiaPowerController {
                             e.printStackTrace();
                         }
                     }
-                    output = new FileOutputStream(file);
-                    Thread.sleep(100);
 
+                    bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "utf-8"));
                     while (!isCancelled()) {
-                        Thread.sleep(100);
+//                        Thread.sleep(100);
                         Client client = fileOutBlockingQueue.take();
-                        Row nextRow = sheet.createRow(sheet.getLastRowNum() + 1);
-                        cell = nextRow.createCell(0);
-                        cell.setCellValue(new SimpleDateFormat("yyyyMMdd HH:mm:ss SSS").format(new Date()));
                         //追加数据
-                        index = 1;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(new SimpleDateFormat("yyyyMMdd HH:mm:ss SSS").format(new Date()));
+                        sb.append(",");
                         for (Field field : fields) {
-                            cell = nextRow.createCell(index++);
+
                             try {
                                 // 获取原来的访问控制权限
                                 boolean accessFlag = field.isAccessible();
@@ -933,24 +910,22 @@ public class KejiaPowerController {
                                 try {
                                     o = field.get(client);
                                     if (o != null) {
-                                        cell.setCellValue(o.toString());
+                                        sb.append(o.toString());
                                     }
                                 } catch (IllegalAccessException e) {
                                     e.printStackTrace();
                                 }
                                 // 恢复访问控制权限
                                 field.setAccessible(accessFlag);
+                                sb.append(",");
+
                             } catch (IllegalArgumentException ex) {
                                 ex.printStackTrace();
                             }
                         }
-
-                        try {
-                            workbook.write(output);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                            logger.error(e.getMessage());
-                        }
+                        sb.append("\r\n");
+                        bw.write(sb.toString());
+                        bw.flush();
                     }
                     return null;
                 }
@@ -961,11 +936,8 @@ public class KejiaPowerController {
         @Override
         protected void cancelled() {
             try {
-                if (output != null) {
-                    output.close();
-                }
-                if (workbook != null) {
-                    workbook.close();
+                if (bw != null) {
+                    bw.close();
                 }
             } catch (IOException e) {
                 e.printStackTrace();

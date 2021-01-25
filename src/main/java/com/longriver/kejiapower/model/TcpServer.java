@@ -307,9 +307,11 @@ public class TcpServer extends Service<ThreadPoolExecutor> {
             try {
                 if (output != null)
                     output.close();
-                serverSocketAccept.shutdownInput();
-                serverSocketAccept.shutdownOutput();
-                serverSocketAccept.close();
+                if (!serverSocketAccept.isClosed()) {
+                    serverSocketAccept.shutdownInput();
+                    serverSocketAccept.shutdownOutput();
+                    serverSocketAccept.close();
+                }
             } catch (SocketException e) {
                 e.printStackTrace();
                 logger.error(e.toString());
