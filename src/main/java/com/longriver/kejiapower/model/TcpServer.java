@@ -124,8 +124,7 @@ public class TcpServer extends Service<ThreadPoolExecutor> {
                 logger.info("The TCP Server is running.");
                 logger.info("Current Thread is  " + Thread.currentThread());
                 serverSocket = new ServerSocket(getPORT());
-                serverSocket.setSoTimeout(60000);
-                socket = new Socket();
+//                serverSocket.setSoTimeout(60000);
 //                ExecutorService pool;
 //                pool = Executors.newCachedThreadPool();
                 pool.allowCoreThreadTimeOut(true);
@@ -143,7 +142,9 @@ public class TcpServer extends Service<ThreadPoolExecutor> {
                 } finally {
                     try {
 //                        shutdownAndAwaitTermination(pool);
-                        closeSocket();
+                        if (!(socket.isClosed() || serverSocket.isClosed())) {
+                            closeSocket();
+                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                         logger.error(e.getMessage());
@@ -177,21 +178,37 @@ public class TcpServer extends Service<ThreadPoolExecutor> {
 
     public void closeSocket() {
         Socket closeSocket = null;
-        if (serverSocket != null && !serverSocket.isClosed())
-            try {
-                //开启一个无用的Socket，这样就能让ServerSocket从accept状态跳出
-                closeSocket = new Socket("localhost", this.getPORT());
-            } catch (UnknownHostException e1) {
-                e1.printStackTrace();
-                logger.error("new Socket closed::UnknownHostException!");
-            } catch (IOException e1) {
-                e1.printStackTrace();
-                logger.error("new Socket closed::IOException!");
+        ServerSocket closeServerSocket = null;
 
-            }
+        try {
+            closeServerSocket = new ServerSocket();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        closeSocket = new Socket();
+
+//        try {
+//                //开启一个无用的Socket，这样就能让ServerSocket从accept状态跳出
+//                closeSocket = new Socket("localhost", this.getPORT());
+//            } catch (UnknownHostException e1) {
+//                e1.printStackTrace();
+//                logger.error("new Socket closed::UnknownHostException!");
+//            } catch (IOException e1) {
+//                e1.printStackTrace();
+//                logger.error("new Socket closed::IOException!");
+//            }
+
         if (closeSocket != null && !closeSocket.isClosed()) {
             try {
                 closeSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (closeServerSocket != null && !closeServerSocket.isClosed()) {
+            try {
+                closeServerSocket.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -209,7 +226,7 @@ public class TcpServer extends Service<ThreadPoolExecutor> {
                 logger.error(e.getMessage());
             }
         }
-        if (serverSocket.isClosed()) {
+        if (!serverSocket.isClosed()) {
             try {
                 serverSocket.close();
             } catch (IOException e) {
@@ -271,7 +288,7 @@ public class TcpServer extends Service<ThreadPoolExecutor> {
                 }
 
             } catch (SocketException e) {
-                logger.error(Thread.currentThread().getName()+"::"+ e.getMessage());
+                logger.error(Thread.currentThread().getName() + "::" + e.getMessage());
 //                e.printStackTrace();
             } catch (IOException e) {
 //                e.printStackTrace();

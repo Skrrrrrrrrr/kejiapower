@@ -286,6 +286,16 @@ public class KejiaPowerController {
         cAxis.setMinorTickVisible(false);
         pAxis.setMinorTickVisible(false);
 
+        if (voltageSeries.getData().size() > 720) {//5/s,一小时
+            vx.setLowerBound(vx.getLowerBound()+1);
+            cx.setLowerBound(cx.getLowerBound()+1);
+            px.setLowerBound(px.getLowerBound()+1);
+            vx.setUpperBound(vx.getUpperBound()+1);
+            cx.setUpperBound(cx.getUpperBound()+1);
+            px.setUpperBound(px.getUpperBound()+1);
+
+        }
+
         vChart = new LineChart<Number, Number>(vx, vAxis);
         cChart = new LineChart<Number, Number>(cx, cAxis);
         pChart = new LineChart<Number, Number>(px, pAxis);
@@ -436,7 +446,7 @@ public class KejiaPowerController {
                         updateStatusGroup(clientMap.get(clientMessage.getClientIp().toString()).getId() - 1, clientMap.get(clientMessage.getClientIp().toString()).getStatus());
                         try {
                             fileOutBlockingQueue.put(clientMap.get(clientMessage.getClientIp().toString()));
-                            logger.info("fileOutBlockingQueue有：" + fileOutBlockingQueue.size() + "个数据！");
+//                            logger.info("fileOutBlockingQueue有：" + fileOutBlockingQueue.size() + "个数据！");
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -574,6 +584,22 @@ public class KejiaPowerController {
         try {
             switch (powerConnectedBtn.getText()) {
                 case "连接设备":
+                    for (int i = 0; i < clientMap.size(); i++) {
+                        AnchorPane anchorPane = (AnchorPane) powerDisplayTabpane.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString()))).getContent();
+                        GridPane gridPane = (GridPane) anchorPane.getChildren().get(0);
+                        VBox vb = (VBox) gridPane.getChildren().get(1);
+                        LineChart<Number, Number> lineChart = (LineChart<Number, Number>) vb.getChildren().get(0);
+                        XYChart.Series<Number, Number> vSeries = (XYChart.Series<Number, Number>) lineChart.getData().get(0);
+                        lineChart = (LineChart<Number, Number>) vb.getChildren().get(1);
+                        XYChart.Series<Number, Number> cSeries = (XYChart.Series) lineChart.getData().get(0);
+                        lineChart = (LineChart<Number, Number>) vb.getChildren().get(2);
+                        XYChart.Series<Number, Number> pSeries = (XYChart.Series) lineChart.getData().get(0);
+                        vSeries.getData().clear();
+                        cSeries.getData().clear();
+                        pSeries.getData().clear();
+                    }
+                    clientMap.clear();
+                    clientObservableList.clear();
 
                     tcpServer.setPORT(Integer.parseInt(portTextField.getText(), 10));
                     tcpServer.start();
@@ -589,20 +615,7 @@ public class KejiaPowerController {
                     if (!heartBeatService.isRunning()) {
                         heartBeatService.start();
                     }
-                    for (int i = 0; i < clientMap.size(); i++) {
-                        AnchorPane anchorPane = (AnchorPane) powerDisplayTabpane.getTabs().get(clientObservableList.indexOf(clientMap.get(clientMessage.getClientIp().toString()))).getContent();
-                        GridPane gridPane = (GridPane) anchorPane.getChildren().get(0);
-                        VBox vb = (VBox) gridPane.getChildren().get(1);
-                        LineChart<Number, Number> lineChart = (LineChart<Number, Number>) vb.getChildren().get(0);
-                        XYChart.Series<Number, Number> vSeries = (XYChart.Series<Number, Number>) lineChart.getData().get(0);
-                        lineChart = (LineChart<Number, Number>) vb.getChildren().get(1);
-                        XYChart.Series<Number, Number> cSeries = (XYChart.Series) lineChart.getData().get(0);
-                        lineChart = (LineChart<Number, Number>) vb.getChildren().get(2);
-                        XYChart.Series<Number, Number> pSeries = (XYChart.Series) lineChart.getData().get(0);
-                        vSeries.getData().clear();
-                        cSeries.getData().clear();
-                        pSeries.getData().clear();
-                    }
+
                     fileWriteService.start();
                     break;
                 case "断开设备":
@@ -629,8 +642,7 @@ public class KejiaPowerController {
                         readMessageFromClientService.reset();
 //                        messageStringProperty.setValue("");
                     }
-                    clientMap.clear();
-                    clientObservableList.clear();
+
                     break;
                 default:
             }
@@ -932,6 +944,7 @@ public class KejiaPowerController {
                                 ex.printStackTrace();
                             }
                         }
+
                         try {
                             workbook.write(output);
                         } catch (IOException e) {
@@ -1242,7 +1255,7 @@ public class KejiaPowerController {
                         controlMessageSendService.cancel();
                         return;
                     }
-                    logger.info(controlMessageSendService.getTitle() + ": oldValue ==>> " + newValue);
+//                    logger.info(controlMessageSendService.getTitle() + ": oldValue ==>> " + newValue);
                     InnerClient ic = innerClientList.get(0);
                     if (newValue.intValue() != ic.getGap()) {
                         return;
