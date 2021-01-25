@@ -1,0 +1,18 @@
+2021-01-23 10:59:13:147  [ Thread-5:70416 ] - [ ERROR ]  java.net.SocketTimeoutException: Accept timed out
+2021-01-23 10:59:13:169  [ pool-2-thread-2:70438 ] - [ ERROR ]  pool-2-thread-2::Socket closed
+2021-01-23 10:59:13:171  [ pool-2-thread-2:70440 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 13:28:41:944  [ pool-2-thread-1:722 ] - [ ERROR ]  pool-2-thread-1::Socket is closed
+2021-01-23 13:28:41:945  [ pool-2-thread-1:723 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 13:46:22:451  [ pool-2-thread-1:941 ] - [ ERROR ]  pool-2-thread-1::Socket is closed
+2021-01-23 13:46:22:452  [ pool-2-thread-1:942 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 14:01:45:668  [ pool-2-thread-1:59332 ] - [ ERROR ]  pool-2-thread-1::Socket closed
+2021-01-23 14:01:56:910  [ pool-2-thread-1:70574 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 14:02:02:975  [ pool-2-thread-2:76639 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 14:02:02:975  [ Thread-5:76639 ] - [ ERROR ]  Socket is closed
+2021-01-23 14:03:27:815  [ pool-2-thread-1:18013 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 14:04:17:156  [ Thread-5:40409 ] - [ ERROR ]  Socket is closed
+2021-01-23 14:04:17:156  [ pool-2-thread-2:40409 ] - [ ERROR ]  pool-2-thread-2::Socket is closed
+2021-01-23 14:04:17:158  [ pool-2-thread-2:40411 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 14:09:06:514  [ Thread-5:27708 ] - [ ERROR ]  Socket is closed
+2021-01-23 14:09:06:515  [ pool-2-thread-2:27709 ] - [ ERROR ]  pool-2-thread-2::Socket is closed
+2021-01-23 14:09:06:516  [ pool-2-thread-2:27710 ] - [ ERROR ]  java.net.SocketException: Socket is closed

@@ -7,9 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.net.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -104,39 +102,48 @@ public class TcpServer extends Service<ThreadPoolExecutor> {
         this.socketMap = socketMap;
     }
 
+    ThreadPoolExecutor pool = new ThreadPoolExecutor(CLIENT_AMOUNT, CLIENT_AMOUNT, ALIVE_TIME, SECONDS, new PriorityBlockingQueue<Runnable>());
+
+    @Override
+    protected void cancelled() {
+        closeSocket();
+//        shutdownAndAwaitTermination(pool);
+        super.cancelled();
+    }
+
+    Socket socket;
+    ServerSocket serverSocket;
+
     @Override
     protected Task<ThreadPoolExecutor> createTask() {
 
         Task<ThreadPoolExecutor> task = new Task<ThreadPoolExecutor>() {
+
             @Override
             protected ThreadPoolExecutor call() throws Exception {
-
-
                 logger.info("The TCP Server is running.");
                 logger.info("Current Thread is  " + Thread.currentThread());
-                ServerSocket serverSocket = new ServerSocket(getPORT());
-                Socket socket = new Socket();
+                serverSocket = new ServerSocket(getPORT());
+                serverSocket.setSoTimeout(60000);
+                socket = new Socket();
 //                ExecutorService pool;
 //                pool = Executors.newCachedThreadPool();
-                ThreadPoolExecutor pool = new ThreadPoolExecutor(CLIENT_AMOUNT, CLIENT_AMOUNT, ALIVE_TIME, SECONDS, new PriorityBlockingQueue<Runnable>());
                 pool.allowCoreThreadTimeOut(true);
                 try {
                     while (!Thread.currentThread().isInterrupted() && !this.isCancelled()) {
                         pool.execute(new Handler(socket = serverSocket.accept()));
                         logger.info("Server Thread -" + Thread.currentThread() + " starts!");
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    logger.error(e.toString());
+                } catch (SocketException se) {
+                    se.printStackTrace();
+                    logger.error(se.toString());
+                } catch (SocketTimeoutException ste) {
+//                    ste.printStackTrace();
+                    logger.error(ste.toString());
                 } finally {
                     try {
-                        shutdownAndAwaitTermination(pool);
-                        if (!serverSocket.isClosed()) {
-                            serverSocket.close();
-                        }
-                        if (!socket.isConnected()) {
-                            serverSocket.close();
-                        }
+//                        shutdownAndAwaitTermination(pool);
+                        closeSocket();
                     } catch (Exception e) {
                         e.printStackTrace();
                         logger.error(e.getMessage());
@@ -150,7 +157,7 @@ public class TcpServer extends Service<ThreadPoolExecutor> {
         return task;
     }
 
-    private void shutdownAndAwaitTermination(ExecutorService pool) {
+    private void shutdownAndAwaitTermination(ThreadPoolExecutor pool) {
         pool.shutdown(); // Disable new tasks from being submitted
         try {
             // Wait a while for existing tasks to terminate
@@ -168,11 +175,55 @@ public class TcpServer extends Service<ThreadPoolExecutor> {
         }
     }
 
+    public void closeSocket() {
+        Socket closeSocket = null;
+        if (serverSocket != null && !serverSocket.isClosed())
+            try {
+                //开启一个无用的Socket，这样就能让ServerSocket从accept状态跳出
+                closeSocket = new Socket("localhost", this.getPORT());
+            } catch (UnknownHostException e1) {
+                e1.printStackTrace();
+                logger.error("new Socket closed::UnknownHostException!");
+            } catch (IOException e1) {
+                e1.printStackTrace();
+                logger.error("new Socket closed::IOException!");
+
+            }
+        if (closeSocket != null && !closeSocket.isClosed()) {
+            try {
+                closeSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (socket.isConnected()) {
+            try {
+                socket.shutdownInput();
+                socket.shutdownOutput();
+                socket.close();
+            } catch (SocketException e) {
+//                e.printStackTrace();
+                logger.error(e.getMessage());
+            } catch (IOException e) {
+//                e.printStackTrace();
+                logger.error(e.getMessage());
+            }
+        }
+        if (serverSocket.isClosed()) {
+            try {
+                serverSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     private class Handler extends Thread implements Comparable {
         private Socket serverSocketAccept;
         private ObjectInputStream input;
         private ObjectOutputStream output;
         private final Logger logger = LoggerFactory.getLogger(Handler.class);
+
 
         public Handler(Socket socket) throws IOException {
             this.serverSocketAccept = socket;
@@ -193,12 +244,12 @@ public class TcpServer extends Service<ThreadPoolExecutor> {
 //                input = new ObjectInputStream(is);//如果client没有用ObjectOutputStream发送数据，此处报错StreamCorruptedException
                 output = new ObjectOutputStream(os);
                 byte[] bytes = new byte[BUFF_SIZE];
-
-                while (!Thread.currentThread().isInterrupted() && null != serverSocketAccept && serverSocketAccept.isConnected()) {
-                    int len = is.read(bytes);
-                    if (-1 == len) {
-                        break;
-                    }
+                int len = -1;
+                while (!Thread.currentThread().isInterrupted() && null != serverSocketAccept && serverSocketAccept.isConnected() && -1 != (len = is.read(bytes))) {
+//                    int len = is.read(bytes);
+//                    if (-1 == len) {
+//                        break;
+//                    }
                     inputString = new String(bytes, 0, len);
                     logger.info("采集到" + serverSocketAccept.getInetAddress() + ":" + serverSocketAccept.getPort() + " 的数据是" + inputString);
                     try {
@@ -219,9 +270,14 @@ public class TcpServer extends Service<ThreadPoolExecutor> {
                     }
                 }
 
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (SocketException e) {
+                logger.error(Thread.currentThread().getName()+"::"+ e.getMessage());
+//                e.printStackTrace();
+            } catch (IOException e) {
+//                e.printStackTrace();
+                logger.error(e.getMessage());
             } finally {
+                logger.info(Thread.currentThread().getName() + " terminated!");
                 closeConnections();
             }
         }
@@ -232,12 +288,20 @@ public class TcpServer extends Service<ThreadPoolExecutor> {
          */
         private synchronized void closeConnections() {
             try {
-                output.close();
+                if (output != null)
+                    output.close();
+                serverSocketAccept.shutdownInput();
+                serverSocketAccept.shutdownOutput();
                 serverSocketAccept.close();
+            } catch (SocketException e) {
+                e.printStackTrace();
+                logger.error(e.toString());
             } catch (IOException e) {
                 e.printStackTrace();
                 logger.error(e.toString());
+
             }
+            Thread.currentThread().interrupt();
             logger.info("handler closeConnections() method Exit");
         }
 

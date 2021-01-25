@@ -3,7 +3,10 @@ package com.longriver.kejiapower.model;
 import com.longriver.kejiapower.utils.OperateModel;
 import com.longriver.kejiapower.utils.WorkingStatus;
 
-public class Client {
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Client implements Cloneable {
 
 //    control = new StringBuilder(2);
 //    status = new StringBuilder(2);
@@ -16,8 +19,7 @@ public class Client {
     private String ip;
     private OperateModel operateModel;
     private WorkingStatus status;
-    private long time;
-
+    private String time;
 
     private float voltage = 0.0f;
     private float current = 0.0f;
@@ -63,11 +65,11 @@ public class Client {
         this.status = status;
     }
 
-    public long getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
@@ -93,5 +95,12 @@ public class Client {
 
     public void setPower(float power) {
         this.power = power;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException
+    {
+        Object object = super.clone();
+        return object;
     }
 }

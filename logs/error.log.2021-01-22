@@ -1,0 +1,52 @@
+2021-01-22 17:28:51:190  [ Thread-5:12346 ] - [ ERROR ]  java.util.concurrent.RejectedExecutionException: Task Thread[Thread-11,1,javafx concurrent thread pool] rejected from java.util.concurrent.ThreadPoolExecutor@4ebf2865[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+2021-01-22 17:35:40:692  [ Thread-5:14067 ] - [ ERROR ]  java.util.concurrent.RejectedExecutionException: Task Thread[Thread-10,1,javafx concurrent thread pool] rejected from java.util.concurrent.ThreadPoolExecutor@56c18b57[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1]
+2021-01-22 17:36:08:721  [ Thread-11:42096 ] - [ ERROR ]  java.util.concurrent.RejectedExecutionException: Task Thread[Thread-14,1,javafx concurrent thread pool] rejected from java.util.concurrent.ThreadPoolExecutor@56c18b57[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1]
+2021-01-22 17:39:23:404  [ Thread-5:17204 ] - [ ERROR ]  java.net.SocketException: socket closed
+2021-01-22 17:39:33:404  [ JavaFX Application Thread:27204 ] - [ ERROR ]  Pool did not terminate
+2021-01-22 17:41:09:060  [ Thread-5:9756 ] - [ ERROR ]  java.net.SocketException: socket closed
+2021-01-22 17:41:19:058  [ JavaFX Application Thread:19754 ] - [ ERROR ]  Pool did not terminate
+2021-01-22 17:43:26:067  [ Thread-5:13053 ] - [ ERROR ]  java.net.SocketException: socket closed
+2021-01-22 17:43:36:066  [ JavaFX Application Thread:23052 ] - [ ERROR ]  Pool did not terminate
+2021-01-22 17:56:13:169  [ JavaFX Application Thread:19044 ] - [ ERROR ]  Pool did not terminate
+2021-01-22 18:08:43:085  [ JavaFX Application Thread:65644 ] - [ ERROR ]  Pool did not terminate
+2021-01-22 18:08:43:089  [ JavaFX Application Thread:65648 ] - [ ERROR ]  java.lang.RuntimeException: A bound value cannot be set.
+2021-01-22 18:09:47:415  [ JavaFX Application Thread:17624 ] - [ ERROR ]  Pool did not terminate
+2021-01-22 18:11:01:526  [ JavaFX Application Thread:16602 ] - [ ERROR ]  Pool did not terminate
+2021-01-22 18:12:39:210  [ JavaFX Application Thread:21390 ] - [ ERROR ]  Pool did not terminate
+2021-01-22 20:01:16:167  [ Thread-11:208249 ] - [ ERROR ]  java.net.SocketTimeoutException: Accept timed out
+2021-01-22 21:58:26:798  [ Thread-5:64778 ] - [ ERROR ]  java.net.SocketTimeoutException: Accept timed out
+2021-01-22 22:11:30:138  [ pool-2-thread-2:85112 ] - [ ERROR ]  Socket is closed
+2021-01-22 22:14:39:055  [ pool-2-thread-2:28279 ] - [ ERROR ]  pool-2-thread-2::Socket is closed
+2021-01-22 22:14:42:325  [ JavaFX Application Thread:31549 ] - [ ERROR ]  Socket is closed
+2021-01-22 22:15:47:570  [ JavaFX Application Thread:36991 ] - [ ERROR ]  Socket is closed
+2021-01-22 22:15:47:570  [ pool-2-thread-2:36991 ] - [ ERROR ]  pool-2-thread-2::Socket is closed
+2021-01-22 22:38:56:352  [ Thread-5:18589 ] - [ ERROR ]  Socket is closed
+2021-01-22 22:38:56:353  [ pool-2-thread-2:18590 ] - [ ERROR ]  pool-2-thread-2::Socket is closed
+2021-01-22 22:38:56:355  [ pool-2-thread-2:18592 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-22 22:40:45:704  [ Thread-5:18468 ] - [ ERROR ]  Socket is closed
+2021-01-22 22:40:45:707  [ pool-2-thread-2:18471 ] - [ ERROR ]  pool-2-thread-2::Socket is closed
+2021-01-22 22:40:45:709  [ pool-2-thread-2:18473 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-22 22:41:35:929  [ pool-2-thread-1:68693 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-22 22:42:12:286  [ Thread-5:18203 ] - [ ERROR ]  Socket is closed
+2021-01-22 22:42:12:286  [ pool-2-thread-2:18203 ] - [ ERROR ]  pool-2-thread-2::Socket is closed
+2021-01-22 22:42:12:288  [ pool-2-thread-2:18205 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-22 22:45:35:762  [ Thread-5:64799 ] - [ ERROR ]  java.net.SocketTimeoutException: Accept timed out
+2021-01-22 22:45:35:769  [ pool-2-thread-1:64806 ] - [ ERROR ]  pool-2-thread-1::Socket closed
+2021-01-22 22:45:35:771  [ pool-2-thread-1:64808 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-22 22:48:31:931  [ Thread-5:63263 ] - [ ERROR ]  java.net.SocketTimeoutException: Accept timed out
+2021-01-22 22:48:31:943  [ pool-2-thread-1:63275 ] - [ ERROR ]  pool-2-thread-1::Socket closed
+2021-01-22 22:48:31:943  [ pool-2-thread-1:63275 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-22 22:50:01:205  [ Thread-5:9266 ] - [ ERROR ]  Socket is closed
+2021-01-22 22:50:01:205  [ pool-2-thread-2:9266 ] - [ ERROR ]  pool-2-thread-2::Socket is closed
+2021-01-22 22:50:01:207  [ pool-2-thread-2:9268 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-22 22:50:05:156  [ pool-2-thread-1:13217 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-22 22:50:19:498  [ Thread-13:27559 ] - [ ERROR ]  Cannot write data, document seems to have been closed already
+2021-01-22 22:52:06:340  [ Thread-5:21038 ] - [ ERROR ]  Socket is closed
+2021-01-22 22:52:06:341  [ pool-2-thread-2:21039 ] - [ ERROR ]  pool-2-thread-2::Socket is closed
+2021-01-22 22:52:06:342  [ pool-2-thread-2:21040 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-22 22:52:11:022  [ pool-2-thread-1:25720 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-22 22:57:07:052  [ pool-2-thread-1:62827 ] - [ ERROR ]  pool-2-thread-1::Socket closed
+2021-01-22 22:57:07:056  [ pool-2-thread-2:62831 ] - [ ERROR ]  pool-2-thread-2::Socket is closed
+2021-01-22 22:57:07:057  [ pool-2-thread-1:62832 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-22 22:57:07:058  [ pool-2-thread-2:62833 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-22 22:59:50:154  [ JavaFX Application Thread:225929 ] - [ ERROR ]  java.lang.ArrayIndexOutOfBoundsException: -1

@@ -1,0 +1,356 @@
+2021-01-23 10:58:02:731  [ Thread-5:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-23 10:58:02:733  [ Thread-5:2 ] - [ INFO ]  Current Thread is  Thread[Thread-5,1,javafx concurrent thread pool]
+2021-01-23 10:58:02:739  [ JavaFX Application Thread:8 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-23 10:58:07:801  [ Thread-5:5070 ] - [ INFO ]  Server Thread -Thread[Thread-5,1,javafx concurrent thread pool] starts!
+2021-01-23 10:58:07:801  [ pool-2-thread-1:5070 ] - [ INFO ]  Current Handler Thread is : Thread[pool-2-thread-1,5,main]
+2021-01-23 10:58:07:801  [ pool-2-thread-1:5070 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-23 10:58:07:801  [ pool-2-thread-1:5070 ] - [ INFO ]  Attempting to connect a user...
+2021-01-23 10:58:07:802  [ pool-2-thread-1:5071 ] - [ INFO ]  User's Addr : 127.0.0.1:61829
+2021-01-23 10:58:08:520  [ pool-2-thread-1:5789 ] - [ INFO ]  采集到/127.0.0.1:61829 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 10:58:08:521  [ pool-2-thread-1:5790 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 10:58:08:589  [ Thread-8:5858 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:08:654  [ pool-2-thread-1:5923 ] - [ INFO ]  采集到/127.0.0.1:61829 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 10:58:08:655  [ pool-2-thread-1:5924 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 10:58:08:741  [ Thread-8:6010 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:08:790  [ pool-2-thread-1:6059 ] - [ INFO ]  采集到/127.0.0.1:61829 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 10:58:08:791  [ pool-2-thread-1:6060 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 10:58:08:893  [ Thread-8:6162 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:08:914  [ pool-2-thread-1:6183 ] - [ INFO ]  采集到/127.0.0.1:61829 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 10:58:08:914  [ pool-2-thread-1:6183 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 10:58:09:045  [ Thread-8:6314 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:09:060  [ pool-2-thread-1:6329 ] - [ INFO ]  采集到/127.0.0.1:61829 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 10:58:09:061  [ pool-2-thread-1:6330 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 10:58:09:194  [ pool-2-thread-1:6463 ] - [ INFO ]  采集到/127.0.0.1:61829 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 10:58:09:195  [ pool-2-thread-1:6464 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 10:58:09:195  [ Thread-8:6464 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:09:331  [ pool-2-thread-1:6600 ] - [ INFO ]  采集到/127.0.0.1:61829 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 10:58:09:331  [ pool-2-thread-1:6600 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 10:58:09:347  [ Thread-8:6616 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:09:465  [ pool-2-thread-1:6734 ] - [ INFO ]  采集到/127.0.0.1:61829 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 10:58:09:465  [ pool-2-thread-1:6734 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 10:58:09:498  [ Thread-8:6767 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:09:623  [ pool-2-thread-1:6892 ] - [ INFO ]  采集到/127.0.0.1:61829 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 10:58:09:623  [ pool-2-thread-1:6892 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 10:58:09:649  [ Thread-8:6918 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:09:801  [ Thread-8:7070 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:13:146  [ Thread-5:10415 ] - [ INFO ]  Server Thread -Thread[Thread-5,1,javafx concurrent thread pool] starts!
+2021-01-23 10:58:13:146  [ pool-2-thread-2:10415 ] - [ INFO ]  Current Handler Thread is : Thread[pool-2-thread-2,5,main]
+2021-01-23 10:58:13:147  [ pool-2-thread-2:10416 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-23 10:58:13:147  [ pool-2-thread-2:10416 ] - [ INFO ]  Attempting to connect a user...
+2021-01-23 10:58:13:147  [ pool-2-thread-2:10416 ] - [ INFO ]  User's Addr : 127.0.0.1:61831
+2021-01-23 10:58:14:562  [ pool-2-thread-2:11831 ] - [ INFO ]  采集到/127.0.0.1:61831 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 10:58:14:562  [ pool-2-thread-2:11831 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-23 10:58:14:632  [ Thread-8:11901 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:14:707  [ pool-2-thread-2:11976 ] - [ INFO ]  采集到/127.0.0.1:61831 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 10:58:14:708  [ pool-2-thread-2:11977 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-23 10:58:14:783  [ Thread-8:12052 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:14:865  [ pool-2-thread-2:12134 ] - [ INFO ]  采集到/127.0.0.1:61831 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 10:58:14:865  [ pool-2-thread-2:12134 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-23 10:58:14:934  [ Thread-8:12203 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:15:000  [ pool-2-thread-2:12269 ] - [ INFO ]  采集到/127.0.0.1:61831 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 10:58:15:000  [ pool-2-thread-2:12269 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-23 10:58:15:085  [ Thread-8:12354 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:15:146  [ pool-2-thread-2:12415 ] - [ INFO ]  采集到/127.0.0.1:61831 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 10:58:15:146  [ pool-2-thread-2:12415 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-23 10:58:15:235  [ Thread-8:12504 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:15:281  [ pool-2-thread-2:12550 ] - [ INFO ]  采集到/127.0.0.1:61831 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 10:58:15:281  [ pool-2-thread-2:12550 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-23 10:58:15:386  [ Thread-8:12655 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:58:15:428  [ pool-2-thread-2:12697 ] - [ INFO ]  采集到/127.0.0.1:61831 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 10:58:15:429  [ pool-2-thread-2:12698 ] - [ INFO ]  pool-2-thread-2服务器接收数据，目前总共有1个；
+2021-01-23 10:58:15:538  [ Thread-8:12807 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 10:59:13:147  [ Thread-5:70416 ] - [ ERROR ]  java.net.SocketTimeoutException: Accept timed out
+2021-01-23 10:59:13:169  [ Thread-5:70438 ] - [ INFO ]  closeConnections TcpServer：handler method Exit
+2021-01-23 10:59:13:169  [ pool-2-thread-2:70438 ] - [ ERROR ]  pool-2-thread-2::Socket closed
+2021-01-23 10:59:13:170  [ pool-2-thread-2:70439 ] - [ INFO ]  pool-2-thread-2 terminated!
+2021-01-23 10:59:13:171  [ pool-2-thread-2:70440 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 10:59:13:171  [ pool-2-thread-2:70440 ] - [ INFO ]  handler closeConnections() method Exit
+2021-01-23 10:59:43:256  [ JavaFX Application Thread:100525 ] - [ INFO ]  Thread[JavaFX Application Thread,5,main] timeScheduledService init!
+2021-01-23 10:59:43:256  [ JavaFX Application Thread:100525 ] - [ INFO ]  Thread[JavaFX Application Thread,5,main] timeScheduledService init!
+2021-01-23 10:59:44:308  [ JavaFX Application Thread:101577 ] - [ INFO ]  Thread-12: oldValue ==>> 0
+2021-01-23 10:59:44:357  [ JavaFX Application Thread:101626 ] - [ INFO ]  Thread-13: oldValue ==>> 0
+2021-01-23 10:59:45:309  [ JavaFX Application Thread:102578 ] - [ INFO ]  Thread-12: oldValue ==>> 1
+2021-01-23 10:59:45:309  [ JavaFX Application Thread:102578 ] - [ INFO ]  Thread-13: oldValue ==>> 1
+2021-01-23 10:59:46:309  [ JavaFX Application Thread:103578 ] - [ INFO ]  Thread-12: oldValue ==>> 2
+2021-01-23 10:59:46:309  [ JavaFX Application Thread:103578 ] - [ INFO ]  Thread-13: oldValue ==>> 2
+2021-01-23 10:59:47:309  [ JavaFX Application Thread:104578 ] - [ INFO ]  Thread-13: oldValue ==>> 3
+2021-01-23 10:59:47:309  [ JavaFX Application Thread:104578 ] - [ INFO ]  Thread-12: oldValue ==>> 3
+2021-01-23 10:59:48:309  [ JavaFX Application Thread:105578 ] - [ INFO ]  Thread-12: oldValue ==>> 4
+2021-01-23 10:59:48:309  [ JavaFX Application Thread:105578 ] - [ INFO ]  Thread-13: oldValue ==>> 4
+2021-01-23 10:59:49:310  [ JavaFX Application Thread:106579 ] - [ INFO ]  Thread-12: oldValue ==>> 5
+2021-01-23 10:59:49:311  [ JavaFX Application Thread:106580 ] - [ INFO ]  Thread-13: oldValue ==>> 5
+2021-01-23 10:59:50:311  [ JavaFX Application Thread:107580 ] - [ INFO ]  Thread-12: oldValue ==>> 6
+2021-01-23 10:59:50:311  [ JavaFX Application Thread:107580 ] - [ INFO ]  Thread-13: oldValue ==>> 6
+2021-01-23 10:59:51:311  [ JavaFX Application Thread:108580 ] - [ INFO ]  Thread-13: oldValue ==>> 7
+2021-01-23 10:59:51:311  [ JavaFX Application Thread:108580 ] - [ INFO ]  Thread-12: oldValue ==>> 7
+2021-01-23 10:59:52:311  [ JavaFX Application Thread:109580 ] - [ INFO ]  Thread-13: oldValue ==>> 8
+2021-01-23 10:59:52:312  [ JavaFX Application Thread:109581 ] - [ INFO ]  Thread-12: oldValue ==>> 8
+2021-01-23 10:59:53:311  [ JavaFX Application Thread:110580 ] - [ INFO ]  Thread-13: oldValue ==>> 9
+2021-01-23 10:59:53:311  [ JavaFX Application Thread:110580 ] - [ INFO ]  Thread-12: oldValue ==>> 9
+2021-01-23 10:59:54:312  [ JavaFX Application Thread:111581 ] - [ INFO ]  Thread-13: oldValue ==>> 10
+2021-01-23 10:59:54:312  [ JavaFX Application Thread:111581 ] - [ INFO ]  Thread-12: oldValue ==>> 10
+2021-01-23 10:59:55:312  [ JavaFX Application Thread:112581 ] - [ INFO ]  Thread-12: oldValue ==>> 11
+2021-01-23 10:59:55:312  [ JavaFX Application Thread:112581 ] - [ INFO ]  Thread-13: oldValue ==>> 11
+2021-01-23 10:59:56:313  [ JavaFX Application Thread:113582 ] - [ INFO ]  Thread-12: oldValue ==>> 12
+2021-01-23 10:59:56:313  [ JavaFX Application Thread:113582 ] - [ INFO ]  Thread-13: oldValue ==>> 12
+2021-01-23 10:59:57:313  [ JavaFX Application Thread:114582 ] - [ INFO ]  Thread-12: oldValue ==>> 13
+2021-01-23 10:59:57:314  [ JavaFX Application Thread:114583 ] - [ INFO ]  Thread-13: oldValue ==>> 13
+2021-01-23 10:59:58:314  [ JavaFX Application Thread:115583 ] - [ INFO ]  Thread-13: oldValue ==>> 14
+2021-01-23 10:59:58:314  [ JavaFX Application Thread:115583 ] - [ INFO ]  Thread-12: oldValue ==>> 14
+2021-01-23 10:59:59:315  [ JavaFX Application Thread:116584 ] - [ INFO ]  Thread-13: oldValue ==>> 15
+2021-01-23 10:59:59:315  [ JavaFX Application Thread:116584 ] - [ INFO ]  Thread-12: oldValue ==>> 15
+2021-01-23 11:00:00:315  [ JavaFX Application Thread:117584 ] - [ INFO ]  Thread-13: oldValue ==>> 16
+2021-01-23 11:00:00:316  [ JavaFX Application Thread:117585 ] - [ INFO ]  Thread-12: oldValue ==>> 16
+2021-01-23 11:00:01:315  [ JavaFX Application Thread:118584 ] - [ INFO ]  Thread-13: oldValue ==>> 17
+2021-01-23 11:00:01:315  [ JavaFX Application Thread:118584 ] - [ INFO ]  Thread-12: oldValue ==>> 17
+2021-01-23 11:00:02:316  [ JavaFX Application Thread:119585 ] - [ INFO ]  Thread-13: oldValue ==>> 18
+2021-01-23 11:00:02:316  [ JavaFX Application Thread:119585 ] - [ INFO ]  Thread-12: oldValue ==>> 18
+2021-01-23 11:00:03:316  [ JavaFX Application Thread:120585 ] - [ INFO ]  Thread-12: oldValue ==>> 19
+2021-01-23 11:00:03:317  [ JavaFX Application Thread:120586 ] - [ INFO ]  Thread-13: oldValue ==>> 19
+2021-01-23 11:00:04:317  [ JavaFX Application Thread:121586 ] - [ INFO ]  Thread-13: oldValue ==>> 20
+2021-01-23 11:00:04:318  [ JavaFX Application Thread:121587 ] - [ INFO ]  Thread-12: oldValue ==>> 20
+2021-01-23 11:00:05:317  [ JavaFX Application Thread:122586 ] - [ INFO ]  Thread-13: oldValue ==>> 21
+2021-01-23 11:00:05:317  [ JavaFX Application Thread:122586 ] - [ INFO ]  Thread-12: oldValue ==>> 21
+2021-01-23 11:00:06:317  [ JavaFX Application Thread:123586 ] - [ INFO ]  Thread-13: oldValue ==>> 22
+2021-01-23 11:00:06:317  [ JavaFX Application Thread:123586 ] - [ INFO ]  Thread-12: oldValue ==>> 22
+2021-01-23 11:00:07:318  [ JavaFX Application Thread:124587 ] - [ INFO ]  Thread-12: oldValue ==>> 23
+2021-01-23 11:00:07:318  [ JavaFX Application Thread:124587 ] - [ INFO ]  Thread-13: oldValue ==>> 23
+2021-01-23 11:00:08:319  [ JavaFX Application Thread:125588 ] - [ INFO ]  Thread-13: oldValue ==>> 24
+2021-01-23 11:00:08:319  [ JavaFX Application Thread:125588 ] - [ INFO ]  Thread-12: oldValue ==>> 24
+2021-01-23 11:00:09:320  [ JavaFX Application Thread:126589 ] - [ INFO ]  Thread-13: oldValue ==>> 25
+2021-01-23 11:00:09:320  [ JavaFX Application Thread:126589 ] - [ INFO ]  Thread-12: oldValue ==>> 25
+2021-01-23 11:00:10:320  [ JavaFX Application Thread:127589 ] - [ INFO ]  Thread-12: oldValue ==>> 26
+2021-01-23 11:00:10:321  [ JavaFX Application Thread:127590 ] - [ INFO ]  Thread-13: oldValue ==>> 26
+2021-01-23 11:00:11:321  [ JavaFX Application Thread:128590 ] - [ INFO ]  Thread-12: oldValue ==>> 27
+2021-01-23 11:00:11:321  [ JavaFX Application Thread:128590 ] - [ INFO ]  Thread-13: oldValue ==>> 27
+2021-01-23 11:00:12:321  [ JavaFX Application Thread:129590 ] - [ INFO ]  Thread-12: oldValue ==>> 28
+2021-01-23 11:00:12:321  [ JavaFX Application Thread:129590 ] - [ INFO ]  Thread-13: oldValue ==>> 28
+2021-01-23 11:00:13:321  [ JavaFX Application Thread:130590 ] - [ INFO ]  Thread-13: oldValue ==>> 29
+2021-01-23 11:00:13:321  [ JavaFX Application Thread:130590 ] - [ INFO ]  Thread-12: oldValue ==>> 29
+2021-01-23 11:00:14:322  [ JavaFX Application Thread:131591 ] - [ INFO ]  Thread-13: oldValue ==>> 30
+2021-01-23 11:00:14:322  [ JavaFX Application Thread:131591 ] - [ INFO ]  Thread-12: oldValue ==>> 30
+2021-01-23 11:00:15:322  [ JavaFX Application Thread:132591 ] - [ INFO ]  Thread-12: oldValue ==>> 31
+2021-01-23 11:00:15:323  [ JavaFX Application Thread:132592 ] - [ INFO ]  Thread-13: oldValue ==>> 31
+2021-01-23 11:00:16:322  [ JavaFX Application Thread:133591 ] - [ INFO ]  Thread-13: oldValue ==>> 32
+2021-01-23 11:00:16:322  [ JavaFX Application Thread:133591 ] - [ INFO ]  Thread-12: oldValue ==>> 32
+2021-01-23 11:00:17:323  [ JavaFX Application Thread:134592 ] - [ INFO ]  Thread-12: oldValue ==>> 33
+2021-01-23 11:00:17:324  [ JavaFX Application Thread:134593 ] - [ INFO ]  Thread-13: oldValue ==>> 33
+2021-01-23 13:28:41:222  [ Thread-5:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-23 13:28:41:224  [ Thread-5:2 ] - [ INFO ]  Current Thread is  Thread[Thread-5,1,javafx concurrent thread pool]
+2021-01-23 13:28:41:231  [ JavaFX Application Thread:9 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-23 13:28:41:939  [ Thread-5:717 ] - [ INFO ]  Server Thread -Thread[Thread-5,1,javafx concurrent thread pool] starts!
+2021-01-23 13:28:41:939  [ pool-2-thread-1:717 ] - [ INFO ]  Current Handler Thread is : Thread[pool-2-thread-1,5,main]
+2021-01-23 13:28:41:940  [ pool-2-thread-1:718 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-23 13:28:41:943  [ Thread-5:721 ] - [ INFO ]  closeConnections TcpServer：handler method Exit
+2021-01-23 13:28:41:943  [ pool-2-thread-1:721 ] - [ INFO ]  Attempting to connect a user...
+2021-01-23 13:28:41:944  [ pool-2-thread-1:722 ] - [ INFO ]  User's Addr : 127.0.0.1:63808
+2021-01-23 13:28:41:944  [ pool-2-thread-1:722 ] - [ ERROR ]  pool-2-thread-1::Socket is closed
+2021-01-23 13:28:41:945  [ pool-2-thread-1:723 ] - [ INFO ]  pool-2-thread-1 terminated!
+2021-01-23 13:28:41:945  [ pool-2-thread-1:723 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 13:28:41:945  [ pool-2-thread-1:723 ] - [ INFO ]  handler closeConnections() method Exit
+2021-01-23 13:46:21:510  [ Thread-5:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-23 13:46:21:513  [ Thread-5:3 ] - [ INFO ]  Current Thread is  Thread[Thread-5,1,javafx concurrent thread pool]
+2021-01-23 13:46:21:520  [ JavaFX Application Thread:10 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-23 13:46:22:448  [ Thread-5:938 ] - [ INFO ]  Server Thread -Thread[Thread-5,1,javafx concurrent thread pool] starts!
+2021-01-23 13:46:22:449  [ pool-2-thread-1:939 ] - [ INFO ]  Current Handler Thread is : Thread[pool-2-thread-1,5,main]
+2021-01-23 13:46:22:450  [ pool-2-thread-1:940 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-23 13:46:22:450  [ pool-2-thread-1:940 ] - [ INFO ]  Attempting to connect a user...
+2021-01-23 13:46:22:450  [ Thread-5:940 ] - [ INFO ]  closeConnections TcpServer：handler method Exit
+2021-01-23 13:46:22:450  [ pool-2-thread-1:940 ] - [ INFO ]  User's Addr : 127.0.0.1:63955
+2021-01-23 13:46:22:451  [ pool-2-thread-1:941 ] - [ ERROR ]  pool-2-thread-1::Socket is closed
+2021-01-23 13:46:22:451  [ pool-2-thread-1:941 ] - [ INFO ]  pool-2-thread-1 terminated!
+2021-01-23 13:46:22:452  [ pool-2-thread-1:942 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 13:46:22:452  [ pool-2-thread-1:942 ] - [ INFO ]  handler closeConnections() method Exit
+2021-01-23 13:48:15:843  [ Thread-9:114333 ] - [ INFO ]  The TCP Server is running.
+2021-01-23 13:48:15:843  [ Thread-9:114333 ] - [ INFO ]  Current Thread is  Thread[Thread-9,1,javafx concurrent thread pool]
+2021-01-23 13:48:15:853  [ JavaFX Application Thread:114343 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-23 13:48:18:036  [ Thread-12:116526 ] - [ INFO ]  ReadMessageFromClientService$Call method interrupted!
+2021-01-23 14:00:46:336  [ Thread-5:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-23 14:00:46:338  [ Thread-5:2 ] - [ INFO ]  Current Thread is  Thread[Thread-5,1,javafx concurrent thread pool]
+2021-01-23 14:00:48:783  [ JavaFX Application Thread:2447 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-23 14:01:21:873  [ pool-2-thread-1:35537 ] - [ INFO ]  Current Handler Thread is : Thread[pool-2-thread-1,5,main]
+2021-01-23 14:01:21:875  [ pool-2-thread-1:35539 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-23 14:01:21:875  [ Thread-5:35539 ] - [ INFO ]  Server Thread -Thread[Thread-5,1,javafx concurrent thread pool] starts!
+2021-01-23 14:01:21:875  [ pool-2-thread-1:35539 ] - [ INFO ]  Attempting to connect a user...
+2021-01-23 14:01:22:567  [ pool-2-thread-1:36231 ] - [ INFO ]  User's Addr : 127.0.0.1:64050
+2021-01-23 14:01:23:175  [ pool-2-thread-1:36839 ] - [ INFO ]  采集到/127.0.0.1:64050 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 14:01:23:175  [ pool-2-thread-1:36839 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:01:33:276  [ pool-2-thread-1:46940 ] - [ INFO ]  采集到/127.0.0.1:64050 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 14:01:33:276  [ pool-2-thread-1:46940 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有2个；
+2021-01-23 14:01:33:433  [ pool-2-thread-1:47097 ] - [ INFO ]  采集到/127.0.0.1:64050 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 14:01:33:433  [ pool-2-thread-1:47097 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有3个；
+2021-01-23 14:01:33:580  [ pool-2-thread-1:47244 ] - [ INFO ]  采集到/127.0.0.1:64050 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 14:01:33:580  [ pool-2-thread-1:47244 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有4个；
+2021-01-23 14:01:33:714  [ pool-2-thread-1:47378 ] - [ INFO ]  采集到/127.0.0.1:64050 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 14:01:33:714  [ pool-2-thread-1:47378 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有5个；
+2021-01-23 14:01:33:871  [ pool-2-thread-1:47535 ] - [ INFO ]  采集到/127.0.0.1:64050 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 14:01:33:871  [ pool-2-thread-1:47535 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有6个；
+2021-01-23 14:01:36:661  [ Thread-9:50325 ] - [ INFO ]  fileOutBlockingQueue有：0个数据！
+2021-01-23 14:01:36:812  [ Thread-9:50476 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:01:36:963  [ Thread-9:50627 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:01:37:133  [ Thread-9:50797 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:01:37:284  [ Thread-9:50948 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:01:37:435  [ Thread-9:51099 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:01:45:668  [ pool-2-thread-1:59332 ] - [ ERROR ]  pool-2-thread-1::Socket closed
+2021-01-23 14:01:45:680  [ pool-2-thread-2:59344 ] - [ INFO ]  Current Handler Thread is : Thread[pool-2-thread-2,5,main]
+2021-01-23 14:01:56:907  [ pool-2-thread-1:70571 ] - [ INFO ]  pool-2-thread-1 terminated!
+2021-01-23 14:01:56:908  [ pool-2-thread-2:70572 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-23 14:01:56:910  [ Thread-5:70574 ] - [ INFO ]  Server Thread -Thread[Thread-5,1,javafx concurrent thread pool] starts!
+2021-01-23 14:01:56:910  [ pool-2-thread-1:70574 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 14:01:56:910  [ pool-2-thread-2:70574 ] - [ INFO ]  Attempting to connect a user...
+2021-01-23 14:02:02:973  [ pool-2-thread-2:76637 ] - [ INFO ]  User's Addr : 127.0.0.1:64066
+2021-01-23 14:02:02:973  [ pool-2-thread-1:76637 ] - [ INFO ]  handler closeConnections() method Exit
+2021-01-23 14:02:02:974  [ pool-2-thread-2:76638 ] - [ INFO ]  pool-2-thread-2 terminated!
+2021-01-23 14:02:02:975  [ pool-2-thread-2:76639 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 14:02:02:975  [ pool-2-thread-2:76639 ] - [ INFO ]  handler closeConnections() method Exit
+2021-01-23 14:02:02:975  [ Thread-5:76639 ] - [ ERROR ]  Socket is closed
+2021-01-23 14:02:04:079  [ Thread-5:77743 ] - [ INFO ]  closeConnections TcpServer：handler method Exit
+2021-01-23 14:02:06:736  [ Thread-9:80400 ] - [ INFO ]  ReadMessageFromClientService$Call method interrupted!
+2021-01-23 14:02:10:558  [ Thread-11:84222 ] - [ INFO ]  The TCP Server is running.
+2021-01-23 14:02:10:559  [ Thread-11:84223 ] - [ INFO ]  Current Thread is  Thread[Thread-11,1,javafx concurrent thread pool]
+2021-01-23 14:02:10:568  [ JavaFX Application Thread:84232 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-23 14:03:09:802  [ Thread-5:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-23 14:03:09:804  [ Thread-5:2 ] - [ INFO ]  Current Thread is  Thread[Thread-5,1,javafx concurrent thread pool]
+2021-01-23 14:03:11:737  [ JavaFX Application Thread:1935 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-23 14:03:19:868  [ pool-2-thread-1:10066 ] - [ INFO ]  Current Handler Thread is : Thread[pool-2-thread-1,5,main]
+2021-01-23 14:03:19:869  [ Thread-5:10067 ] - [ INFO ]  Server Thread -Thread[Thread-5,1,javafx concurrent thread pool] starts!
+2021-01-23 14:03:19:870  [ pool-2-thread-1:10068 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-23 14:03:20:275  [ pool-2-thread-1:10473 ] - [ INFO ]  Attempting to connect a user...
+2021-01-23 14:03:20:705  [ pool-2-thread-1:10903 ] - [ INFO ]  User's Addr : 127.0.0.1:64077
+2021-01-23 14:03:22:752  [ pool-2-thread-1:12950 ] - [ INFO ]  采集到/127.0.0.1:64077 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 14:03:22:752  [ pool-2-thread-1:12950 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:03:22:885  [ pool-2-thread-1:13083 ] - [ INFO ]  采集到/127.0.0.1:64077 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 14:03:22:886  [ pool-2-thread-1:13084 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有2个；
+2021-01-23 14:03:23:043  [ pool-2-thread-1:13241 ] - [ INFO ]  采集到/127.0.0.1:64077 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 14:03:23:043  [ pool-2-thread-1:13241 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有3个；
+2021-01-23 14:03:23:190  [ pool-2-thread-1:13388 ] - [ INFO ]  采集到/127.0.0.1:64077 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 14:03:23:190  [ pool-2-thread-1:13388 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有4个；
+2021-01-23 14:03:23:775  [ pool-2-thread-1:13973 ] - [ INFO ]  采集到/127.0.0.1:64077 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 14:03:23:775  [ pool-2-thread-1:13973 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有5个；
+2021-01-23 14:03:23:932  [ pool-2-thread-1:14130 ] - [ INFO ]  采集到/127.0.0.1:64077 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 14:03:23:933  [ pool-2-thread-1:14131 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有6个；
+2021-01-23 14:03:24:068  [ pool-2-thread-1:14266 ] - [ INFO ]  采集到/127.0.0.1:64077 的数据是FFFF0BCCDE0C7F0000020323021201222101DD
+2021-01-23 14:03:24:068  [ pool-2-thread-1:14266 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有7个；
+2021-01-23 14:03:27:814  [ pool-2-thread-1:18012 ] - [ INFO ]  pool-2-thread-1 terminated!
+2021-01-23 14:03:27:815  [ pool-2-thread-1:18013 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 14:03:27:815  [ pool-2-thread-1:18013 ] - [ INFO ]  handler closeConnections() method Exit
+2021-01-23 14:03:36:747  [ Thread-5:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-23 14:03:36:749  [ Thread-5:2 ] - [ INFO ]  Current Thread is  Thread[Thread-5,1,javafx concurrent thread pool]
+2021-01-23 14:03:38:386  [ JavaFX Application Thread:1639 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-23 14:03:53:568  [ Thread-5:16821 ] - [ INFO ]  Server Thread -Thread[Thread-5,1,javafx concurrent thread pool] starts!
+2021-01-23 14:03:53:568  [ pool-2-thread-1:16821 ] - [ INFO ]  Current Handler Thread is : Thread[pool-2-thread-1,5,main]
+2021-01-23 14:03:53:568  [ pool-2-thread-1:16821 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-23 14:03:53:568  [ pool-2-thread-1:16821 ] - [ INFO ]  Attempting to connect a user...
+2021-01-23 14:03:53:569  [ pool-2-thread-1:16822 ] - [ INFO ]  User's Addr : 127.0.0.1:64086
+2021-01-23 14:03:55:332  [ pool-2-thread-1:18585 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:03:55:333  [ pool-2-thread-1:18586 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:03:55:389  [ Thread-8:18642 ] - [ INFO ]  fileOutBlockingQueue有：0个数据！
+2021-01-23 14:03:55:500  [ pool-2-thread-1:18753 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:03:55:500  [ pool-2-thread-1:18753 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:03:55:551  [ Thread-8:18804 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:03:55:635  [ pool-2-thread-1:18888 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:03:55:635  [ pool-2-thread-1:18888 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:03:55:703  [ Thread-8:18956 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:03:55:783  [ pool-2-thread-1:19036 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:03:55:783  [ pool-2-thread-1:19036 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:03:55:855  [ Thread-8:19108 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:03:55:938  [ pool-2-thread-1:19191 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:03:55:939  [ pool-2-thread-1:19192 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:03:56:006  [ Thread-8:19259 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:03:56:074  [ pool-2-thread-1:19327 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:03:56:074  [ pool-2-thread-1:19327 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:03:56:158  [ Thread-8:19411 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:03:56:220  [ pool-2-thread-1:19473 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:03:56:221  [ pool-2-thread-1:19474 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:03:56:309  [ Thread-8:19562 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:03:56:366  [ pool-2-thread-1:19619 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:03:56:366  [ pool-2-thread-1:19619 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:03:56:462  [ Thread-8:19715 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:03:56:536  [ pool-2-thread-1:19789 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:03:56:536  [ pool-2-thread-1:19789 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:03:56:614  [ Thread-8:19867 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:03:59:933  [ pool-2-thread-1:23186 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:03:59:933  [ pool-2-thread-1:23186 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:03:59:984  [ Thread-8:23237 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:04:00:046  [ pool-2-thread-1:23299 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:04:00:046  [ pool-2-thread-1:23299 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:04:00:135  [ Thread-8:23388 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:04:00:180  [ pool-2-thread-1:23433 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:04:00:180  [ pool-2-thread-1:23433 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:04:00:286  [ Thread-8:23539 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:04:00:361  [ pool-2-thread-1:23614 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:04:00:361  [ pool-2-thread-1:23614 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:04:00:439  [ Thread-8:23692 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:04:17:155  [ Thread-5:40408 ] - [ INFO ]  Server Thread -Thread[Thread-5,1,javafx concurrent thread pool] starts!
+2021-01-23 14:04:17:155  [ pool-2-thread-2:40408 ] - [ INFO ]  Current Handler Thread is : Thread[pool-2-thread-2,5,main]
+2021-01-23 14:04:17:156  [ pool-2-thread-2:40409 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-23 14:04:17:156  [ pool-2-thread-2:40409 ] - [ INFO ]  Attempting to connect a user...
+2021-01-23 14:04:17:156  [ pool-2-thread-2:40409 ] - [ INFO ]  User's Addr : 127.0.0.1:64089
+2021-01-23 14:04:17:156  [ Thread-5:40409 ] - [ ERROR ]  Socket is closed
+2021-01-23 14:04:17:156  [ pool-2-thread-2:40409 ] - [ ERROR ]  pool-2-thread-2::Socket is closed
+2021-01-23 14:04:17:156  [ Thread-5:40409 ] - [ INFO ]  closeConnections TcpServer：handler method Exit
+2021-01-23 14:04:17:157  [ pool-2-thread-2:40410 ] - [ INFO ]  pool-2-thread-2 terminated!
+2021-01-23 14:04:17:158  [ pool-2-thread-2:40411 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 14:04:17:158  [ pool-2-thread-2:40411 ] - [ INFO ]  handler closeConnections() method Exit
+2021-01-23 14:04:17:159  [ Thread-8:40412 ] - [ INFO ]  ReadMessageFromClientService$Call method interrupted!
+2021-01-23 14:04:22:614  [ pool-2-thread-1:45867 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:04:22:614  [ pool-2-thread-1:45867 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:04:23:199  [ pool-2-thread-1:46452 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:04:23:199  [ pool-2-thread-1:46452 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有2个；
+2021-01-23 14:04:23:355  [ pool-2-thread-1:46608 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:04:23:356  [ pool-2-thread-1:46609 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有3个；
+2021-01-23 14:04:23:502  [ pool-2-thread-1:46755 ] - [ INFO ]  采集到/127.0.0.1:64086 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:04:23:502  [ pool-2-thread-1:46755 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有4个；
+2021-01-23 14:04:29:398  [ Thread-11:52651 ] - [ INFO ]  The TCP Server is running.
+2021-01-23 14:04:29:398  [ Thread-11:52651 ] - [ INFO ]  Current Thread is  Thread[Thread-11,1,javafx concurrent thread pool]
+2021-01-23 14:04:33:847  [ JavaFX Application Thread:57100 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-23 14:08:38:806  [ Thread-5:0 ] - [ INFO ]  The TCP Server is running.
+2021-01-23 14:08:41:826  [ JavaFX Application Thread:3020 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-23 14:08:41:827  [ Thread-5:3021 ] - [ INFO ]  Current Thread is  Thread[Thread-5,1,javafx concurrent thread pool]
+2021-01-23 14:08:56:001  [ Thread-5:17195 ] - [ INFO ]  Server Thread -Thread[Thread-5,1,javafx concurrent thread pool] starts!
+2021-01-23 14:08:56:001  [ pool-2-thread-1:17195 ] - [ INFO ]  Current Handler Thread is : Thread[pool-2-thread-1,5,main]
+2021-01-23 14:08:56:001  [ pool-2-thread-1:17195 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-23 14:08:56:001  [ pool-2-thread-1:17195 ] - [ INFO ]  Attempting to connect a user...
+2021-01-23 14:08:56:002  [ pool-2-thread-1:17196 ] - [ INFO ]  User's Addr : 127.0.0.1:64126
+2021-01-23 14:09:01:116  [ pool-2-thread-1:22310 ] - [ INFO ]  采集到/127.0.0.1:64126 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:09:01:117  [ pool-2-thread-1:22311 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:09:01:172  [ Thread-9:22366 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:09:01:274  [ pool-2-thread-1:22468 ] - [ INFO ]  采集到/127.0.0.1:64126 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:09:01:274  [ pool-2-thread-1:22468 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:09:01:326  [ Thread-9:22520 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:09:01:410  [ pool-2-thread-1:22604 ] - [ INFO ]  采集到/127.0.0.1:64126 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:09:01:410  [ pool-2-thread-1:22604 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:09:01:477  [ Thread-9:22671 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:09:01:567  [ pool-2-thread-1:22761 ] - [ INFO ]  采集到/127.0.0.1:64126 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:09:01:567  [ pool-2-thread-1:22761 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:09:01:629  [ Thread-9:22823 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:09:01:712  [ pool-2-thread-1:22906 ] - [ INFO ]  采集到/127.0.0.1:64126 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:09:01:712  [ pool-2-thread-1:22906 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:09:01:781  [ Thread-9:22975 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:09:01:858  [ pool-2-thread-1:23052 ] - [ INFO ]  采集到/127.0.0.1:64126 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:09:01:859  [ pool-2-thread-1:23053 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:09:01:932  [ Thread-9:23126 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:09:02:017  [ pool-2-thread-1:23211 ] - [ INFO ]  采集到/127.0.0.1:64126 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:09:02:017  [ pool-2-thread-1:23211 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:09:02:083  [ Thread-9:23277 ] - [ INFO ]  fileOutBlockingQueue有：1个数据！
+2021-01-23 14:09:06:513  [ Thread-5:27707 ] - [ INFO ]  Server Thread -Thread[Thread-5,1,javafx concurrent thread pool] starts!
+2021-01-23 14:09:06:513  [ pool-2-thread-2:27707 ] - [ INFO ]  Current Handler Thread is : Thread[pool-2-thread-2,5,main]
+2021-01-23 14:09:06:514  [ pool-2-thread-2:27708 ] - [ INFO ]  Server Handler Thread starts!
+2021-01-23 14:09:06:514  [ Thread-5:27708 ] - [ ERROR ]  Socket is closed
+2021-01-23 14:09:06:514  [ pool-2-thread-2:27708 ] - [ INFO ]  Attempting to connect a user...
+2021-01-23 14:09:06:514  [ Thread-5:27708 ] - [ INFO ]  closeConnections TcpServer：handler method Exit
+2021-01-23 14:09:06:514  [ pool-2-thread-2:27708 ] - [ INFO ]  User's Addr : 127.0.0.1:64127
+2021-01-23 14:09:06:515  [ pool-2-thread-2:27709 ] - [ ERROR ]  pool-2-thread-2::Socket is closed
+2021-01-23 14:09:06:515  [ pool-2-thread-2:27709 ] - [ INFO ]  pool-2-thread-2 terminated!
+2021-01-23 14:09:06:516  [ pool-2-thread-2:27710 ] - [ ERROR ]  java.net.SocketException: Socket is closed
+2021-01-23 14:09:06:516  [ pool-2-thread-2:27710 ] - [ INFO ]  handler closeConnections() method Exit
+2021-01-23 14:09:06:518  [ Thread-9:27712 ] - [ INFO ]  ReadMessageFromClientService$Call method interrupted!
+2021-01-23 14:09:12:367  [ pool-2-thread-1:33561 ] - [ INFO ]  采集到/127.0.0.1:64126 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:09:12:368  [ pool-2-thread-1:33562 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有1个；
+2021-01-23 14:09:12:794  [ pool-2-thread-1:33988 ] - [ INFO ]  采集到/127.0.0.1:64126 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:09:12:794  [ pool-2-thread-1:33988 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有2个；
+2021-01-23 14:09:13:840  [ pool-2-thread-1:35034 ] - [ INFO ]  采集到/127.0.0.1:64126 的数据是FFFF0BCCDE0C7F0000010323021201222101DD
+2021-01-23 14:09:13:840  [ pool-2-thread-1:35034 ] - [ INFO ]  pool-2-thread-1服务器接收数据，目前总共有3个；
+2021-01-23 14:09:16:384  [ Thread-11:37578 ] - [ INFO ]  The TCP Server is running.
+2021-01-23 14:09:31:029  [ JavaFX Application Thread:52223 ] - [ INFO ]  powerConnectedBtnOnClick!
+2021-01-23 14:09:31:032  [ Thread-11:52226 ] - [ INFO ]  Current Thread is  Thread[Thread-11,1,javafx concurrent thread pool]
